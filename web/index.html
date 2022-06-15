@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="css/accordion.css" media="screen" />
+    </head>
+
+    <body>
+        <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+        <div style="width: 100%; overflow: hidden;">
+            <div id="player" style="width: 510px; float: left"></div>
+            <div id="details" style="margin-left: 510px;">
+
+                <div id="evt_accord" class="accordion">
+                    <div class="label">Episode Events</div>
+                    <div class="content" id="evt_content">This is where the events list should go </div>
+                </div>
+                <div id="code_accord" class="accordion">
+                    <div class="label">Code State</div>
+                    <div id="code_container" class="content">
+                        <div>
+                            <div style="float: left; width: 100px; text-align: left;"><button id='previousCode'>previous</button></div>
+                            <div id="code_header" style="float: left; width: 225px; text-align: center; font-size: 16px;"><span>begin - end (@ current)</span></div>
+                            <div style="float: left; width: 100px; text-align: right;"><button id='nextCode'>next</button></div>
+                        </div>
+                        <div id="code_content" style="clear: both; padding-top: 10px;">This is where the code should go </div>
+                    </div>
+                </div>
+                <div id="search_accord" class="accordion">
+                    <div class="label">Web Activity</div>
+                    <div id="search_container" class="content"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="svg_container" style="width: 100%">
+            <p>Web Overview:</p>
+        </div>
+
+        <div id="svg_code_container" style="width: 100%">
+            <p>Code Overview:</p>
+        </div>
+
+        <!-- <script type="text/javascript" src="data/repeatVisits.json"></script> -->
+        <script type="text/javascript" src="js/youtube.js"></script>
+        <script type="text/javascript" src="js/overview.js"></script>
+        <script type="text/javascript" src="js/accordion.js"></script>
+    </body>
+
+</html>
