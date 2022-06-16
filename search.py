@@ -50,18 +50,18 @@ def getKeywords(cluster):
 
 
 
+
 df = pd.read_csv('web/data/searchEvts.csv')
+
 
 # split the type: pagedesc into separate columns
 split = df['filename'].str.split(":", 1, expand=True)
 
 df = pd.concat([df, split], axis=1)
 
-
 # rename the column names so there's reasonable names for all
 df.set_axis(['eventID', 'time', 'filename', 'type', 'page'], axis=1, inplace=True)
 print(df)
-
 # break these into clusters that are started by either a search or a revisit not in the current cluster
 allClusters = []
 currCluster={}
@@ -192,3 +192,4 @@ for clusterGroup in clusterGroups:
 #         endCluster = clusterGroup[len(clusterGroup)-1]['end']
 #         print(f"'gap',{startTime},{startCluster}")
 #         startTime = endCluster
+
