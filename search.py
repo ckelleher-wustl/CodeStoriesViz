@@ -50,14 +50,16 @@ def getKeywords(cluster):
 
 
 
-df = pd.read_csv('searchEvts.csv')
+df = pd.read_csv('web/data/searchEvts.csv')
 
 # split the type: pagedesc into separate columns
-split = df['filename'].str.split(":", expand=True)
+split = df['filename'].str.split(":", 1, expand=True)
 
 df = pd.concat([df, split], axis=1)
+
+
 # rename the column names so there's reasonable names for all
-df.set_axis(['eventID', 'time', 'filename', 'type', 'page', 'hmm'], axis=1, inplace=True)
+df.set_axis(['eventID', 'time', 'filename', 'type', 'page'], axis=1, inplace=True)
 print(df)
 
 # break these into clusters that are started by either a search or a revisit not in the current cluster
@@ -67,7 +69,15 @@ for index, row in df.iterrows():
     time = row['time']
     type = row['type']
     page = row['page']
+
+    end = 0
+    try:
+        end = page.index(";")
+    except:
+        end = len(page)
     
+    page = page[0:end]
+
     if ( (type == "search") or ((type == "revisit") and (page not in currCluster)) ) :
         if (currCluster != {}):
             allClusters.append(currCluster)
@@ -159,18 +169,18 @@ for cluster in allClusters:
 
     prevCluster = cluster
 
-print("seed,type,startTime,endTime")
+print("seed,startTime,endTime")
 lowerBound = 1365 # this is hard coded but probably shouldn't be.
 upperBound = 36026 # hard coded last event
 for clusterGroup in clusterGroups:
     if len(clusterGroup) > 0:
         startTime = clusterGroup[0]['begin']
         endTime = clusterGroup[len(clusterGroup)-1]['end']
-        print(f"'gap','gap',{lowerBound},{startTime}")
-        print(f"'{clusterGroup[0]['seed']}','search',{startTime},{endTime}")
+        # print(f"'gap','gap',{lowerBound},{startTime}")
+        print(f"'{clusterGroup[0]['seed']}',{startTime},{endTime}")
         lowerBound = endTime
 
-print(f"'gap','gap',{lowerBound},{upperBound}")
+# print(f"'gap','gap',{lowerBound},{upperBound}")
 
 
 
