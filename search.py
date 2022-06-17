@@ -35,18 +35,24 @@ def getKeywords(cluster):
 
     keywords = set()
     stopWords = set(stopwords.words('english'))
+    ignoreWords = ["lichess", "org"]
     for pageString in pageStrings:
         words = []
         for word in pageString.split():
-            stemmedWord = ps.stem(word)
-            if (stemmedWord not in stopWords):
-                words.append(ps.stem(word))
-        # print(words)
+
+            # if the word isn't something we should ignore
+            if word not in ignoreWords:
+                
+                # stem it
+                stemmedWord = ps.stem(word)
+
+                # if its not a stopword, add it to the wordlist
+                if (stemmedWord not in stopWords):
+                    words.append(ps.stem(word))
+        # sprint(words)
         keywords = keywords.union(set(words))
     
     return keywords
-
-   
 
 
 
@@ -78,8 +84,31 @@ for index, row in df.iterrows():
     
     page = page[0:end]
 
+    print(f"type is:{type};")
+
     if ( (type == "search") or ((type == "revisit") and (page not in currCluster)) ) :
         if (currCluster != {}):
+            print(f"does cluster have a beginning: {('begin' in currCluster)}")
+
+            min = -1
+            max = -1
+            seed = ""
+            if (not('begin' in currCluster)):
+                # currCluster["begin"] = 
+                for attr in currCluster.keys():
+                    if isinstance(currCluster[attr], int):
+                        print(f"{attr} is {currCluster[attr]} ")
+                    else:
+                        print(f"{attr} is {currCluster[attr]} {currCluster[attr][0]}")
+                        if (min == -1) or (min > currCluster[attr][0]):
+                            min = currCluster[attr][0]
+                            seed = attr
+                        if (max == -1) or (max < currCluster[attr][len(currCluster[attr])-1]):
+                            max = currCluster[attr][len(currCluster[attr])-1]
+                currCluster["begin"] = min
+                currCluster["end"] = max
+                currCluster["seed"] = seed
+
             allClusters.append(currCluster)
         # print(str(len(allClusters)) + ": "  + str(currCluster))
 
@@ -130,9 +159,13 @@ debug = False
 for cluster in allClusters:
     currKeys = getKeywords(cluster)
 
+    print(f"\n\n\tprevKeys: {prevKeys} \n\tcurrKeys: {currKeys}")
+
     commonKeys = prevKeys.intersection(currKeys)
     # if (len(commonKeys) > 0) :
-    # print(cluster)
+    print(f"cluster:{cluster}")
+    print(f"common keys:{commonKeys}")
+    
 
     if len(commonKeys) > 0:
         # there's affinity between curr and prev clusters
@@ -165,13 +198,14 @@ for cluster in allClusters:
         prevKeys = currKeys
         
         clusterGroups.append(clusterGroup) # save the previous cluster
+        print(f"current cluster group: {clusterGroups}")
         clusterGroup = [] # reset the clusterGroup
 
     prevCluster = cluster
 
-print("seed,startTime,endTime")
-lowerBound = 1365 # this is hard coded but probably shouldn't be.
-upperBound = 36026 # hard coded last event
+print("\n\nseed,startTime,endTime")
+lowerBound = 9060 # this is hard coded but probably shouldn't be.
+upperBound = 19285 # hard coded last event
 for clusterGroup in clusterGroups:
     if len(clusterGroup) > 0:
         startTime = clusterGroup[0]['begin']
