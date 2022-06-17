@@ -7,7 +7,7 @@ seed,startTime,endTime
 ' imagenet downloader',6195,6629
 ' imagenet downloader',9842,10405
 ' python how to pass list as command line argument',10791,12572
-' tensorlfow load images',13433,13454
+' turn off tensorflow warnings',13341,14165
 ' python random select k',14557,15825
-' efficient net B0',17789,20988
-' weights and biases page (his account)',26304,28857
+' efficient net B0',17789,17802
+' tensorflow efficientnetb0',17833,28857

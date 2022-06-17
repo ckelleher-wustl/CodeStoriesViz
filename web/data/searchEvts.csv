@@ -1,188 +1,75 @@
 eventID,time,filename
-10,1365,"search: ""imagenet data downloader"""
-11,1372,visit: ImageNet-Datasets-Downloader
-12,1413,search: imagenet class list
-13,1416,visit: imagenet class labels
-15,1485,visit: raw imagenet class labels list
-17,1551,revisit: imagenet class list
-18,1555,visit: imagenet class list download zip
-33,1951,search: python how to read a dictionary from txt
-34,1957,visit: how to read a dictionary from a file in Python
-35,1976,visit: literal_eval (method docs)
-36,1982,revisit: how to read a dictionary from a file in Python
-37,1993,revisit: how to read a dictionary from a file in Python
-44,2132,search: python check if string contains string
-45,2142,"visit: does python have a string ""contains"" substring method?"
-48,2169,search: imagenet food classes
-49,2183,visit: food image classification
-50,2318,search: python list of common eaten foods
-51,2322,visit: wikipedia list of common eaten foods
-52,2328,search: python list of commonly eaten foods
-53,2364,visit: stackoverflow question - list of common foods
-54,2417,visit: usda foods list
-55,2430,visit: usda food data central
-56,2446,revisit: stackoverflow question - list of common foods
-58,2457,search: wordnet subset downloader
-59,2505,visit: stack overflow - what does nltk download 'wordnet' accomplish?
-60,2525,visit: nltk documentation
-63,2577,visit: installing nltk
-67,2707,revisit: stackoverflow question - list of common foods
-74,2806,search: conda how to install in current env with pip
-75,2808,visit: stackoverflow - using pip to install packages to Anaconda environment
-92,3493,search: python create a list from list of lists
-93,3495,visit: stackoverflow how to make a flat list out of a list of lists
-106,4078,search: get items from a list
-121,4466,search: python set intersection
-122,4468,visit: Python set intersection method
-138,4746,search: ruffed grouse
-139,4760,search: ruffed grouse images
-140,4922,search: cardoon
-153,6012,search: chickadee images
-157,6195,revisit: imagenet downloader
-158,6227,visit: csv overview of the imagenet classes
-160,6434,visit: words.txt
-161,6444,revisit: classes in imagenet (csv overview)
-162,6458,visit: raw csv of imagenet classes
-163,6474,revisit: imagenet downloader
-164,6491,visit: downloader.py
-167,6629,revisit: raw csv of imagenet classes
-213,7277,search: dataframe filter column by strings in list
-214,7279,visit: stackoverflow - filter out rows based on list of strings in pandas
-226,7754,search: periwinkle
-253,9842,revisit: imagenet downloader
-254,9967,visit: Downloading the ImageNet
-255,10168,visit: ImageNet Downloader
-256,10399,visit: ImageNet Downloader
-257,10405,revisit: downloader.py
-259,10791,search: python how to pass list as command line argument
-260,10801,visit: how to pass an entire list as command line argument in python
-272,11323,
-273,11338,visit: pass list as a command line argument in python
-274,11370,revisit: stackoverflow pass list as command line arg.
-275,11416,visit: python command line arguments
-276,11467,visit: downloader script (in IDE now)
-277,11509,search: pass string from file to python command line
-278,11517,visit: passing strings as python command-line arguments
-289,11744,search: python use contexts of txt file in command line
-290,11747,visit: execute a command by reading contents of a text file
-305,12479,search: maximum length of python arg list
-307,12533,revisit: imagenet downloader
-308,12572,revisit: imagenet downloader
-324,13341,search: turn off tensorflow warnings
-325,13375,visit: Disable Tensorflow debugging information
-330,13433,search: tensorlfow load images
-331,13435,visit: Load and preprocess images
-332,13451,search: keras image dataset from directory
-333,13454,visit: karas - image dataset from directory
-334,13485,search: tensorflow convert saved model to tflite model
-335,13488,visit: tensorflow lite converter
-352,14165,revisit: keras image dataset from directory
-366,14557,search: python random select k
-367,14561,visit: python random sample() to choose multiple items from any sequence
-368,14572,search: python random seed
-423,15821,search: python shutil copy
-424,15825,visit: How do I copy a file in python
-463,17588,revisit: keras image dataset from directory
-472,17789,search: efficient net B0
-473,17791,search: images efficient net B0
-474,17802,visit: EfficientNet: Improving Accuracy and Efficiency through AutoML and Model Scaling
-476,17833,search: tensorflow efficientnetb0
-477,17836,visit: tf.keras.application.efficientnet.EfficientNetB0
-480,18026,search: tensorflow functional api
-482,18058,revisit: tf.keras.application.efficientnet.EfficientNetB0
-483,18063,search: tensorflow functional api
-484,18064,visit: TensorFlow Functional API
-485,18148,revisit: tf.keras.applications.efficientnet.EfficientNetB0
-486,18253,revisit: tf.keras.applications.efficientnet.EfficientNetB0
-490,18331,revisit: tf.keras.applications.efficientnet.EfficientNetB0
-497,18377,search: keras plot model
-498,18381,visit: keras model plotting utilities
-503,18485,visit: graphviz
-504,18529,search: weights and biases tensor flow
-505,18535,visit: Visualizing TensorFlow2 models with Weights and Biases
-506,18557,visit: TensorFlow 2 CNN with Weights & Biases
-510,18646,revisit: tf2 CNN with W&B
-513,18718,revisit: Visualizing TensorFlow 2 models with Weights and Biases
-514,18748,search: weights and biases tensor flow guide
-515,18755,visit: Introduction to TensorFlow with Weights and Biases
-516,18776,visit: WandB fashionMNIST tensorflow
-517,19063,visit: weights and biases page
-518,19071,revisit: WandB fashionMNIST tensorflow
-521,19194,revisit: tf2 CNN with W&B
-522,19223,search: weights and biases sync tensorboard
-523,19230,visit: TensorBoard
-524,19252,visit: Configure Experiments with wandb.config
-525,19265,visit: Quickstart
-526,19267,visit: TensorFlow
-527,19303,visit: tf-cnn-fashion
-532,19366,search: tensorflow keras plot model
-533,19388,visit: tf.keras.utils.plot_model
-551,19769,revisit: tf2 CNN with W&B
-554,19844,revisit: tensorflow overview page
-555,19869,revisit: TensorBoard documentation
-557,19890,visit: book (his) zero to mastery TensorFlow for Deep Learning
-563,20124,revisit: book (his) zero to mastery TensorFlow for Deep Learning
-569,20216,revisit: weights and biases page
-578,20333,search: weights and biases sync tensorboard
-579,20339,revisit: book (his) zero to mastery TensorFlow for Deep Learning
-580,20344,revisit: Tensorboard docs
-581,20365,visit: Experiment Logging with Tensorboard and wandb
-582,20411,revisit: book (his) zero to mastery TensorFlow for Deep Learning
-584,20450,visit: localhost
-587,20583,revisit: weights and biases page (his account)
-588,20664,revisit: Experiment Logging with Tensorboard and wandb
-590,20813,revisit: weights and biases page (his account)
-591,20879,search: weights and biases log tensorboard logs
-592,20887,visit: Logging with Weights & Biases - Monitoring your neural network's training made easy
-593,20988,revisit: weights and biases page (his account)
-686,24307,search: python get list of all files in directory
-687,24321,visit: python list files in a directory: step-by-step guide
-736,26304,revisit: weights and biases page (his account)
-738,26335,revisit: wandb compute stats (his account)
-751,26717,revisit: tensorflow lite conversion page
-761,26829,visit: repl.it
-762,26837,visit: see all repls
-763,26843,visit: fork orderlymintcream2 repl
-765,26858,visit: food-not-food repl repository
-770,26954,visit: classification on imbalanced data
-789,27329,revisit: classification on imbalanced data page
-793,27399,revisit: back to the wandb account page
-794,27410,visit: wandb runs (his account)
-800,27676,revisit: wandb runs (his account)
-805,27855,visit: console.cloud.google.com
-811,28060,revisit: console.cloud bucket
-812,28074,visit: colab.research.google.com
-813,28084,visit: colab new notebook
-816,28169,search: google storage pricing
-817,28177,visit: cloud storage pricing
-819,28231,search: cors policy google storage bucket
-820,28236,visit: cross-origin resource sharing (CORS)
-835,28857,revisit: google cloud bucket
-844,29031,search: truck
-861,29452,search: tensorflow lite model inputs
-862,29458,visit: tensorflow lite inference
-863,29501,search: how to know what inputs a tflite model take
-864,29523,revisit: tflite model conversion overview
-874,29755,search: what input does tensorflow lite model take
-875,29760,revisit: tensorflow lite inference page
-879,29926,search:tflite.tfliteconverter.from_saved_model(
-880,29930,revisit: tf.lite.TFLiteConverter
-881,29965,search: how to check input type to tflite model
-882,29968,visit: how to know tensorflow lite model's input/output feature info
-884,30009,visit: netron.app
-885,30030,visit: netron.app input details
-900,30389,revisit: tflite converter overview
-911,30544,revisit: tflite converter overview
-946,31514,visit: source code for previous model maker project
-1003,33299,search: tensorflow.js sigmoid
-1004,33307,visit: tensors/creation
-1029,33795,search: tensorflow js argmax
-1037,33901,revisit: Tensors/Creation
-1048,34273,visit: 10 food classes previous project
-1074,34983,search: google storage set cors
-1075,34987,visit: cross-origin resource sharing (CORS)
-1080,35104,revisit: cross-origin resource sharing (CORS)
-1086,35271,visit: twitch ml deploy project
-1092,35470,revisit: twitch ml deploy project
-1095,35691,visit: tflite js distro
-1101,36026,visit: vercel
+28,9060,visit: lichess.org authentication page;--note he starts this project with this website pulled. up
+30,9068,visit: lichess.org User page;
+31,9074,"visit: lichess.org Bot page; ""I think we need to create a bot user.. How do we do that?"""
+29,9076,visit: lichess.org Account information
+32,9079,visit: lichess.org bot account upgrade
+34,9233,visit: lichess.org / user samwisegardener -- this time it is his account
+36,9239,"revisit: lichess.org bot account upgrade;  ""what I need to do is create an access token"".."
+35,9276,visit: Lichess.org Personal access tokens;
+273,9512,visit: lichess.org API get my profile; getting profile info for bot token
+39,9531,visit: Insomnia tool that lets him send requests to webservers. Confirms that his account is now a bot
+275,9542,visit: lichess.org API Get my profile;
+276,9542,visit: lichess.org API Bot; 
+277,9551,visit: lichess.org API Stream Bot game state; 
+278,9555,visit: lichess.org API Stream Incoming Events
+279,9570,visit: lichess.org API Stream Board game state
+280,9601,"visit: lichess.org API create a seek; I guess the first thing we want to do is join a game, right?"
+281,9627,visit: lichess.org API stream current games
+282,9667,revisit: lichess.org API Make a Bot move
+284,9688,visit: lichess.org samwisegardener; looking at Bot account
+283,9688,revisit: lichess.org; looking for his own bot
+285,9697,visit: lichess.org challenge to a game; challenging bot to game
+287,9765,visit: lichess.org API challenges;
+43,10077,visit: Streaming Data with Fetch() and NDJSON -- this is a link posted by one of the viewers in the livechat
+290,10183,visit: github threadpuller; chat-suggested ndjson handler
+292,10315,revisit: lichess.org API challenges
+294,10372,search: fetch stream response; learning how to get stream connected
+295,10378,visit: streaming requests with the fetch API
+296,10407,search: nodejs TextDecoderStream; does textdecoderstream exist in Node?
+46,10409,visit: Mozilla/ TextDecoder site (first link in search)
+48,10496,visit: How to use NDJson -- this is a link posted in the chat
+49,10525,"revisit: Fetch Upload Stream: ""I want to do something like this"" --not use some library that already does it"
+57,10858,search: from npmjs.com search: node-fetch
+58,10869,visit: npmjs node-fetch; trying to understand how it works and is supposed to be used
+59,10890,"visit: Streaming Data with Fetch() and NDJSON; resource sent in stream chat. he says ""I don't want to use an external library"""
+63,10973,search: nodejs http; searching for documentation on DuckDuckGo
+64,10974,visit: NodeJS http; http documentation
+66,11053,revisit: NodeJS http; finding URL() syntax
+78,11240,visit: lichess.org challenge samwisegardener; telling twitch followers to challenge his bot so that he can see the JSON request pop up in the output
+79,11240,revisit: lichess.org challenge samwisegardener; tells twitch followers to challenge his bot so that he can see the challenge requests pop up in the output message
+99,12023,visit: lichess.org API Accept Challenge
+105,12191,revisit: lichess.org API Accept Challenge; checking that accepting challenges is successful
+107,12222,revisit: lichess.org challenge samwisegardener; shows output that is currently waiting for challenge to be accepted by bot
+110,12273,revisit: lichess.org API Accept Challange; checking parameters of post
+112,12313,search: axios post empty body; searching why authorization header still missing
+298,12318,visit: github POST sending empty object;
+300,12413,search: axios; 
+301,12417,search: axios http; reframing axios search after not clicking anything
+303,12419,visit: axios http; github axios page for http requests
+302,12481,revisit: axios http; checking syntax
+116,12655,revisit: liches..org API Accept Challenge; checking how challenge object is communicated
+119,12780,visit: lichess.org API stream current game; learning how to stream current game and communicate with bot
+120,12794,visit: lichess.org API bot; looking at streaming game state
+121,12835,revisit: github axios; checking stream syntax in axios
+132,13051,revisit: github axios; checking response format
+136,13117,search: axios ldjson stream; searching how to use axios for streaming events from game
+151,13623,revisit: lichess.org API Stream Bot game state; checking if always a GET post
+160,13889,revisit: lichess.org API Stream Bot game state; trying to see syntax for game state
+168,14482,visit: lichess.org API Make a Bot move; trying to figure out how to make bot move.
+169,14538,revisit: lichess.org API Make a Bot move; checking post request syntax
+178,14892,revisit: lichess.org API Make a Bot move; looking at how to deal with invalid moves
+179,14976,search: UCI format; looking into what chess format looks like
+181,14981,search: chess UCI format; reframes search because results weren't related to chess
+180,14984,visit: wikipedia Universal Chess Interface; looking into format
+184,15126,visit: tmijs.com; looking for what are options for starting tmi stream
+189,15252,revisit: tmijs.com; seeing message syntax
+190,15437,"visit: twitch.tv/constructor; this is him interacting with chat, saying that this tool could impact the design of his tool"
+195,15864,search: UCI chess regex; searching for other people's formal answers to this regex call
+196,15872,search: !g uci chess regex; reframing search to work from google instead of duckduckgo
+197,15887,visit: stackoverflow regex challenge custom chess notation; searching for regex for notation
+234,18430,revisit: lichess.org API Make a Bot move; looking at how to resign or offer draw
+239,18699,visit: lichess.org API Decline a challenge; declining challenge if not CJ == user
+241,18795,revisit: lichess.org Stream incoming events; seeing how to finish a game
+250,19273,"search: axios cancel token; after doing custom loop/conditional cancel of game, a user comments to use a cancel token"
+251,19285,visit: github Axios cancellation; checking documentation for cancellation token
