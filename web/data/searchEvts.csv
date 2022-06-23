@@ -4,11 +4,11 @@ eventID,time,filename
 31,9074,"visit: lichess.org Bot page; ""I think we need to create a bot user.. How do we do that?"""
 29,9076,visit: lichess.org Account information
 32,9079,visit: lichess.org bot account upgrade
-34,9233,visit: lichess.org / user samwisegardener -- this time it is his account
+34,9233,visit: lichess.org user samwisegardener; this time it is his account
 36,9239,"revisit: lichess.org bot account upgrade;  ""what I need to do is create an access token"".."
 35,9276,visit: Lichess.org Personal access tokens;
-273,9512,visit: lichess.org API get my profile; getting profile info for bot token
-39,9531,visit: Insomnia tool that lets him send requests to webservers. Confirms that his account is now a bot
+273,9512,visit: lichess.org API Get my profile; getting profile info for bot token
+39,9531,visit: Insomnia tool; that lets him send requests to webservers. Confirms that his account is now a bot
 275,9542,visit: lichess.org API Get my profile;
 276,9542,visit: lichess.org API Bot; 
 277,9551,visit: lichess.org API Stream Bot game state; 
@@ -21,16 +21,16 @@ eventID,time,filename
 283,9688,revisit: lichess.org; looking for his own bot
 285,9697,visit: lichess.org challenge to a game; challenging bot to game
 287,9765,visit: lichess.org API challenges;
-43,10077,visit: Streaming Data with Fetch() and NDJSON -- this is a link posted by one of the viewers in the livechat
+43,10077,visit: Streaming Data with Fetch() and NDJSON; this is a link posted by one of the viewers in the livechat
 290,10183,visit: github threadpuller; chat-suggested ndjson handler
 292,10315,revisit: lichess.org API challenges
 294,10372,search: fetch stream response; learning how to get stream connected
 295,10378,visit: streaming requests with the fetch API
 296,10407,search: nodejs TextDecoderStream; does textdecoderstream exist in Node?
-46,10409,visit: Mozilla/ TextDecoder site (first link in search)
-48,10496,visit: How to use NDJson -- this is a link posted in the chat
-49,10525,"revisit: Fetch Upload Stream: ""I want to do something like this"" --not use some library that already does it"
-57,10858,search: from npmjs.com search: node-fetch
+46,10409,visit: Mozilla/ TextDecoder; (first link in search)
+48,10496,visit: How to use NDJson; this is a link posted in the chat
+49,10525,"revisit: Fetch Upload Stream; ""I want to do something like this"" --not use some library that already does it"
+57,10858,search: node-fetch
 58,10869,visit: npmjs node-fetch; trying to understand how it works and is supposed to be used
 59,10890,"visit: Streaming Data with Fetch() and NDJSON; resource sent in stream chat. he says ""I don't want to use an external library"""
 63,10973,search: nodejs http; searching for documentation on DuckDuckGo
@@ -48,7 +48,7 @@ eventID,time,filename
 301,12417,search: axios http; reframing axios search after not clicking anything
 303,12419,visit: axios http; github axios page for http requests
 302,12481,revisit: axios http; checking syntax
-116,12655,revisit: liches..org API Accept Challenge; checking how challenge object is communicated
+116,12655,revisit: lichess.org API Accept Challenge; checking how challenge object is communicated
 119,12780,visit: lichess.org API stream current game; learning how to stream current game and communicate with bot
 120,12794,visit: lichess.org API bot; looking at streaming game state
 121,12835,revisit: github axios; checking stream syntax in axios

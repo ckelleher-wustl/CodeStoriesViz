@@ -12,6 +12,7 @@ def getKeywords(cluster):
     pageStrings = []
     for key in cluster.keys():
         if (key not in ["begin", "end", "type"]):
+            # print(f"key: {key} {cluster.get(key)}")
             if (key == "seed"):
                 keyValue = cluster.get(key).strip().lower()
                 keyValue = keyValue.replace(".", " ")
@@ -35,13 +36,13 @@ def getKeywords(cluster):
 
     keywords = set()
     stopWords = set(stopwords.words('english'))
-    ignoreWords = ["lichess", "org"]
+    ignoreWords = ["lichess", "org", "api"]
     for pageString in pageStrings:
         words = []
         for word in pageString.split():
 
             # if the word isn't something we should ignore
-            if word not in ignoreWords:
+            if word not in ignoreWords and word not in stopWords:
                 
                 # stem it
                 stemmedWord = ps.stem(word)
@@ -49,7 +50,7 @@ def getKeywords(cluster):
                 # if its not a stopword, add it to the wordlist
                 if (stemmedWord not in stopWords):
                     words.append(ps.stem(word))
-        # sprint(words)
+        # print(f"KEYWORDS: {keywords}")
         keywords = keywords.union(set(words))
     
     return keywords
@@ -67,7 +68,7 @@ df = pd.concat([df, split], axis=1)
 
 # rename the column names so there's reasonable names for all
 df.set_axis(['eventID', 'time', 'filename', 'type', 'page'], axis=1, inplace=True)
-print(df)
+print(f"DF:\n{df}")
 # break these into clusters that are started by either a search or a revisit not in the current cluster
 allClusters = []
 currCluster={}
@@ -82,9 +83,12 @@ for index, row in df.iterrows():
     except:
         end = len(page)
     
-    page = page[0:end]
+    print(f"\n pre-page is {page}; {row['page']}")
+    row['page'] = page[0:end]
+    page = row['page']
+    print(f"page is {page}; {row['page']}")
+    # print(f"type is:{type};")
 
-    print(f"type is:{type};")
 
     if ( (type == "search") or ((type == "revisit") and (page not in currCluster)) ) :
         if (currCluster != {}):
@@ -155,16 +159,17 @@ clusterGroups = []
 clusterGroup = []
 prevCluster = None
 prevKeys = set()
-debug = False
+debug = True
 for cluster in allClusters:
     currKeys = getKeywords(cluster)
 
-    print(f"\n\n\tprevKeys: {prevKeys} \n\tcurrKeys: {currKeys}")
+    print(f"\n\nHANDLE CLUSTER: {cluster}")
+    print(f"\tprevKeys: {prevKeys} \n\tcurrKeys: {currKeys}")
 
     commonKeys = prevKeys.intersection(currKeys)
     # if (len(commonKeys) > 0) :
-    print(f"cluster:{cluster}")
-    print(f"common keys:{commonKeys}")
+    # print(f"cluster:{cluster}")
+    print(f"\tcommon keys:{commonKeys} ({len(commonKeys)})")
     
 
     if len(commonKeys) > 0:
@@ -187,18 +192,24 @@ for cluster in allClusters:
         else:
             clusterGroup.append(cluster)
             if debug:
+                print("\n ADDING TO EXISTING CLUSTER:")
                 print(f"\tcurrent: {cluster}")
                 print(f"\tcurrKeys: {currKeys}")
                 print(f"\tintersection: {commonKeys}")
 
         # print("\tand...")
-        prevKeys = currKeys.union(prevKeys)  # this should join so union them together
+        # prevKeys = currKeys.union(prevKeys)  # this should join so union them together
+        prevKeys = currKeys # this is a much stronger requirement that there needs to be some affinity between the previous two things
     else:
-        print(f"\n\nNO CLUSTER: {cluster}")
+        print(f"\n\nNO CLUSTER:")
+        print(f"\tcurrent: {cluster}")
         prevKeys = currKeys
         
-        clusterGroups.append(clusterGroup) # save the previous cluster
-        print(f"current cluster group: {clusterGroups}")
+        # clusterGroup.append(cluster) # add the current cluster to the group; this may be questionable
+        # if there's anything in the previous cluster group, save it.
+        if (len(clusterGroup) > 0):
+            clusterGroups.append(clusterGroup) # save the previous cluster
+        print(f"current cluster group: \n\t{clusterGroup} - \n\t{clusterGroups}")
         clusterGroup = [] # reset the clusterGroup
 
     prevCluster = cluster
