@@ -56,92 +56,113 @@ def getKeywords(cluster):
     return keywords
 
 
+def getClusters(df):
+    # break these into clusters that are started by either a search or a revisit not in the current cluster
+    allClusters = []
+    currCluster={}
+    for index, row in df.iterrows():
+        time = row['time']
+        type = row['type']
+        page = row['page']
+
+        # cut off any comments after the page title
+        end = 0
+        try:
+            end = page.index(";")
+        except:
+            end = len(page)
+        
+        row['page'] = page[0:end]
+        page = row['page']
+        # print(f"page is {page}; {row['page']}")
 
 
+        # if this is a search or an out-of-cluster revisit, then this should start a new cluster
+        if ( (type == "search") or ((type == "revisit") and (page not in currCluster)) ) :
+            if (currCluster != {}):
+                # print(f"does cluster have a beginning: {('begin' in currCluster)}")
+
+                # this is a first cluster that didn't originate with a search, so we need to
+                # do some extra work to ensure that it has appropriately set data
+                if (not('begin' in currCluster)):
+
+                    # find the min and max so we can identify the begin and end of the cluster
+                    min = -1
+                    max = -1
+                    seed = ""
+
+                    # loop through all the existing keys to determine min, max, and seed
+                    for attr in currCluster.keys():
+                        if isinstance(currCluster[attr], int):
+                            # print(f"{attr} is {currCluster[attr]} ")
+                            pass
+                        else:
+                            # these are going to the page attrs that have non-int types
+                            # print(f"{attr} is {currCluster[attr]}")
+                            
+                            # set the min and max access times
+                            if (min == -1) or (min > currCluster[attr][0]):
+                                min = currCluster[attr][0]
+                                seed = attr
+                            if (max == -1) or (max < currCluster[attr][len(currCluster[attr])-1]):
+                                max = currCluster[attr][len(currCluster[attr])-1]
+                    currCluster["begin"] = min
+                    currCluster["end"] = max
+                    currCluster["seed"] = seed
+
+                # at this point, even a cluster that was missing begin, end, etc should have that info
+
+                # # we have a valid currCluster, add to all clusters so that page starts a new one
+                # allClusters.append(currCluster)
+            
+
+            # while this is a potential cluster start, it's already in the current cluster
+            if currCluster.get('seed') == page:
+                # print( f"SAME SEED: {currCluster.get('seed') == page} {currCluster.get('seed')} == {page} ")
+                currCluster[page] = [time]
+                currCluster["end"] = time
+            
+            else:
+                # we have a valid currCluster, add to all clusters so that page starts a new one
+                allClusters.append(currCluster)
+
+                currCluster = {}
+                currCluster["seed"] = page
+                currCluster["type"] = type
+                currCluster["begin"] = time
+                currCluster["end"] = time
+
+        # this page belongs to the current cluster and should be added
+        else:
+            # this is a new page for the current cluster
+            if (page not in currCluster):
+                currCluster[page] = [time]
+                currCluster["end"] = time
+                # print("\tadding " + str(page))
+            
+            # we've already seen this page in the current cluster
+            else:
+                currCluster[page].append(time)
+                currCluster["end"] = time
+                # print("\tupdating " + str(page) + str(currCluster[page]))
+
+    return allClusters 
+
+
+# read in the search events data
 df = pd.read_csv('web/data/searchEvts.csv')
-
 
 # split the type: pagedesc into separate columns
 split = df['filename'].str.split(":", 1, expand=True)
-
 df = pd.concat([df, split], axis=1)
 
 # rename the column names so there's reasonable names for all
 df.set_axis(['eventID', 'time', 'filename', 'type', 'page'], axis=1, inplace=True)
 print(f"DF:\n{df}")
-# break these into clusters that are started by either a search or a revisit not in the current cluster
-allClusters = []
-currCluster={}
-for index, row in df.iterrows():
-    time = row['time']
-    type = row['type']
-    page = row['page']
 
-    end = 0
-    try:
-        end = page.index(";")
-    except:
-        end = len(page)
-    
-    print(f"\n pre-page is {page}; {row['page']}")
-    row['page'] = page[0:end]
-    page = row['page']
-    print(f"page is {page}; {row['page']}")
-    # print(f"type is:{type};")
+allClusters = getClusters(df)
 
 
-    if ( (type == "search") or ((type == "revisit") and (page not in currCluster)) ) :
-        if (currCluster != {}):
-            print(f"does cluster have a beginning: {('begin' in currCluster)}")
-
-            min = -1
-            max = -1
-            seed = ""
-            if (not('begin' in currCluster)):
-                # currCluster["begin"] = 
-                for attr in currCluster.keys():
-                    if isinstance(currCluster[attr], int):
-                        print(f"{attr} is {currCluster[attr]} ")
-                    else:
-                        print(f"{attr} is {currCluster[attr]} {currCluster[attr][0]}")
-                        if (min == -1) or (min > currCluster[attr][0]):
-                            min = currCluster[attr][0]
-                            seed = attr
-                        if (max == -1) or (max < currCluster[attr][len(currCluster[attr])-1]):
-                            max = currCluster[attr][len(currCluster[attr])-1]
-                currCluster["begin"] = min
-                currCluster["end"] = max
-                currCluster["seed"] = seed
-
-            allClusters.append(currCluster)
-        # print(str(len(allClusters)) + ": "  + str(currCluster))
-
-        if currCluster.get('seed') == page:
-            # print( f"SAME SEED: {currCluster.get('seed') == page} {currCluster.get('seed')} == {page} ")
-            currCluster[page] = [time]
-            currCluster["end"] = time
-        
-        else:
-            currCluster = {}
-            currCluster["seed"] = page
-            currCluster["type"] = type
-            currCluster["begin"] = time
-            currCluster["end"] = time
-
-    else:
-        if (page not in currCluster):
-            currCluster[page] = [time]
-            currCluster["end"] = time
-            # print("\tadding " + str(page))
-        else:
-            currCluster[page].append(time)
-            currCluster["end"] = time
-            # print("\tupdating " + str(page) + str(currCluster[page]))
-
-    # todo - do we want to think about detecting linkages between searches at this point? (not yet)
-    # export this into a csv that can be used in d3
-
-    #todo - get updated data post-cleaning pass
 
 print("\n\nFINAL CLUSTERS:")
 idx = 0
