@@ -55,6 +55,24 @@ def getKeywords(cluster):
     return keywords
 
 
+def getOriginCluster(page, allClusters):
+
+    # it's most likely a page within a cluster
+    for cluster in allClusters:
+        if page in cluster:
+            return cluster
+
+    # but it could theoretically be the seed too
+    for cluster in allClusters:
+        if cluster['seed'] == page:
+            return cluster
+    
+    # otherwise this is a page we haven't assigned to a cluster
+    return None
+
+    
+
+
 def getClusters(df):
     # break these into clusters that are started by either a search or a revisit not in the current cluster
     allClusters = []
@@ -115,9 +133,23 @@ def getClusters(df):
                 # allClusters.append(currCluster)
             
 
+            originClusterCurrent = getOriginCluster(currCluster.get('seed'), allClusters)
+            originClusterPage = getOriginCluster(page, allClusters)
+
+            if (originClusterCurrent != None) and (originClusterCurrent == originClusterPage):
+                print(f"\nCLUSTER MATCH")
+                print(f"Origin cluster for {currCluster.get('seed')} IS: \n\t{originClusterCurrent}")
+                print(f"Origin cluster for {page} IS: \n\t{originClusterCurrent}")
+
             # while this is a potential cluster start, it's already in the current cluster
             if currCluster.get('seed') == page:
                 # print( f"SAME SEED: {currCluster.get('seed') == page} {currCluster.get('seed')} == {page} ")
+                currCluster[page] = [time]
+                currCluster["end"] = time
+
+            # while revisit is a potential cluster start it's in the same cluster as a previous revisit, so should be appended 
+            # to that one.
+            elif (originClusterCurrent != None) and (originClusterCurrent == originClusterPage):
                 currCluster[page] = [time]
                 currCluster["end"] = time
             
@@ -163,6 +195,7 @@ print(f"DF:\n{df}")
 allClusters = getClusters(df)
 
 
+
 print("\n\nFINAL CLUSTERS:")
 idx = 0
 for cluster in allClusters:
@@ -179,17 +212,16 @@ clusterGroups = []
 clusterGroup = []
 prevCluster = None
 prevKeys = set()
-debug = True
+debug = False
 for cluster in allClusters:
     currKeys = getKeywords(cluster)
 
-    print(f"\n\nHANDLE CLUSTER: {cluster}")
-    print(f"\tprevKeys: {prevKeys} \n\tcurrKeys: {currKeys}")
-
     commonKeys = prevKeys.intersection(currKeys)
-    # if (len(commonKeys) > 0) :
-    # print(f"cluster:{cluster}")
-    print(f"\tcommon keys:{commonKeys} ({len(commonKeys)})")
+
+    if (debug):
+        print(f"\n\nHANDLE CLUSTER: {cluster}")
+        print(f"\tprevKeys: {prevKeys} \n\tcurrKeys: {currKeys}")
+        print(f"\tcommon keys:{commonKeys} ({len(commonKeys)})")
     
 
     if len(commonKeys) > 0:
@@ -221,15 +253,18 @@ for cluster in allClusters:
         # prevKeys = currKeys.union(prevKeys)  # this should join so union them together
         prevKeys = currKeys # this is a much stronger requirement that there needs to be some affinity between the previous two things
     else:
-        print(f"\n\nNO CLUSTER:")
-        print(f"\tcurrent: {cluster}")
+        
         prevKeys = currKeys
         
         # clusterGroup.append(cluster) # add the current cluster to the group; this may be questionable
         # if there's anything in the previous cluster group, save it.
         if (len(clusterGroup) > 0):
             clusterGroups.append(clusterGroup) # save the previous cluster
-        print(f"current cluster group: \n\t{clusterGroup} - \n\t{clusterGroups}")
+
+        if debug:
+            print(f"\n\nNO CLUSTER:")
+            print(f"\tcurrent: {cluster}")
+            print(f"current cluster group: \n\t{clusterGroup} - \n\t{clusterGroups}")
         clusterGroup = [] # reset the clusterGroup
 
     prevCluster = cluster
