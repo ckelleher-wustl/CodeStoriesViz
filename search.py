@@ -5,32 +5,29 @@ from nltk import PorterStemmer
 from nltk.corpus import stopwords
 
 nltk.download('stopwords')
-
 ps = PorterStemmer()
 
 def getKeywords(cluster):
     pageStrings = []
     for key in cluster.keys():
         if (key not in ["begin", "end", "type"]):
-            # print(f"key: {key} {cluster.get(key)}")
+           
+            # seed value is what we need for first cluster page
             if (key == "seed"):
-                keyValue = cluster.get(key).strip().lower()
-                keyValue = keyValue.replace(".", " ")
-                keyValue = keyValue.replace("-", " ")
-                keyValue = keyValue.replace("(", "")
-                keyValue = keyValue.replace(")", "")
-                keyValue = keyValue.replace("\"", "")
-                keyValue = keyValue.replace("\'", "")
-                pageStrings.append(keyValue)
+                keyValue = cluster.get(key).strip().lower() 
+
+            # other pages are encoded as attributes with their values holding visit times
             else:
                 keyValue = str(key).strip().lower()
-                keyValue = keyValue.replace(".", " ")
-                keyValue = keyValue.replace("-", " ")
-                keyValue = keyValue.replace("(", "")
-                keyValue = keyValue.replace(")", "")
-                keyValue = keyValue.replace("\"", "")
-                keyValue = keyValue.replace("\'", "")
-                pageStrings.append(keyValue)
+
+            # clean up punctuation that may be present    
+            keyValue = keyValue.replace(".", " ")
+            keyValue = keyValue.replace("-", " ")
+            keyValue = keyValue.replace("(", "")
+            keyValue = keyValue.replace(")", "")
+            keyValue = keyValue.replace("\"", "")
+            keyValue = keyValue.replace("\'", "")
+            pageStrings.append(keyValue)
             
             # print(f"key: {key} {cluster.get(key)}")
 
@@ -39,6 +36,8 @@ def getKeywords(cluster):
     ignoreWords = ["lichess", "org", "api"]
     for pageString in pageStrings:
         words = []
+
+        # break the full page title into words
         for word in pageString.split():
 
             # if the word isn't something we should ignore
@@ -47,10 +46,10 @@ def getKeywords(cluster):
                 # stem it
                 stemmedWord = ps.stem(word)
 
-                # if its not a stopword, add it to the wordlist
+                # if stemmed word is also not a stopword, add it to the wordlist
                 if (stemmedWord not in stopWords):
                     words.append(ps.stem(word))
-        # print(f"KEYWORDS: {keywords}")
+
         keywords = keywords.union(set(words))
     
     return keywords
@@ -160,8 +159,8 @@ df = pd.concat([df, split], axis=1)
 df.set_axis(['eventID', 'time', 'filename', 'type', 'page'], axis=1, inplace=True)
 print(f"DF:\n{df}")
 
+# construct clusters based on the sequence of searches and page visits
 allClusters = getClusters(df)
-
 
 
 print("\n\nFINAL CLUSTERS:")
