@@ -74,6 +74,8 @@ def getOriginCluster(page, allClusters):
 
 
 def getClusters(df):
+    debug = True # flag to enable debugging messages
+
     # break these into clusters that are started by either a search or a revisit not in the current cluster
     allClusters = []
     currCluster={}
@@ -82,26 +84,33 @@ def getClusters(df):
         type = row['type']
         page = row['page']
 
-        # cut off any comments after the page title
+        # cut off any comments after the page title; update page and df data
         end = 0
         try:
             end = page.index(";")
         except:
             end = len(page)
-        
         row['page'] = page[0:end]
         page = row['page']
-        # print(f"page is {page}; {row['page']}")
+
+        # at this point, we should have a valid entry for time, type, and page.
 
 
-        # if this is a search or an out-of-cluster revisit, then this should start a new cluster
-        if ( (type == "search") or ((type == "revisit") and (page not in currCluster)) ) :
+        # if this is a search or an out-of-cluster revisit, then this should possibly start a new cluster
+        if ( (type == "search") or (type == "typed") or ((type == "revisit") and (page not in currCluster)) ) :
+
+            if debug:
+                print(f"Possible new cluster: {page}")
+
             if (currCluster != {}):
                 # print(f"does cluster have a beginning: {('begin' in currCluster)}")
 
                 # this is a first cluster that didn't originate with a search, so we need to
                 # do some extra work to ensure that it has appropriately set data
                 if (not('begin' in currCluster)):
+
+                    if debug:
+                        print(f"cluster has no meta-data - assigning: {page}")
 
                     # find the min and max so we can identify the begin and end of the cluster
                     min = -1
@@ -133,27 +142,34 @@ def getClusters(df):
                 # allClusters.append(currCluster)
             
 
+            # figure out whether the page is actually part same revisited cluster as current seed
             originClusterCurrent = getOriginCluster(currCluster.get('seed'), allClusters)
             originClusterPage = getOriginCluster(page, allClusters)
-
-            if (originClusterCurrent != None) and (originClusterCurrent == originClusterPage):
-                print(f"\nCLUSTER MATCH")
-                print(f"Origin cluster for {currCluster.get('seed')} IS: \n\t{originClusterCurrent}")
-                print(f"Origin cluster for {page} IS: \n\t{originClusterCurrent}")
+                
 
             # while this is a potential cluster start, it's already in the current cluster
             if currCluster.get('seed') == page:
-                # print( f"SAME SEED: {currCluster.get('seed') == page} {currCluster.get('seed')} == {page} ")
+                if debug:
+                    print( f"SAME SEED: {currCluster.get('seed') == page} {currCluster.get('seed')} == {page} ")
+                
                 currCluster[page] = [time]
                 currCluster["end"] = time
 
             # while revisit is a potential cluster start it's in the same cluster as a previous revisit, so should be appended 
             # to that one.
             elif (originClusterCurrent != None) and (originClusterCurrent == originClusterPage):
+                if debug:
+                    print(f"\Extend cluster: MATCH")
+                    print(f"Origin cluster for {currCluster.get('seed')} IS: \n\t{originClusterCurrent}")
+                    print(f"Origin cluster for {page} IS: \n\t{originClusterCurrent}")
+
                 currCluster[page] = [time]
                 currCluster["end"] = time
             
             else:
+                if debug:
+                    print(f"ADDING CLUSTER: \n\t{currCluster}")
+
                 # we have a valid currCluster, add to all clusters so that page starts a new one
                 allClusters.append(currCluster)
 
@@ -169,7 +185,9 @@ def getClusters(df):
             if (page not in currCluster):
                 currCluster[page] = [time]
                 currCluster["end"] = time
-                # print("\tadding " + str(page))
+
+                if debug:
+                    print(f"\tadding to current cluster {page}")
             
             # we've already seen this page in the current cluster
             else:
@@ -177,6 +195,14 @@ def getClusters(df):
                 currCluster["end"] = time
                 # print("\tupdating " + str(page) + str(currCluster[page]))
 
+                if debug:
+                    print(f"\tadding access within cluster {page} {currCluster[page]}")
+
+
+    # add whatever cluster is currently in process
+    if (len(currCluster) > 0):
+        allClusters.append(currCluster)
+        
     return allClusters 
 
 
