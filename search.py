@@ -64,6 +64,7 @@ def getOriginCluster(page, allClusters):
 
     # but it could theoretically be the seed too
     for cluster in allClusters:
+        # print(f"origin search: {cluster}")
         if cluster['seed'] == page:
             return cluster
     
@@ -76,6 +77,10 @@ def getOriginCluster(page, allClusters):
 def getClusters(df):
     debug = True # flag to enable debugging messages
 
+    # keep an index of clusters
+    df['clusterID'] = -1
+    clusterIndex = 0
+
     # break these into clusters that are started by either a search or a revisit not in the current cluster
     allClusters = []
     currCluster={}
@@ -83,6 +88,10 @@ def getClusters(df):
         time = row['time']
         type = row['type']
         page = row['page']
+
+        # by default, assign the next df row to the current cluster
+        # we'll override this later where appropriate
+        df.at[index,'clusterID'] = clusterIndex
 
         # cut off any comments after the page title; update page and df data
         end = 0
@@ -100,7 +109,7 @@ def getClusters(df):
         if ( (type == "search") or (type == "typed") or ((type == "revisit") and (page not in currCluster)) ) :
 
             if debug:
-                print(f"Possible new cluster: {page}")
+                print(f"Possible new cluster: {page} {len(currCluster)}")
 
             if (currCluster != {}):
                 # print(f"does cluster have a beginning: {('begin' in currCluster)}")
@@ -140,6 +149,8 @@ def getClusters(df):
 
                 # # we have a valid currCluster, add to all clusters so that page starts a new one
                 # allClusters.append(currCluster)
+
+            
             
 
             # figure out whether the page is actually part same revisited cluster as current seed
@@ -154,6 +165,13 @@ def getClusters(df):
                 
                 currCluster[page] = [time]
                 currCluster["end"] = time
+            # if it's a first entry, we may not have recorded the current data yet.
+            elif len(currCluster) == 0:
+                if (debug):
+                    print(f"starting cluster: {page}")
+                currCluster["begin"] = time
+                currCluster["end"] = time
+                currCluster["seed"] = page
 
             # while revisit is a potential cluster start it's in the same cluster as a previous revisit, so should be appended 
             # to that one.
@@ -167,17 +185,22 @@ def getClusters(df):
                 currCluster["end"] = time
             
             else:
-                if debug:
-                    print(f"ADDING CLUSTER: \n\t{currCluster}")
+                if (len(currCluster) > 0):
+                    if debug:
+                        print(f"ADDING CLUSTER: \n\t{currCluster}")
 
-                # we have a valid currCluster, add to all clusters so that page starts a new one
-                allClusters.append(currCluster)
+                    # we have a valid currCluster, add to all clusters so that page starts a new one
+                    allClusters.append(currCluster)
 
-                currCluster = {}
-                currCluster["seed"] = page
-                currCluster["type"] = type
-                currCluster["begin"] = time
-                currCluster["end"] = time
+                    currCluster = {}
+                    currCluster["seed"] = page
+                    currCluster["type"] = type
+                    currCluster["begin"] = time
+                    currCluster["end"] = time
+
+                    # the current df row should be considered part of the next cluster, so adjust the clusterIndex
+                    clusterIndex += 1
+                    df.at[index,'clusterID'] = clusterIndex
 
         # this page belongs to the current cluster and should be added
         else:
@@ -296,18 +319,16 @@ for cluster in allClusters:
     prevCluster = cluster
 
 print("\n\nseed,startTime,endTime")
-lowerBound = 9060 # this is hard coded but probably shouldn't be.
-upperBound = 19285 # hard coded last event
 for clusterGroup in clusterGroups:
     if len(clusterGroup) > 0:
         startTime = clusterGroup[0]['begin']
         endTime = clusterGroup[len(clusterGroup)-1]['end']
-        # print(f"'gap','gap',{lowerBound},{startTime}")
         print(f"'{clusterGroup[0]['seed']}',{startTime},{endTime}")
-        lowerBound = endTime
 
-# print(f"'gap','gap',{lowerBound},{upperBound}")
 
+
+# df = pd.read_csv('web/data/searchEvts.csv')
+df.to_csv('web/data/baseClusters.csv')  
 
 
 # print("\n\nseed,startTime,endTime")
