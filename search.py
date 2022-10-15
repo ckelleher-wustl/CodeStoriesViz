@@ -108,6 +108,7 @@ def getClusters(df):
         # if this is a search or an out-of-cluster revisit, then this should possibly start a new cluster
         if ( (type == "search") or (type == "typed") or ((type == "revisit") and (page not in currCluster)) ) :
 
+        # if ( ("search" in type) or (type == "visit (typed)") or (("revisit" in type) and (page not in currCluster)) ) :
             if debug:
                 print(f"Possible new cluster: {page} {len(currCluster)}")
 
@@ -229,8 +230,44 @@ def getClusters(df):
     return allClusters 
 
 
+def searchEvtsGitData():
+    import requests
+    API_url = 'http://localhost:3000/intervalSearches'
+    searchEvts = []
+    data = {'startTime': 0, 'endTime': -1}
+
+    # grab all search events from git history data
+    # make sure npm run start is executing for git data instead of DB and OCR
+    response = requests.get(API_url, params=data)
+    
+    if response.status_code == 200:
+        searchEvts = response.json()
+        print('got response')
+
+        # convert searchEvts to a dataframe
+        df = pd.DataFrame(searchEvts)
+
+        # make header eventId ~ id, time ~ time and filename ~ notes
+        df.rename(columns={'id':'eventId', 'time':'time', 'notes':'filename'}, inplace=True)
+
+        # only keep the columns we need
+        df = df[['eventId', 'time', 'filename']]
+
+        # sort by time
+        df = df.sort_values(by=['time'])
+        return df
+    else:
+        print('error')
+        print(response.status_code)
+        exit()
+
+
+
 # read in the search events data
 df = pd.read_csv('web/data/searchEvts.csv')
+
+# for git history data, grab from /intervalSearches since the events have to go through some processing in the backend
+# df = searchEvtsGitData()
 
 # split the type: pagedesc into separate columns
 split = df['filename'].str.split(":", 1, expand=True)
