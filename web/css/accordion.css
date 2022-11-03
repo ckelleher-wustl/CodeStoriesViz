@@ -11,6 +11,42 @@ h1 {
   text-align: center;
 }
 
+.boxed {
+  border: 1px solid green;
+  padding: 10px;
+}
+
+.goal {
+  border: 2px solid ; 
+  border-top-color: black; 
+  background-color: cornflowerblue;
+  box-sizing: border-box; 
+  grid-area: 1 / 1; /* first row, first column */
+  padding: 20px; 
+  width: inherit; 
+  margin-top: 20px;
+}
+
+.approach {
+  border: 2px solid ; 
+  border-top-color: black; 
+  background-color: lightblue;
+  box-sizing: border-box; 
+  grid-area: 1 / 1; /* first row, first column */
+  padding: 5; 
+  width: inherit; 
+  margin-top: 1px;
+  margin-bottom: 10px;
+  font-size: small;
+}
+
+legend {
+  font: 12pt/0 'Averia Serif Libre'; 
+  margin: 5pt; /* to center */
+  padding: 4px; 
+
+}
+
 /* Sets the width for the accordion. Sets the margin to 90px on the top and bottom and auto to the left and right */
 
 .accordion {

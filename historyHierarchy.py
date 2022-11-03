@@ -3,7 +3,8 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-
+# imageDir = "/images/foodNotFood/"
+imageDir = "/images/wordle/"
 
 def get_search_overview_html(responseEntries):
 # <div class="content">
@@ -43,8 +44,11 @@ def get_search_overview_html(responseEntries):
                 end = len(notes)
             pageName = notes[start: end]
 
-            # print(f"visit/revisit info {responseEntries[i]}")
-            html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/" + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td>" + pageName + "</td></tr></tbody></table></div>\n"
+            # print(f"visit/revisit info {responseEntries[i]}['notes']")
+            if (responseEntries[i]['notes'].startswith('revisit:')):
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>" + pageName + "</td></tr></tbody></table></div>\n"
+            else: 
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td>" + pageName + "</td></tr></tbody></table></div>\n"
 
     html += "</div>\n" # close open webImageLongRow
     html += "</div>\n" # close content pane
@@ -143,12 +147,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters.csv')
+searchDF = pd.read_csv('web/data/searchClusters_wordle.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster.csv')
+codeDF = pd.read_csv('web/data/codeCluster_wordle.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type'], axis=1, inplace=True)
 print(codeDF)
 
