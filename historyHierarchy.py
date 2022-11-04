@@ -4,7 +4,8 @@ from sqlalchemy import false, true
 import difflib
 
 # imageDir = "/images/foodNotFood/"
-imageDir = "/images/wordle/"
+# imageDir = "/images/wordle/"
+imageDir = "/images/techWithTim1/"
 
 def get_search_overview_html(responseEntries):
 # <div class="content">
@@ -147,12 +148,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_wordle.csv')
+searchDF = pd.read_csv('web/data/searchClusters_techWithTim1.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_wordle.csv')
+codeDF = pd.read_csv('web/data/codeCluster_techWithTim1.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type'], axis=1, inplace=True)
 print(codeDF)
 
@@ -183,24 +184,28 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         print(f"\nparent details: {searchDF.iloc[searchIdx]}\n")
 
         # addedCode = false
-        while (codeDF.iloc[codeIdx]["startTime"] < searchDF.iloc[searchIdx]["endTime"] ):
-            startTime = codeDF.iloc[codeIdx]['startTime']
-            endTime = codeDF.iloc[codeIdx]['endTime']
-            [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
+        try:
+            
+            while (codeDF.iloc[codeIdx]["startTime"] < searchDF.iloc[searchIdx]["endTime"] ):
+                startTime = codeDF.iloc[codeIdx]['startTime']
+                endTime = codeDF.iloc[codeIdx]['endTime']
+                [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
 
-            startingCode = startingCode.replace('\'', '"')
-            endingCode = endingCode.replace('\'', '"')
+                startingCode = startingCode.replace('\'', '"')
+                endingCode = endingCode.replace('\'', '"')
 
-            if len(codeSummary) == 0:
-                codeSummary = "not available"
-            html += "<button type='button' class='collapsible active'>" + codeSummary + "</button>\n"
-            html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
-            html += "<p> code content will go here</p>\n"
-            html += "</div>" # this is the end of the nested div.
+                if len(codeSummary) == 0:
+                    codeSummary = "not available"
+                html += "<button type='button' class='collapsible active'>" + codeSummary + "</button>\n"
+                html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
+                html += "<p> code content will go here</p>\n"
+                html += "</div>" # this is the end of the nested div.
 
-            # addedCode = true
-            print(f"'child','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
-            codeIdx += 1
+                # addedCode = true
+                print(f"'child','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
+                codeIdx += 1
+        except:
+            print("outside of range somehow")
 
         searchIdx += 1
         clusterCnt += 1
