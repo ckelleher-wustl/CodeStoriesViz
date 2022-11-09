@@ -43,53 +43,74 @@ class CodeEntries:
         # self.process_code()
 
     def get_code_lines(self, code_text):
-        # print(f"\ncode text: \n" + code_text)
+        
         lines = code_text.split("\n")
+        # print(f"\n#code lines: " + str(len(lines)))
         for i in range(0, len(lines)):
             lines[i] = lines[i].strip()
 
         return lines
 
     def get_match_affinity(self):
-        print(f"codeentries length {len(self.code_entries)}")
+        # print(f"codeentries length {len(self.code_entries)}")
         with open("web/data/codeAffinity.csv", "w", encoding="utf-8", newline='') as csvfile:
             writer = csv.writer(csvfile)
             pastEvent = None
             writer.writerow(["begin", "end", "matches", "target code", "comp code"])
+            idx = 0
             for codeEvent in self.code_entries:
-                # print(f"codeevent is {codeEvent}")
-                if (pastEvent):
-                    self.match_lines(pastEvent, codeEvent, writer)
-                pastEvent = codeEvent
+                
+                # if (idx > 20):
+                #     break
+
+                # idx += 1
+
+                # print(f"\nidx is {idx}")
+
+                # let's only pay attention when there's actually some code
+                if len(codeEvent["code_text"].strip()) > 0:
+                    # print(f"codeevent is {codeEvent}")
+                    # print(f"pastevent is {pastEvent}")
+                    if (pastEvent):
+                        self.match_lines(pastEvent, codeEvent, writer)
+                    pastEvent = codeEvent
             
 
-    def match_lines(self, targetEvt, compEvt, writer):
-        targetLines = self.get_code_lines(targetEvt['code_text'])
-        compLines = self.get_code_lines(compEvt['code_text'])
+    def match_lines(self, pastEvt, currEvt, writer):
+        pastLines = self.get_code_lines(pastEvt['code_text'])
+        currentLines = self.get_code_lines(currEvt['code_text'])
+
+        # print(f"pastLines is {len(pastLines)} {pastLines}")
+        # print(f"currentLines is {len(currentLines)} {currentLines}")
+        # print(targetLines)
 
         numMatches = 0
-        for targetLine in targetLines:
-            if len(targetLine) > 0:
-                bestMatch = self.best_match(targetLine, compLines)
+        for currentLine in currentLines:
+            if len(currentLine) > 1:
+                bestMatch = self.best_match(currentLine, pastLines)
                 if (int(bestMatch['ratio']) >= 90):
                     numMatches += 1
-                    # print(f"match found: {bestMatch}")
+                    # print(f"\tmatch found: {bestMatch}")
+                # else:
+                    # print(f"NO MATCH FOUND: _{currentLine}_")
 
-        # print(f"target: \n{[targetEvt['code_text']]}")
-        # print(f"comp: \n{[compEvt['code_text']]}")
+        # print(f"target: {len(targetEvt['code_text'])} \n{[targetEvt['code_text']]}")
+        # print(f"comp: {len(compEvt['code_text'])} \n{[compEvt['code_text']]}")
         # print(f"num matches: {numMatches}\n") 
-        writer.writerow([targetEvt['time'], compEvt['time'], numMatches, [targetEvt['code_text']], [compEvt['code_text']]])
+        # writer.writerow([targetEvt['time'], compEvt['time'], numMatches, [targetEvt['code_text']], [compEvt['code_text']]])
 
         if numMatches > 0:
             # we've just found the beginning of a cluster
             if not self.inCluster:
-                # print(f"starting a new cluster {targetEvt['time']}")
+                # print(f"starting a new cluster {pastEvt['time']}")
                 self.inCluster = True
-                self.clusterStartTime = targetEvt['time']
+                self.clusterStartTime = pastEvt['time']
+            # else:
+            #     print("added to cluster")
         else:
             # we've just come out of a cluster, so print it out
             if self.inCluster:
-                print(f"{self.clusterStartTime},{targetEvt['time']},'code'")
+                print(f"{self.clusterStartTime},{pastEvt['time']},'code'")
             self.inCluster = False
                 
 

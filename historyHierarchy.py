@@ -134,26 +134,24 @@ def get_code_entries(startTime, endTime):
         }
         # Making the get request
         response = requests.get(code_url, params=data)
-        # print(response.json())
-        summaryLine  = get_code_summary(response.json())
+        # print(f"summary: {response.json()}")
+
+        summaryLine = ["not available", "", ""]
+        if len(response.json()) > 0:
+            summaryLine  = get_code_summary(response.json())
 
         return summaryLine
-
-        # if len(summaryLine) == 0:
-        #     return "not available"
-        # else: 
-        #     return summaryLine[0]
 
 
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_techWithTim1.csv')
+searchDF = pd.read_csv('web/data/searchClusters_wordle.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_techWithTim1.csv')
+codeDF = pd.read_csv('web/data/codeCluster_wordle.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type'], axis=1, inplace=True)
 print(codeDF)
 
