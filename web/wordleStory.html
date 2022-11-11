@@ -1,0 +1,2537 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+        <script src="node_modules/diff/dist/diff.js"></script>
+      
+        <link rel="stylesheet" type="text/css" href="node_modules/diff2html/bundles/css/diff2html.min.css"/>
+        <script src="node_modules/diff2html/bundles/js/diff2html.min.js"></script>
+        <script src="//unpkg.com/string-similarity/umd/string-similarity.min.js"></script>
+
+
+        <link rel="stylesheet" href="css/collapsible.css">
+        <link rel="stylesheet" href="css/accordion.css">
+        <link rel="stylesheet" href="css/diff.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/accordion.css" media="screen" /> -->
+    </head>
+
+    <body>
+ 
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Project Description</legend>
+            <div>The goal of this project is to build a clone of the popular online game Wordle</div>
+        </fieldset>
+
+
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Plan implementation strategy</div>
+        </fieldset>
+
+        <button type='button' class='collapsible active'>PLANNING: adding requirements in planning file</button>
+        <div class='content' --start-code='' --end-code='# Functional Requirements
+
+        ## Gameplay
+        
+        6 tries to guess a 5-letter word
+        
+        Typing in the letter will display the letter in the tile
+        Backspace will delete letters
+        Enter will submit guess
+        
+        Guesses must be a real word, “in word list”
+        
+        Guess colors (data-state):
+        
+        - gray: “absent,” letter not in word
+        - yellow: "present," letter in word, but in wrong position
+        - green: "correct," letter in word and in right position
+        
+        Hard Mode: present or correct letters must be used in subsequent guesses
+        
+        ## Design
+        
+        Tiles 5x6
+        Virtual keyboard
+        
+        ## Interactions
+        When typing a letter:
+        - border of the tile changes to light gray
+        - blinking in animation with letter
+        - backspace will remove letter, border changes back to dark gray
+        
+        When submitting guess:
+        
+        - Tiles will flip up and background color will change based on guess
+        '>
+        <p> code content will go here</p>
+        </div>
+        
+        <button type='button' class='collapsible active'>Change project fonts</button>
+        <div class='content' --start-code='root {
+        --font-body: Arial, sans-serif;
+        }
+        ' --end-code=':root {
+        --font-body: "Open Sans", Arial, sans-serif;
+        }
+        '>
+        <p> code content will go here</p>
+        </div>
+        <button type='button' class='collapsible active'>Adjust background color of game board;</button>
+        <div class='content' --start-code='html {
+          font-size: 100%;
+          font-family: var(--font-body);
+          box-sizing: border-box;
+        }
+        
+        *,
+        *::before,
+        *::after {
+        box-sizing: inherit;
+        
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+        ' --end-code='html {
+          font-size: 100%;
+          font-family: var(--font-body);
+          box-sizing: border-box;
+        }
+        
+        *,
+        *::before,
+        *::after {
+        box-sizing: inherit;
+        
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: hsl(240, 3%, 7%);
+          color: hsl(0, 0%, 108%);
+        }'>
+        <p> code content will go here</p>
+        </div>
+        <button type='button' class='collapsible active'>Set game tile styling</button>
+        <div class='content' --start-code='html {
+          font-size: 100%;
+          font-family: var(--font-body);
+          box-sizing: border-box;
+        }
+        
+        *,
+        *::before,
+        *::after {
+          box-sizing: inherit;
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: hsl(240, 3%, 7%);
+          color: hsl(0, 0%, 108%);
+          justify-content: center;
+        }' --end-code='@use "../util" as *;
+        
+        html {
+          font-size: 100%;
+          font-family: var(--font-body);
+          box-sizing: border-box;
+        }
+        
+        *,
+        *::before,
+        *::after {
+          box-sizing: inherit;
+        }
+        
+        body {
+          margin: 0;
+          padding: 1rem 2rem;
+          background-color: hsl(240, 3%, 7%);
+          color: hsl(0, 0%, 100%);
+          display: flex;
+          justify-content: center;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Adjust tile styles</div>
+        </fieldset>
+
+        <button type='button' class='collapsible active'>Adjust width of guess tile;</button>
+        <div class='content' --start-code='@use "../util" as *;
+        
+        .guess {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: rem(3);
+        
+          &__tile {
+            border: rem(2) solid hsl(0, 0%, 46%);
+          }
+        }' --end-code='@use "../util" as *;
+        
+        .guess {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: rem(3);
+          width: rem(300);
+        
+          &__tile {
+            border: rem(2) solid hsl(0, 0%, 46%);
+          }
+        }
+        '>
+        <p> code content will go here</p>
+        </div>
+        <button type='button' class='collapsible active'>Adjust border styling for guess tile</button>
+        <div class='content' --start-code='@use "../util" as *;
+        
+        .guess {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: rem(3);
+          width: rem(300);
+        
+          &__tile {
+            border: rem(2) solid hsl(0, 0%, 46%);
+            width: rem(52);
+            height: rem(52);
+            display: flex;
+            place-items: center;
+          }
+        }
+        ' --end-code='@use "../util" as *;
+        
+        .guess {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: rem(3);
+          width: rem(300);
+        
+          &__tile {
+            border: rem(2) solid hsl(0, 0%, 26%);
+            width: rem(52);
+            height: rem(52);
+            display: flex;
+            place-items: center;
+          }
+        }
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Detect and respond to keypress event</div>
+        </fieldset>
+
+        <button type='button' class='collapsible active'>search: javascript es6 detect keypress</button>
+        <div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(3282)'>javascript detect keypress</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_48_00.png' width='180' height='112'> </td></tr><tr><td>how to detect keypress using javascript?</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(3314)'>javascript es6 detect keypress</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_49_48.png' width='180' height='112'> </td></tr><tr><td>detecting arrow key presses in javascript</td></tr></tbody></table></div>
+        </div>
+        </div>
+
+
+        <button type='button' class='collapsible active'>SCRIPT.JS: detect keypress;</button>
+        <div class='content' --start-code='// detect keypress (letter, backspace, other)
+
+        // Update "letters"
+        
+        // Update tile markup
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */' --end-code='console.log("keypress");
+                
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+        
+          // If a letters
+          // /[a-z]/.test("a");
+          let keypress = e.key;
+          if (keypress.length == 1) {
+            let isLetter = lettersPattern.test(e.key);
+            console.log(isLetter)
+          }
+        
+          // If backspace
+        });
+        
+        // Update "letters"
+        
+        // Update tile markup
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Set up index.html with game elements</div>
+        </fieldset>
+
+        <button type='button' class='collapsible active'>INDEX.HTML: sets up index with sections for game and keyboard</button>
+        <div class='content' --start-code='' --end-code='<!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport” content="width=device-width, initial-scale=1.0" />
+                <title></title>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
+                  rel="stylesheet"
+                />
+                <link rel="stylesheet" href="/dist/style.csvv" />
+                <script defer src="/dist/script.js"></script>
+              </head>
+              <body>  
+                <h1>Wordle Clone</h1>
+                <section class="game">
+                  
+                </section>
+            
+                <section class="keyboard">
+                  
+                </section>
+              </body>
+            </html>'>
+        <p> code content will go here</p>
+        </div>
+
+        <button type='button' class='collapsible active'>INDEX.HTML: Adds elements for guess tiles</button>
+        <div class='content' --start-code='<!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport” content="width=device-width, initial-scale=1.0" />
+                <title></title>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
+                  rel="stylesheet"
+                />
+                <link rel="stylesheet" href="/dist/style.csvv" />
+                <script defer src="/dist/script.js"></script>
+              </head>
+              <body>  
+                <h1>Wordle Clone</h1>
+                <section class="game">
+                  
+                </section>
+            
+                <section class="keyboard">
+                  
+                </section>
+              </body>
+            </html>' --end-code='<!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport” content="width=device-width, initial-scale=1.0" />
+                <title></title>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
+                  rel="stylesheet"
+                />
+                <link rel="stylesheet" href="/dist/style.csvv" />
+                <script defer src="/dist/script.js"></script>
+              </head>
+              <body>
+                <h1>Wordle Clone</h1>
+                <section class="game">
+                  <div class="guess">
+                    <div class="guess__tile"></div>
+                    <div class="guess__tile"></div>
+                    <div class="guess__tile"></div>
+                    <div class="guess__tile"></div>
+                    <div class="guess__tile"></div>
+                  </div>
+                </section>
+            
+                <section class="keyboard">
+            
+                </section>
+              </body>
+            </html>
+            '>
+        <p> code content will go here</p>
+        </div>
+
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Use RegExp to check if key pressed is a letter</div>
+        </fieldset>
+
+        <button type='button' class='collapsible active'>search: regex is string a letter</button>
+        <div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(3364)'>javscript window.event</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_53_13.png' width='180' height='112'> </td></tr><tr><td>Window.event</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(3373)'>onkeypress</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_55_13.png' width='180' height='112'> </td></tr><tr><td>onkeypress</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_56_04.png' width='180' height='112'> </td></tr><tr><td>onkeydown</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_58_02.png' width='180' height='112'> </td></tr><tr><td>Document: keydown event</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(3623)'>javascript keydown detect if letter</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_15_35.png' width='180' height='112'> </td></tr><tr><td>determine if a letter or a number was pressed - javascript</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_24_54.png' width='180' height='112'> </td></tr><tr><td>How to detect if the pressed key will produce a character inside an <input> text-box?</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(3714)'>javascript is string a letter</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_26_53.png' width='180' height='112'> </td></tr><tr><td>How to check if character is a letter in Javascript?</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(3734)'>regex is string a letter</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_36_37.png' width='180' height='112'> </td></tr><tr><td>what is the regex for first character is a letter</td></tr></tbody></table></div>
+        </div>
+        </div>
+        
+        <button type='button' class='collapsible active'>search: flavio javascript test regex</button>
+        <div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(3768)'>regex tester</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_31_44.png' width='180' height='112'> </td></tr><tr><td>RegEx Testing</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_32_09.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>what is the regex for first character is
+        a letter</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_35_29.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>RegEx Testing</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(3816)'>javascript test string regex</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_40_21.png' width='180' height='112'> </td></tr><tr><td>RegExp.prototype.test()</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_41_30.png' width='180' height='112'> </td></tr><tr><td>JavaScript RegExp test()</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_51_47.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>RegEx Testing</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-16_58_45.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>RegEx Testing</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4077)'>regex contains letters</a></span></div><hr>
+        <div class='webImageLongRow'>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4086)'>regex contains only letters</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_01_09.png' width='180' height='112'> </td></tr><tr><td>regex to match only letters</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4121)'>regex contains letters not numbers</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_03_14.png' width='180' height='112'> </td></tr><tr><td>how do I get only letters in regex?</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_04_30.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>RegEx Testing</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4162)'>javascript test regex</a></span></div><hr>
+        <div class='webImageLongRow'>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4170)'>flavio javascript test regex</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_06_43.png' width='180' height='112'> </td></tr><tr><td>A guide to JavaScript Regular Expressions</td></tr></tbody></table></div>
+        </div>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+
+        <button type='button' class='collapsible active'>SCRIPT.JS: Adds RegExp to see if key pressed is a letter</button>
+        <div class='content' --start-code='console.log("keypress");
+
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", () => {
+          console.log("keypress");
+        
+          // If a letters
+          
+          // If backspace
+        });
+        
+        // Update "letters"
+        
+        // Update tile markup
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+        
+          // If a letters
+          // /[a-z]/.test("a");
+          let keypress = e.key;
+          if (keypress.length == 1) {
+            let isLetter = lettersPattern.test(e.key);
+            console.log(isLetter)
+          }
+        
+          // If backspace
+        });
+        
+        // Update "letters"
+        
+        // Update tile markup
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+
+        <button type='button' class='collapsible active'>search: How to store data variable in HTML</button><div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(4620)'>data</a></span></div><hr>
+        <div class='webImageLongRow'>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4622)'>data attribute</a></span></div><hr>
+        <div class='webImageLongRow'>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4632)'>javascript store data in html</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_36_04.png' width='180' height='112'> </td></tr><tr><td>store data locally using html and javascript</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(4663)'>javascript set data attribute html</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_37_45.png' width='180' height='112'> </td></tr><tr><td>how to set the data attribute of an element with javascript?</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_38_52.png' width='180' height='112'> </td></tr><tr><td>using data attributes</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-17_40_30.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to set the data attribute of an element with javascript?</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-19-12_31_57.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>A guide to JavaScript Regular Expressions</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(5007)'>function</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-19-12_35_16.png' width='180' height='112'> </td></tr><tr><td>a tutorial to javascript arrow functions</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-19-12_37_48.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>a tutorial to javascript arrow functions</td></tr></tbody></table></div>
+        </div>
+        </div>
+        
+        <button type='button' class='collapsible active'>SCRIPT.JS: updates tiles with letter when key pressed is a letter</button>
+        <div class='content' --start-code='console.log("keypress");
+        
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuess = 1;
+        let currentLetters = document.querySelector("#guess" + currentGuess);
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+        
+          // If keypress is string of length 1, and is a letter
+          let keypress = e.key;
+          if (keypress.length == 1) {
+            let isLetter = lettersPattern.test(e.key);
+            console.log(isLetter)
+          }
+        
+          // If backspace
+        });
+        
+        // Update "letters"
+        
+        // Update tile markup
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+        
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        let currentLetters = currentGuess.dataset.letters;
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+        
+          // If keypress is string of length 1, and is a letter
+          let keypress = e.key;
+          if (keypress.length == 1 && lettersPattern.test(e.key)) {
+            console.log("is letter")
+            updateLetters(keypress);
+          }
+        
+          // If backspace
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          console.log(
+            "updateLetters = " + letters,
+            "\ncurrentGuess = " + currentGuess,
+            "\ncurrentLetters = " + currentLetters
+          );
+          currentLetters = currentLetters + letter;
+          console.log("updated currentLetters = " + currentLetters);
+        }
+        
+        // Update tile markup
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+       
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Update HTML markup when letter is updated</div>
+        </fieldset>
+
+        <button type='button' class='collapsible active'>SCRIPT.JS: updates html markup when letter is updated</button>
+        <div class='content' --start-code='console.log("keypress");
+        
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+        
+          // If keypress is string of length 1, and is a letter
+          let keypress = e.key;
+          if (keypress.length == 1 && lettersPattern.test(e.key)) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          }
+        
+          // If backspace
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let letters = currentGuess.dataset.letters;
+          let tileNumber = (currentGuess.dataset.letters= letters + letter)
+          updateTiles()
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {}
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+        
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+        
+          // If keypress is string of length 1, and is a letter
+          let keypress = e.key;
+          if (keypress.length == 1 && lettersPattern.test(e.key)) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          }
+        
+          // If backspace
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber)
+          ;
+          currentTile.innerText = letter;
+        }
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+
+        <button type='button' class='collapsible active'>SCRIPT.JS: handles backspace event</button>
+        <div class='content' --start-code='console.log("keypress");
+
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          // If keypress is string of length 1, and is a letter
+          if (keypress.length == 1 && lettersPattern.test(e.key)) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          }
+          else if(e.key == "Backspace"){
+            console.log("is backspace");
+          }
+        
+          // If backspace
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        }
+        
+        // Delete last letter
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (keypress.length == 1 && lettersPattern.test(e.key)) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace"){
+            console.log("is backspace");
+            deleteFromLetters();
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Select random word from array of potential words to be word for a game</div>
+        </fieldset>
+
+        <button type='button' class='collapsible active'>SEARCH: shuffle javascript array</button>
+        <div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(6288)'>javascript set content of div</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-09_37_59.png' width='180' height='112'> </td></tr><tr><td>How can I change div content with JavaScript?</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(6311)'>javascript innertext</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-09_41_00.png' width='180' height='112'> </td></tr><tr><td>HTMLElement innerText</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(6742)'>javascript remove last character from string</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-13_43_36.png' width='180' height='112'> </td></tr><tr><td>How to remove the last character of a string in JavaScript</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(7509)'>javascript, array</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_25_48.png' width='180' height='112'> </td></tr><tr><td>an introduction to javascript arrays</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_29_27.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>an introduction to javascript arrays</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(7690)'>javascript array</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_32_52.png' width='180' height='112'> </td></tr><tr><td>how to shuffle elements in a javascript array</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_34_24.png' width='180' height='112'> </td></tr><tr><td>Array prototype sort</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_36_38.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Array prototype sort</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_39_58.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Array prototype sort</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_42_48.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Array prototype sort</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-21-14_43_34.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to shuffle elements in a javascript array</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_01_20.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to shuffle elements in a javascript array</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_05_04.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to shuffle elements in a javascript array</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_10_47.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Array prototype sort</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_12_56.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to shuffle elements in a javascript array</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_13_34.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Array prototype sort</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_14_22.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to shuffle elements in a javascript array</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_15_46.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Array prototype sort</td></tr></tbody></table></div>
+        </div>
+        </div>
+
+        <button type='button' class='collapsible active'>SCRIPT.JS: add list of words and shuffle</button>
+        <div class='content' --start-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["baker", "store", "horse", "speak", "clone", "apple", "bread"];
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          
+        }
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            console.log("is backspace");
+            deleteFromLetters();
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["baker", "store", "horse", "speak", "clone", "apple", "bread"];
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          words = words = words.sort(() => Math.random() - 0.5);
+          console.log("words = " + words);
+        };
+        
+        
+        chooseWord();
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            console.log("is backspace");
+            deleteFromLetters();
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        <button type='button' class='collapsible active'>SCRIPT.JS: select first element from shuffled array</button>
+        <div class='content' --start-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["baker", "store", "horse", "speak", "clone", "apple", "bread"];
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          words = words = words.sort(() => Math.random() - 0.5);
+          console.log("words = " + words);
+        };
+        
+        
+        chooseWord();
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            console.log("is backspace");
+            deleteFromLetters();
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */' --end-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["baker", "store", "horse", "speak", "clone", "apple", "bread"];
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          words = words = words.sort(() => Math.random() - 0.5);
+          console.log("words = " + words);
+          let solutionWord = words[0];
+          console.log("solution word = " + solutionWord);
+        };
+        
+        chooseWord();
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            console.log("is backspace");
+            deleteFromLetters();
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+
+        <button type='button' class='collapsible active'>SCRIPT.JS: changes random selection algorithm</button>
+        <div class='content' --start-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["baker", "store", "horse", "speak", "clone", "apple", "bread"];
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          words = words = words.sort(() => Math.random() - 0.5);
+          console.log("words = " + words);
+          let solutionWord = words[0];
+          console.log("solution word = " + solutionWord);
+        };
+        
+        chooseWord();
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            console.log("is backspace");
+            deleteFromLetters();
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          //Math.floor(Math.random() * 3) + 1
+          let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+          console.log("words = " + words);
+          let solutionWord = words[randomItem];
+          console.log("solution word = " + solutionWord);
+        };
+        
+        chooseWord();
+        
+        // detect keypress (letter, backspace, other)
+        document.addEventListener("keydown", (e) => {
+          console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            console.log("is backspace");
+            deleteFromLetters();
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Change color of tile based on whether it is correct or present in solution word</div>
+        </fieldset>
+        
+        <button type='button' class='collapsible active'>search: javascript switch</button>
+        <div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(8062)'>run function on page load</a></span></div><hr>
+        <div class='webImageLongRow'>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(8067)'>page load</a></span></div><hr>
+        <div class='webImageLongRow'>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(8072)'>javascript run function on page load</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_24_06.png' width='180' height='112'> </td></tr><tr><td>How to run a function when the page is loaded?</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_25_34.png' width='180' height='112'> </td></tr><tr><td>how do I call a javascript function on page load?</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(8101)'>window.onload</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_27_11.png' width='180' height='112'> </td></tr><tr><td>javascript when to use window.onload</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(8252)'>javascript random number</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_48_18.png' width='180' height='112'> </td></tr><tr><td>Math.random()</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-22-17_50_50.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Math.random()</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(8861)'>javascript get character from string based on position</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-14_31_24.png' width='180' height='112'> </td></tr><tr><td>javascript string charat()</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(8879)'>javascript charat</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-14_32_46.png' width='180' height='112'> </td></tr><tr><td>string prototype charat</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(9084)'>javascript for loop</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-14_43_22.png' width='180' height='112'> </td></tr><tr><td>for javascript</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(9299)'>javascript string contains</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-14_51_41.png' width='180' height='112'> </td></tr><tr><td>javascript string contains how to use javascript includes</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-14_52_34.png' width='180' height='112'> </td></tr><tr><td>javascript string includes</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(9915)'>javascript switch</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-15_22_14.png' width='180' height='112'> </td></tr><tr><td>switch javascript</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-15_23_18.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>switch javascript</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-15_26_45.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>switch javascript</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-23-15_27_59.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>switch javascript</td></tr></tbody></table></div>
+        </div>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+        <button type='button' class='collapsible active'>STYLE: create styles for tile color depending on its correctness</button>
+        <div class='content' --start-code='@use "../util" as *;
+        
+        .guess {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: rem(3);
+          width: rem(300);
+        
+          &__tile {
+            border: rem(2) solid hsl(0, 0%, 26%);
+            width: rem(52);
+            height: rem(52);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: rem(32);
+            font-weight: 600;
+          }
+        
+          .correct {
+        
+          }
+        
+          .present {
+        
+          }
+        
+          .absent {
+        
+          }
+        }
+        ' --end-code='@use "../util" as *;
+        
+        .guess {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: rem(3);
+          width: rem(300);
+        
+          &__tile {
+            border: rem(2) solid hsl(0, 0%, 26%);
+            width: rem(52);
+            height: rem(52);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: rem(32);
+            font-weight: 600;
+          }
+        
+          .correct {
+            .background-color : hsl(120, 100%, 28%);
+          }
+        
+          .present {
+            .background-color : hsl(49, 51%, 47%);
+          }
+        
+          .absent {
+            .background-color : hsl(0, 0%, 35%);
+          }
+        }
+        '>
+        <p> code content will go here</p>
+        </div>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Update tiles classList to trigger css color change</button>
+        <div class='content' --start-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+        let solutionWord = "";
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+          let solutionWord = words[randomItem];
+        };
+        
+        chooseWord();
+        console.log("solution word = " + solutionWord);
+        
+        // detect keypress (letter, backspace, enter, other)
+        document.addEventListener("keydown", (e) => {
+          //console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            //console.log("is backspace");
+            deleteFromLetters();
+          } else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
+            console.log("submit guess");
+            for (let i = 0; i < 5; i ++) {
+              revealTile(i, checkLetter(i));
+            }
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          //console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          //console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          //console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        // Check letter to solution
+        // parameter = letter position in word
+        const checkLetter = (position) => {
+          //console.log("checkLetter");
+          let guessedLetter = curentGuess.dataset.letters.charAt(position);
+          let solutionLetter = solutionWord.charAt(position);
+          //console.log(guessedLetter, solutionLetter);
+        
+          // If letters match, return "correct"
+          if(guessedLetter == solutionLetter){
+            return "correct";
+          }
+          // If not a match, if letter exists in solution word, return "present"
+          else {
+            return checkLetterExists(guessedLetter) ? "present" : "absent";
+          }
+        
+          // If not a match, if letter doesn"t exist in solution, return "absent"
+        };
+        
+        const checkLetterExists = (letter) => {
+          return solutionWord.includes(letter);
+        };
+        
+        const revealTile = (status) => {
+          switch(status){
+            case "correct":
+        
+            case "present":
+        
+            case "absent":
+          }
+        }
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+        let solutionWord = "";
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+          let solutionWord = words[randomItem];
+        };
+        
+        chooseWord();
+        console.log("solution word = " + solutionWord);
+        
+        // detect keypress (letter, backspace, enter, other)
+        document.addEventListener("keydown", (e) => {
+          //console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            //console.log("is backspace");
+            deleteFromLetters();
+          } else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
+            console.log("submit guess");
+            for (let i = 0; i < 5; i ++) {
+              revealTile(i, checkLetter(i));
+            }
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          //console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          //console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          //console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        // Check letter to solution
+        // parameter = letter position in word
+        const checkLetter = (position) => {
+          //console.log("checkLetter");
+          let guessedLetter = curentGuess.dataset.letters.charAt(position);
+          let solutionLetter = solutionWord.charAt(position);
+          //console.log(guessedLetter, solutionLetter);
+        
+          // If letters match, return "correct"
+          if(guessedLetter == solutionLetter){
+            return "correct";
+          }
+          // If not a match, if letter exists in solution word, return "present"
+          else {
+            return checkLetterExists(guessedLetter) ? "present" : "absent";
+          }
+        
+          // If not a match, if letter doesn"t exist in solution, return "absent"
+        };
+        
+        const checkLetterExists = (letter) => {
+          return solutionWord.includes(letter);
+        };
+        
+        const revealTile = (i, status) => {
+          console.log("revealTile = " + i, status);
+          let tileNum = i + 1;
+          let tile = document.querySelector("#guessTile" + tileNum);
+        
+          if (status == "correct") {
+            tile.classList.add("correct");
+          } else if (status == "present") {
+            tile.classList.add("present");
+          } else if (status == ‘absent") {
+            tile.classList.add("‘absent");
+          }
+        };
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Get color of tile to change during flip so that user doesn't see the color change</div>
+          </fieldset>
+
+
+        <button type='button' class='collapsible active'>PLANNING: adds goals for desired functionality in planning document</button>
+        <div class='content' --start-code='# Functional Requirements
+        
+        ## Gameplay
+        
+        6 tries to guess a 5-letter word
+        
+        ### Pick a solution word
+        
+        x Store solution words in array
+        x When game is loaded, choose random item from array
+        x Set solution to that word
+        
+        ### Making a guess
+        
+        Detect keypresses
+        
+        x if keypress is a letter
+        x update "letters" attribute
+        x update tile markup based on "letters" value
+        
+        x if keypress is backspace
+        x delete last letter in “letters”
+        x update tile markup based on "letters"
+        
+        x Don"t run update functions if "letters" length = 4;
+        
+        ### Submit guess
+        
+        x Pressing Enter will submit guess
+        
+        - compare each letter with the corresponding letter in solution word
+        - update the state/color of the letter
+        - If all letters are “correct” / green, game is won
+        
+        Guesses must be a real word, “in word list”
+        
+        Guess colors (data-state):
+        
+        - gray: “absent,” letter not in word
+        - yellow: "present," letter in word, but in wrong position
+        - green: "correct," letter in word and in right position
+        
+        Hard Mode: present or correct letters must be used in subsequent guesses
+        
+        Guesses are saved in Local Storage
+        
+        ## Design
+        
+        Tiles 5x6
+        Virtual keyboard
+        
+        ## Interactions
+        When typing a letter:
+        
+        - border of the tile changes to light gray
+        - blinking in animation with letter
+        - backspace will remove letter, border changes back to dark gray
+        
+        When submitting guess:
+        
+        - Tiles will flip up and background color will change based on guess
+        - Slight delay between each tile flipping
+        ' --end-code='# Functional Requirements
+        
+        ## Gameplay
+        
+        6 tries to guess a 5-letter word
+        
+        ### Pick a solution word
+        
+        x Store solution words in array
+        x When game is loaded, choose random item from array
+        x Set solution to that word
+        
+        ### Making a guess
+        
+        Detect keypresses
+        
+        x if keypress is a letter
+        x update "letters" attribute
+        x update tile markup based on "letters" value
+        
+        x if keypress is backspace
+        x delete last letter in “letters”
+        x update tile markup based on "letters"
+        
+        x Don"t run update functions if "letters" length = 4;
+        
+        ### Submit guess
+        
+        x Pressing Enter will submit guess
+        
+        - compare each letter with the corresponding letter in solution word
+        - update the state/color of the letter
+        - If all letters are “correct” / green, game is won
+        
+        Guesses must be a real word, “in word list”
+        
+        Guess colors (data-state):
+        
+        - gray: “absent,” letter not in word
+        - yellow: "present," letter in word, but in wrong position
+        - green: "correct," letter in word and in right position
+        
+        Hard Mode: present or correct letters must be used in subsequent guesses
+        
+        Guesses are saved in Local Storage
+        
+        ## Design
+        
+        Tiles 5x6
+        Virtual keyboard
+        
+        ## Interactions
+        When typing a letter:
+        
+        - border of the tile changes to light gray
+        - blinking in animation with letter
+        - backspace will remove letter, border changes back to dark gray
+        
+        When submitting guess:
+        
+        - Tiles will flip up and background color will change based on guess
+        - Slight delay between each tile flipping
+        - Background color changes when tile is flat, i.e. can"t see it
+        '>
+        <p> code content will go here</p>
+        </div>
+        <button type='button' class='collapsible active'>search: css transform mirror</button><div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(11207)'>css flip</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-16_57_24.png' width='180' height='112'> </td></tr><tr><td>pure css flip card</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(11320)'>css transform mirror</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-17_04_14.png' width='180' height='112'> </td></tr><tr><td>how to flip an image (add a mirror effect) with CSS?</td></tr></tbody></table></div>
+        </div>
+        </div>
+        
+        <button type='button' class='collapsible active'>STYLE: Adds flip css classes</button>
+        <div class='content' --start-code='@keyframes flip-in {
+          from {
+            transform: rotateX(0deg);
+          }
+          to {
+            transform: rotateX(-90deg);
+          }
+        }
+        
+        @keyframes flip-out {
+          from {
+            transform: rotateX(-90deg);
+          }
+          to {
+            transform: rotateX(0deg);
+          }
+        }
+        ' --end-code='@keyframes flip-in {
+          from {
+            transform: rotateX(0deg);
+          }
+          to {
+            transform: rotateX(-90deg);
+          }
+        }
+        
+        @keyframes flip-out {
+          from {
+            transform: rotateX(-90deg);
+          }
+          to {
+            transform: rotateX(0deg);
+          }
+        }
+        
+        .flip-in {
+          animation: flip-in 500ms;
+        }
+        
+        .flip-out {
+          animation: flip-out 500ms;
+        }'>
+        <p> code content will go here</p>
+        </div>
+        <button type='button' class='collapsible active'>SCRIPT.JS: adds to tile classList in flipTile</button>
+        <div class='content' --start-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+        let solutionWord = "";
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+          let solutionWord = words[randomItem];
+        };
+        
+        chooseWord();
+        console.log("solution word = " + solutionWord);
+        
+        // detect keypress (letter, backspace, enter, other)
+        document.addEventListener("keydown", (e) => {
+          //console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            //console.log("is backspace");
+            deleteFromLetters();
+          } else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
+            console.log("submit guess");
+            for (let i = 0; i < 5; i ++) {
+              revealTile(i, checkLetter(i));
+            }
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          //console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          //console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          //console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        // Check letter to solution
+        // parameter = letter position in word
+        const checkLetter = (position) => {
+          //console.log("checkLetter");
+          let guessedLetter = curentGuess.dataset.letters.charAt(position);
+          let solutionLetter = solutionWord.charAt(position);
+          //console.log(guessedLetter, solutionLetter);
+        
+          // If letters match, return "correct"
+          if(guessedLetter == solutionLetter){
+            return "correct";
+          }
+          // If not a match, if letter exists in solution word, return "present"
+          else {
+            return checkLetterExists(guessedLetter) ? "present" : "absent";
+          }
+        
+          // If not a match, if letter doesn"t exist in solution, return "absent"
+        };
+        
+        const checkLetterExists = (letter) => {
+          return solutionWord.includes(letter);
+        };
+        
+        const revealTile = (i, state) => {
+          console.log("revealTile = " + i, state);
+          let tileNum = i + 1;
+          //let tile = document.querySelector("#guessTile" + tileNum);
+          //
+          //if (status == "correct") {
+          //  tile.classList.add("correct");
+          //} else if (status == "present") {
+          //  tile.classList.add("present");
+          //} else if (status == ‘absent") {
+          //  tile.classList.add("‘absent");
+          //}
+        
+          flipTile(tileNum, state);
+        };
+        
+        const flipTile = (tileNum, state) => {
+          let tile = document.querySelector("#guessTile" + tileNum);
+          tile.classList.add("flip-in");
+        };
+        
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+        let solutionWord = "";
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+          let solutionWord = words[randomItem];
+        };
+        
+        chooseWord();
+        console.log("solution word = " + solutionWord);
+        
+        // detect keypress (letter, backspace, enter, other)
+        document.addEventListener("keydown", (e) => {
+          //console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            //console.log("is backspace");
+            deleteFromLetters();
+          } else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
+            console.log("submit guess");
+            for (let i = 0; i < 5; i ++) {
+              revealTile(i, checkLetter(i));
+            }
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          //console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          //console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          //console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        // Check letter to solution
+        // parameter = letter position in word
+        const checkLetter = (position) => {
+          //console.log("checkLetter");
+          let guessedLetter = curentGuess.dataset.letters.charAt(position);
+          let solutionLetter = solutionWord.charAt(position);
+          //console.log(guessedLetter, solutionLetter);
+        
+          // If letters match, return "correct"
+          if(guessedLetter == solutionLetter){
+            return "correct";
+          }
+          // If not a match, if letter exists in solution word, return "present"
+          else {
+            return checkLetterExists(guessedLetter) ? "present" : "absent";
+          }
+        
+          // If not a match, if letter doesn"t exist in solution, return "absent"
+        };
+        
+        const checkLetterExists = (letter) => {
+          return solutionWord.includes(letter);
+        };
+        
+        const revealTile = (i, state) => {
+          console.log("revealTile = " + i, state);
+          let tileNum = i + 1;
+          //let tile = document.querySelector("#guessTile" + tileNum);
+          //
+          //if (status == "correct") {
+          //  tile.classList.add("correct");
+          //} else if (status == "present") {
+          //  tile.classList.add("present");
+          //} else if (status == ‘absent") {
+          //  tile.classList.add("‘absent");
+          //}
+        
+          flipTile(tileNum, state);
+        };
+        
+        const flipTile = (tileNum, state) => {
+          let tile = document.querySelector("#guessTile" + tileNum);
+          tile.classList.add("flip-in");
+          tile.classList.add(state);
+          tile.classList.add("flip-out");
+        };
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+
+        <button type='button' class='collapsible active'>search: css animation end state</button><div class='content'>
+            <div class='title'><span><a href='javascript:' onclick='seek(12705)'>css animation end state</a></span></div><hr>
+            <div class='webImageLongRow'>
+                    <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-25-16_53_03.png' width='180' height='112'> </td></tr><tr><td>maintaining the final state at end of a css3 animation</td></tr></tbody></table></div>
+                    <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-25-16_54_33.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>an interactive guide to keyframe animations</td></tr></tbody></table></div>
+            </div>
+            </div>
+
+        
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Add delay between tiles flipping</div>
+          </fieldset>
+
+
+        <button type='button' class='collapsible active'>Add setTimeout function for delay</button>
+        <div class='content' --start-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+        let solutionWord = "";
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+          let solutionWord = words[randomItem];
+        };
+        
+        chooseWord();
+        console.log("solution word = " + solutionWord);
+        
+        // detect keypress (letter, backspace, enter, other)
+        document.addEventListener("keydown", (e) => {
+          //console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            //console.log("is backspace");
+            deleteFromLetters();
+          } else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
+            console.log("submit guess");
+            for (let i = 0; i < 5; i ++) {
+              revealTile(i, checkLetter(i));
+            }
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          //console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          //console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          //console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        // Check letter to solution
+        // parameter = letter position in word
+        const checkLetter = (position) => {
+          //console.log("checkLetter");
+          let guessedLetter = curentGuess.dataset.letters.charAt(position);
+          let solutionLetter = solutionWord.charAt(position);
+          //console.log(guessedLetter, solutionLetter);
+        
+          // If letters match, return "correct"
+          if(guessedLetter == solutionLetter){
+            return "correct";
+          }
+          // If not a match, if letter exists in solution word, return "present"
+          else {
+            return checkLetterExists(guessedLetter) ? "present" : "absent";
+          }
+        
+          // If not a match, if letter doesn"t exist in solution, return "absent"
+        };
+        
+        const checkLetterExists = (letter) => {
+          return solutionWord.includes(letter);
+        };
+        
+        const revealTile = (i, state) => {
+          console.log("revealTile = " + i, state);
+          let tileNum = i + 1;
+          //let tile = document.querySelector("#guessTile" + tileNum);
+          //
+          //if (status == "correct") {
+          //  tile.classList.add("correct");
+          //} else if (status == "present") {
+          //  tile.classList.add("present");
+          //} else if (status == ‘absent") {
+          //  tile.classList.add("‘absent");
+          //}
+        
+          flipTile(tileNum, state);
+        };
+        
+        const flipTile = (tileNum, state) => {
+          let tile = document.querySelector("#guessTile" + tileNum);
+          tile.classList.add("flip-in");
+          tile.classList.add(state);
+          tile.classList.remove("flip-in").add("flip-out");
+        };
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        ' --end-code='console.log("keypress");
+        const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+        let currentGuessCount = 1;
+        let currentGuess = document.querySelector("#guess" + currentGuess);
+        const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+        let solutionWord = "";
+        
+        const chooseWord = () => {
+          // choose random item from words array
+          let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+          let solutionWord = words[randomItem];
+        };
+        
+        chooseWord();
+        console.log("solution word = " + solutionWord);
+        
+        // detect keypress (letter, backspace, enter, other)
+        document.addEventListener("keydown", (e) => {
+          //console.log("keypress: " + e.key);
+          let keypress = e.key;
+          if (
+            keypress.length == 1 &&
+            lettersPattern.test(e.key) &&
+            currentGuess.dataset.letters.length < 5
+          ) {
+            //console.log("is letter")
+            updateLetters(keypress);
+          } else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+            //console.log("is backspace");
+            deleteFromLetters();
+          } else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
+            console.log("submit guess");
+            for (let i = 0; i < 5; i ++) {
+              revealTile(i, checkLetter(i));
+            }
+          }
+        });
+        
+        // Update "letters"
+        const updateLetters = (letter) => {
+          let oldLetters = currentGuess.dataset.letters
+          let newLetters = oldLetters + letter;
+          let currentTile = newLetters.length;
+          currentGuess.dataset.letters = newLetters;
+          //console.log("currentTile = " + currentTile);
+          updateTiles(currentTile, letter);
+        };
+        
+        // Update tile markup
+        const updateTiles = (tileNumber, letter) => {
+          //console.log("updateTiles(" + tileNumber, letter + ")");
+          let currentTile = document.querySelector("#guessTile" + tileNumber);
+          currentTile.innerText = letter;
+        };
+        
+        // Backspace -- Delete last letter
+        const deleteFromLetters = () => {
+          // remove last letter from data-letters
+          let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+          console.log("oldLetters = " + oldLetters);
+          let newLetters = oldLetters.slice(0, -1);
+          console.log("newLetters = " + newLetters);
+          currentGuess.dataset.letters = newLetters;
+          deleteFromTiles(oldLetters.length + 1);
+        };
+        
+        // Backspace -- Delete last tile markup
+        const deleteFromTiles = () => {
+          //remove markup from last tile
+          //console.log("deleteFromTiles = " + tileNumber);
+          document.querySelector("#guessTile" + tileNumber).innerText = "";
+        };
+        
+        // Check letter to solution
+        // parameter = letter position in word
+        const checkLetter = (position) => {
+          //console.log("checkLetter");
+          let guessedLetter = curentGuess.dataset.letters.charAt(position);
+          let solutionLetter = solutionWord.charAt(position);
+          //console.log(guessedLetter, solutionLetter);
+        
+          // If letters match, return "correct"
+          if(guessedLetter == solutionLetter){
+            return "correct";
+          }
+          // If not a match, if letter exists in solution word, return "present"
+          else {
+            return checkLetterExists(guessedLetter) ? "present" : "absent";
+          }
+        
+          // If not a match, if letter doesn"t exist in solution, return "absent"
+        };
+        
+        const checkLetterExists = (letter) => {
+          return solutionWord.includes(letter);
+        };
+        
+        const revealTile = (i, state) => {
+          console.log("revealTile = " + i, state);
+          let tileNum = i + 1;
+          //let tile = document.querySelector("#guessTile" + tileNum);
+          //
+          //if (status == "correct") {
+          //  tile.classList.add("correct");
+          //} else if (status == "present") {
+          //  tile.classList.add("present");
+          //} else if (status == ‘absent") {
+          //  tile.classList.add("‘absent");
+          //}
+        
+          flipTile(tileNum, state);
+        };
+        
+        const flipTile = (tileNum, state) => {
+          let tile = document.querySelector("#guessTile" + tileNum);
+          tile.classList.add("flip-in");
+          setTimeout(() => {
+            tile.classList.add(state);
+          }, 500);
+          setTimeout(() => {
+            tile.classList.remove("flip-in");
+            tile.classList.add("flip-out");
+          }, 1000);
+        };
+        /*
+        - if keypress is a letter
+          - update "letters" attribute
+            - update tile markup based on "letters" value
+        - if keypress is backspace
+          - delete last letter in “letters”
+            - update tile markup based on "letters"
+        */
+        '>
+        <p> code content will go here</p>
+        </div>
+
+        
+
+
+
+        <button type='button' class='collapsible active'>search: javascript es6 syntax settimeout</button>
+        <div class='content'>
+        <div class='title'><span><a href='javascript:' onclick='seek(12252)'>javascript delay</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-18_04_39.png' width='180' height='112'> </td></tr><tr><td>javascript delay</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-18_08_08.png' width='180' height='112'> </td></tr><tr><td>javascript settimeout() - js timer to delay n seconds</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(12293)'>javascript settimeout</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-18_10_00.png' width='180' height='112'> </td></tr><tr><td>setTimeout()</td></tr></tbody></table></div>
+        </div>
+        <div class='title'><span><a href='javascript:' onclick='seek(12325)'>javascript es6 syntax settimeout</a></span></div><hr>
+        <div class='webImageLongRow'>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-18_14_38.png' width='180' height='112'> </td></tr><tr><td>"settimeout es6" Code Answer's</td></tr></tbody></table></div>
+                <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-18_16_26.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>"settimeout es6" Code Answer's</td></tr></tbody></table></div>
+        </div>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+       
+
+
+        <!-- <script type="text/javascript" src="data/repeatVisits.json"></script> -->
+        <script type="text/javascript" src="js/youtube.js"></script>
+        <script type="text/javascript" src="js/overview.js"></script>
+        <script type="text/javascript" src="js/accordion.js"></script>
+
+        <script>
+            // includeHTML();
+            // initCollapsibles();
+            // document.addEventListener("DOMContentLoaded", initCollapsibles);
+        
+            function initCollapsibles() {
+        
+              var coll = document.getElementsByClassName("collapsible");
+              var i;
+              
+              console.log("adding listeners....")
+              for (i = 0; i < coll.length; i++) {
+                console.log("adding listener to " + coll[i]);
+                coll[i].addEventListener("click", function() {
+                  this.classList.toggle("active");
+                  var content = this.nextElementSibling;
+                  if (content.style.display === "block") {
+                    content.style.display = "none";
+                    // console.log("closed")
+                  } else {
+                    content.style.display = "block";
+                    console.log(content)
+              
+                    var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:100});
+                    console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
+              
+                    var addition = "";
+                    diff.split("\n").forEach(part => {
+                      if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
+                        addition = part
+                      }
+                      console.log(part.length + " " + part)
+                    })
+                    // this.textContent = addition
+                    var diffHtml = Diff2Html.html(diff, {
+                        drawFileList: false,
+                        //matching: 'words',
+                        outputFormat: 'side-by-side',
+                    });
+                    content.querySelector("p").innerHTML = diffHtml;
+                  }
+                });
+              }
+            }
+          </script>
+    </body>
+
+</html>
