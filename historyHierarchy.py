@@ -17,8 +17,12 @@ def get_search_overview_html(responseEntries):
 # </div>
     html = "<div class='content'>\n"
     firstSearch = true
+
+    # print("Search NOTES: " + str(responseEntries))
+
     for i in range (0, len(responseEntries)):
         notes = responseEntries[i]['notes']
+
         if (notes.startswith("search:")):
 
             start = notes.index("search:") + 8
@@ -86,6 +90,8 @@ def get_search_entries(startTime, endTime, html):
         # print(response.json())
         # html += get_search_overview_html(response.json())
 
+        # timeRange = "<p> " + str(startTime) + "-" + str(endTime) + "</p>"
+
         return [get_search_summary(response.json()), get_search_overview_html(response.json())]
 
 
@@ -146,12 +152,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_wordle.csv')
+searchDF = pd.read_csv('web/data/searchClusters_techWithTim1.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_wordle.csv')
+codeDF = pd.read_csv('web/data/codeCluster_techWithTim1.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type'], axis=1, inplace=True)
 print(codeDF)
 
@@ -169,13 +175,15 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         startTime = searchDF.iloc[searchIdx]['startTime']
         endTime = searchDF.iloc[searchIdx]['endTime']
         [searchSummary, newHtml] = get_search_entries(startTime, endTime, html)
+
+        # print(f"newHTML {newHtml}")
         end = 0
         try:
             end = searchSummary.index(";")
         except:
             end = len(searchSummary)
         
-        html += "<button type='button' class='collapsible active'>" + searchSummary[0:end] + "</button>"
+        html += "<button type='button' class='collapsible active'>" + searchSummary[0:end] + "</button>\n"
         html += newHtml + "\n"
 
         print(f"'parent','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']},{searchSummary}")       
@@ -191,6 +199,9 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
 
                 startingCode = startingCode.replace('\'', '"')
                 endingCode = endingCode.replace('\'', '"')
+
+                # startingCode = "this is the starting code"
+                # endingCode = "this is the ending code"
 
                 if len(codeSummary) == 0:
                     codeSummary = "not available"
@@ -218,16 +229,27 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         startingCode = startingCode.replace('\'', '"')
         endingCode = endingCode.replace('\'', '"')
 
+        # startingCode = "this is the starting code"
+        # endingCode = "this is the ending code"
+
         if len(codeSummary) == 0:
             codeSummary = "not available"
-        html += "<button type='button' class='collapsible active'>" + codeSummary + "</button>\n"
-        html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
-        html += "<p> code content will go here</p>\n"
+     
+        # print("\ncodecluster html: " + "<button type='button' class='collapsible active'>" + codeSummary)
+        codeClusterHtml = "<button type='button' class='collapsible active'>" 
+        codeClusterHtml +=  codeSummary + "\n"
+        codeClusterHtml +=  "</button>" + "\n"
+        codeClusterHtml += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
+        codeClusterHtml += "<p> code content will go here</p>\n"
+
+        html += codeClusterHtml
         
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
+        print(codeClusterHtml)
 
         addedSearch = false
         while (searchDF.iloc[searchIdx]["startTime"] < codeDF.iloc[codeIdx]["endTime"] ):
+            # html += "<p> adding a subcluster</p>\n"
             startTime = searchDF.iloc[searchIdx]['startTime']
             endTime = searchDF.iloc[searchIdx]['endTime']
 
