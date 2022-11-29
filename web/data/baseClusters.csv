@@ -1,182 +1,208 @@
 ,eventID,time,filename,type,page,clusterID
-0,5,139,search: wordle; searches for wordle to show eventual website design,search, wordle; searches for wordle to show eventual website design,0
-1,6,143,"visit: wordle; showing website to viewers, giving demonstration",visit," wordle; showing website to viewers, giving demonstration",0
-2,10,406,revisit: wordle; looking at styles underneath,revisit, wordle; looking at styles underneath,0
-3,13,516,revisit: wordle; looking at styles,revisit, wordle; looking at styles,0
-4,15,539,revisit: wordle;,revisit, wordle;,0
-5,17,631,revisit: wordle,revisit, wordle,0
-6,19,642,revisit: wordle,revisit, wordle,0
-7,21,682,revisit: wordle;,revisit, wordle;,0
-8,23,721,revisit: wordle;,revisit, wordle;,0
-9,25,874,revisit: wordle;,revisit, wordle;,0
-10,27,1043,search: clear sans; let's see if this is a google font or not,search, clear sans; let's see if this is a google font or not,1
-11,28,1052,search: google fonts; reframes search,search, google fonts; reframes search,2
-12,29,1056,visit: google fonts; looking at similar fonts to wordle font--not copying exactly,visit, google fonts; looking at similar fonts to wordle font--not copying exactly,2
-13,30,1073,revisit: wordle; checking wordle font vs google fonts,revisit, wordle; checking wordle font vs google fonts,3
-14,31,1076,revisit: google fonts; checking out fonts,revisit, google fonts; checking out fonts,4
-15,39,1182,revisit: wordle; getting fonts,revisit, wordle; getting fonts,5
-16,40,1262,revisit: google fonts;,revisit, google fonts;,6
-17,44,1327,revisit: wordle; getting background and colors of text,revisit, wordle; getting background and colors of text,7
-18,48,1448,revisit: wordle; everything is centered,revisit, wordle; everything is centered,7
-19,53,1506,revisit: wordle; it looks a little bit bigger here,revisit, wordle; it looks a little bit bigger here,7
-20,59,1670,revisit: wordle; looking at sizing,revisit, wordle; looking at sizing,7
-21,64,1864,revisit: wordle; checking measurements of tiles,revisit, wordle; checking measurements of tiles,7
-22,74,2227,revisit: wordle; checking if height of blocks is defined explicitly,revisit, wordle; checking if height of blocks is defined explicitly,7
-23,77,2333,revisit: wordle; deleting local storage,revisit, wordle; deleting local storage,7
-24,79,2583,"visit: css place-items; she clicks the place-items keyword in her IDE, and an MDN reference pops up with a little usage information and an external link. She clicks the external link to take her to the Mozilla developer site for place-items",visit," css place-items; she clicks the place-items keyword in her IDE, and an MDN reference pops up with a little usage information and an external link. She clicks the external link to take her to the Mozilla developer site for place-items",7
-25,84,2714,revisit: wordle; checking how underlying code changes when she interacts with website,revisit, wordle; checking how underlying code changes when she interacts with website,7
-26,91,3282,search: javascript detect keypress; trying to learn how to detect a keypress,search, javascript detect keypress; trying to learn how to detect a keypress,8
-27,92,3288,visit: how to detect keypress using javascript?; ,visit, how to detect keypress using javascript?; ,8
-28,93,3314,"search: javascript es6 detect keypress; she closed prev website and said ""I don't like that blog""",search," javascript es6 detect keypress; she closed prev website and said ""I don't like that blog""",9
-29,94,3317,visit: detecting arrow key presses in javascript; stackoverflow,visit, detecting arrow key presses in javascript; stackoverflow,9
-30,96,3364,"search: javscript window.event; she saw this keyword in prev answer and it opened up more questions. She then says ""look I never said I was good at javascript""",search," javscript window.event; she saw this keyword in prev answer and it opened up more questions. She then says ""look I never said I was good at javascript""",10
-31,97,3367,"visit: Window.event; MDN, ""I try to use MDN when it comes up because it's pretty good"" -- reputable resource",visit," Window.event; MDN, ""I try to use MDN when it comes up because it's pretty good"" -- reputable resource",10
-32,98,3373,search: onkeypress; this was an MDN site search,search, onkeypress; this was an MDN site search,11
-33,99,3376,visit: onkeypress; clicks suggested page from Mozilla Developer Network (MDN) search result,visit, onkeypress; clicks suggested page from Mozilla Developer Network (MDN) search result,11
-34,100,3384,visit: onkeydown; MDN link from previous page. The last two API calls she looked at on MDN had tags that said they were deprecated. this one does not.,visit, onkeydown; MDN link from previous page. The last two API calls she looked at on MDN had tags that said they were deprecated. this one does not.,11
-35,101,3432,visit: Document: keydown event; clicks link from onkeydown page and opens this in new tab. still MDN,visit, Document: keydown event; clicks link from onkeydown page and opens this in new tab. still MDN,11
-36,111,3623,search: javascript keydown detect if letter; moving onto next phase of dev,search, javascript keydown detect if letter; moving onto next phase of dev,12
-37,112,3627,visit: determine if a letter or a number was pressed - javascript; stackoverflow,visit, determine if a letter or a number was pressed - javascript; stackoverflow,12
-38,116,3702,visit: How to detect if the pressed key will produce a character inside an <input> text-box?; she goes back to last search and clicks this link,visit, How to detect if the pressed key will produce a character inside an <input> text-box?; she goes back to last search and clicks this link,12
-39,117,3714,"search: javascript is string a letter; didnt like resource, but didnt spend much time on it",search," javascript is string a letter; didnt like resource, but didnt spend much time on it",13
-40,118,3717,visit: How to check if character is a letter in Javascript?;,visit, How to check if character is a letter in Javascript?;,13
-41,119,3734,search: regex is string a letter; she sees regex solution in previous website and decides to accept the strategy but not the exact example,search, regex is string a letter; she sees regex solution in previous website and decides to accept the strategy but not the exact example,14
-42,124,3736,visit: what is the regex for first character is a letter; ,visit, what is the regex for first character is a letter; ,14
-43,120,3753,revisit: wordle; what happens if you do a capital letter in wordle? nothing different..,revisit, wordle; what happens if you do a capital letter in wordle? nothing different..,15
-44,121,3768,search: regex tester; she finds an example but wants to test it using online tool. interesting that different strategies for testing things--regex vs logging api calls.,search, regex tester; she finds an example but wants to test it using online tool. interesting that different strategies for testing things--regex vs logging api calls.,16
-45,122,3770,visit: RegEx Testing; ,visit, RegEx Testing; ,16
-46,123,3774,revisit: what is the regex for first character is a letter; stackoverflow,revisit, what is the regex for first character is a letter; stackoverflow,17
-47,125,3795,"revisit: RegEx Testing; pastes example regex from prev website in, verifies that it works through testing",revisit," RegEx Testing; pastes example regex from prev website in, verifies that it works through testing",18
-48,126,3816,search: javascript test string regex; ,search, javascript test string regex; ,19
-49,127,3819,visit: RegExp.prototype.test(); ,visit, RegExp.prototype.test(); ,19
-50,128,3848,visit: JavaScript RegExp test(); ,visit, JavaScript RegExp test(); ,19
-51,131,3967,revisit: RegEx Testing; debugging issue,revisit, RegEx Testing; debugging issue,20
-52,135,4053,revisit: RegEx Testing; hovering over different symbols to see what they mean,revisit, RegEx Testing; hovering over different symbols to see what they mean,20
-53,136,4077,search: regex contains letters; ,search, regex contains letters; ,21
-54,137,4086,search: regex contains only letters;,search, regex contains only letters;,22
-55,138,4090,visit: regex to match only letters;,visit, regex to match only letters;,22
-56,141,4121,search: regex contains letters not numbers; ,search, regex contains letters not numbers; ,23
-57,142,4128,visit: how do I get only letters in regex?; ,visit, how do I get only letters in regex?; ,23
-58,143,4150,revisit: RegEx Testing; verifies that her regex works in tester. doesn't know why not in website,revisit, RegEx Testing; verifies that her regex works in tester. doesn't know why not in website,24
-59,144,4162,"search: javascript test regex; she believes the issue may be in her code, not regexp",search," javascript test regex; she believes the issue may be in her code, not regexp",25
-60,145,4170,search: flavio javascript test regex; searching for specific resource,search, flavio javascript test regex; searching for specific resource,26
-61,146,4173,"visit: A guide to JavaScript Regular Expressions; flavio website, she likes his stuff",visit," A guide to JavaScript Regular Expressions; flavio website, she likes his stuff",26
-62,154,4506,search: wordle; getting back into workflow after calling it a day previously.,search, wordle; getting back into workflow after calling it a day previously.,27
-63,156,4607,revisit: A guide to JavaScript Regular Expressions; she is just going here to link to flavio website,revisit, A guide to JavaScript Regular Expressions; she is just going here to link to flavio website,28
-64,157,4612,visit: search; flaviocopes.com search site-- interesting do programmers have favorite resources? why?,visit, search; flaviocopes.com search site-- interesting do programmers have favorite resources? why?,28
-65,159,4620,"search: data; flavio site, does not like results",search," data; flavio site, does not like results",29
-66,158,4622,search: data attribute; flavio site search,search, data attribute; flavio site search,30
-67,160,4632,search: javascript store data in html; uses original search engine (duck duckgo),search, javascript store data in html; uses original search engine (duck duckgo),31
-68,161,4636,visit: store data locally using html and javascript; even though this isnt a jquery question,visit, store data locally using html and javascript; even though this isnt a jquery question,31
-69,162,4663,search: javascript set data attribute html; ,search, javascript set data attribute html; ,32
-70,163,4668,visit: how to set the data attribute of an element with javascript?; ,visit, how to set the data attribute of an element with javascript?; ,32
-71,164,4694,"visit: using data attributes; MDN she has interesting strategy, the last webpage she says is a good resource, but wants to do more research before trying anything. She goes back, opens that site in new tab, then opens this site.",visit," using data attributes; MDN she has interesting strategy, the last webpage she says is a good resource, but wants to do more research before trying anything. She goes back, opens that site in new tab, then opens this site.",32
-72,165,4712,"revisit: how to set the data attribute of an element with javascript?; she gets an element recommended by MDN network and sees if it is also used in this resource. Since the two resources corroborate each other, she is more invested in the suggestion",revisit," how to set the data attribute of an element with javascript?; she gets an element recommended by MDN network and sees if it is also used in this resource. Since the two resources corroborate each other, she is more invested in the suggestion",32
-73,172,5003,revisit: A guide to JavaScript Regular Expressions; she is just going here to use search function of Flavio site,revisit, A guide to JavaScript Regular Expressions; she is just going here to use search function of Flavio site,33
-74,173,5007,search: function; flavio site search,search, function; flavio site search,34
-75,174,5010,visit: a tutorial to javascript arrow functions; flavio site,visit, a tutorial to javascript arrow functions; flavio site,34
-76,176,5043,revisit: a tutorial to javascript arrow functions; checking syntax,revisit, a tutorial to javascript arrow functions; checking syntax,34
-77,181,5283,revisit: using data attributes; checking if using dataset keyword correctly,revisit, using data attributes; checking if using dataset keyword correctly,35
-78,220,6271,"revisit: A guide to JavaScript Regular Expressions; I need to look up how to do that, because I know that ""innerHTML"" is not like 'good'.",revisit," A guide to JavaScript Regular Expressions; I need to look up how to do that, because I know that ""innerHTML"" is not like 'good'.",36
-79,221,6277,search: innerhtml; previous revisit was only to get to this search bar (flavio site). she mentions that she knows that using innerhtml is not secure,search, innerhtml; previous revisit was only to get to this search bar (flavio site). she mentions that she knows that using innerhtml is not secure,37
-80,222,6288,search: javascript set content of div; duckduckgo search,search, javascript set content of div; duckduckgo search,38
-81,223,6292,visit: How can I change div content with JavaScript?; ,visit, How can I change div content with JavaScript?; ,38
-82,224,6311,"search: javascript innertext; she learned that this call was always better than innerHTML for security reasons, so she searches it to understand it better before using it",search," javascript innertext; she learned that this call was always better than innerHTML for security reasons, so she searches it to understand it better before using it",39
-83,225,6312,visit: HTMLElement innerText; HTMLElement.innerText in MDN web docs,visit, HTMLElement innerText; HTMLElement.innerText in MDN web docs,39
-84,239,6742,search: javascript remove last character from string; ,search, javascript remove last character from string; ,40
-85,240,6746,"visit: How to remove the last character of a string in JavaScript; ""i'll go to Flavio because I like his blog""",visit," How to remove the last character of a string in JavaScript; ""i'll go to Flavio because I like his blog""",40
-86,261,7509,"search: javascript, array; this is an interesting search! She tags search by two distinct keys, instead of searching ""javascript array"", there's some functionality of this flavio website that lets her filter for both javascript and array separately",search," javascript, array; this is an interesting search! She tags search by two distinct keys, instead of searching ""javascript array"", there's some functionality of this flavio website that lets her filter for both javascript and array separately",41
-87,262,7515,visit: an introduction to javascript arrays; flavio blog site,visit, an introduction to javascript arrays; flavio blog site,41
-88,265,7658,revisit: an introduction to javascript arrays; sees that you can manually choose an item,revisit, an introduction to javascript arrays; sees that you can manually choose an item,41
-89,266,7690,search: javascript array; searching for recommendations to potentially see other tutorials that might give her ideas on how to select random object from array.,search, javascript array; searching for recommendations to potentially see other tutorials that might give her ideas on how to select random object from array.,42
-90,267,7696,visit: how to shuffle elements in a javascript array; idea spawned by blog search flavio site,visit, how to shuffle elements in a javascript array; idea spawned by blog search flavio site,42
-91,268,7727,visit: Array prototype sort; mdn link from flavio site.,visit, Array prototype sort; mdn link from flavio site.,42
-92,270,7761,"revisit: Array prototype sort; checking why she ""must have done something wrong""",revisit," Array prototype sort; checking why she ""must have done something wrong""",42
-93,272,7846,revisit: Array prototype sort; checking what she did wrong,revisit, Array prototype sort; checking what she did wrong,42
-94,274,7869,revisit: Array prototype sort; ,revisit, Array prototype sort; ,42
-95,275,7881,"revisit: how to shuffle elements in a javascript array; after trying to figure out how sorting and shuffling arrays works, she goes to the example code posted by flavio. interesting, she wanted to understand her code, yet couldn't get an example she understood working, so she is going to an example that is more confusing to see if it does everything for her.",revisit," how to shuffle elements in a javascript array; after trying to figure out how sorting and shuffling arrays works, she goes to the example code posted by flavio. interesting, she wanted to understand her code, yet couldn't get an example she understood working, so she is going to an example that is more confusing to see if it does everything for her.",42
-96,279,7920,revisit: how to shuffle elements in a javascript array; tries to understand code that seems to be working but she is uncertain about it,revisit, how to shuffle elements in a javascript array; tries to understand code that seems to be working but she is uncertain about it,42
-97,282,7954,revisit: how to shuffle elements in a javascript array; checking what the example syntax was (math.random()-.5),revisit, how to shuffle elements in a javascript array; checking what the example syntax was (math.random()-.5),42
-98,284,7976,revisit: Array prototype sort; scrolling through documentation,revisit, Array prototype sort; scrolling through documentation,42
-99,285,7984,revisit: how to shuffle elements in a javascript array;,revisit, how to shuffle elements in a javascript array;,42
-100,286,7989,revisit: Array prototype sort; ,revisit, Array prototype sort; ,42
-101,287,7994,"revisit: how to shuffle elements in a javascript array; ""okay I'm going to be honest, I don't fully understand the list sort thing"": const shuffled = list.sort(() => Math.random() - 0.5), interesting",revisit," how to shuffle elements in a javascript array; ""okay I'm going to be honest, I don't fully understand the list sort thing"": const shuffled = list.sort(() => Math.random() - 0.5), interesting",42
-102,288,7998,"revisit: Array prototype sort; ""default list sorts descending""",revisit," Array prototype sort; ""default list sorts descending""",42
-103,293,8062,search: run function on page load; searches flavio site. interesting that she defaults to flavio search before web search. Good resources are rare and valuable?,search, run function on page load; searches flavio site. interesting that she defaults to flavio search before web search. Good resources are rare and valuable?,43
-104,294,8067,search: page load; flavio site,search, page load; flavio site,44
-105,295,8072,search: javascript run function on page load; searches on duckduckgo,search, javascript run function on page load; searches on duckduckgo,45
-106,296,8075,"visit: How to run a function when the page is loaded?; stackoverflow, first search result.",visit," How to run a function when the page is loaded?; stackoverflow, first search result.",45
-107,297,8094,visit: how do I call a javascript function on page load?; curious to best practices,visit, how do I call a javascript function on page load?; curious to best practices,45
-108,298,8101,search: window.onload; this was inspired by code she saw in answer of previous website,search, window.onload; this was inspired by code she saw in answer of previous website,46
-109,299,8104,visit: javascript when to use window.onload;,visit, javascript when to use window.onload;,46
-110,306,8252,search: javascript random number;,search, javascript random number;,47
-111,307,8255,visit: Math.random(); ,visit, Math.random(); ,47
-112,309,8349,revisit: Math.random();,revisit, Math.random();,47
-113,332,8861,search: javascript get character from string based on position;,search, javascript get character from string based on position;,48
-114,333,8870,visit: javascript string charat(); ,visit, javascript string charat(); ,48
-115,334,8879,"search: javascript charat; interesting, ""let's look this (function) up, and make sure its not deprecated or something""",search," javascript charat; interesting, ""let's look this (function) up, and make sure its not deprecated or something""",49
-116,335,8883,visit: string prototype charat; ,visit, string prototype charat; ,49
-117,342,9084,search: javascript for loop;,search, javascript for loop;,50
-118,343,9088,visit: for javascript; MDN page,visit, for javascript; MDN page,50
-119,350,9299,search: javascript string contains;,search, javascript string contains;,51
-120,351,9303,visit: javascript string contains how to use javascript includes; ,visit, javascript string contains how to use javascript includes; ,51
-121,352,9310,visit: javascript string includes; ,visit, javascript string includes; ,51
-122,377,9915,search: javascript switch;,search, javascript switch;,52
-123,378,9918,visit: switch javascript; mdn site,visit, switch javascript; mdn site,52
-124,380,9934,revisit: switch javascript; checking syntax,revisit, switch javascript; checking syntax,52
-125,382,9937,revisit: switch javascript;,revisit, switch javascript;,52
-126,384,9952,revisit: switch javascript;,revisit, switch javascript;,52
-127,388,10033,search: wordle;,search, wordle;,53
-128,389,10037,revisit: wordle; wants to check colors,revisit, wordle; wants to check colors,53
-129,415,10762,revisit: wordle; checking animations,revisit, wordle; checking animations,53
-130,417,10827,"revisit: wordle; watching animation and deeming what the logic behind it is. she notes ""they seem to be changing the color of the tile when the tile is vertical (invisible to viewer in flip animation)",revisit," wordle; watching animation and deeming what the logic behind it is. she notes ""they seem to be changing the color of the tile when the tile is vertical (invisible to viewer in flip animation)",53
-131,419,10886,"visit: codepen.io; (typed) interesting ""a lot of times when something like this comes up and I just don't know it, I go to codepen""",visit," codepen.io; (typed) interesting ""a lot of times when something like this comes up and I just don't know it, I go to codepen""",53
-132,420,10894,"search: flip animation; interesting, she says she goes to codepen because they have really good animations. searches on codepen site",search," flip animation; interesting, she says she goes to codepen because they have really good animations. searches on codepen site",54
-133,421,10900,visit: css flip animation; she picks it because it has a lot of views,visit, css flip animation; she picks it because it has a lot of views,54
-134,424,11095,"revisit: wordle; trying to determine what she should flip, how wordle layout looked",revisit," wordle; trying to determine what she should flip, how wordle layout looked",55
-135,425,11207,search: css flip; codepen search,search, css flip; codepen search,56
-136,426,11222,"visit: pure css flip card; she determines it is the same kind of thing as previous example, not quite what she wants. ",visit," pure css flip card; she determines it is the same kind of thing as previous example, not quite what she wants. ",56
-137,430,11320,"search: css transform mirror; interesting, she is back to duckduckgo search. when and why would a programmer abandon an example site like we just looked at. Should this site want to detect their abandonment and provide extra help? connect them to someone, recommend example, etc?",search," css transform mirror; interesting, she is back to duckduckgo search. when and why would a programmer abandon an example site like we just looked at. Should this site want to detect their abandonment and provide extra help? connect them to someone, recommend example, etc?",57
-138,431,11328,visit: how to flip an image (add a mirror effect) with CSS?; ,visit, how to flip an image (add a mirror effect) with CSS?; ,57
-139,433,11401,"revisit: wordle; ""let's try it again""--watching flip animation and monitoring class changes in css",revisit," wordle; ""let's try it again""--watching flip animation and monitoring class changes in css",58
-140,437,11631,search: css keyframe animation;,search, css keyframe animation;,59
-141,438,11635,visit: an interactive guide to keyframe animations; ,visit, an interactive guide to keyframe animations; ,59
-142,441,11760,"revisit: an interactive guide to keyframe animations; ""let's keep reading""",revisit," an interactive guide to keyframe animations; ""let's keep reading""",59
-143,444,11881,revisit: wordle; checking animation styles,revisit, wordle; checking animation styles,60
-144,446,11904,revisit: an interactive guide to keyframe animations; ,revisit, an interactive guide to keyframe animations; ,61
-145,457,12252,search: javascript delay;,search, javascript delay;,62
-146,458,12261,visit: javascript delay; ,visit, javascript delay; ,62
-147,459,12276,visit: javascript settimeout() - js timer to delay n seconds;,visit, javascript settimeout() - js timer to delay n seconds;,62
-148,460,12293,search: javascript settimeout;,search, javascript settimeout;,63
-149,461,12296,visit: setTimeout(); MDN site,visit, setTimeout(); MDN site,63
-150,463,12325,search: javascript es6 syntax settimeout; ,search, javascript es6 syntax settimeout; ,64
-151,464,12328,"visit: ""settimeout es6"" Code Answer's; ",visit," ""settimeout es6"" Code Answer's; ",64
-152,466,12362,"revisit: ""settimeout es6"" Code Answer's; checks syntax",revisit," ""settimeout es6"" Code Answer's; checks syntax",64
-153,479,12705,search: css animation end state; ,search, css animation end state; ,65
-154,480,12708,visit: maintaining the final state at end of a css3 animation; ,visit, maintaining the final state at end of a css3 animation; ,65
-155,481,12730,revisit: an interactive guide to keyframe animations; she is looking to see if this example from previous site is mentioned in this blog that she trusts. interesting,revisit, an interactive guide to keyframe animations; she is looking to see if this example from previous site is mentioned in this blog that she trusts. interesting,66
-156,492,12859,"revisit: wordle; interesting, this reminds me so much of LG when someone clicks ""Play Mine"" and ""Play Correct"" and tries to determine the differences. She is trying to figure out exactly how to mimic the flip of wordle letters in her code.",revisit," wordle; interesting, this reminds me so much of LG when someone clicks ""Play Mine"" and ""Play Correct"" and tries to determine the differences. She is trying to figure out exactly how to mimic the flip of wordle letters in her code.",67
-157,536,13933,"revisit: wordle; she says ""let's cheat"" and checks local storage to figure out what to do if they win",revisit," wordle; she says ""let's cheat"" and checks local storage to figure out what to do if they win",67
-158,545,14312,"search: javascript promises; she knows this may be useful for waiting for something to be completed before continuing, but doesnt know much about the topic",search," javascript promises; she knows this may be useful for waiting for something to be completed before continuing, but doesnt know much about the topic",68
-159,546,14314,visit: using promises; using javascript promises,visit, using promises; using javascript promises,68
-160,556,14563,"revisit: using promises; she believes she is using the syntax she is unfamiliar with incorrectly, when her code actually is just not syntactically correct",revisit," using promises; she believes she is using the syntax she is unfamiliar with incorrectly, when her code actually is just not syntactically correct",68
-161,557,14596,"visit: promise; ""I'm not even sure that promises are the right thing to do here""",visit," promise; ""I'm not even sure that promises are the right thing to do here""",68
-162,558,14622,search: javascript run function after loop;,search, javascript run function after loop;,69
-163,560,14626,visit: run a function after a loop;,visit, run a function after a loop;,69
-164,561,14641,search: flavio javascript run function after loop;,search, flavio javascript run function after loop;,70
-165,562,14648,search: flavio javascript promises;,search, flavio javascript promises;,71
-166,563,14649,visit: understanding javascript promises; ,visit, understanding javascript promises; ,71
-167,565,14723,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-168,567,14743,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-169,569,14749,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-170,571,14754,revisit: understanding javascript promises; interesting how quickly she goes between example and her code and types on the fly. is there an advantage to not copying and pasting this example? or is there a deterrent from doing so?,revisit, understanding javascript promises; interesting how quickly she goes between example and her code and types on the fly. is there an advantage to not copying and pasting this example? or is there a deterrent from doing so?,71
-171,573,14776,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-172,575,14787,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-173,577,14804,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-174,579,14829,"revisit: understanding javascript promises; there had been so much switching between code and this example. I could see an argument for it being classified as one long revisit, instead of all these revisits. the cause for all the revisits is still kind of self-regulated cognitive load, interesting",revisit," understanding javascript promises; there had been so much switching between code and this example. I could see an argument for it being classified as one long revisit, instead of all these revisits. the cause for all the revisits is still kind of self-regulated cognitive load, interesting",71
-175,581,14845,revisit: understanding javascript promises; she never forces herself to remember more than one thing at a time,revisit, understanding javascript promises; she never forces herself to remember more than one thing at a time,71
-176,583,14857,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-177,585,14875,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-178,587,14882,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-179,589,14902,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
-180,591,15004,revisit: understanding javascript promises; ,revisit, understanding javascript promises; ,71
+0,1,0,search: set up venv python;,search, set up venv python;,0
+1,2,6,visit: Creating a Virtual Environment – Real Python;,visit, Creating a Virtual Environment – Real Python;,0
+2,5,394,search: trash vs non trash classifier;,search, trash vs non trash classifier;,1
+3,6,424,visit: Waste Classifier Machine Learning - Rootstrap;,visit, Waste Classifier Machine Learning - Rootstrap;,1
+4,7,444,research: trash vs non trash classifier;,research, trash vs non trash classifier;,1
+5,8,460,search: image classification python;,search, image classification python;,2
+6,9,468,search: image classification python pytorch;,search, image classification python pytorch;,3
+7,10,477,visit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,3
+8,11,523,search: enter a venv from cmd;,search, enter a venv from cmd;,4
+9,12,524,visit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,visit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,4
+10,13,557,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,5
+11,14,589,revisit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,revisit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,6
+12,15,602,visit: Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,6
+13,16,627,visit: Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,6
+14,17,694,visit: Introduction to PyTorch - YouTube;,visit, Introduction to PyTorch - YouTube;,6
+15,18,762,revisit: Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,6
+16,19,763,visit: Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,6
+17,20,798,search: install pytorch;,search, install pytorch;,7
+18,21,801,visit: Installation — Torch-TensorRT master documentation;,visit, Installation — Torch-TensorRT master documentation;,7
+19,22,828,research: install pytorch;,research, install pytorch;,7
+20,23,833,visit: PyTorch;,visit, PyTorch;,7
+21,24,834,visit: https://pytorch.org/get-started;,visit, https://pytorch.org/get-started;,7
+22,25,835,visit: Start Locally | PyTorch;,visit, Start Locally | PyTorch;,7
+23,28,1033,revisit: Introduction to PyTorch - YouTube;,revisit, Introduction to PyTorch - YouTube;,8
+24,29,1045,visit: Building Models with PyTorch - YouTube;,visit, Building Models with PyTorch - YouTube;,8
+25,30,1099,revisit: Start Locally | PyTorch;,revisit, Start Locally | PyTorch;,9
+26,31,1101,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,10
+27,38,2005,search: trash image dataset;,search, trash image dataset;,11
+28,39,2019,visit: http://tacodataset.org/;,visit, http://tacodataset.org/;,11
+29,40,2038,visit: GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,visit, GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,11
+30,41,2107,search: waste image dataset;,search, waste image dataset;,12
+31,42,2130,visit: Garbage Classification | Kaggle;,visit, Garbage Classification | Kaggle;,12
+32,43,2139,visit: WasteNet - Recycleye - The world's largest dataset for waste;,visit, WasteNet - Recycleye - The world's largest dataset for waste;,12
+33,44,2181,revisit: Garbage Classification | Kaggle;,revisit, Garbage Classification | Kaggle;,12
+34,45,2226,visit: Kaggle: Your Home for Data Science;,visit, Kaggle: Your Home for Data Science;,12
+35,46,2232,revisit: Garbage Classification | Kaggle;,revisit, Garbage Classification | Kaggle;,12
+36,47,2556,search: access and open pil image;,search, access and open pil image;,13
+37,48,2559,visit: Python PIL | Image.open() method - GeeksforGeeks;,visit, Python PIL | Image.open() method - GeeksforGeeks;,13
+38,49,2654,search: python accessing a directory;,search, python accessing a directory;,14
+39,50,2657,visit: Accessing directories and files using python - Stack Overflow;,visit, Accessing directories and files using python - Stack Overflow;,14
+40,53,3066,search: relative path python;,search, relative path python;,15
+41,54,3067,visit: Relative paths in Python - Stack Overflow;,visit, Relative paths in Python - Stack Overflow;,15
+42,57,3219,search: how to find if a directory exists in python;,search, how to find if a directory exists in python;,16
+43,58,3221,visit: How do I check if directory exists in Python? - Stack Overflow;,visit, How do I check if directory exists in Python? - Stack Overflow;,16
+44,59,3281,research: how to find if a directory exists in python;,research, how to find if a directory exists in python;,16
+45,60,3299,search: directing to an existing directory in python;,search, directing to an existing directory in python;,17
+46,61,3315,visit: Change current working directory with Python - GeeksforGeeks;,visit, Change current working directory with Python - GeeksforGeeks;,17
+47,62,3382,search: locate a path to a directory in python;,search, locate a path to a directory in python;,18
+48,63,3388,visit: python - How do I get the full path of the current file's directory? - Stack Overflow;,visit, python - How do I get the full path of the current file's directory? - Stack Overflow;,18
+49,66,3597,search: get the path of a directory python;,search, get the path of a directory python;,19
+50,67,3604,visit: Python Directory & File Management – A Quick and Easy Tutorial - DataFlair;,visit, Python Directory & File Management – A Quick and Easy Tutorial - DataFlair;,19
+51,72,3829,search: pytorch how to create a dataset;,search, pytorch how to create a dataset;,20
+52,73,3836,visit: A detailed example of data loaders with PyTorch;,visit, A detailed example of data loaders with PyTorch;,20
+53,74,3866,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
+54,75,3868,"visit: Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",visit," Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",20
+55,76,4025,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
+56,77,4041,visit: Creating Your Own Datasets — pytorch_geometric  documentation;,visit, Creating Your Own Datasets — pytorch_geometric  documentation;,20
+57,78,4062,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
+58,79,4072,visit: How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,visit, How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,20
+59,80,4118,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
+60,81,4129,search: pytorch how to create a custom dataset for image classification;,search, pytorch how to create a custom dataset for image classification;,21
+61,82,4144,visit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,visit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,21
+62,87,4831,search: python random integer;,search, python random integer;,22
+63,88,4833,visit: Python Random randint() Method;,visit, Python Random randint() Method;,22
+64,89,4859,search: how to pick a random pictures from a directory python;,search, how to pick a random pictures from a directory python;,23
+65,90,4865,visit: discord.py - How do i get a random image from a folder python - Stack Overflow;,visit, discord.py - How do i get a random image from a folder python - Stack Overflow;,23
+66,91,4921,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,24
+67,94,5354,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,25
+68,97,5630,revisit: Accessing directories and files using python - Stack Overflow;,revisit, Accessing directories and files using python - Stack Overflow;,26
+69,98,5647,search: check if a directory exists python;,search, check if a directory exists python;,27
+70,99,5648,visit: Python: Check if a File or Directory Exists - GeeksforGeeks;,visit, Python: Check if a File or Directory Exists - GeeksforGeeks;,27
+71,100,5742,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,28
+72,101,5794,search: clean out all files and folders in directory python;,search, clean out all files and folders in directory python;,29
+73,102,5797,visit: python - How to delete the contents of a folder? - Stack Overflow;,visit, python - How to delete the contents of a folder? - Stack Overflow;,29
+74,103,6265,search: generate a random list of numbers python;,search, generate a random list of numbers python;,30
+75,104,6268,visit: Generating random number list in Python - GeeksforGeeks;,visit, Generating random number list in Python - GeeksforGeeks;,30
+76,105,6378,revisit: python - How to delete the contents of a folder? - Stack Overflow;,revisit, python - How to delete the contents of a folder? - Stack Overflow;,31
+77,106,6380,revisit: Python: Check if a File or Directory Exists - GeeksforGeeks;,revisit, Python: Check if a File or Directory Exists - GeeksforGeeks;,32
+78,107,6386,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,33
+79,108,6398,revisit: Generating random number list in Python - GeeksforGeeks;,revisit, Generating random number list in Python - GeeksforGeeks;,34
+80,111,6954,search: how to use random choice for a list;,search, how to use random choice for a list;,35
+81,112,6978,search: how to use random to select some percentage for a list;,search, how to use random to select some percentage for a list;,36
+82,113,6980,visit: How to Randomly Select Elements From a List in Python;,visit, How to Randomly Select Elements From a List in Python;,36
+83,114,7247,search: selecting random elements from list python without repetition;,search, selecting random elements from list python without repetition;,37
+84,115,7249,visit: python - Random without repetition? - Stack Overflow;,visit, python - Random without repetition? - Stack Overflow;,37
+85,116,7297,research: selecting random elements from list python without repetition;,research, selecting random elements from list python without repetition;,37
+86,117,7299,visit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,visit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,37
+87,118,7367,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,38
+88,121,7719,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,39
+89,122,7733,search: flatten array python;,search, flatten array python;,40
+90,123,7740,visit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,visit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,40
+91,124,7768,revisit: Generating random number list in Python - GeeksforGeeks;,revisit, Generating random number list in Python - GeeksforGeeks;,41
+92,125,7769,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,42
+93,128,8514,search: grab 80 elements from array python;,search, grab 80 elements from array python;,43
+94,129,8527,search: grab 80 percent of elements from array python;,search, grab 80 percent of elements from array python;,44
+95,130,8530,visit: python - Percent list slicing - Stack Overflow;,visit, python - Percent list slicing - Stack Overflow;,44
+96,131,8587,research: grab 80 percent of elements from array python;,research, grab 80 percent of elements from array python;,44
+97,132,8592,visit: numpy.percentile() in python - GeeksforGeeks;,visit, numpy.percentile() in python - GeeksforGeeks;,44
+98,133,8603,research: grab 80 percent of elements from array python;,research, grab 80 percent of elements from array python;,44
+99,134,8616,search: round python;,search, round python;,45
+100,135,8617,visit: Python round() Function;,visit, Python round() Function;,45
+101,136,8629,research: round python;,research, round python;,45
+102,137,8793,search: find the difference elements between two lists python;,search, find the difference elements between two lists python;,46
+103,138,8795,visit: Python How to Find the Difference Between Two Lists - codingem.com;,visit, Python How to Find the Difference Between Two Lists - codingem.com;,46
+104,139,8814,research: find the difference elements between two lists python;,research, find the difference elements between two lists python;,46
+105,140,8817,visit: python - Get difference between two lists - Stack Overflow;,visit, python - Get difference between two lists - Stack Overflow;,46
+106,147,9924,search: check if all values in list are unique python;,search, check if all values in list are unique python;,47
+107,148,9926,visit: python - Checking if all elements in a list are unique - Stack Overflow;,visit, python - Checking if all elements in a list are unique - Stack Overflow;,47
+108,152,10228,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,48
+109,153,10268,search: how to random selecting from a list without repetition python;,search, how to random selecting from a list without repetition python;,49
+110,154,10284,visit: python - How do I create a list of random numbers without duplicates - Stack Overflow;,visit, python - How do I create a list of random numbers without duplicates - Stack Overflow;,49
+111,155,10312,research: how to random selecting from a list without repetition python;,research, how to random selecting from a list without repetition python;,49
+112,156,10315,visit: Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,visit, Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,49
+113,157,10351,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,50
+114,158,10401,revisit: Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,revisit, Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,51
+115,159,10403,research: how to random selecting from a list without repetition python;,research, how to random selecting from a list without repetition python;,51
+116,160,10405,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,52
+117,161,10437,visit: Python | random.sample() function - GeeksforGeeks;,visit, Python | random.sample() function - GeeksforGeeks;,52
+118,164,10903,search: how to move images from one folder to another in python;,search, how to move images from one folder to another in python;,53
+119,165,10908,visit: How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,visit, How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,53
+120,166,10962,search: shutil move without deleting;,search, shutil move without deleting;,54
+121,167,10964,visit: python - shutil.move doesn't delete source files - Stack Overflow;,visit, python - shutil.move doesn't delete source files - Stack Overflow;,54
+122,168,10973,research: shutil move without deleting;,research, shutil move without deleting;,54
+123,169,10976,visit: Python | shutil.move() method - GeeksforGeeks;,visit, Python | shutil.move() method - GeeksforGeeks;,54
+124,170,11006,research: shutil move without deleting;,research, shutil move without deleting;,54
+125,171,11022,search: how to copy and paste img in python;,search, how to copy and paste img in python;,55
+126,172,11051,search: how to move image in python without deleting source files;,search, how to move image in python without deleting source files;,56
+127,173,11058,visit: How to move a file in Python? - Stack Overflow;,visit, How to move a file in Python? - Stack Overflow;,56
+128,174,11141,research: how to move image in python without deleting source files;,research, how to move image in python without deleting source files;,56
+129,175,11147,visit: Copy all files from one directory to another using Python - GeeksforGeeks;,visit, Copy all files from one directory to another using Python - GeeksforGeeks;,56
+130,176,11200,search: shutil copy2;,search, shutil copy2;,57
+131,177,11210,visit: How to Copy Files in Python | Towards Data Science;,visit, How to Copy Files in Python | Towards Data Science;,57
+132,178,11309,search: how to copy files in python;,search, how to copy files in python;,58
+133,179,11310,visit: python - How to copy files? - Stack Overflow;,visit, python - How to copy files? - Stack Overflow;,58
+134,189,12694,revisit: python - Checking if all elements in a list are unique - Stack Overflow;,revisit, python - Checking if all elements in a list are unique - Stack Overflow;,59
+135,190,12696,revisit: python - Get difference between two lists - Stack Overflow;,revisit, python - Get difference between two lists - Stack Overflow;,60
+136,191,12699,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,61
+137,192,12707,research: flatten array python;,research, flatten array python;,61
+138,193,12708,revisit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,revisit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,62
+139,196,12979,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,63
+140,198,13844,search: how to show fig python;,search, how to show fig python;,64
+141,199,13846,visit: Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,visit, Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,64
+142,202,13929,research: how to show fig python;,research, how to show fig python;,64
+143,203,13942,search: how to show fig python but not close right away;,search, how to show fig python but not close right away;,65
+144,204,13967,search: how to show figure python matplotlib without close right away;,search, how to show figure python matplotlib without close right away;,66
+145,205,13972,visit: python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,visit, python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,66
+146,206,14023,research: how to show figure python matplotlib without close right away;,research, how to show figure python matplotlib without close right away;,66
+147,207,14031,search: how to avoid plt closing on its own;,search, how to avoid plt closing on its own;,67
+148,208,14033,visit: python - Closing pyplot windows - Stack Overflow;,visit, python - Closing pyplot windows - Stack Overflow;,67
+149,211,14131,search: fig show closed on its own;,search, fig show closed on its own;,68
+150,212,14132,visit: python - view and then close the figure automatically in matplotlib? - Stack Overflow;,visit, python - view and then close the figure automatically in matplotlib? - Stack Overflow;,68
+151,215,14430,search: windows path strip image name;,search, windows path strip image name;,69
+152,216,14435,visit: c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,visit, c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,69
+153,217,14441,research: windows path strip image name;,research, windows path strip image name;,69
+154,218,14442,visit: Redirecting to Microsoft.com;,visit, Redirecting to Microsoft.com;,69
+155,219,14458,research: windows path strip image name;,research, windows path strip image name;,69
+156,220,14552,search: how to grab a file name from a pil image path;,search, how to grab a file name from a pil image path;,70
+157,221,14553,"visit: python - Extract file name from path, no matter what the os/path format - Stack Overflow;",visit," python - Extract file name from path, no matter what the os/path format - Stack Overflow;",70
+158,223,14704,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,71
+159,224,14828,search: torchvision.datasets.ImageFolder;,search, torchvision.datasets.ImageFolder;,72
+160,225,14832,visit: ImageFolder — Torchvision 0.14 documentation;,visit, ImageFolder — Torchvision 0.14 documentation;,72
+161,226,14899,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,73
+162,227,15058,revisit: ImageFolder — Torchvision 0.14 documentation;,revisit, ImageFolder — Torchvision 0.14 documentation;,74
+163,230,15220,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,75
+164,237,15759,search: make directory within directory python;,search, make directory within directory python;,76
+165,238,15762,visit: Create a directory in Python - GeeksforGeeks;,visit, Create a directory in Python - GeeksforGeeks;,76
+166,239,15830,search: FileNotFoundError: [WinError 3] The system cannot find the path specified;,search, FileNotFoundError: [WinError 3] The system cannot find the path specified;,77
+167,240,15831,visit: python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,visit, python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,77
+168,247,16210,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,78
+169,254,17779,search: import python file as module;,search, import python file as module;,79
+170,255,17783,visit: Python 3: Import Another Python File as a Module — Computer Science Atlas;,visit, Python 3: Import Another Python File as a Module — Computer Science Atlas;,79
+171,260,18574,search: common pytorch cnn model;,search, common pytorch cnn model;,80
+172,261,18578,visit: Convolutional Neural Network Pytorch | CNN Using Pytorch;,visit, Convolutional Neural Network Pytorch | CNN Using Pytorch;,80
+173,262,18767,research: common pytorch cnn model;,research, common pytorch cnn model;,80
+174,263,18788,visit: PyTorch CNN: The Basics and a Quick Tutorial;,visit, PyTorch CNN: The Basics and a Quick Tutorial;,80
+175,264,18849,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,81
+176,265,19110,search: general cnn architecture for image classification pytorch;,search, general cnn architecture for image classification pytorch;,82
+177,266,19115,visit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,visit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,82
+178,267,20826,search: how to visualize batch size and epochs;,search, how to visualize batch size and epochs;,83
+179,268,20843,"visit: Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",visit," Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",83
+180,271,21447,revisit: Start Locally | PyTorch;,revisit, Start Locally | PyTorch;,84
+181,272,21469,revisit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,revisit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,85
+182,273,21554,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,86
+183,274,21783,search: difference between adam and sgd;,search, difference between adam and sgd;,87
+184,275,21798,visit: Adam vs. SGD: Closing the generalization gap on image classification;,visit, Adam vs. SGD: Closing the generalization gap on image classification;,87
+185,276,22014,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,88
+186,277,22086,visit: Serialization semantics — PyTorch 1.13 documentation;,visit, Serialization semantics — PyTorch 1.13 documentation;,88
+187,278,22132,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,88
+188,281,23736,revisit: Building Models with PyTorch - YouTube;,revisit, Building Models with PyTorch - YouTube;,89
+189,284,26371,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,90
+190,285,26373,revisit: Adam vs. SGD: Closing the generalization gap on image classification;,revisit, Adam vs. SGD: Closing the generalization gap on image classification;,91
+191,286,26385,search: how to load pth file pytorch;,search, how to load pth file pytorch;,92
+192,287,26387,visit: python - How to load .pth file? - Stack Overflow;,visit, python - How to load .pth file? - Stack Overflow;,92
+193,288,26404,research: how to load pth file pytorch;,research, how to load pth file pytorch;,92
+194,289,26405,visit: Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,visit, Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,92
+195,290,26640,search: load pth file pytorch and testng;,search, load pth file pytorch and testng;,93
+196,291,26648,visit: How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,93
+197,292,26669,visit: How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,93
+198,293,26689,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,94
+199,294,26713,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,95
+200,304,27670,search: making a confusion matrix pytorch;,search, making a confusion matrix pytorch;,96
+201,305,27675,visit: Confusion Matrix — PyTorch-Metrics 0.10.3 documentation;,visit, Confusion Matrix — PyTorch-Metrics 0.10.3 documentation;,96
+202,306,27687,research: making a confusion matrix pytorch;,research, making a confusion matrix pytorch;,96
+203,307,27691,visit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,visit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,96
+204,308,27903,search: scikit learn confusion matrix;,search, scikit learn confusion matrix;,97
+205,309,27904,visit: sklearn.metrics.confusion_matrix — scikit-learn 1.1.3 documentation;,visit, sklearn.metrics.confusion_matrix — scikit-learn 1.1.3 documentation;,97
+206,310,27966,revisit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,revisit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,98
