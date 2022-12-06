@@ -11,8 +11,8 @@
 <div class='webImageLongRow'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n9_2022-10-27-20_12_04.png' width='180' height='112'> </td></tr><tr><td>python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow</td></tr></tbody></table></div>
 </div>
-</div>
 
+</div>
 <button type='button' class='collapsible active'>search: install pytorch</button>
 <div class='content'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n10_2022-10-27-20_12_37.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation</td></tr></tbody></table></div>
@@ -33,8 +33,131 @@
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n25_2022-10-27-20_21_39.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Start Locally | PyTorch</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n26_2022-10-27-20_21_41.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation</td></tr></tbody></table></div>
 </div>
-</div>
 
+</div>
+<button type='button' class='collapsible active'>+ import matplotlib.pyplot as plt
+</button>
+<div class='content' --start-code='import torch
+import torchvision
+import torchvision.transforms as transforms
+
+
+transform = transforms.Compose(
+    [transforms.ToTensor(),
+     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+
+batch_size = 4
+
+trainset = torchvision.datasets.CIFAR10(root="./dat", train=True,
+                                        download=True, transform=transform)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+                                          shuffle=True, num_workers=2)
+
+testset = torchvision.datasets.CIFAR10(root="./dat", train=False,
+                                       download=True, transform=transform)
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
+                                         shuffle=False, num_workers=2)
+
+classes = ("plane", "car", "bird", "cat",
+           "deer", "dog", "frog", "horse", "ship", "truck")' --end-code='import torch
+import torchvision
+import torchvision.transforms as transforms
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+transform = transforms.Compose(
+    [transforms.ToTensor(),
+     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+
+batch_size = 4
+
+trainset = torchvision.datasets.CIFAR10(root="./dat", train=True,
+                                        download=False, transform=transform)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+                                          shuffle=True, num_workers=0)
+
+testset = torchvision.datasets.CIFAR10(root="./dat", train=False,
+                                       download=False, transform=transform)
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
+                                         shuffle=False, num_workers=0)
+
+classes = ("plane", "car", "bird", "cat",
+           "deer", "dog", "frog", "horse", "ship", "truck")
+
+# functions to show an image
+def imshow(img):
+    img = img / 2 + 0.5     # unnormalize
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    plt.show()
+
+
+# get some random training images
+dataiter = iter(trainloader)
+images, labels = next(dataiter)
+
+# show images
+imshow(torchvision.utils.make_grid(images))
+# print labels
+# print(" ".join(f"{classes[labels[j]]:5s}" for j in range(batch_size)))
+
+
+class Net(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1 = nn.Linear(16 * 5 * 5, 120)
+        self.fc2 = nn.Linear(120, 84)
+        self.fc3 = nn.Linear(84, 10)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = torch.flatten(x, 1) # flatten all dimensions except batch
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+
+net = Net()
+
+import torch.optim as optim
+
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+
+for epoch in range(2):  # loop over the dataset multiple times
+
+    running_loss = 0.0
+    for i, data in enumerate(trainloader, 0):
+        # get the inputs; data is a list of [inputs, labels]
+        inputs, labels = data
+
+        # zero the parameter gradients
+        optimizer.zero_grad()
+
+        # forward + backward + optimize
+        outputs = net(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+        # print statistics
+        running_loss += loss.item()
+        if i % 2000 == 1999:    # print every 2000 mini-batches
+            print(f"[{epoch + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}")
+            running_loss = 0.0
+
+print("Finished Training")'>
+<p> code content will go here</p>
+</div>
 <button type='button' class='collapsible active'>search: pytorch how to create a custom dataset for image classification</button>
 <div class='content'>
 <div class='title'><span><a href='javascript:' onclick='seek(2005)'>trash image dataset</a></span></div><hr>
@@ -81,29 +204,56 @@
 <div class='title'><span><a href='javascript:' onclick='seek(3829)'>pytorch how to create a dataset</a></span></div><hr>
 <div class='webImageLongRow'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n52_2022-10-27-21_07_16.png' width='180' height='112'> </td></tr><tr><td>A detailed example of data loaders with PyTorch</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n54_2022-10-27-21_07_48.png' width='180' height='112'> </td></tr><tr><td>Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n54_2022-10-27-21_07_48.png' width='180' height='112'> </td></tr><tr><td>Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials
+1.13.0+cu117 documentation</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n56_2022-10-27-21_10_41.png' width='180' height='112'> </td></tr><tr><td>Creating Your Own Datasets — pytorch_geometric  documentation</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n58_2022-10-27-21_11_12.png' width='180' height='112'> </td></tr><tr><td>How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n58_2022-10-27-21_11_12.png' width='180' height='112'> </td></tr><tr><td>How to use Datasets and DataLoader in PyTorch for custom text data | by
+Wherll | Towards Data Science</td></tr></tbody></table></div>
 </div>
 <div class='title'><span><a href='javascript:' onclick='seek(4129)'>pytorch how to create a custom dataset for image classification</a></span></div><hr>
 <div class='webImageLongRow'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n61_2022-10-27-21_12_24.png' width='180' height='112'> </td></tr><tr><td>04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning</td></tr></tbody></table></div>
 </div>
-</div>
 
-<button type='button' class='collapsible active'>search: how to pick a random pictures from a directory python</button>
-<div class='content'>
-<div class='title'><span><a href='javascript:' onclick='seek(4831)'>python random integer</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n63_2022-10-27-21_23_53.png' width='180' height='112'> </td></tr><tr><td>Python Random randint() Method</td></tr></tbody></table></div>
-</div>
-<div class='title'><span><a href='javascript:' onclick='seek(4859)'>how to pick a random pictures from a directory python</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n65_2022-10-27-21_24_25.png' width='180' height='112'> </td></tr><tr><td>discord.py - How do i get a random image from a folder python - Stack Overflow</td></tr></tbody></table></div>
-</div>
-</div>
+<button type='button' class='collapsible active'>+ # from PIL import Image</button>
+<div class='content' --start-code='from PIL import Image
 
-<button type='button' class='collapsible active'>+     image_path_list = list(dir_path.glob("*.jpg"))
+im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+im.show() ' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import os
+dir = os.path.dirname(__file__)
+garbage_classification_folder = os.path.join(dir, "Garbage classification")
+
+print(garbage_classification_folder)'>
+<p> code content will go here</p>
+</div><button type='button' class='collapsible active'>+ print(dir)</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import os
+dir = os.path.dirname(__file__)
+garbage_classification_folder = os.path.join(dir, "/dat/Garbage classification/Garbage classification")
+
+print(garbage_classification_folder, " is a valid ", os.path.isdir(garbage_classification_folder))' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import os
+dir = os.path.dirname(__file__)
+print(dir)
+garbage_classification_folder = os.path.join(dir, "/dat/Garbage classification/Garbage classification")
+
+print(garbage_classification_folder, " is a valid directory: ", os.path.isdir(garbage_classification_folder))'>
+<p> code content will go here</p>
+</div></div>
+<button type='button' class='collapsible active'>+ import random
 </button>
 <div class='content' --start-code='# from PIL import Image
 
@@ -123,33 +273,7 @@ def walk_through_dir(dir_path):
     for dirpath, dirnames, filenames in os.walk(dir_path):
         print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
 
-import random
-from PIL import Image
-
-def get_a_random_img(dir_path):
-    # Set seed
-    random.seed(42)
-
-    # 1. Get all image paths (* means "any combination")
-    image_path_list = list(dir_path.glob("*/*/*.jpg"))
-
-    # 2. Get random image path
-    random_image_path = random.choice(image_path_list)
-
-    # 3. Get image class from path name (the image class is the name of the directory where the image is stored)
-    image_class = random_image_path.parent.stem
-
-    # 4. Open image
-    img = Image.open(random_image_path)
-
-    # 5. Print metadata
-    print(f"Random image path: {random_image_path}")
-    print(f"Image class: {image_class}")
-    print(f"Image height: {img.height}")
-    print(f"Image width: {img.width}")
-
-get_a_random_img(image_path)
-' --end-code='# from PIL import Image
+walk_through_dir(image_path)' --end-code='# from PIL import Image
 
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
 # im.show()
@@ -195,6 +319,17 @@ def get_a_random_img(dir_path):
 get_a_random_img(image_path)
 '>
 <p> code content will go here</p>
+<button type='button' class='collapsible active'>search: how to pick a random pictures from a directory python</button>
+<div class='content'>
+<div class='title'><span><a href='javascript:' onclick='seek(4831)'>python random integer</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n63_2022-10-27-21_23_53.png' width='180' height='112'> </td></tr><tr><td>Python Random randint() Method</td></tr></tbody></table></div>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(4859)'>how to pick a random pictures from a directory python</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n65_2022-10-27-21_24_25.png' width='180' height='112'> </td></tr><tr><td>discord.py - How do i get a random image from a folder python - Stack Overflow</td></tr></tbody></table></div>
+</div>
+</div>
 <button type='button' class='collapsible active'>search: check if a directory exists python</button>
 <div class='content'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n67_2022-10-27-21_32_34.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>discord.py - How do i get a random image from a folder python - Stack Overflow</td></tr></tbody></table></div>
@@ -204,7 +339,6 @@ get_a_random_img(image_path)
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n70_2022-10-27-21_37_28.png' width='180' height='112'> </td></tr><tr><td>Python: Check if a File or Directory Exists - GeeksforGeeks</td></tr></tbody></table></div>
 </div>
 </div>
-
 </div>
 </div>
 </div>
@@ -217,11 +351,10 @@ get_a_random_img(image_path)
 <div class='title'><span><a href='javascript:' onclick='seek(6265)'>generate a random list of numbers python</a></span></div><hr>
 <div class='webImageLongRow'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n75_2022-10-27-21_47_48.png' width='180' height='112'> </td></tr><tr><td>Generating random number list in Python - GeeksforGeeks</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n76_2022-10-27-21_49_38.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - How to delete the contents of
-a folder? - Stack Overflow</td></tr></tbody></table></div>
-</div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n76_2022-10-27-21_49_38.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - How to delete the contents of a folder? - Stack Overflow</td></tr></tbody></table></div>
 </div>
 
+</div>
 <button type='button' class='collapsible active'>search: how to copy files in python</button>
 <div class='content'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n78_2022-10-27-21_49_46.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>discord.py - How do i get a random image from a folder python - Stack Overflow</td></tr></tbody></table></div>
@@ -237,17 +370,14 @@ a folder? - Stack Overflow</td></tr></tbody></table></div>
 <div class='webImageLongRow'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n84_2022-10-27-22_04_09.png' width='180' height='112'> </td></tr><tr><td>python - Random without repetition? - Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n86_2022-10-27-22_04_59.png' width='180' height='112'> </td></tr><tr><td>Randomly select elements from list without repetition in Python - GeeksforGeeks</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n87_2022-10-27-22_06_07.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>How to Randomly Select Elements From a
-List in Python</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n87_2022-10-27-22_06_07.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>How to Randomly Select Elements From a List in Python</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n88_2022-10-27-22_11_59.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Randomly select elements from list without repetition in Python - GeeksforGeeks</td></tr></tbody></table></div>
 </div>
 <div class='title'><span><a href='javascript:' onclick='seek(7733)'>flatten array python</a></span></div><hr>
 <div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n90_2022-10-27-22_12_20.png' width='180' height='112'> </td></tr><tr><td>python - How do I make a flat list out of a list of lists?
-- Stack Overflow</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n90_2022-10-27-22_12_20.png' width='180' height='112'> </td></tr><tr><td>python - How do I make a flat list out of a list of lists? - Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n91_2022-10-27-22_12_48.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Generating random number list in Python - GeeksforGeeks</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n92_2022-10-27-22_12_49.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>How to Randomly Select Elements From a
-List in Python</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n92_2022-10-27-22_12_49.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>How to Randomly Select Elements From a List in Python</td></tr></tbody></table></div>
 </div>
 <div class='title'><span><a href='javascript:' onclick='seek(8514)'>grab 80 elements from array python</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -273,14 +403,12 @@ List in Python</td></tr></tbody></table></div>
 </div>
 <div class='title'><span><a href='javascript:' onclick='seek(10268)'>how to random selecting from a list without repetition python</a></span></div><hr>
 <div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n110_2022-10-27-22_54_44.png' width='180' height='112'> </td></tr><tr><td>python - How do I create a list of random numbers without
-duplicates - Stack Overflow</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n110_2022-10-27-22_54_44.png' width='180' height='112'> </td></tr><tr><td>python - How do I create a list of random numbers without duplicates -
+Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n112_2022-10-27-22_55_15.png' width='180' height='112'> </td></tr><tr><td>Selecting Random Elements from a List Without Repetition - Python Cookbook [Book]</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n113_2022-10-27-22_55_51.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>How to Randomly Select Elements From a List in Python</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n114_2022-10-27-22_56_41.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Selecting Random Elements from a List
-Without Repetition - Python Cookbook [Book]</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n116_2022-10-27-22_56_45.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - Random without repetition? -
-Stack Overflow</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n114_2022-10-27-22_56_41.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Selecting Random Elements from a List Without Repetition - Python Cookbook [Book]</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n116_2022-10-27-22_56_45.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - Random without repetition? - Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n117_2022-10-27-22_57_17.png' width='180' height='112'> </td></tr><tr><td>Python | random.sample() function - GeeksforGeeks</td></tr></tbody></table></div>
 </div>
 <div class='title'><span><a href='javascript:' onclick='seek(10903)'>how to move images from one folder to another in python</a></span></div><hr>
@@ -298,8 +426,7 @@ Stack Overflow</td></tr></tbody></table></div>
 <div class='title'><span><a href='javascript:' onclick='seek(11051)'>how to move image in python without deleting source files</a></span></div><hr>
 <div class='webImageLongRow'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n127_2022-10-27-23_07_38.png' width='180' height='112'> </td></tr><tr><td>How to move a file in Python? - Stack Overflow</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n129_2022-10-27-23_09_07.png' width='180' height='112'> </td></tr><tr><td>Copy all files from one directory to another using Python
-- GeeksforGeeks</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n129_2022-10-27-23_09_07.png' width='180' height='112'> </td></tr><tr><td>Copy all files from one directory to another using Python - GeeksforGeeks</td></tr></tbody></table></div>
 </div>
 <div class='title'><span><a href='javascript:' onclick='seek(11200)'>shutil copy2</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -310,13 +437,392 @@ Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n133_2022-10-27-23_11_50.png' width='180' height='112'> </td></tr><tr><td>python - How to copy files? - Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n134_2022-10-27-23_34_54.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - Checking if all elements in a list are unique - Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n135_2022-10-27-23_34_56.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - Get difference between two lists - Stack Overflow</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n136_2022-10-27-23_34_59.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - Random without repetition? -
-Stack Overflow</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n136_2022-10-27-23_34_59.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - Random without repetition? - Stack Overflow</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n138_2022-10-27-23_35_08.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>python - How do I make a flat list out of a list of lists? - Stack Overflow</td></tr></tbody></table></div>
 </div>
-</div>
 
-<button type='button' class='collapsible active'>+     # image_path_set = set(image_path_list)</button>
+<button type='button' class='collapsible active'>+ def get_a_random__img(dir_path):</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+
+import random
+from PIL import Image
+
+def get_a_random_img(dir_path):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # 2. Get random image path
+    random_image_path = random.choice(image_path_list)
+
+    # 3. Get image class from path name (the image class is the name of the directory where the image is stored)
+    image_class = random_image_path.parent.stem
+
+    # 4. Open image
+    img = Image.open(random_image_path)
+
+    # 5. Print metadata
+    print(f"Random image path: {random_image_path}")
+    print(f"Image class: {image_class}")
+    print(f"Image height: {img.height}")
+    print(f"Image width: {img.width}")
+
+def make_train_test_folder(dir_path):
+    import shutil
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    else:
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            walk_through_dir(el_path)
+
+make_train_test_folder(data_path)
+' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+
+import random
+from PIL import Image
+
+def get_a_random__img(dir_path):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # 2. Get random image path
+    random_image_path = random.choice(image_path_list)
+
+    # 3. Get image class from path name (the image class is the name of the directory where the image is stored)
+    image_class = random_image_path.parent.stem
+
+    # 4. Open image
+    img = Image.open(random_image_path)
+
+    # 5. Print metadata
+    print(f"Random image path: {random_image_path}")
+    print(f"Image class: {image_class}")
+    print(f"Image height: {img.height}")
+    print(f"Image width: {img.width}")
+
+def make_train_test_folder(dir_path):
+    import shutil
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    else:
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            random.seed(42)
+            img_path_list = list(el_path.glob("*.jpg"))
+            print(img_path_list[:5])
+
+make_train_test_folder(data_path)
+'>
+<p> code content will go here</p>
+</div><button type='button' class='collapsible active'>+ import math</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+
+import random
+from PIL import Image
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    updated_rand_image_list = random.choices(list(image_path_set), k = N)
+
+    return updated_rand_image_list
+
+def make_train_test_folder(dir_path):
+    import shutil
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    else:
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            rand_img_list = get_random_img_list(el_path, 5)
+            print(rand_img_list)
+
+make_train_test_folder(data_path)
+' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.choices(list(image_path_set), k = N)
+
+    image_list_test = list(set(image_path_list) - set(image_list_train))
+
+    return image_list_train, image_list_test
+
+def make_train_test_folder(dir_path):
+    import shutil
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    else:
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            print("5 elements from training data", training_dat[:5])
+            print("5 elements from testing data", testing_dat[:5])
+            print("length of train data:", len(training_dat))
+            print("length of test data:", len(testing_dat))
+
+
+make_train_test_folder(data_path)
+'>
+<p> code content will go here</p>
+</div><button type='button' class='collapsible active'>+     s = set(image_list_train)</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.choices(list(image_path_set), k = N)
+
+    image_list_test = list(set(image_path_list) - set(image_list_train))
+
+    return image_list_train, image_list_test
+
+def make_train_test_folder(dir_path):
+    import shutil
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    else:
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            print("80 percent of", no_of_imgs, "is", training_amount)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            print("5 elements from training data", training_dat[:5])
+            print("5 elements from testing data", testing_dat[:5])
+            print("length of train data:", len(training_dat))
+            print("length of test data:", len(testing_dat))
+
+
+make_train_test_folder(data_path)
+' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.choices(list(image_path_set), k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def make_train_test_folder(dir_path):
+    import shutil
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    else:
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            print("80 percent of", no_of_imgs, "is", training_amount)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            # print("5 elements from training data", training_dat[:5])
+            # print("5 elements from testing data", testing_dat[:5])
+            print("length of train data:", len(training_dat))
+            print("length of test data:", len(testing_dat))
+
+
+make_train_test_folder(data_path)
+'>
+<p> code content will go here</p>
+</div><button type='button' class='collapsible active'>+ from genericpath import exists</button>
 <div class='content' --start-code='# from PIL import Image
 
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
@@ -397,6 +903,7 @@ make_train_test_folder(data_path)
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
 # im.show()
 
+from genericpath import exists
 import math
 import os
 garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
@@ -435,21 +942,21 @@ def get_random_img_list(dir_path, N):
     # 2. Get random image path
     image_list_train = random.sample(image_path_list, k = N)
 
-    print(allUnique(image_list_train))
-
     s = set(image_list_train)
     image_list_test = [x for x in image_path_list if x not in s]
 
     return image_list_train, image_list_test
 
+import shutil
 def make_train_test_folder(dir_path):
-    import shutil
     train_folder = dir_path / "train"
     test_folder = dir_path / "test"
     if os.path.exists(train_folder):
         shutil.rmtree(train_folder)
     else:
         # we need to select random images from all img folders and build up our train set
+        training_dataset = []
+        testing_dataset = []
         collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
         for el in collection:
             el_path = dir_path / el
@@ -457,19 +964,23 @@ def make_train_test_folder(dir_path):
 
             # grab 80% of imgs for training
             training_amount = math.floor(0.8 * no_of_imgs)
-            print("80 percent of", no_of_imgs, "is", training_amount)
             training_dat, testing_dat = get_random_img_list(el_path, training_amount)
 
-            # print("5 elements from training data", training_dat[:5])
-            # print("5 elements from testing data", testing_dat[:5])
-            print("length of train data:", len(training_dat))
-            print("length of test data:", len(testing_dat))
+            training_dataset.append(training_dat)
+            testing_dataset.append(testing_dat)
+
+srcFile = data_path / "cardboard" / "cardboard1.jpg"
+destDir = data_path / "testCopy"
+if not os.path.exists(destDir):
+    os.mkdir(destDir)
+
+shutil.copy2(src = srcFile, dst = destDir)
 
 
-make_train_test_folder(data_path)
+# make_train_test_folder(data_path)
 '>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>+             print(train_img_path)</button>
+</div><button type='button' class='collapsible active'>+ make_train_test_folder(data_path)</button>
 <div class='content' --start-code='# from PIL import Image
 
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
@@ -629,7 +1140,6 @@ def make_train_test_folder(dir_path):
         os.mkdir(train_folder)
         os.mkdir(test_folder)
         for train_img_path in training_dataset:
-            print(train_img_path)
             shutil.copy2(src=train_img_path, dst=train_folder)
 
         for test_img_path in testing_dataset:
@@ -638,8 +1148,91 @@ def make_train_test_folder(dir_path):
 make_train_test_folder(data_path)
 '>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>+ def flatten(l):</button>
+</div><button type='button' class='collapsible active'>+     if os.path.exists(test_folder):</button>
 <div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    elif os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+    else:
+        # we need to select random images from all img folders and build up our train set
+        training_dataset = []
+        testing_dataset = []
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            training_dataset.append(training_dat)
+            testing_dataset.append(testing_dat)
+
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        for train_img_path in training_dataset:
+            print(train_img_path)
+            shutil.copy2(src=train_img_path, dst=train_folder)
+
+        for test_img_path in testing_dataset:
+            shutil.copy2(src=test_img_path, dst=test_folder)
+
+make_train_test_folder(data_path)
+' --end-code='# from PIL import Image
 
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
 # im.show()
@@ -723,7 +1316,12 @@ def make_train_test_folder(dir_path):
             shutil.copy2(src=test_img_path, dst=test_folder)
 
 make_train_test_folder(data_path)
-' --end-code='# from PIL import Image
+'>
+<p> code content will go here</p>
+</div></div>
+<button type='button' class='collapsible active'>+ # make_train_test_folder(data_path)
+</button>
+<div class='content' --start-code='# from PIL import Image
 
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
 # im.show()
@@ -812,11 +1410,7 @@ def make_train_test_folder(dir_path):
             shutil.copy2(src=test_img_path, dst=test_folder)
 
 make_train_test_folder(data_path)
-'>
-<p> code content will go here</p>
-</div><button type='button' class='collapsible active'>+         os.mkdir(train_folder)
-</button>
-<div class='content' --start-code='# from PIL import Image
+' --end-code='# from PIL import Image
 
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
 # im.show()
@@ -949,7 +1543,1041 @@ def plot_transformed_images(image_paths, transform, n=3):
 
             fig.suptitle(f"Class: {image_path.parent.stem}", fontsize=16)
 
+plot_transformed_images(image_path_list_test, transform=data_transform, n=3)'>
+<p> code content will go here</p>
+</div>
+<button type='button' class='collapsible active'>search: how to grab a file name from a pil image path</button>
+<div class='content'>
+<div class='title'><span><a href='javascript:' onclick='seek(13844)'>how to show fig python</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n141_2022-10-27-23_54_06.png' width='180' height='112'> </td></tr><tr><td>Matplotlib.figure.Figure.show() in Python - GeeksforGeeks</td></tr></tbody></table></div>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(13942)'>how to show fig python but not close right away</a></span></div><hr>
+<div class='webImageLongRow'>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(13967)'>how to show figure python matplotlib without close right away</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n145_2022-10-27-23_56_12.png' width='180' height='112'> </td></tr><tr><td>python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow</td></tr></tbody></table></div>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(14031)'>how to avoid plt closing on its own</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n148_2022-10-27-23_57_13.png' width='180' height='112'> </td></tr><tr><td>python - Closing pyplot windows - Stack Overflow</td></tr></tbody></table></div>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(14131)'>fig show closed on its own</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n150_2022-10-27-23_58_52.png' width='180' height='112'> </td></tr><tr><td>python - view and then close the figure automatically in matplotlib? -
+Stack Overflow</td></tr></tbody></table></div>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(14430)'>windows path strip image name</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n152_2022-10-28-00_03_55.png' width='180' height='112'> </td></tr><tr><td>c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n154_2022-10-28-00_04_02.png' width='180' height='112'> </td></tr><tr><td>Redirecting to Microsoft.com</td></tr></tbody></table></div>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(14552)'>how to grab a file name from a pil image path</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n157_2022-10-28-00_05_53.png' width='180' height='112'> </td></tr><tr><td>python - Extract file name from path, no matter what the os/path format - Stack Overflow</td></tr></tbody></table></div>
+</div>
+
+<button type='button' class='collapsible active'>+             # fig.show()</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        # we need to select random images from all img folders and build up our train set
+        training_dataset = []
+        testing_dataset = []
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            training_dataset.append(training_dat)
+            testing_dataset.append(testing_dat)
+
+        training_dataset = flatten(training_dataset)
+        testing_dataset = flatten(testing_dataset)
+
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        for train_img_path in training_dataset:
+            shutil.copy2(src=train_img_path, dst=train_folder)
+
+        for test_img_path in testing_dataset:
+            shutil.copy2(src=test_img_path, dst=test_folder)
+
+# make_train_test_folder(data_path)
+
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+train_dir = data_path / "train"
+test_dir = data_path / "test"
+
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
+
+image_path_list_test = list(train_dir.glob("*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
+
+import matplotlib.pyplot as plt
+
+def plot_transformed_images(image_paths, transform, n=3):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
+
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
+
+            fig.suptitle(f"Class: {image_path.parent.stem}", fontsize=16)
+            fig.show()
+            plt.show(block=False)
+
 plot_transformed_images(image_path_list_test, transform=data_transform, n=3)' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        # we need to select random images from all img folders and build up our train set
+        training_dataset = []
+        testing_dataset = []
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            training_dataset.append(training_dat)
+            testing_dataset.append(testing_dat)
+
+        training_dataset = flatten(training_dataset)
+        testing_dataset = flatten(testing_dataset)
+
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        for train_img_path in training_dataset:
+            shutil.copy2(src=train_img_path, dst=train_folder)
+
+        for test_img_path in testing_dataset:
+            shutil.copy2(src=test_img_path, dst=test_folder)
+
+# make_train_test_folder(data_path)
+
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+train_dir = data_path / "train"
+test_dir = data_path / "test"
+
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
+
+image_path_list_test = list(train_dir.glob("*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
+
+import matplotlib.pyplot as plt
+
+def plot_transformed_images(image_paths, transform, n=3):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
+
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
+
+            fig.suptitle(f"Class: {image_path.parent.stem}", fontsize=16)
+            # fig.show()
+            plt.show(block=False)
+
+plot_transformed_images(image_path_list_test, transform=data_transform, n=3)'>
+<p> code content will go here</p>
+</div><button type='button' class='collapsible active'>+ def plot_transformed_images(image_paths, transform, n):</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        # we need to select random images from all img folders and build up our train set
+        training_dataset = []
+        testing_dataset = []
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            training_dataset.append(training_dat)
+            testing_dataset.append(testing_dat)
+
+        training_dataset = flatten(training_dataset)
+        testing_dataset = flatten(testing_dataset)
+
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        for train_img_path in training_dataset:
+            shutil.copy2(src=train_img_path, dst=train_folder)
+
+        for test_img_path in testing_dataset:
+            shutil.copy2(src=test_img_path, dst=test_folder)
+
+# make_train_test_folder(data_path)
+
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+train_dir = data_path / "train"
+test_dir = data_path / "test"
+
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
+
+image_path_list_test = list(train_dir.glob("*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
+
+import matplotlib.pyplot as plt
+
+def plot_transformed_images(image_paths, transform, n=3):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
+
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
+
+            fig.suptitle(f"Class: {image_path.parent.stem}", fontsize=16)
+            # fig.show()
+            plt.show(block=False)
+            plt.pause(5)
+            plt.close()
+
+plot_transformed_images(image_path_list_test, transform=data_transform, n=3)' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        # we need to select random images from all img folders and build up our train set
+        training_dataset = []
+        testing_dataset = []
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            training_dataset.append(training_dat)
+            testing_dataset.append(testing_dat)
+
+        training_dataset = flatten(training_dataset)
+        testing_dataset = flatten(testing_dataset)
+
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        for train_img_path in training_dataset:
+            shutil.copy2(src=train_img_path, dst=train_folder)
+
+        for test_img_path in testing_dataset:
+            shutil.copy2(src=test_img_path, dst=test_folder)
+
+# make_train_test_folder(data_path)
+
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+train_dir = data_path / "train"
+test_dir = data_path / "test"
+
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
+
+image_path_list_test = list(train_dir.glob("*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
+
+import matplotlib.pyplot as plt
+
+def plot_transformed_images(image_paths, transform, n):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
+
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
+
+            fig.suptitle(f"Class: {image_path.parent.stem}", fontsize=16)
+            plt.show(block=False)
+            plt.pause(10)
+            plt.close()
+
+plot_transformed_images(image_path_list_test, transform=data_transform, n=1)'>
+<p> code content will go here</p>
+</div></div>
+<button type='button' class='collapsible active'>+             os.mkdir(train_folder)
+</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        # we need to select random images from all img folders and build up our train set
+        training_dataset = []
+        testing_dataset = []
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            training_dataset.append(training_dat)
+            testing_dataset.append(testing_dat)
+
+        training_dataset = flatten(training_dataset)
+        testing_dataset = flatten(testing_dataset)
+
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        for train_img_path in training_dataset:
+            shutil.copy2(src=train_img_path, dst=train_folder)
+
+        for test_img_path in testing_dataset:
+            shutil.copy2(src=test_img_path, dst=test_folder)
+
+# make_train_test_folder(data_path)
+
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+train_dir = data_path / "train"
+test_dir = data_path / "test"
+
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
+
+image_path_list_test = list(train_dir.glob("*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
+
+import matplotlib.pyplot as plt
+
+def plot_transformed_images(image_paths, transform, n):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
+
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
+
+            fig.suptitle(f"Class: {Path(image_path).name}", fontsize=16)
+            plt.show(block=False)
+            plt.pause(10)
+            plt.close()
+
+plot_transformed_images(image_path_list_test, transform=data_transform, n=1)' --end-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            os.mkdir(train_folder)
+            os.mkdir(train_folder / el)
+            os.mkdir(test_folder)
+            os.mkdir(test_folder / el)
+
+            for train_img_path in training_dat:
+                shutil.copy2(src=train_img_path, dst=train_folder / el)
+
+            for test_img_path in testing_dat:
+                shutil.copy2(src=test_img_path, dst=test_folder / el)
+
+make_train_test_folder(data_path)
+
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+train_dir = data_path / "train"
+test_dir = data_path / "test"
+
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
+
+image_path_list_test = list(train_dir.glob("*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
+
+import matplotlib.pyplot as plt
+
+def plot_transformed_images(image_paths, transform, n):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
+
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
+
+            fig.suptitle(f"Class: {Path(image_path).name}", fontsize=16)
+            plt.show(block=False)
+            plt.pause(10)
+            plt.close()
+
+# plot_transformed_images(image_path_list_test, transform=data_transform, n=1)
+
+# Use ImageFolder to create dataset(s)
+from torchvision import datasets
+train_data = datasets.ImageFolder(root=train_dir, # target folder of images
+                                  transform=data_transform, # transforms to perform on data (images)
+                                  target_transform=None) # transforms to perform on labels (if necessary)
+
+test_data = datasets.ImageFolder(root=test_dir,
+                                 transform=data_transform)
+
+print(f"Train data:\n{train_data}\nTest data:\n{test_data}")'>
+<p> code content will go here</p>
+<button type='button' class='collapsible active'>search: torchvision.datasets.ImageFolder</button>
+<div class='content'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n158_2022-10-28-00_08_24.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning</td></tr></tbody></table></div>
+<div class='title'><span><a href='javascript:' onclick='seek(14828)'>torchvision.datasets.ImageFolder</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n160_2022-10-28-00_10_32.png' width='180' height='112'> </td></tr><tr><td>ImageFolder — Torchvision 0.14 documentation</td></tr></tbody></table></div>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n161_2022-10-28-00_11_39.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning</td></tr></tbody></table></div>
+</div>
+</div>
+<button type='button' class='collapsible active'>search: FileNotFoundError: [WinError 3] The system cannot find the path specified</button>
+<div class='content'>
+<div class='title'><span><a href='javascript:' onclick='seek(15759)'>make directory within directory python</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n165_2022-10-28-00_26_02.png' width='180' height='112'> </td></tr><tr><td>Create a directory in Python - GeeksforGeeks</td></tr></tbody></table></div>
+</div>
+<div class='title'><span><a href='javascript:' onclick='seek(15830)'>FileNotFoundError: [WinError 3] The system cannot find the path specified</a></span></div><hr>
+<div class='webImageLongRow'>
+        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n167_2022-10-28-00_27_11.png' width='180' height='112'> </td></tr><tr><td>python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button type='button' class='collapsible active'>+ # make_train_test_folder(data_path)
+</button>
+<div class='content' --start-code='# from PIL import Image
+
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    # Set seed
+    random.seed(42)
+
+    # 1. Get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
+    image_list_train = random.sample(image_path_list, k = N)
+
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+import shutil
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            os.mkdir(train_folder / el)
+            os.mkdir(test_folder / el)
+
+            for train_img_path in training_dat:
+                shutil.copy2(src=train_img_path, dst=train_folder / el)
+
+            for test_img_path in testing_dat:
+                shutil.copy2(src=test_img_path, dst=test_folder / el)
+
+make_train_test_folder(data_path)
+
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+train_dir = data_path / "train"
+test_dir = data_path / "test"
+
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
+
+image_path_list_test = list(train_dir.glob("*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
+
+import matplotlib.pyplot as plt
+
+def plot_transformed_images(image_paths, transform, n):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
+
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
+
+            fig.suptitle(f"Class: {Path(image_path).name}", fontsize=16)
+            plt.show(block=False)
+            plt.pause(10)
+            plt.close()
+
+# plot_transformed_images(image_path_list_test, transform=data_transform, n=1)
+
+# Use ImageFolder to create dataset(s)
+from torchvision import datasets
+train_data = datasets.ImageFolder(root=train_dir, # target folder of images
+                                  transform=data_transform, # transforms to perform on data (images)
+                                  target_transform=None) # transforms to perform on labels (if necessary)
+
+test_data = datasets.ImageFolder(root=test_dir,
+                                 transform=data_transform)
+
+print(f"Train data:\n{train_data}\nTest data:\n{test_data}")' --end-code='# from PIL import Image
 
 # im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
 # im.show()
@@ -1093,81 +2721,24 @@ test_data = datasets.ImageFolder(root=test_dir,
 
 print(f"Train data:\n{train_data}\nTest data:\n{test_data}")'>
 <p> code content will go here</p>
-<button type='button' class='collapsible active'>search: how to grab a file name from a pil image path</button>
-<div class='content'>
-<div class='title'><span><a href='javascript:' onclick='seek(13844)'>how to show fig python</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n141_2022-10-27-23_54_06.png' width='180' height='112'> </td></tr><tr><td>Matplotlib.figure.Figure.show() in Python - GeeksforGeeks</td></tr></tbody></table></div>
 </div>
-<div class='title'><span><a href='javascript:' onclick='seek(13942)'>how to show fig python but not close right away</a></span></div><hr>
-<div class='webImageLongRow'>
-</div>
-<div class='title'><span><a href='javascript:' onclick='seek(13967)'>how to show figure python matplotlib without close right away</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n145_2022-10-27-23_56_12.png' width='180' height='112'> </td></tr><tr><td>python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow</td></tr></tbody></table></div>
-</div>
-<div class='title'><span><a href='javascript:' onclick='seek(14031)'>how to avoid plt closing on its own</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n148_2022-10-27-23_57_13.png' width='180' height='112'> </td></tr><tr><td>python - Closing pyplot windows - Stack Overflow</td></tr></tbody></table></div>
-</div>
-<div class='title'><span><a href='javascript:' onclick='seek(14131)'>fig show closed on its own</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n150_2022-10-27-23_58_52.png' width='180' height='112'> </td></tr><tr><td>python - view and then close the figure automatically in matplotlib? - Stack Overflow</td></tr></tbody></table></div>
-</div>
-<div class='title'><span><a href='javascript:' onclick='seek(14430)'>windows path strip image name</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n152_2022-10-28-00_03_55.png' width='180' height='112'> </td></tr><tr><td>c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n154_2022-10-28-00_04_02.png' width='180' height='112'> </td></tr><tr><td>Redirecting to Microsoft.com</td></tr></tbody></table></div>
-</div>
-<div class='title'><span><a href='javascript:' onclick='seek(14552)'>how to grab a file name from a pil image path</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n157_2022-10-28-00_05_53.png' width='180' height='112'> </td></tr><tr><td>python - Extract file name from path, no matter what the os/path format - Stack Overflow</td></tr></tbody></table></div>
-</div>
-</div>
-
-<button type='button' class='collapsible active'>search: torchvision.datasets.ImageFolder</button>
-<div class='content'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n158_2022-10-28-00_08_24.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>04. PyTorch Custom Datasets - Zero to
-Mastery Learn PyTorch for Deep Learning</td></tr></tbody></table></div>
-<div class='title'><span><a href='javascript:' onclick='seek(14828)'>torchvision.datasets.ImageFolder</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n160_2022-10-28-00_10_32.png' width='180' height='112'> </td></tr><tr><td>ImageFolder — Torchvision 0.14 documentation</td></tr></tbody></table></div>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n161_2022-10-28-00_11_39.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>04. PyTorch Custom Datasets - Zero to
-Mastery Learn PyTorch for Deep Learning</td></tr></tbody></table></div>
-</div>
-</div>
-
-<button type='button' class='collapsible active'>search: FileNotFoundError: [WinError 3] The system cannot find the path specified</button>
-<div class='content'>
-<div class='title'><span><a href='javascript:' onclick='seek(15759)'>make directory within directory python</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n165_2022-10-28-00_26_02.png' width='180' height='112'> </td></tr><tr><td>Create a directory in Python - GeeksforGeeks</td></tr></tbody></table></div>
-</div>
-<div class='title'><span><a href='javascript:' onclick='seek(15830)'>FileNotFoundError: [WinError 3] The system cannot find the path specified</a></span></div><hr>
-<div class='webImageLongRow'>
-        <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n167_2022-10-28-00_27_11.png' width='180' height='112'> </td></tr><tr><td>python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow</td></tr></tbody></table></div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-<button type='button' class='collapsible active'>+ main()
+<button type='button' class='collapsible active'>+ import matplotlib.pyplot as plt
 </button>
-<div class='content' --start-code='import math
-import os
-from pathlib import Path
-import random
-from PIL import Image
-import shutil
-import torch
-from torch.utils.data import DataLoader
-from torchvision import datasets, transforms
+<div class='content' --start-code='# from PIL import Image
 
+# im = Image.open(r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification\glass\glass11.jpg")
+# im.show()
+
+from genericpath import exists
+import math
+import os
 garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+from pathlib import Path
 
 # Setup path to data folder
 data_path = Path(garbage_classification_folder)
+image_path = data_path / "cardboard"
 
 def walk_through_dir(dir_path):
     no_of_files = 0
@@ -1176,24 +2747,36 @@ def walk_through_dir(dir_path):
         no_of_files = len(filenames)
     return no_of_files
 
+import random
+from PIL import Image
+
+def allUnique(x):
+    seen = list()
+    return not any(i in seen or seen.append(i) for i in x)
 
 # pass in the img dir path (eg. ./cardboard)
 def get_random_img_list(dir_path, N):
+    # Set seed
     random.seed(42)
 
-    # get all image paths (* means "any combination")
+    # 1. Get all image paths (* means "any combination")
     image_path_list = list(dir_path.glob("*.jpg"))
 
-    # get random image paths for training data
+    # converting the list into a set
+    # image_path_set = set(image_path_list)
+
+    # 2. Get random image path
     image_list_train = random.sample(image_path_list, k = N)
 
-    # remaining image paths will be used as testing data
     s = set(image_list_train)
     image_list_test = [x for x in image_path_list if x not in s]
 
     return image_list_train, image_list_test
 
+def flatten(l):
+    return [item for sublist in l for item in sublist]
 
+import shutil
 def make_train_test_folder(dir_path):
     train_folder = dir_path / "train"
     test_folder = dir_path / "test"
@@ -1224,147 +2807,127 @@ def make_train_test_folder(dir_path):
             for test_img_path in testing_dat:
                 shutil.copy2(src=test_img_path, dst=test_folder / el)
 
+# make_train_test_folder(data_path)
 
-def main():
-    # make_train_test_folder(data_path) # uncomment this line if want to build new train and test set
-
-    train_dir = data_path / "train"
-    test_dir = data_path / "test"
-
-    # Write transform for image
-    data_transform = transforms.Compose([
-        # Resize the images to 128x128
-        transforms.Resize(size=(128, 128)),
-        # Turn the image into a torch.Tensor
-        transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
-    ])
-
-    # Use ImageFolder to create dataset(s)
-    train_data = datasets.ImageFolder(root=train_dir, # target folder of images
-                                    transform=data_transform, # transforms to perform on data (images)
-                                    target_transform=None) # transforms to perform on labels (if necessary)
-
-    test_data = datasets.ImageFolder(root=test_dir,
-                                    transform=data_transform)
-
-    # Turn train and test Datasets into DataLoaders
-    from torch.utils.data import DataLoader
-    batch_size = 4
-    train_dataloader = DataLoader(dataset=train_data, batch_size=batch_size,
-                                    num_workers=0, shuffle=True)
-
-    test_dataloader = DataLoader(dataset=test_data, batch_size=batch_size,
-                                    num_workers=0, shuffle=False)
-
-    print("refactored file")
-    print(train_dataloader)
-    print(test_dataloader)' --end-code='import math
-import os
-from pathlib import Path
-import random
-from PIL import Image
-import shutil
 import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
-garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+train_dir = data_path / "train"
+test_dir = data_path / "test"
 
-# Setup path to data folder
-data_path = Path(garbage_classification_folder)
+# Write transform for image
+data_transform = transforms.Compose([
+    # Resize the images to 128x128
+    transforms.Resize(size=(128, 128)),
+    # Turn the image into a torch.Tensor
+    transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+])
 
-def walk_through_dir(dir_path):
-    no_of_files = 0
-    for dirpath, dirnames, filenames in os.walk(dir_path):
-        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
-        no_of_files = len(filenames)
-    return no_of_files
+image_path_list_test = list(train_dir.glob("*/*.jpg"))
+random_image_path_test = random.choice(image_path_list_test)
 
+import matplotlib.pyplot as plt
 
-# pass in the img dir path (eg. ./cardboard)
-def get_random_img_list(dir_path, N):
+def plot_transformed_images(image_paths, transform, n):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
     random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
 
-    # get all image paths (* means "any combination")
-    image_path_list = list(dir_path.glob("*.jpg"))
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
 
-    # get random image paths for training data
-    image_list_train = random.sample(image_path_list, k = N)
+            fig.suptitle(f"Class: {image_path.parent.stem}", fontsize=16)
+            plt.show(block=False)
+            plt.pause(10)
+            plt.close()
 
-    # remaining image paths will be used as testing data
-    s = set(image_list_train)
-    image_list_test = [x for x in image_path_list if x not in s]
+# plot_transformed_images(image_path_list_test, transform=data_transform, n=1)
 
-    return image_list_train, image_list_test
+# Use ImageFolder to create dataset(s)
+from torchvision import datasets
+train_data = datasets.ImageFolder(root=train_dir, # target folder of images
+                                  transform=data_transform, # transforms to perform on data (images)
+                                  target_transform=None) # transforms to perform on labels (if necessary)
 
+test_data = datasets.ImageFolder(root=test_dir,
+                                 transform=data_transform)
 
-def make_train_test_folder(dir_path):
-    train_folder = dir_path / "train"
-    test_folder = dir_path / "test"
-    if os.path.exists(train_folder):
-        shutil.rmtree(train_folder)
-    if os.path.exists(test_folder):
-        shutil.rmtree(test_folder)
+# Turn train and test Datasets into DataLoaders
+from torch.utils.data import DataLoader
+batch_size = 4
+train_dataloader = DataLoader(dataset=train_data, batch_size=batch_size,
+                                num_workers=0, shuffle=True)
 
-    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
-        os.mkdir(train_folder)
-        os.mkdir(test_folder)
-        # we need to select random images from all img folders and build up our train set
-        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
-        for el in collection:
-            el_path = dir_path / el
-            no_of_imgs = walk_through_dir(el_path)
+test_dataloader = DataLoader(dataset=test_data, batch_size=batch_size,
+                                num_workers=0, shuffle=False)
 
-            # grab 80% of imgs for training
-            training_amount = math.floor(0.8 * no_of_imgs)
-            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+import torchvision
+import numpy as np
 
-            os.mkdir(train_folder / el)
-            os.mkdir(test_folder / el)
-
-            for train_img_path in training_dat:
-                shutil.copy2(src=train_img_path, dst=train_folder / el)
-
-            for test_img_path in testing_dat:
-                shutil.copy2(src=test_img_path, dst=test_folder / el)
+# functions to show an image
+def imshow(img):
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    plt.show()
 
 
-def main():
-    # make_train_test_folder(data_path) # uncomment this line if want to build new train and test set
+# get some random training images
+dataiter = iter(train_dataloader)
+images, labels = next(dataiter)
 
-    train_dir = data_path / "train"
-    test_dir = data_path / "test"
+# show images
+imshow(torchvision.utils.make_grid(images))' --end-code='import random
+from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
 
-    # Write transform for image
-    data_transform = transforms.Compose([
-        # Resize the images to 128x128
-        transforms.Resize(size=(128, 128)),
-        # Turn the image into a torch.Tensor
-        transforms.ToTensor() # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
-    ])
+# eg. call: plot_transformed_images(image_path_list, transform=data_transform, n=1)
+def plot_transformed_images(image_paths, transform, n):
+    # Plots a series of random images from image_paths.
+    # Will open n image paths from image_paths, transform them
+    # with transform and plot them side by side.
+    random.seed(42)
+    random_image_paths = random.sample(image_paths, k=n)
+    for image_path in random_image_paths:
+        with Image.open(image_path) as f:
+            fig, ax = plt.subplots(1, 2)
+            ax[0].imshow(f)
+            ax[0].set_title(f"Original \nSize: {f.size}")
+            ax[0].axis("off")
 
-    # Use ImageFolder to create dataset(s)
-    train_data = datasets.ImageFolder(root=train_dir, # target folder of images
-                                    transform=data_transform, # transforms to perform on data (images)
-                                    target_transform=None) # transforms to perform on labels (if necessary)
+            # Transform and plot image
+            # Note: permute() will change shape of image to suit matplotlib
+            # (PyTorch default is [C, H, W] but Matplotlib is [H, W, C])
+            transformed_image = transform(f).permute(1, 2, 0)
+            ax[1].imshow(transformed_image)
+            ax[1].set_title(f"Transformed \nSize: {transformed_image.shape}")
+            ax[1].axis("off")
 
-    test_data = datasets.ImageFolder(root=test_dir,
-                                    transform=data_transform)
+            fig.suptitle(f"Class: {image_path.parent.stem}", fontsize=16)
+            plt.show(block=False)
+            plt.pause(10)
+            plt.close()
 
-    # Turn train and test Datasets into DataLoaders
-    from torch.utils.data import DataLoader
-    batch_size = 4
-    train_dataloader = DataLoader(dataset=train_data, batch_size=batch_size,
-                                    num_workers=0, shuffle=True)
 
-    test_dataloader = DataLoader(dataset=test_data, batch_size=batch_size,
-                                    num_workers=0, shuffle=False)
-
-    print("refactored file")
-    print(train_dataloader)
-    print(test_dataloader)
-
-main()'>
+# eg. imshow(torchvision.utils.make_grid(images))
+def imshow(img):
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    plt.show()'>
 <p> code content will go here</p>
 </div>
 <button type='button' class='collapsible active'>search: general cnn architecture for image classification pytorch</button>
@@ -1379,8 +2942,8 @@ main()'>
 <div class='webImageLongRow'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n177_2022-10-28-01_21_55.png' width='180' height='112'> </td></tr><tr><td>Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks</td></tr></tbody></table></div>
 </div>
-</div>
 
+</div>
 <button type='button' class='collapsible active'>search: how to visualize batch size and epochs</button>
 <div class='content'>
 <div class='title'><span><a href='javascript:' onclick='seek(20826)'>how to visualize batch size and epochs</a></span></div><hr>
@@ -1389,7 +2952,6 @@ main()'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n180_2022-10-28-02_00_47.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Start Locally | PyTorch</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n181_2022-10-28-02_01_09.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n182_2022-10-28-02_02_34.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation</td></tr></tbody></table></div>
-</div>
 </div>
 
 <button type='button' class='collapsible active'>+         transforms.ToTensor(), # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0 </button>
@@ -1740,12 +3302,10 @@ def main():
         train_loss_list.append(train_loss/len(train_dataloader))
         print(f"Training loss = {train_loss_list[-1]}")
 
-    PATH = "./garbage_classification.pth"
-    torch.save(model.state_dict(), PATH)
-
 main()'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation</button>
+</div></div>
+<button type='button' class='collapsible active'>revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation</button>
 <div class='content'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n185_2022-10-28-02_10_14.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n186_2022-10-28-02_11_26.png' width='180' height='112'> </td></tr><tr><td>Serialization semantics — PyTorch 1.13 documentation</td></tr></tbody></table></div>
@@ -1753,4 +3313,387 @@ main()'>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n188_2022-10-28-02_38_56.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Building Models with PyTorch - YouTube</td></tr></tbody></table></div>
         <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/techWithTim1/screencapture-n189_2022-10-28-03_22_51.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation</td></tr></tbody></table></div>
 </div>
-</div>
+
+<button type='button' class='collapsible active'>+     # model = CNN().to(device)</button>
+<div class='content' --start-code='import math
+import os
+from pathlib import Path
+import random
+from PIL import Image
+import shutil
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    random.seed(42)
+
+    # get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # get random image paths for training data
+    image_list_train = random.sample(image_path_list, k = N)
+
+    # remaining image paths will be used as testing data
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            os.mkdir(train_folder / el)
+            os.mkdir(test_folder / el)
+
+            for train_img_path in training_dat:
+                shutil.copy2(src=train_img_path, dst=train_folder / el)
+
+            for test_img_path in testing_dat:
+                shutil.copy2(src=test_img_path, dst=test_folder / el)
+
+
+class CNN(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.model = torch.nn.Sequential(
+            #Input = 3 x 128 x 128, Output = 128 x 128 x 128
+            torch.nn.Conv2d(in_channels = 3, out_channels = 128, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 128 x 128 x 128, Output = 128 x 64 x 64
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            #Input = 128 x 64 x 64, Output = 256 x 64 x 64
+            torch.nn.Conv2d(in_channels = 128, out_channels = 256, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 256 x 64 x 64, Output = 256 x 32 x 32
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            #Input = 256 x 32 x 32, Output = 256 x 32 x 32
+            torch.nn.Conv2d(in_channels = 256, out_channels = 256, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 256 x 32 x 32, Output = 256 x 16 x 16
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            #Input = 256 x 16 x 16, Output = 128 x 16 x 16
+            torch.nn.Conv2d(in_channels = 256, out_channels = 128, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 128 x 16 x 16, Output = 128 x 8 x 8
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            torch.nn.Flatten(),
+            torch.nn.Linear(128*8*8, 2048),
+            torch.nn.ReLU(),
+            torch.nn.Linear(2048, 6)
+        )
+
+    def forward(self, x):
+        return self.model(x)
+
+
+def main():
+    # make_train_test_folder(data_path) # uncomment this line if want to build new train and test set
+
+    train_dir = data_path / "train"
+    test_dir = data_path / "test"
+
+    # Write transform for image
+    data_transform = transforms.Compose([
+        # Resize the images to 128x128
+        transforms.Resize(size=(128, 128)),
+        # Turn the image into a torch.Tensor
+        transforms.ToTensor(), # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+    ])
+
+    # Use ImageFolder to create dataset(s)
+    train_data = datasets.ImageFolder(root=train_dir, # target folder of images
+                                    transform=data_transform, # transforms to perform on data (images)
+                                    target_transform=None) # transforms to perform on labels (if necessary)
+
+    test_data = datasets.ImageFolder(root=test_dir,
+                                    transform=data_transform)
+
+    # Turn train and test Datasets into DataLoaders
+    from torch.utils.data import DataLoader
+    batch_size = 32
+    train_dataloader = DataLoader(dataset=train_data, batch_size=batch_size,
+                                    num_workers=0, shuffle=True)
+
+    test_dataloader = DataLoader(dataset=test_data, batch_size=batch_size,
+                                    num_workers=0, shuffle=False)
+
+    #Selecting the appropriate training device
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model = CNN().to(device)
+
+    #Defining the model hyper parameters
+    num_epochs = 40
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+
+    train_loss_list = []
+    for epoch in range(num_epochs):
+        print(f"Epoch {epoch+1}/{num_epochs}:", end = " ")
+        train_loss = 0
+
+        #Iterating over the training dataset in batches
+        model.train()
+        for i, (images, labels) in enumerate(train_dataloader):
+            #Extracting images and target labels for the batch being iterated
+            images = images.to(device)
+            labels = labels.to(device)
+
+            #Calculating the model output and the cross entropy loss
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+
+            #Updating weights according to calculated loss
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            train_loss += loss.item()
+
+        #Printing loss for each epoch
+        train_loss_list.append(train_loss/len(train_dataloader))
+        print(f"Training loss = {train_loss_list[-1]}")
+
+    PATH = "./garbage_classification.pth"
+    torch.save(model.state_dict(), PATH)
+
+main()' --end-code='import math
+import os
+from pathlib import Path
+import random
+from PIL import Image
+import shutil
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+garbage_classification_folder = r"C:\Users\thien\Desktop\project\dat\Garbage classification\Garbage classification"
+
+# Setup path to data folder
+data_path = Path(garbage_classification_folder)
+
+def walk_through_dir(dir_path):
+    no_of_files = 0
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        # print(f"There are {len(dirnames)} directories and {len(filenames)} images in "{dirpath}".")
+        no_of_files = len(filenames)
+    return no_of_files
+
+
+# pass in the img dir path (eg. ./cardboard)
+def get_random_img_list(dir_path, N):
+    random.seed(42)
+
+    # get all image paths (* means "any combination")
+    image_path_list = list(dir_path.glob("*.jpg"))
+
+    # get random image paths for training data
+    image_list_train = random.sample(image_path_list, k = N)
+
+    # remaining image paths will be used as testing data
+    s = set(image_list_train)
+    image_list_test = [x for x in image_path_list if x not in s]
+
+    return image_list_train, image_list_test
+
+
+def make_train_test_folder(dir_path):
+    train_folder = dir_path / "train"
+    test_folder = dir_path / "test"
+    if os.path.exists(train_folder):
+        shutil.rmtree(train_folder)
+    if os.path.exists(test_folder):
+        shutil.rmtree(test_folder)
+
+    if not os.path.exists(train_folder) and not os.path.exists(test_folder):
+        os.mkdir(train_folder)
+        os.mkdir(test_folder)
+        # we need to select random images from all img folders and build up our train set
+        collection = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+        for el in collection:
+            el_path = dir_path / el
+            no_of_imgs = walk_through_dir(el_path)
+
+            # grab 80% of imgs for training
+            training_amount = math.floor(0.8 * no_of_imgs)
+            training_dat, testing_dat = get_random_img_list(el_path, training_amount)
+
+            os.mkdir(train_folder / el)
+            os.mkdir(test_folder / el)
+
+            for train_img_path in training_dat:
+                shutil.copy2(src=train_img_path, dst=train_folder / el)
+
+            for test_img_path in testing_dat:
+                shutil.copy2(src=test_img_path, dst=test_folder / el)
+
+
+class CNN(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.model = torch.nn.Sequential(
+            #Input = 3 x 128 x 128, Output = 128 x 128 x 128
+            torch.nn.Conv2d(in_channels = 3, out_channels = 128, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 128 x 128 x 128, Output = 128 x 64 x 64
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            #Input = 128 x 64 x 64, Output = 256 x 64 x 64
+            torch.nn.Conv2d(in_channels = 128, out_channels = 256, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 256 x 64 x 64, Output = 256 x 32 x 32
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            #Input = 256 x 32 x 32, Output = 256 x 32 x 32
+            torch.nn.Conv2d(in_channels = 256, out_channels = 256, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 256 x 32 x 32, Output = 256 x 16 x 16
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            #Input = 256 x 16 x 16, Output = 128 x 16 x 16
+            torch.nn.Conv2d(in_channels = 256, out_channels = 128, kernel_size = 3, padding = 1),
+            torch.nn.ReLU(),
+            #Input = 128 x 16 x 16, Output = 128 x 8 x 8
+            torch.nn.MaxPool2d(kernel_size=2),
+
+            torch.nn.Flatten(),
+            torch.nn.Linear(128*8*8, 2048),
+            torch.nn.ReLU(),
+            torch.nn.Linear(2048, 6)
+        )
+
+    def forward(self, x):
+        return self.model(x)
+
+
+def main():
+    # make_train_test_folder(data_path) # uncomment this line if want to build new train and test set
+
+    train_dir = data_path / "train"
+    test_dir = data_path / "test"
+
+    # Write transform for image
+    data_transform = transforms.Compose([
+        # Resize the images to 128x128
+        transforms.Resize(size=(128, 128)),
+        # Turn the image into a torch.Tensor
+        transforms.ToTensor(), # this also converts all pixel values from 0 to 255 to be between 0.0 and 1.0
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+    ])
+
+    # Use ImageFolder to create dataset(s)
+    train_data = datasets.ImageFolder(root=train_dir, # target folder of images
+                                    transform=data_transform, # transforms to perform on data (images)
+                                    target_transform=None) # transforms to perform on labels (if necessary)
+
+    test_data = datasets.ImageFolder(root=test_dir,
+                                    transform=data_transform)
+
+    # Turn train and test Datasets into DataLoaders
+    from torch.utils.data import DataLoader
+    batch_size = 32
+    train_dataloader = DataLoader(dataset=train_data, batch_size=batch_size,
+                                    num_workers=0, shuffle=True)
+
+    test_dataloader = DataLoader(dataset=test_data, batch_size=batch_size,
+                                    num_workers=0, shuffle=False)
+
+    #Selecting the appropriate training device
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # model = CNN().to(device)
+
+    # #Defining the model hyper parameters
+    # num_epochs = 40
+    # criterion = torch.nn.CrossEntropyLoss()
+    # optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+
+    # train_loss_list = []
+    # for epoch in range(num_epochs):
+    #     print(f"Epoch {epoch+1}/{num_epochs}:", end = " ")
+    #     train_loss = 0
+
+    #     #Iterating over the training dataset in batches
+    #     model.train()
+    #     for i, (images, labels) in enumerate(train_dataloader):
+    #         #Extracting images and target labels for the batch being iterated
+    #         images = images.to(device)
+    #         labels = labels.to(device)
+
+    #         #Calculating the model output and the cross entropy loss
+    #         outputs = model(images)
+    #         loss = criterion(outputs, labels)
+
+    #         #Updating weights according to calculated loss
+    #         optimizer.zero_grad()
+    #         loss.backward()
+    #         optimizer.step()
+    #         train_loss += loss.item()
+
+    #     #Printing loss for each epoch
+    #     train_loss_list.append(train_loss/len(train_dataloader))
+    #     print(f"Training loss = {train_loss_list[-1]}")
+
+    PATH = "./garbage_classification.pth"
+    # torch.save(model.state_dict(), PATH)
+
+    model = CNN().to(device)
+    model.load_state_dict(torch.load(PATH))
+    model.eval()
+
+    dataiter = iter(test_dataloader)
+    images, labels = next(dataiter)
+
+    outputs = model(images)
+
+    _, predicted = torch.max(outputs, 1)
+    print("Predicted: ", " ".join(f"{classes[predicted[j]]:5s}" for j in range(4)))
+
+    from plot_func import imshow
+    import torchvision
+
+    classes = ("cardboard", "glass", "metal", "paper", "plastic", "trash")
+
+    # print images
+    imshow(torchvision.utils.make_grid(images))
+    print("GroundTruth: ", " ".join(f"{classes[labels[j]]:5s}" for j in range(4)))
+
+main()'>
+<p> code content will go here</p>
+</div></div>

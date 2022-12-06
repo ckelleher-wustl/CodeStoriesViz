@@ -52,6 +52,7 @@ class CodeEntries:
         return lines
 
     def get_match_affinity(self):
+        print("Getting match affinity")
         # print(f"codeentries length {len(self.code_entries)}")
         with open("web/data/codeAffinity.csv", "w", encoding="utf-8", newline='') as csvfile:
             writer = csv.writer(csvfile)
@@ -74,25 +75,31 @@ class CodeEntries:
                     if (pastEvent):
                         self.match_lines(pastEvent, codeEvent, writer)
                     pastEvent = codeEvent
+
+            print(f"{self.clusterStartTime},{pastEvent['time']},'code'")
             
 
     def match_lines(self, pastEvt, currEvt, writer):
+
+        # print(f"TIME: {currEvt['time']}")
+
         pastLines = self.get_code_lines(pastEvt['code_text'])
         currentLines = self.get_code_lines(currEvt['code_text'])
 
-        # print(f"pastLines is {len(pastLines)} {pastLines}")
-        # print(f"currentLines is {len(currentLines)} {currentLines}")
+        # print(f"\tpastLines is {len(pastLines)} ")
+        # print(f"\tcurrentLines is {len(currentLines)} ")
         # print(targetLines)
 
         numMatches = 0
         for currentLine in currentLines:
             if len(currentLine) > 1:
+                # print(f"\ttrying to match: {currentLine}")
                 bestMatch = self.best_match(currentLine, pastLines)
-                if (int(bestMatch['ratio']) >= 90):
+                if ( int(bestMatch['ratio']) >= 90 and int(bestMatch['ratio']) < 100 ):
                     numMatches += 1
-                    # print(f"\tmatch found: {bestMatch}")
+                #     print(f"\t\tmatch found: {bestMatch}")
                 # else:
-                    # print(f"NO MATCH FOUND: _{currentLine}_")
+                #     print(f"\t\tNO MATCH FOUND: _{currentLine}_")
 
         # print(f"target: {len(targetEvt['code_text'])} \n{[targetEvt['code_text']]}")
         # print(f"comp: {len(compEvt['code_text'])} \n{[compEvt['code_text']]}")
@@ -111,6 +118,8 @@ class CodeEntries:
             # we've just come out of a cluster, so print it out
             if self.inCluster:
                 print(f"{self.clusterStartTime},{pastEvt['time']},'code'")
+            # else:
+            #     print(f"No cluster for: {pastEvt['time']},'code'")
             self.inCluster = False
                 
 
@@ -138,6 +147,8 @@ class CodeEntries:
 
     def process_code(self):
         for codeEvent in self.code_entries:
+
+            print(f"TIME: {codeEvent['time']}")
             
             codeLines = self.get_code_lines(codeEvent['code_text']) 
 

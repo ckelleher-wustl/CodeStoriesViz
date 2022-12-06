@@ -56,7 +56,7 @@ def get_search_overview_html(responseEntries):
                 html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td>" + pageName + "</td></tr></tbody></table></div>\n"
 
     html += "</div>\n" # close open webImageLongRow
-    html += "</div>\n" # close content pane
+    # html += "</div>\n" # close content pane
     return html
 
 
@@ -187,7 +187,8 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         html += newHtml + "\n"
 
         print(f"'parent','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']},{searchSummary}")       
-        print(f"\nparent details: {searchDF.iloc[searchIdx]}\n")
+        # print(f"'parent','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']}") 
+        # print(f"\nparent details: {searchDF.iloc[searchIdx]}\n")
 
         # addedCode = false
         try:
@@ -212,6 +213,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
 
                 # addedCode = true
                 print(f"'child','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
+                # print(f"'child','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']}")
                 codeIdx += 1
         except:
             print("outside of range somehow")
@@ -220,7 +222,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         clusterCnt += 1
 
         # if (addedCode == true):
-        #     html += "</div>\n" # closing the internal search content pane
+        html += "</div>\n" # closing the internal search content pane
     else:
         startTime = codeDF.iloc[codeIdx]['startTime']
         endTime = codeDF.iloc[codeIdx]['endTime']
@@ -244,8 +246,8 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
 
         html += codeClusterHtml
         
-        print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
-        print(codeClusterHtml)
+        print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']} {codeSummary}")
+        # print(codeClusterHtml)
 
         addedSearch = false
         while (searchDF.iloc[searchIdx]["startTime"] < codeDF.iloc[codeIdx]["endTime"] ):
@@ -261,7 +263,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
                 end = len(searchSummary)
 
             html += "<button type='button' class='collapsible active'>" + searchSummary[0:end] + "</button>\n"
-            html += newHtml + "\n"
+            html += newHtml + "</div>\n" # internal div needs to be closed.
             addedSearch = true
             print(f"'child','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']},{searchSummary}")
             searchIdx += 1
