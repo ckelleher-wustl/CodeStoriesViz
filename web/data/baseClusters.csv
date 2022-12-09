@@ -3,206 +3,169 @@
 1,2,6,visit: Creating a Virtual Environment – Real Python;,visit, Creating a Virtual Environment – Real Python;,0
 2,5,394,search: trash vs non trash classifier;,search, trash vs non trash classifier;,1
 3,6,424,visit: Waste Classifier Machine Learning - Rootstrap;,visit, Waste Classifier Machine Learning - Rootstrap;,1
-4,7,444,research: trash vs non trash classifier;,research, trash vs non trash classifier;,1
-5,8,460,search: image classification python;,search, image classification python;,2
-6,9,468,search: image classification python pytorch;,search, image classification python pytorch;,3
-7,10,477,visit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,3
-8,11,523,search: enter a venv from cmd;,search, enter a venv from cmd;,4
-9,12,524,visit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,visit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,4
-10,13,557,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,5
-11,14,589,revisit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,revisit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,6
-12,15,602,visit: Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,6
-13,16,627,visit: Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,6
-14,17,694,visit: Introduction to PyTorch - YouTube;,visit, Introduction to PyTorch - YouTube;,6
-15,18,762,revisit: Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,6
-16,19,763,visit: Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,6
-17,20,798,search: install pytorch;,search, install pytorch;,7
-18,21,801,visit: Installation — Torch-TensorRT master documentation;,visit, Installation — Torch-TensorRT master documentation;,7
-19,22,828,research: install pytorch;,research, install pytorch;,7
-20,23,833,visit: PyTorch;,visit, PyTorch;,7
-21,24,834,visit: https://pytorch.org/get-started;,visit, https://pytorch.org/get-started;,7
-22,25,835,visit: Start Locally | PyTorch;,visit, Start Locally | PyTorch;,7
-23,28,1033,revisit: Introduction to PyTorch - YouTube;,revisit, Introduction to PyTorch - YouTube;,8
-24,29,1045,visit: Building Models with PyTorch - YouTube;,visit, Building Models with PyTorch - YouTube;,8
-25,30,1099,revisit: Start Locally | PyTorch;,revisit, Start Locally | PyTorch;,9
-26,31,1101,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,10
-27,38,2005,search: trash image dataset;,search, trash image dataset;,11
-28,39,2019,visit: http://tacodataset.org/;,visit, http://tacodataset.org/;,11
-29,40,2038,visit: GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,visit, GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,11
-30,41,2107,search: waste image dataset;,search, waste image dataset;,12
-31,42,2130,visit: Garbage Classification | Kaggle;,visit, Garbage Classification | Kaggle;,12
-32,43,2139,visit: WasteNet - Recycleye - The world's largest dataset for waste;,visit, WasteNet - Recycleye - The world's largest dataset for waste;,12
-33,44,2181,revisit: Garbage Classification | Kaggle;,revisit, Garbage Classification | Kaggle;,12
-34,45,2226,visit: Kaggle: Your Home for Data Science;,visit, Kaggle: Your Home for Data Science;,12
-35,46,2232,revisit: Garbage Classification | Kaggle;,revisit, Garbage Classification | Kaggle;,12
-36,47,2556,search: access and open pil image;,search, access and open pil image;,13
-37,48,2559,visit: Python PIL | Image.open() method - GeeksforGeeks;,visit, Python PIL | Image.open() method - GeeksforGeeks;,13
-38,49,2654,search: python accessing a directory;,search, python accessing a directory;,14
-39,50,2657,visit: Accessing directories and files using python - Stack Overflow;,visit, Accessing directories and files using python - Stack Overflow;,14
-40,53,3066,search: relative path python;,search, relative path python;,15
-41,54,3067,visit: Relative paths in Python - Stack Overflow;,visit, Relative paths in Python - Stack Overflow;,15
-42,57,3219,search: how to find if a directory exists in python;,search, how to find if a directory exists in python;,16
-43,58,3221,visit: How do I check if directory exists in Python? - Stack Overflow;,visit, How do I check if directory exists in Python? - Stack Overflow;,16
-44,59,3281,research: how to find if a directory exists in python;,research, how to find if a directory exists in python;,16
-45,60,3299,search: directing to an existing directory in python;,search, directing to an existing directory in python;,17
-46,61,3315,visit: Change current working directory with Python - GeeksforGeeks;,visit, Change current working directory with Python - GeeksforGeeks;,17
-47,62,3382,search: locate a path to a directory in python;,search, locate a path to a directory in python;,18
-48,63,3388,visit: python - How do I get the full path of the current file's directory? - Stack Overflow;,visit, python - How do I get the full path of the current file's directory? - Stack Overflow;,18
-49,66,3597,search: get the path of a directory python;,search, get the path of a directory python;,19
-50,67,3604,visit: Python Directory & File Management – A Quick and Easy Tutorial - DataFlair;,visit, Python Directory & File Management – A Quick and Easy Tutorial - DataFlair;,19
-51,72,3829,search: pytorch how to create a dataset;,search, pytorch how to create a dataset;,20
-52,73,3836,visit: A detailed example of data loaders with PyTorch;,visit, A detailed example of data loaders with PyTorch;,20
-53,74,3866,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
-54,75,3868,"visit: Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",visit," Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",20
-55,76,4025,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
-56,77,4041,visit: Creating Your Own Datasets — pytorch_geometric  documentation;,visit, Creating Your Own Datasets — pytorch_geometric  documentation;,20
-57,78,4062,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
-58,79,4072,visit: How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,visit, How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,20
-59,80,4118,research: pytorch how to create a dataset;,research, pytorch how to create a dataset;,20
-60,81,4129,search: pytorch how to create a custom dataset for image classification;,search, pytorch how to create a custom dataset for image classification;,21
-61,82,4144,visit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,visit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,21
-62,87,4831,search: python random integer;,search, python random integer;,22
-63,88,4833,visit: Python Random randint() Method;,visit, Python Random randint() Method;,22
-64,89,4859,search: how to pick a random pictures from a directory python;,search, how to pick a random pictures from a directory python;,23
-65,90,4865,visit: discord.py - How do i get a random image from a folder python - Stack Overflow;,visit, discord.py - How do i get a random image from a folder python - Stack Overflow;,23
-66,91,4921,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,24
-67,94,5354,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,25
-68,97,5630,revisit: Accessing directories and files using python - Stack Overflow;,revisit, Accessing directories and files using python - Stack Overflow;,26
-69,98,5647,search: check if a directory exists python;,search, check if a directory exists python;,27
-70,99,5648,visit: Python: Check if a File or Directory Exists - GeeksforGeeks;,visit, Python: Check if a File or Directory Exists - GeeksforGeeks;,27
-71,100,5742,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,28
-72,101,5794,search: clean out all files and folders in directory python;,search, clean out all files and folders in directory python;,29
-73,102,5797,visit: python - How to delete the contents of a folder? - Stack Overflow;,visit, python - How to delete the contents of a folder? - Stack Overflow;,29
-74,103,6265,search: generate a random list of numbers python;,search, generate a random list of numbers python;,30
-75,104,6268,visit: Generating random number list in Python - GeeksforGeeks;,visit, Generating random number list in Python - GeeksforGeeks;,30
-76,105,6378,revisit: python - How to delete the contents of a folder? - Stack Overflow;,revisit, python - How to delete the contents of a folder? - Stack Overflow;,31
-77,106,6380,revisit: Python: Check if a File or Directory Exists - GeeksforGeeks;,revisit, Python: Check if a File or Directory Exists - GeeksforGeeks;,32
-78,107,6386,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,33
-79,108,6398,revisit: Generating random number list in Python - GeeksforGeeks;,revisit, Generating random number list in Python - GeeksforGeeks;,34
-80,111,6954,search: how to use random choice for a list;,search, how to use random choice for a list;,35
-81,112,6978,search: how to use random to select some percentage for a list;,search, how to use random to select some percentage for a list;,36
-82,113,6980,visit: How to Randomly Select Elements From a List in Python;,visit, How to Randomly Select Elements From a List in Python;,36
-83,114,7247,search: selecting random elements from list python without repetition;,search, selecting random elements from list python without repetition;,37
-84,115,7249,visit: python - Random without repetition? - Stack Overflow;,visit, python - Random without repetition? - Stack Overflow;,37
-85,116,7297,research: selecting random elements from list python without repetition;,research, selecting random elements from list python without repetition;,37
-86,117,7299,visit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,visit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,37
-87,118,7367,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,38
-88,121,7719,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,39
-89,122,7733,search: flatten array python;,search, flatten array python;,40
-90,123,7740,visit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,visit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,40
-91,124,7768,revisit: Generating random number list in Python - GeeksforGeeks;,revisit, Generating random number list in Python - GeeksforGeeks;,41
-92,125,7769,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,42
-93,128,8514,search: grab 80 elements from array python;,search, grab 80 elements from array python;,43
-94,129,8527,search: grab 80 percent of elements from array python;,search, grab 80 percent of elements from array python;,44
-95,130,8530,visit: python - Percent list slicing - Stack Overflow;,visit, python - Percent list slicing - Stack Overflow;,44
-96,131,8587,research: grab 80 percent of elements from array python;,research, grab 80 percent of elements from array python;,44
-97,132,8592,visit: numpy.percentile() in python - GeeksforGeeks;,visit, numpy.percentile() in python - GeeksforGeeks;,44
-98,133,8603,research: grab 80 percent of elements from array python;,research, grab 80 percent of elements from array python;,44
-99,134,8616,search: round python;,search, round python;,45
-100,135,8617,visit: Python round() Function;,visit, Python round() Function;,45
-101,136,8629,research: round python;,research, round python;,45
-102,137,8793,search: find the difference elements between two lists python;,search, find the difference elements between two lists python;,46
-103,138,8795,visit: Python How to Find the Difference Between Two Lists - codingem.com;,visit, Python How to Find the Difference Between Two Lists - codingem.com;,46
-104,139,8814,research: find the difference elements between two lists python;,research, find the difference elements between two lists python;,46
-105,140,8817,visit: python - Get difference between two lists - Stack Overflow;,visit, python - Get difference between two lists - Stack Overflow;,46
-106,147,9924,search: check if all values in list are unique python;,search, check if all values in list are unique python;,47
-107,148,9926,visit: python - Checking if all elements in a list are unique - Stack Overflow;,visit, python - Checking if all elements in a list are unique - Stack Overflow;,47
-108,152,10228,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,48
-109,153,10268,search: how to random selecting from a list without repetition python;,search, how to random selecting from a list without repetition python;,49
-110,154,10284,visit: python - How do I create a list of random numbers without duplicates - Stack Overflow;,visit, python - How do I create a list of random numbers without duplicates - Stack Overflow;,49
-111,155,10312,research: how to random selecting from a list without repetition python;,research, how to random selecting from a list without repetition python;,49
-112,156,10315,visit: Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,visit, Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,49
-113,157,10351,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,50
-114,158,10401,revisit: Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,revisit, Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,51
-115,159,10403,research: how to random selecting from a list without repetition python;,research, how to random selecting from a list without repetition python;,51
-116,160,10405,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,52
-117,161,10437,visit: Python | random.sample() function - GeeksforGeeks;,visit, Python | random.sample() function - GeeksforGeeks;,52
-118,164,10903,search: how to move images from one folder to another in python;,search, how to move images from one folder to another in python;,53
-119,165,10908,visit: How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,visit, How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,53
-120,166,10962,search: shutil move without deleting;,search, shutil move without deleting;,54
-121,167,10964,visit: python - shutil.move doesn't delete source files - Stack Overflow;,visit, python - shutil.move doesn't delete source files - Stack Overflow;,54
-122,168,10973,research: shutil move without deleting;,research, shutil move without deleting;,54
-123,169,10976,visit: Python | shutil.move() method - GeeksforGeeks;,visit, Python | shutil.move() method - GeeksforGeeks;,54
-124,170,11006,research: shutil move without deleting;,research, shutil move without deleting;,54
-125,171,11022,search: how to copy and paste img in python;,search, how to copy and paste img in python;,55
-126,172,11051,search: how to move image in python without deleting source files;,search, how to move image in python without deleting source files;,56
-127,173,11058,visit: How to move a file in Python? - Stack Overflow;,visit, How to move a file in Python? - Stack Overflow;,56
-128,174,11141,research: how to move image in python without deleting source files;,research, how to move image in python without deleting source files;,56
-129,175,11147,visit: Copy all files from one directory to another using Python - GeeksforGeeks;,visit, Copy all files from one directory to another using Python - GeeksforGeeks;,56
-130,176,11200,search: shutil copy2;,search, shutil copy2;,57
-131,177,11210,visit: How to Copy Files in Python | Towards Data Science;,visit, How to Copy Files in Python | Towards Data Science;,57
-132,178,11309,search: how to copy files in python;,search, how to copy files in python;,58
-133,179,11310,visit: python - How to copy files? - Stack Overflow;,visit, python - How to copy files? - Stack Overflow;,58
-134,189,12694,revisit: python - Checking if all elements in a list are unique - Stack Overflow;,revisit, python - Checking if all elements in a list are unique - Stack Overflow;,59
-135,190,12696,revisit: python - Get difference between two lists - Stack Overflow;,revisit, python - Get difference between two lists - Stack Overflow;,60
-136,191,12699,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,61
-137,192,12707,research: flatten array python;,research, flatten array python;,61
-138,193,12708,revisit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,revisit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,62
-139,196,12979,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,63
-140,198,13844,search: how to show fig python;,search, how to show fig python;,64
-141,199,13846,visit: Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,visit, Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,64
-142,202,13929,research: how to show fig python;,research, how to show fig python;,64
-143,203,13942,search: how to show fig python but not close right away;,search, how to show fig python but not close right away;,65
-144,204,13967,search: how to show figure python matplotlib without close right away;,search, how to show figure python matplotlib without close right away;,66
-145,205,13972,visit: python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,visit, python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,66
-146,206,14023,research: how to show figure python matplotlib without close right away;,research, how to show figure python matplotlib without close right away;,66
-147,207,14031,search: how to avoid plt closing on its own;,search, how to avoid plt closing on its own;,67
-148,208,14033,visit: python - Closing pyplot windows - Stack Overflow;,visit, python - Closing pyplot windows - Stack Overflow;,67
-149,211,14131,search: fig show closed on its own;,search, fig show closed on its own;,68
-150,212,14132,visit: python - view and then close the figure automatically in matplotlib? - Stack Overflow;,visit, python - view and then close the figure automatically in matplotlib? - Stack Overflow;,68
-151,215,14430,search: windows path strip image name;,search, windows path strip image name;,69
-152,216,14435,visit: c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,visit, c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,69
-153,217,14441,research: windows path strip image name;,research, windows path strip image name;,69
-154,218,14442,visit: Redirecting to Microsoft.com;,visit, Redirecting to Microsoft.com;,69
-155,219,14458,research: windows path strip image name;,research, windows path strip image name;,69
-156,220,14552,search: how to grab a file name from a pil image path;,search, how to grab a file name from a pil image path;,70
-157,221,14553,"visit: python - Extract file name from path, no matter what the os/path format - Stack Overflow;",visit," python - Extract file name from path, no matter what the os/path format - Stack Overflow;",70
-158,223,14704,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,71
-159,224,14828,search: torchvision.datasets.ImageFolder;,search, torchvision.datasets.ImageFolder;,72
-160,225,14832,visit: ImageFolder — Torchvision 0.14 documentation;,visit, ImageFolder — Torchvision 0.14 documentation;,72
-161,226,14899,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,73
-162,227,15058,revisit: ImageFolder — Torchvision 0.14 documentation;,revisit, ImageFolder — Torchvision 0.14 documentation;,74
-163,230,15220,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,75
-164,237,15759,search: make directory within directory python;,search, make directory within directory python;,76
-165,238,15762,visit: Create a directory in Python - GeeksforGeeks;,visit, Create a directory in Python - GeeksforGeeks;,76
-166,239,15830,search: FileNotFoundError: [WinError 3] The system cannot find the path specified;,search, FileNotFoundError: [WinError 3] The system cannot find the path specified;,77
-167,240,15831,visit: python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,visit, python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,77
-168,247,16210,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,78
-169,254,17779,search: import python file as module;,search, import python file as module;,79
-170,255,17783,visit: Python 3: Import Another Python File as a Module — Computer Science Atlas;,visit, Python 3: Import Another Python File as a Module — Computer Science Atlas;,79
-171,260,18574,search: common pytorch cnn model;,search, common pytorch cnn model;,80
-172,261,18578,visit: Convolutional Neural Network Pytorch | CNN Using Pytorch;,visit, Convolutional Neural Network Pytorch | CNN Using Pytorch;,80
-173,262,18767,research: common pytorch cnn model;,research, common pytorch cnn model;,80
-174,263,18788,visit: PyTorch CNN: The Basics and a Quick Tutorial;,visit, PyTorch CNN: The Basics and a Quick Tutorial;,80
-175,264,18849,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,81
-176,265,19110,search: general cnn architecture for image classification pytorch;,search, general cnn architecture for image classification pytorch;,82
-177,266,19115,visit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,visit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,82
-178,267,20826,search: how to visualize batch size and epochs;,search, how to visualize batch size and epochs;,83
-179,268,20843,"visit: Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",visit," Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",83
-180,271,21447,revisit: Start Locally | PyTorch;,revisit, Start Locally | PyTorch;,84
-181,272,21469,revisit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,revisit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,85
-182,273,21554,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,86
-183,274,21783,search: difference between adam and sgd;,search, difference between adam and sgd;,87
-184,275,21798,visit: Adam vs. SGD: Closing the generalization gap on image classification;,visit, Adam vs. SGD: Closing the generalization gap on image classification;,87
-185,276,22014,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,88
-186,277,22086,visit: Serialization semantics — PyTorch 1.13 documentation;,visit, Serialization semantics — PyTorch 1.13 documentation;,88
-187,278,22132,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,88
-188,281,23736,revisit: Building Models with PyTorch - YouTube;,revisit, Building Models with PyTorch - YouTube;,89
-189,284,26371,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,90
-190,285,26373,revisit: Adam vs. SGD: Closing the generalization gap on image classification;,revisit, Adam vs. SGD: Closing the generalization gap on image classification;,91
-191,286,26385,search: how to load pth file pytorch;,search, how to load pth file pytorch;,92
-192,287,26387,visit: python - How to load .pth file? - Stack Overflow;,visit, python - How to load .pth file? - Stack Overflow;,92
-193,288,26404,research: how to load pth file pytorch;,research, how to load pth file pytorch;,92
-194,289,26405,visit: Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,visit, Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,92
-195,290,26640,search: load pth file pytorch and testng;,search, load pth file pytorch and testng;,93
-196,291,26648,visit: How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,93
-197,292,26669,visit: How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,93
-198,293,26689,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,94
-199,294,26713,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,95
-200,304,27670,search: making a confusion matrix pytorch;,search, making a confusion matrix pytorch;,96
-201,305,27675,visit: Confusion Matrix — PyTorch-Metrics 0.10.3 documentation;,visit, Confusion Matrix — PyTorch-Metrics 0.10.3 documentation;,96
-202,306,27687,research: making a confusion matrix pytorch;,research, making a confusion matrix pytorch;,96
-203,307,27691,visit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,visit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,96
-204,308,27903,search: scikit learn confusion matrix;,search, scikit learn confusion matrix;,97
-205,309,27904,visit: sklearn.metrics.confusion_matrix — scikit-learn 1.1.3 documentation;,visit, sklearn.metrics.confusion_matrix — scikit-learn 1.1.3 documentation;,97
-206,310,27966,revisit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,revisit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,98
+4,7,460,search: image classification python;,search, image classification python;,2
+5,8,468,search: image classification python pytorch;,search, image classification python pytorch;,3
+6,9,477,visit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,3
+7,10,523,search: enter a venv from cmd;,search, enter a venv from cmd;,4
+8,11,524,visit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,visit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,4
+9,12,557,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,5
+10,13,589,revisit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,revisit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,6
+11,14,602,visit: Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,6
+12,15,627,visit: Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,6
+13,16,694,visit: Introduction to PyTorch - YouTube;,visit, Introduction to PyTorch - YouTube;,6
+14,17,763,visit: Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,6
+15,18,798,search: install pytorch;,search, install pytorch;,7
+16,19,801,visit: Installation — Torch-TensorRT v1.1.1 documentation;,visit, Installation — Torch-TensorRT v1.1.1 documentation;,7
+17,20,835,visit: Start Locally | PyTorch;,visit, Start Locally | PyTorch;,7
+18,23,1033,revisit: Introduction to PyTorch - YouTube;,revisit, Introduction to PyTorch - YouTube;,8
+19,24,1045,visit: Building Models with PyTorch - YouTube;,visit, Building Models with PyTorch - YouTube;,8
+20,25,1101,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,9
+21,32,2005,search: trash image dataset;,search, trash image dataset;,10
+22,33,2019,visit: http://tacodataset.org/;,visit, http://tacodataset.org/;,10
+23,34,2038,visit: GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,visit, GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,10
+24,35,2107,search: waste image dataset;,search, waste image dataset;,11
+25,36,2130,visit: Garbage Classification | Kaggle;,visit, Garbage Classification | Kaggle;,11
+26,37,2139,visit: WasteNet - Recycleye - The world's largest dataset for waste;,visit, WasteNet - Recycleye - The world's largest dataset for waste;,11
+27,38,2181,revisit: Garbage Classification | Kaggle;,revisit, Garbage Classification | Kaggle;,11
+28,41,2556,search: access and open pil image;,search, access and open pil image;,12
+29,42,2559,visit: Python PIL | Image.open() method - GeeksforGeeks;,visit, Python PIL | Image.open() method - GeeksforGeeks;,12
+30,43,2654,search: python accessing a directory;,search, python accessing a directory;,13
+31,44,2657,visit: Accessing directories and files using python - Stack Overflow;,visit, Accessing directories and files using python - Stack Overflow;,13
+32,47,3066,search: relative path python;,search, relative path python;,14
+33,48,3067,visit: Relative paths in Python - Stack Overflow;,visit, Relative paths in Python - Stack Overflow;,14
+34,51,3219,search: how to find if a directory exists in python;,search, how to find if a directory exists in python;,15
+35,52,3221,visit: How do I check if directory exists in Python? - Stack Overflow;,visit, How do I check if directory exists in Python? - Stack Overflow;,15
+36,53,3299,search: directing to an existing directory in python;,search, directing to an existing directory in python;,16
+37,54,3315,visit: Change current working directory with Python - GeeksforGeeks;,visit, Change current working directory with Python - GeeksforGeeks;,16
+38,55,3382,search: locate a path to a directory in python;,search, locate a path to a directory in python;,17
+39,56,3388,visit: python - How do I get the full path of the current file's directory? - Stack Overflow;,visit, python - How do I get the full path of the current file's directory? - Stack Overflow;,17
+40,59,3597,search: get the path of a directory python;,search, get the path of a directory python;,18
+41,60,3604,visit: Python Directory & File Management - A Quick and Easy Tutorial - DataFlair;,visit, Python Directory & File Management - A Quick and Easy Tutorial - DataFlair;,18
+42,65,3829,search: pytorch how to create a dataset;,search, pytorch how to create a dataset;,19
+43,66,3836,visit: A detailed example of data loaders with PyTorch;,visit, A detailed example of data loaders with PyTorch;,19
+44,67,3868,"visit: Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",visit," Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",19
+45,68,4041,visit: Creating Your Own Datasets — pytorch_geometric  documentation;,visit, Creating Your Own Datasets — pytorch_geometric  documentation;,19
+46,69,4072,visit: How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,visit, How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,19
+47,70,4129,search: pytorch how to create a custom dataset for image classification;,search, pytorch how to create a custom dataset for image classification;,20
+48,71,4144,visit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,visit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,20
+49,76,4831,search: python random integer;,search, python random integer;,21
+50,77,4833,visit: Python Random randint() Method;,visit, Python Random randint() Method;,21
+51,78,4859,search: how to pick a random pictures from a directory python;,search, how to pick a random pictures from a directory python;,22
+52,79,4865,visit: discord.py - How do i get a random image from a folder python - Stack Overflow;,visit, discord.py - How do i get a random image from a folder python - Stack Overflow;,22
+53,80,4921,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,23
+54,83,5354,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,24
+55,86,5630,revisit: Accessing directories and files using python - Stack Overflow;,revisit, Accessing directories and files using python - Stack Overflow;,25
+56,87,5647,search: check if a directory exists python;,search, check if a directory exists python;,26
+57,88,5648,visit: Python: Check if a File or Directory Exists - GeeksforGeeks;,visit, Python: Check if a File or Directory Exists - GeeksforGeeks;,26
+58,89,5742,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,27
+59,90,5794,search: clean out all files and folders in directory python;,search, clean out all files and folders in directory python;,28
+60,91,5797,visit: python - How to delete the contents of a folder? - Stack Overflow;,visit, python - How to delete the contents of a folder? - Stack Overflow;,28
+61,92,6265,search: generate a random list of numbers python;,search, generate a random list of numbers python;,29
+62,93,6268,visit: Generating random number list in Python - GeeksforGeeks;,visit, Generating random number list in Python - GeeksforGeeks;,29
+63,94,6380,revisit: Python: Check if a File or Directory Exists - GeeksforGeeks;,revisit, Python: Check if a File or Directory Exists - GeeksforGeeks;,30
+64,95,6386,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,31
+65,96,6398,revisit: Generating random number list in Python - GeeksforGeeks;,revisit, Generating random number list in Python - GeeksforGeeks;,32
+66,99,6954,search: how to use random choice for a list;,search, how to use random choice for a list;,33
+67,100,6978,search: how to use random to select some percentage for a list;,search, how to use random to select some percentage for a list;,34
+68,101,6980,visit: How to Randomly Select Elements From a List in Python;,visit, How to Randomly Select Elements From a List in Python;,34
+69,102,7247,search: selecting random elements from list python without repetition;,search, selecting random elements from list python without repetition;,35
+70,103,7249,visit: python - Random without repetition? - Stack Overflow;,visit, python - Random without repetition? - Stack Overflow;,35
+71,104,7299,visit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,visit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,35
+72,105,7367,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,36
+73,108,7719,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,37
+74,109,7733,search: flatten array python;,search, flatten array python;,38
+75,110,7740,visit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,visit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,38
+76,111,7769,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,39
+77,114,8514,search: grab 80 elements from array python;,search, grab 80 elements from array python;,40
+78,115,8527,search: grab 80 percent of elements from array python;,search, grab 80 percent of elements from array python;,41
+79,116,8530,visit: python - Percent list slicing - Stack Overflow;,visit, python - Percent list slicing - Stack Overflow;,41
+80,117,8592,visit: numpy.percentile() in python - GeeksforGeeks;,visit, numpy.percentile() in python - GeeksforGeeks;,41
+81,118,8616,search: round python;,search, round python;,42
+82,119,8617,visit: Python round() Function;,visit, Python round() Function;,42
+83,120,8793,search: find the difference elements between two lists python;,search, find the difference elements between two lists python;,43
+84,121,8795,visit: Python How to Find the Difference Between Two Lists - codingem.com;,visit, Python How to Find the Difference Between Two Lists - codingem.com;,43
+85,122,8817,visit: python - Get difference between two lists - Stack Overflow;,visit, python - Get difference between two lists - Stack Overflow;,43
+86,129,9924,search: check if all values in list are unique python;,search, check if all values in list are unique python;,44
+87,130,9926,visit: python - Checking if all elements in a list are unique - Stack Overflow;,visit, python - Checking if all elements in a list are unique - Stack Overflow;,44
+88,134,10228,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,45
+89,135,10268,search: how to random selecting from a list without repetition python;,search, how to random selecting from a list without repetition python;,46
+90,136,10284,visit: python - How do I create a list of random numbers without duplicates - Stack Overflow;,visit, python - How do I create a list of random numbers without duplicates - Stack Overflow;,46
+91,137,10315,visit: Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,visit, Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,46
+92,138,10351,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,47
+93,139,10405,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,48
+94,140,10437,visit: Python | random.sample() function - GeeksforGeeks;,visit, Python | random.sample() function - GeeksforGeeks;,48
+95,143,10903,search: how to move images from one folder to another in python;,search, how to move images from one folder to another in python;,49
+96,144,10908,visit: How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,visit, How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,49
+97,145,10962,search: shutil move without deleting;,search, shutil move without deleting;,50
+98,146,10964,visit: python - shutil.move doesn't delete source files - Stack Overflow;,visit, python - shutil.move doesn't delete source files - Stack Overflow;,50
+99,147,10976,visit: Python | shutil.move() method - GeeksforGeeks;,visit, Python | shutil.move() method - GeeksforGeeks;,50
+100,148,11022,search: how to copy and paste img in python;,search, how to copy and paste img in python;,51
+101,149,11051,search: how to move image in python without deleting source files;,search, how to move image in python without deleting source files;,52
+102,150,11058,visit: How to move a file in Python? - Stack Overflow;,visit, How to move a file in Python? - Stack Overflow;,52
+103,151,11147,visit: Copy all files from one directory to another using Python - GeeksforGeeks;,visit, Copy all files from one directory to another using Python - GeeksforGeeks;,52
+104,152,11200,search: shutil copy2;,search, shutil copy2;,53
+105,153,11210,visit: How to Copy Files in Python | Towards Data Science;,visit, How to Copy Files in Python | Towards Data Science;,53
+106,154,11309,search: how to copy files in python;,search, how to copy files in python;,54
+107,155,11310,visit: python - How to copy files - Stack Overflow;,visit, python - How to copy files - Stack Overflow;,54
+108,165,12696,revisit: python - Get difference between two lists - Stack Overflow;,revisit, python - Get difference between two lists - Stack Overflow;,55
+109,166,12699,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,56
+110,167,12708,revisit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,revisit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,57
+111,170,12979,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,58
+112,172,13844,search: how to show fig python;,search, how to show fig python;,59
+113,173,13846,visit: Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,visit, Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,59
+114,176,13942,search: how to show fig python but not close right away;,search, how to show fig python but not close right away;,60
+115,177,13967,search: how to show figure python matplotlib without close right away;,search, how to show figure python matplotlib without close right away;,61
+116,178,13972,visit: python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,visit, python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,61
+117,179,14031,search: how to avoid plt closing on its own;,search, how to avoid plt closing on its own;,62
+118,180,14033,visit: python - Closing pyplot windows - Stack Overflow;,visit, python - Closing pyplot windows - Stack Overflow;,62
+119,183,14131,search: fig show closed on its own;,search, fig show closed on its own;,63
+120,184,14132,visit: python - view and then close the figure automatically in matplotlib? - Stack Overflow;,visit, python - view and then close the figure automatically in matplotlib? - Stack Overflow;,63
+121,187,14430,search: windows path strip image name;,search, windows path strip image name;,64
+122,188,14435,visit: c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,visit, c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,64
+123,190,14552,search: how to grab a file name from a pil image path;,search, how to grab a file name from a pil image path;,65
+124,191,14553,"visit: python - Extract file name from path, no matter what the os/path format - Stack Overflow;",visit," python - Extract file name from path, no matter what the os/path format - Stack Overflow;",65
+125,193,14704,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,66
+126,194,14828,search: torchvision.datasets.ImageFolder;,search, torchvision.datasets.ImageFolder;,67
+127,195,14832,visit: ImageFolder — Torchvision main documentation;,visit, ImageFolder — Torchvision main documentation;,67
+128,196,14899,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,68
+129,197,15058,revisit: ImageFolder — Torchvision main documentation;,revisit, ImageFolder — Torchvision main documentation;,69
+130,200,15220,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,70
+131,207,15759,search: make directory within directory python;,search, make directory within directory python;,71
+132,208,15762,visit: Create a directory in Python - GeeksforGeeks;,visit, Create a directory in Python - GeeksforGeeks;,71
+133,209,15830,search: FileNotFoundError: [WinError 3] The system cannot find the path specified;,search, FileNotFoundError: [WinError 3] The system cannot find the path specified;,72
+134,210,15831,visit: python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,visit, python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,72
+135,217,16210,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,73
+136,224,17779,search: import python file as module;,search, import python file as module;,74
+137,225,17783,visit: Python 3: Import Another Python File as a Module — Computer Science Atlas;,visit, Python 3: Import Another Python File as a Module — Computer Science Atlas;,74
+138,230,18574,search: common pytorch cnn model;,search, common pytorch cnn model;,75
+139,231,18578,visit: Convolutional Neural Network Pytorch | CNN Using Pytorch;,visit, Convolutional Neural Network Pytorch | CNN Using Pytorch;,75
+140,232,18788,visit: PyTorch CNN: The Basics and a Quick Tutorial;,visit, PyTorch CNN: The Basics and a Quick Tutorial;,75
+141,233,18849,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,76
+142,234,19110,search: general cnn architecture for image classification pytorch;,search, general cnn architecture for image classification pytorch;,77
+143,235,19115,visit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,visit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,77
+144,236,20826,search: how to visualize batch size and epochs;,search, how to visualize batch size and epochs;,78
+145,237,20843,"visit: Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",visit," Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",78
+146,240,21447,revisit: Start Locally | PyTorch;,revisit, Start Locally | PyTorch;,79
+147,241,21469,revisit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,revisit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,80
+148,242,21554,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,81
+149,243,21783,search: difference between adam and sgd;,search, difference between adam and sgd;,82
+150,244,21798,visit: Adam vs. SGD: Closing the generalization gap on image classification;,visit, Adam vs. SGD: Closing the generalization gap on image classification;,82
+151,245,22014,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,83
+152,246,22086,visit: Serialization semantics — PyTorch 1.13 documentation;,visit, Serialization semantics — PyTorch 1.13 documentation;,83
+153,247,22132,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,83
+154,250,23736,revisit: Building Models with PyTorch - YouTube;,revisit, Building Models with PyTorch - YouTube;,84
+155,253,26373,revisit: Adam vs. SGD: Closing the generalization gap on image classification;,revisit, Adam vs. SGD: Closing the generalization gap on image classification;,85
+156,254,26385,search: how to load pth file pytorch;,search, how to load pth file pytorch;,86
+157,255,26387,visit: python - How to load .pth file? - Stack Overflow;,visit, python - How to load .pth file? - Stack Overflow;,86
+158,256,26405,visit: Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,visit, Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,86
+159,257,26640,search: load pth file pytorch and testng;,search, load pth file pytorch and testng;,87
+160,258,26648,visit: How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,87
+161,259,26669,visit: How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,87
+162,260,26689,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,88
+163,261,26713,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,89
+164,271,27670,search: making a confusion matrix pytorch;,search, making a confusion matrix pytorch;,90
+165,272,27675,visit: Confusion Matrix — PyTorch-Metrics 0.11.0 documentation;,visit, Confusion Matrix — PyTorch-Metrics 0.11.0 documentation;,90
+166,273,27691,visit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,visit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,90
+167,274,27903,search: scikit learn confusion matrix;,search, scikit learn confusion matrix;,91
+168,275,27904,visit: sklearn.metrics.confusion_matrix — scikit-learn 1.2.0 documentation;,visit, sklearn.metrics.confusion_matrix — scikit-learn 1.2.0 documentation;,91
+169,276,27966,revisit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,revisit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,92
