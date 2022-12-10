@@ -33,7 +33,7 @@ def getKeywords(cluster):
 
     keywords = set()
     stopWords = set(stopwords.words('english'))
-    ignoreWords = ["lichess", "org", "api"]
+    ignoreWords = ["lichess", "org", "api", "python", "pytorch", "documentation", "tutorial", "image"]
     for pageString in pageStrings:
         words = []
 
@@ -41,13 +41,13 @@ def getKeywords(cluster):
         for word in pageString.split():
 
             # if the word isn't something we should ignore
-            if word not in ignoreWords and word not in stopWords:
+            if word.strip() not in ignoreWords and word not in stopWords:
                 
                 # stem it
                 stemmedWord = ps.stem(word)
 
                 # if stemmed word is also not a stopword, add it to the wordlist
-                if (stemmedWord not in stopWords):
+                if (stemmedWord not in stopWords) and (len(stemmedWord) > 1):
                     words.append(ps.stem(word))
 
         keywords = keywords.union(set(words))
@@ -261,7 +261,7 @@ clusterGroups = []
 clusterGroup = []
 prevCluster = None
 prevKeys = set()
-debug = False
+debug = True
 for cluster in allClusters:
     currKeys = getKeywords(cluster)
 

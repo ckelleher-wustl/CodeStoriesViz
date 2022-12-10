@@ -250,7 +250,9 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         # print(codeClusterHtml)
 
         addedSearch = false
-        while (searchDF.iloc[searchIdx]["startTime"] < codeDF.iloc[codeIdx]["endTime"] ):
+        print(f"Search Start: {searchDF.iloc[searchIdx]['startTime']}")
+        print(f"CODE End: {codeDF.iloc[codeIdx]['endTime']}")
+        while searchIdx < len(searchDF) and codeIdx < len(codeDF) and (searchDF.iloc[searchIdx]["startTime"] < codeDF.iloc[codeIdx]["endTime"] ):
             # html += "<p> adding a subcluster</p>\n"
             startTime = searchDF.iloc[searchIdx]['startTime']
             endTime = searchDF.iloc[searchIdx]['endTime']
