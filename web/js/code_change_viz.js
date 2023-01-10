@@ -6,7 +6,7 @@ function initialize() {
     console.log("code Change times")
     console.log(codeChangeTimes);
 
-    var mainChanges = codeChangeTimes["main"];
+    var mainChanges = codeChangeTimes["main.py"];
     console.log("main Change times")
     console.log(mainChanges);
 
