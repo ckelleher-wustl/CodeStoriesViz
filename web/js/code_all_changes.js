@@ -24,6 +24,7 @@ function getAllCodeEdits() {
             displayHistoryOverview();
 
             // testing different code summary option
+            initialize();
             displayCodeChangeViz();
     });
 
