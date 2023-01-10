@@ -1,14 +1,13 @@
 ckelleher@caikel-cse MINGW64 ~/git/CodeStoriesViz/web (master)
-$$ node "c:\Users\ckelleher\git\CodeStoriesViz\web\js\code_all_changes.js"
-c:\Users\ckelleher\git\CodeStoriesViz\web\js\code_all_changes.js:10
-$( document ).ready(function() {
-^
+$$ "python" -m http.server 8080 --directory "c:\Users\ckelleher\git\CodeStoriesViz\web"
+Serving HTTP on :: port 8080 (http://[::]:8080/) ...
+::1 - - [10/Jan/2023 11:01:16] "GET /code_all_changes.html HTTP/1.1" 200 -
+::1 - - [10/Jan/2023 11:01:16] "GET /css/code_cluster_view.css HTTP/1.1" 200 -
+::1 - - [10/Jan/2023 11:01:16] "GET /js/code_change_summary.js HTTP/1.1" 200 -
+::1 - - [10/Jan/2023 11:01:16] "GET /js/code_change_viz.js HTTP/1.1" 200 -
+::1 - - [10/Jan/2023 11:01:16] "GET /js/code_history_overview.js HTTP/1.1" 200 -
+::1 - - [10/Jan/2023 11:01:16] "GET /js/code_all_changes.js HTTP/1.1" 200 -
+::1 - - [10/Jan/2023 11:01:17] code 404, message File not found
+::1 - - [10/Jan/2023 11:01:17] "GET /favicon.ico HTTP/1.1" 404 -
 
-ReferenceError: $ is not defined
-    at Object.<anonymous> (c:\Users\ckelleher\git\CodeStoriesViz\web\js\code_all_changes.js:10:1)
-?[90m    at Module._compile (internal/modules/cjs/loader.js:1063:30)?[39m
-?[90m    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)?[39m
-?[90m    at Module.load (internal/modules/cjs/loader.js:928:32)?[39m
-?[90m    at Function.Module._load (internal/modules/cjs/loader.js:769:14)?[39m
-?[90m    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)?[39m
-?[90m    at internal/main/run_main_module.js:17:47?[39m
+Keyboard interrupt received, exiting.
