@@ -27,7 +27,7 @@ function initialize() {
 
                 for (var line in lines) {
                     var currLines = lines[line].trim();
-                    console.log("line: " + currLines);
+                    console.log("line: " + currLines.length + " " + currLines) ;
                     if (currLines.length > 1) {
                         if (lines[line].startsWith("+")) {
                             numAdds += 1;
