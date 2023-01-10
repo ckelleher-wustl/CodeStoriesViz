@@ -8,7 +8,10 @@ function initialize() {
 
     if (mainChanges.length > 1) {
         for (var i = 1; i < mainChanges.length; i++) {
-            var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i, codeEntries)
+            var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i, codeEntries);
+            var codeState1 = codeEntries[codeState1I]["code_text"];
+
+            console.log("first code state: " + codeState1);
         }
     }
 
