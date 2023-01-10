@@ -31,7 +31,7 @@ function initialize() {
                 for (var line in lines) {
                     var currLines = lines[line].trim();
                     if (currLines.length > 1) {
-                        console.log("line: " + currLines.length + " " + currLines) ;
+                        // console.log("line: " + currLines.length + " " + currLines) ;
                         if (lines[line].startsWith("+")) {
                             numAdds += 1;
                         } else if (lines[line].startsWith("-")) {
@@ -54,6 +54,8 @@ function initialize() {
             mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
         }
     }
+
+    console.log("main data" + JSON.stringify(mainData))
 
 }
 
