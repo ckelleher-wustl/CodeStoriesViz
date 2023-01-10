@@ -51,6 +51,36 @@ function _getIndexForPreviousFileChange(responses, fileName, time, idx) {
 
 }
 
+// helper function to find the appropriate code entry for a target time and file
+function _getIForTimeAndFile(targetTime, targetFile, startingIdx) {
+    var resTime = responses[startingIdx]["time"];
+    var resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
+
+    // fix situations were the predicted location for the time is wrong.
+    while (resTime < targetTime) {
+        startingIdx+=1;
+        resTime = responses[startingIdx]["time"];
+        resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
+    }
+
+    while (resTime > targetTime) {
+        startingIdx-=1;
+        resTime = responses[startingIdx]["time"];
+        resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
+    }
+
+    // there's still an issue if there are entries for multiple files at the same time.
+    // will fail if it doesn't find the right data point before the time > resTime (target time)
+    while ( (resFile != targetFile) && (targetTime <= resTime) ) {
+        startingIdx += 1;
+        resTime = responses[startingIdx]["time"];
+        resFile = responses[startingIdx]["notes"].slice(6,-1).trim();
+    }
+
+    return startingIdx;
+}
+
+
 // gets the current and previous versions of the code and request an updated display
 function generateCodeDisplay(responses, i, id, cmd) {
 
@@ -61,36 +91,37 @@ function generateCodeDisplay(responses, i, id, cmd) {
     var idx = idInfo[1];
     var time = idInfo[2];
     console.log("show " + id);
+
+    i = _getIForTimeAndFile(time, fileName, i);
     
     
     if (cmd == "+") {
         console.log("cmd=" + cmd + " fileName=" + fileName + " idx=" + idx + " time=" + time);
         console.log( JSON.stringify(responses[i]) );
-
         
         var resTime = responses[i]["time"];
         var resFile = responses[i]["notes"].slice(6,-1).trim()
 
-        // fix situations were the predicted location for the time is wrong.
-        while (resTime < time) {
-            i+=1;
-            resTime = responses[i]["time"];
-            resFile = responses[i]["notes"].slice(6,-1).trim()
-        }
+        // // fix situations were the predicted location for the time is wrong.
+        // while (resTime < time) {
+        //     i+=1;
+        //     resTime = responses[i]["time"];
+        //     resFile = responses[i]["notes"].slice(6,-1).trim()
+        // }
 
-        while (resTime > time) {
-            i-=1;
-            resTime = responses[i]["time"];
-            resFile = responses[i]["notes"].slice(6,-1).trim()
-        }
+        // while (resTime > time) {
+        //     i-=1;
+        //     resTime = responses[i]["time"];
+        //     resFile = responses[i]["notes"].slice(6,-1).trim()
+        // }
 
-        // there's still an issue if there are entries for multiple files at the same time.
-        // will fail if it doesn't find the right data point before the time > resTime (target time)
-        while ( (resFile != fileName) && (time <= resTime) ) {
-            i += 1;
-            resTime = responses[i]["time"];
-            resFile = responses[i]["notes"].slice(6,-1).trim();
-        }
+        // // there's still an issue if there are entries for multiple files at the same time.
+        // // will fail if it doesn't find the right data point before the time > resTime (target time)
+        // while ( (resFile != fileName) && (time <= resTime) ) {
+        //     i += 1;
+        //     resTime = responses[i]["time"];
+        //     resFile = responses[i]["notes"].slice(6,-1).trim();
+        // }
         
         if ((resTime != time) || (resFile != fileName)) {
             // if resTime and resFile don't match then there's a problem. For now, just echo this.
@@ -101,7 +132,6 @@ function generateCodeDisplay(responses, i, id, cmd) {
         } else {
             // otherwise, we want to get the code files and display them
             var currCode = responses[i]["code_text"];
-            
 
             var indexForPrevCode = _getIndexForPreviousFileChange(responses, fileName, time, i); // or idx?
             if (indexForPrevCode != -1) {
