@@ -55,19 +55,29 @@ function initialize() {
         }
     }
 
-    console.log("main data" + JSON.stringify(mainData))
+    // console.log("main data" + JSON.stringify(mainData))
 
 }
 
+// var data = [1, 2, 3, 4, 5];
+
+// var svg = d3.select("body").append("svg")
+//   .attr("width", 200)
+//   .attr("height", 200);
+
+// var circles = svg.selectAll("circle")
+//   .data(data)
+//   .enter()
+//   .append("circle")
+//   .attr({
+//       "cx": (d, i) => i * 50 + 25,
+//       "cy": 25,
+//       "r": d
+//     });
+
+
 function displayCodeChangeViz() {
-    // console.log("events list by key")
-    // console.log(eventListsByKey)
-
-    // console.log("code change times")
-    // console.log(codeChangeTimes)
-
-    // console.log("eventTimes")
-    // console.log(eventTimes)
+    var maxWidth = 1500/mainData.length;
     
     var svgContainer = d3.select("#svg_test");
 
@@ -75,18 +85,18 @@ function displayCodeChangeViz() {
     const line = svg.append('line')
     .attr('x1', 0)
     .attr('y1', 50)
-    .attr('x2', 500)
+    .attr('x2', 1500)
     .attr('y2', 50)
     .attr('stroke', 'black');
 
     const g = svg.append('g');
-    const data = d3.range(10).map(() => d3.randomUniform(0, 20)());
+    // const data = d3.range(10).map(() => d3.randomUniform(0, 20)());
     g.selectAll('circle')
-    .data(data)
+    .data(mainData)
     .enter()
     .append('circle')
-    .attr('cx', (d, i) => 25 + 25 * i)
+    .attr('cx', (d, i) => maxWidth + (maxWidth * i))
     .attr('cy', 50)
-    .attr('r', d => d)
+    .attr('r', d => ((d.numAdds + d.numRemoves)/150 * maxWidth) )
     .attr('fill', 'blue');
 }
