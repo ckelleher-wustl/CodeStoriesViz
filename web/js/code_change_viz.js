@@ -81,7 +81,9 @@ function displayCodeChangeViz() {
     
     var svgContainer = d3.select("#svg_test");
 
-    const svg = svgContainer.append("svg");
+    const svg = svgContainer.append("svg")
+        .attr("width", 1500)
+        .attr("height", 200);
     const line = svg.append('line')
     .attr('x1', 0)
     .attr('y1', 50)
