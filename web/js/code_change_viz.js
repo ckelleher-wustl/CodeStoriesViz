@@ -26,8 +26,8 @@ function initialize() {
                 var lines = patch['hunks'][h]['lines'];
 
                 for (var line in lines) {
-                    console.log("line: " + lines[line]);
                     var currLines = lines[line].trim();
+                    console.log("line: " + currLines);
                     if (currLines.length > 1) {
                         if (lines[line].startsWith("+")) {
                             numAdds += 1;
