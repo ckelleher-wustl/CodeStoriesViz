@@ -27,10 +27,13 @@ function initialize() {
 
                 for (var line in lines) {
                     console.log("line: " + lines[line]);
-                    if (lines[line].startsWith("+")) {
-                        numAdds += 1;
-                    } else if (lines[line].startsWith("-")) {
-                        numRemoves += 1;
+                    var currLines = lines[line].trim();
+                    if (currLines.length > 1) {
+                        if (lines[line].startsWith("+")) {
+                            numAdds += 1;
+                        } else if (lines[line].startsWith("-")) {
+                            numRemoves += 1;
+                        }
                     }
                 }
 
