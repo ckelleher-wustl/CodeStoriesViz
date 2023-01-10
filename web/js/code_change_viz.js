@@ -2,9 +2,15 @@ width = 500;
 height = 100;
 
 function displayCodeChangeViz() {
+    console.log("events list by key")
+    console.log(eventListsByKey)
+
+    console.log("eventTimes")
+    console.log(evenmtTimes)
+    
     var svgContainer = d3.select("#svg_test");
 
-    svgContainer.append("svg");
+    const svg = svgContainer.append("svg");
     const line = svg.append('line')
     .attr('x1', 0)
     .attr('y1', 50)
