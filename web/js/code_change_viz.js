@@ -6,7 +6,7 @@ function displayCodeChangeViz() {
     console.log(eventListsByKey)
 
     console.log("eventTimes")
-    console.log(evenmtTimes)
+    console.log(eventTimes)
     
     var svgContainer = d3.select("#svg_test");
 
