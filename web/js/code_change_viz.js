@@ -21,7 +21,7 @@ function initialize() {
 
             // console.log("Patch: " + patch);
             for(var h = 0; h < numHunks; h++) {
-                console.log("hunk " + patch['hunks'][h]);
+                console.log("hunk " + JSON.stringify(patch['hunks'][h]) );
             }
         }
     }
