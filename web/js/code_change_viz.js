@@ -3,12 +3,14 @@ height = 100;
 
 function initialize() {
 
-    console.log("code Change times")
-    console.log(codeChangeTimes);
-
     var mainChanges = codeChangeTimes["main.py"];
-    console.log("main Change times")
     console.log(mainChanges);
+
+    if (length(mainChanges) > 1) {
+        for (var i = 1; i < length(mainChanges); i++) {
+            var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i, codeEntries)
+        }
+    }
 
 }
 
