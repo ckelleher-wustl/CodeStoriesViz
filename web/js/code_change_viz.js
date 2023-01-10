@@ -19,9 +19,10 @@ function initialize() {
             var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
             var numHunks = patch['hunks'].length;
 
-            console.log("Patch: " + patch);
-            // for(var h = 0; h < numHunks; h++) {
-            // }
+            // console.log("Patch: " + patch);
+            for(var h = 0; h < numHunks; h++) {
+                console.log("hunk " + patch['hunks'][h]);
+            }
         }
     }
 
