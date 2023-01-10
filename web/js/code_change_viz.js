@@ -6,8 +6,6 @@ function initialize() {
     var mainChanges = codeChangeTimes["main.py"];
     console.log(mainChanges);
 
-    var numAdds = 0;
-    var numRemoves = 0;
     if (mainChanges.length > 1) {
         for (var i = 1; i < 3; i++) {
             var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i-1, codeEntries);
@@ -20,6 +18,9 @@ function initialize() {
 
             var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
             var numHunks = patch['hunks'].length;
+
+            var numAdds = 0;
+            var numRemoves = 0;
 
             // console.log("Patch: " + patch);
             for(var h = 0; h < numHunks; h++) {
