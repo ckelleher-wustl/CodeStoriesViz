@@ -7,7 +7,7 @@ function initialize() {
     console.log(mainChanges);
 
     if (length(mainChanges) > 1) {
-        for (var i = 1; i < length(mainChanges); i++) {
+        for (var i = 1; i < mainChanges.length; i++) {
             var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i, codeEntries)
         }
     }
