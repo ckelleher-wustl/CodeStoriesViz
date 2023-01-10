@@ -101,6 +101,7 @@ function displayCodeChangeViz() {
         var changes = d.numAdds + d.numRemoves;
         console.log("change count " + changes);
         console.log("maxWidth " + maxWidth);
+        console.log((changes)/150 * (maxWidth-15) );
 
         return( 3 + (changes)/150 * (maxWidth-15) )
     })
