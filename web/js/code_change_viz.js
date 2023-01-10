@@ -43,15 +43,15 @@ function initialize() {
             }
 
             console.log("numAdds " + numAdds);
-            console.log("numRemoves " + numRemoves);
+            console.log("numRemoves " + numRemoves);mainData.append({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
 
             // store the change info for rendering
             if (i == 1) {
                 // this is the initial data point
-                mainData.append({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+                mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
             }
 
-            mainData.append({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
+            mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
         }
     }
 
