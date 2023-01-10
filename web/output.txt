@@ -1,0 +1,14 @@
+ckelleher@caikel-cse MINGW64 ~/git/CodeStoriesViz/web (master)
+$$ node "c:\Users\ckelleher\git\CodeStoriesViz\web\js\code_all_changes.js"
+c:\Users\ckelleher\git\CodeStoriesViz\web\js\code_all_changes.js:10
+$( document ).ready(function() {
+^
+
+ReferenceError: $ is not defined
+    at Object.<anonymous> (c:\Users\ckelleher\git\CodeStoriesViz\web\js\code_all_changes.js:10:1)
+?[90m    at Module._compile (internal/modules/cjs/loader.js:1063:30)?[39m
+?[90m    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)?[39m
+?[90m    at Module.load (internal/modules/cjs/loader.js:928:32)?[39m
+?[90m    at Function.Module._load (internal/modules/cjs/loader.js:769:14)?[39m
+?[90m    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)?[39m
+?[90m    at internal/main/run_main_module.js:17:47?[39m

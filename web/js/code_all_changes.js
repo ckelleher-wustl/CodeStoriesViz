@@ -22,6 +22,9 @@ function getAllCodeEdits() {
 
             initializeHistoryOverview(codeEntries);
             displayHistoryOverview();
+
+            // testing different code summary option
+            displayCodeChangeViz();
     });
 
 }
