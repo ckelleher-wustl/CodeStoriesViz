@@ -8,10 +8,20 @@ function initialize() {
 
     if (mainChanges.length > 1) {
         for (var i = 1; i < 3; i++) {
-            var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i, codeEntries);
+            var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i-1, codeEntries);
             var codeState1 = codeEntries[codeState1I]["code_text"];
+            var codeState1Time = codeEntries[codeState1I]["time"];
 
-            console.log("first code state: " + codeState1);
+            var codeState2I = _getIForTimeAndFile(mainChanges[i], "main.py", i, codeEntries);
+            var codeState2 = codeEntries[codeState2I]["code_text"];
+            var codeState2Time = codeEntries[codeState2I]["time"];
+
+            var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
+            var numHunks = patch['hunks'].length;
+
+            console.log("Patch: " + patch);
+            // for(var h = 0; h < numHunks; h++) {
+            // }
         }
     }
 
