@@ -2,9 +2,9 @@ width = 500;
 height = 100;
 
 function initialize() {
-    
-    console.log("eventTimes")
-    console.log(eventTimes);
+
+    console.log("code Change times")
+    console.log(codeChangeTimes);
 
 }
 
