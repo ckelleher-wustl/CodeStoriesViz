@@ -3,9 +3,8 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-# imageDir = "/images/foodNotFood/"
-# imageDir = "/images/wordle/"
-imageDir = "/images/techWithTim1/"
+projectName = "gitClassification"
+imageDir = "/images/" + projectName + "/"
 
 def get_search_overview_html(responseEntries):
 # <div class="content">
@@ -17,8 +16,6 @@ def get_search_overview_html(responseEntries):
 # </div>
     html = "<div class='content'>\n"
     firstSearch = true
-
-    # print("Search NOTES: " + str(responseEntries))
 
     for i in range (0, len(responseEntries)):
         notes = responseEntries[i]['notes']
@@ -56,9 +53,9 @@ def get_search_overview_html(responseEntries):
                 html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td>" + pageName + "</td></tr></tbody></table></div>\n"
 
     html += "</div>\n" # close open webImageLongRow
-    # html += "</div>\n" # close content pane
+    
+    # by default, we don't close the search b/c we may be appending embedded code clusters
     return html
-
 
 
 def get_search_summary(responseEntries) :
@@ -76,6 +73,7 @@ def get_search_summary(responseEntries) :
     else:
         return lastSearch
 
+
 search_url = 'http://localhost:3000/intervalSearches'
 def get_search_entries(startTime, endTime, html):
         
@@ -86,11 +84,6 @@ def get_search_entries(startTime, endTime, html):
         }
         # Making the get request
         response = requests.get(search_url, params=data)
-        # print("\tgot response: ") 
-        # print(response.json())
-        # html += get_search_overview_html(response.json())
-
-        # timeRange = "<p> " + str(startTime) + "-" + str(endTime) + "</p>"
 
         return [get_search_summary(response.json()), get_search_overview_html(response.json())]
 
