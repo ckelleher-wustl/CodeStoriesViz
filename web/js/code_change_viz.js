@@ -6,6 +6,8 @@ function initialize() {
     var mainChanges = codeChangeTimes["main.py"];
     console.log(mainChanges);
 
+    var numAdds = 0;
+    var numRemoves = 0;
     if (mainChanges.length > 1) {
         for (var i = 1; i < 3; i++) {
             var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i-1, codeEntries);
@@ -21,7 +23,17 @@ function initialize() {
 
             // console.log("Patch: " + patch);
             for(var h = 0; h < numHunks; h++) {
-                console.log("hunk " + JSON.stringify(patch['hunks'][h]) );
+                var lines = patch['hunks'][h]['lines'];
+
+                for (var line in lines) {
+                    console.log("line: " + line);
+                    if (line.startsWith("+")) {
+                        numAdds += 1;
+                    } else if (line.startsWith("-")) {
+                        numRemoves += 1;
+                    }
+                }
+
             }
         }
     }
