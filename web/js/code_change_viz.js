@@ -2,8 +2,11 @@ width = 500;
 height = 100;
 
 function displayCodeChangeViz() {
-    console.log("events list by key")
-    console.log(eventListsByKey)
+    // console.log("events list by key")
+    // console.log(eventListsByKey)
+
+    console.log("code change times")
+    console.log(codeChangeTimes)
 
     console.log("eventTimes")
     console.log(eventTimes)
