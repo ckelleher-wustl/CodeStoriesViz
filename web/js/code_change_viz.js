@@ -103,7 +103,7 @@ function displayCodeChangeViz() {
         console.log("maxWidth " + maxWidth);
         console.log((changes)/150 * (maxWidth-15) );
 
-        return( 3 + (changes)/150 * (maxWidth-15) )
+        return( 3 + (changes)/150 * (maxWidth) )
     })
     // } d => (3 + (d.numAdds + d.numRemoves)/150 * (maxWidth-15)) )
     .attr('fill', 'blue');
