@@ -26,10 +26,10 @@ function initialize() {
                 var lines = patch['hunks'][h]['lines'];
 
                 for (var line in lines) {
-                    console.log("line: " + line);
-                    if (line.startsWith("+")) {
+                    console.log("line: " + lines[line]);
+                    if (lines[line].startsWith("+")) {
                         numAdds += 1;
-                    } else if (line.startsWith("-")) {
+                    } else if (lines[line].startsWith("-")) {
                         numRemoves += 1;
                     }
                 }
