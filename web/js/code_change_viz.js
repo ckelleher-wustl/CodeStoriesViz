@@ -6,6 +6,10 @@ function initialize() {
     console.log("code Change times")
     console.log(codeChangeTimes);
 
+    var mainChanges = codeChangeTimes["main"];
+    console.log("main Change times")
+    console.log(mainChanges);
+
 }
 
 function displayCodeChangeViz() {
