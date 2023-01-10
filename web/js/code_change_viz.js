@@ -35,6 +35,9 @@ function initialize() {
                 }
 
             }
+
+            console.log("numAdds " + numAdds);
+            console.log("numRemoves " + numRemoves);
         }
     }
 
