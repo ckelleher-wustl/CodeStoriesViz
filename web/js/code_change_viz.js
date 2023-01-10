@@ -95,8 +95,8 @@ function displayCodeChangeViz() {
     .data(mainData)
     .enter()
     .append('circle')
-    .attr('cx', (d, i) => maxWidth + (maxWidth * i))
+    .attr('cx', (d, i) => 10 + (maxWidth * i))
     .attr('cy', 50)
-    .attr('r', d => (5 + (d.numAdds + d.numRemoves)/150 * (maxWidth-20)) )
+    .attr('r', d => (3 + (d.numAdds + d.numRemoves)/150 * (maxWidth-15)) )
     .attr('fill', 'blue');
 }
