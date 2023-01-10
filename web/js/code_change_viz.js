@@ -43,7 +43,7 @@ function initialize() {
             }
 
             console.log("numAdds " + numAdds);
-            console.log("numRemoves " + numRemoves);mainData.append({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+            console.log("numRemoves " + numRemoves);mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
 
             // store the change info for rendering
             if (i == 1) {
