@@ -9,7 +9,7 @@ function initialize() {
     console.log(mainChanges);
 
     if (mainChanges.length > 1) {
-        for (var i = 1; i < 3; i++) {
+        for (var i = 1; i < mainChanges.length; i++) {
             var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i-1, codeEntries);
             var codeState1 = codeEntries[codeState1I]["code_text"];
             var codeState1Time = codeEntries[codeState1I]["time"];
