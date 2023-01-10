@@ -75,9 +75,14 @@ function initialize() {
 //       "r": d
 //     });
 
+function _interpolateColor(color1, color2, percentage) {
+    var interpolate = d3.interpolate(color1, color2);
+    return interpolate(percentage);
+}
+
 
 function displayCodeChangeViz() {
-    var maxWidth = 1500/mainData.length;
+    var maxWidth = 1200/mainData.length;
     
     var svgContainer = d3.select("#svg_test");
 
@@ -87,7 +92,7 @@ function displayCodeChangeViz() {
     const line = svg.append('line')
     .attr('x1', 0)
     .attr('y1', 50)
-    .attr('x2', 1500)
+    .attr('x2', 1200)
     .attr('y2', 50)
     .attr('stroke', 'black');
 
@@ -108,5 +113,9 @@ function displayCodeChangeViz() {
         return( 3 + (changes)/150 * (maxWidth) )
     })
     // } d => (3 + (d.numAdds + d.numRemoves)/150 * (maxWidth-15)) )
-    .attr('fill', 'blue');
+    .attr('fill', function(d) {
+        var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
+        var color = _interpolateColor('pink', 'lightgreen', proportion)
+        return color;
+    });
 }
