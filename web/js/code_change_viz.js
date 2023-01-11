@@ -100,7 +100,7 @@ function displayCodeChangeViz() {
 
         // there's no data for this point
         console.log("changes: " + changes);
-        if (changes == -1) {
+        if (changes < 0) {
             return 0;
         } else {
             return( 3 + (changes)/150 * (maxWidth) )
