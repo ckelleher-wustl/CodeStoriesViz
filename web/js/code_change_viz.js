@@ -44,8 +44,8 @@ function initialize() {
 
             }
 
-            console.log("numAdds " + numAdds);
-            console.log("numRemoves " + numRemoves);mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+            // console.log("numAdds " + numAdds);
+            // console.log("numRemoves " + numRemoves);mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
 
             // store the change info for rendering
             if (i == 1) {
@@ -90,9 +90,9 @@ function displayCodeChangeViz() {
     .attr('cy', 50)
     .attr('r', function(d) {
         var changes = d.numAdds + d.numRemoves;
-        console.log("change count " + changes);
-        console.log("maxWidth " + maxWidth);
-        console.log((changes)/150 * (maxWidth) );
+        // console.log("change count " + changes);
+        // console.log("maxWidth " + maxWidth);
+        // console.log((changes)/150 * (maxWidth) );
 
         return( 3 + (changes)/150 * (maxWidth) )
     })

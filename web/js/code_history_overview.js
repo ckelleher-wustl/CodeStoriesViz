@@ -105,7 +105,7 @@ function createEventsListByFile() {
 
 
     // while (moreEventsExist(indices)) {
-    for (var i = 0; i < 70; i++) {
+    for (var i = 0; i < 61; i++) {
         var ret = getNextTime(indices);
         
 

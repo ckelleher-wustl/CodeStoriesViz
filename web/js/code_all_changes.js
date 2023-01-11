@@ -102,27 +102,6 @@ function generateCodeDisplay(responses, i, id, cmd) {
         
         var resTime = responses[i]["time"];
         var resFile = responses[i]["notes"].slice(6,-1).trim()
-
-        // // fix situations were the predicted location for the time is wrong.
-        // while (resTime < time) {
-        //     i+=1;
-        //     resTime = responses[i]["time"];
-        //     resFile = responses[i]["notes"].slice(6,-1).trim()
-        // }
-
-        // while (resTime > time) {
-        //     i-=1;
-        //     resTime = responses[i]["time"];
-        //     resFile = responses[i]["notes"].slice(6,-1).trim()
-        // }
-
-        // // there's still an issue if there are entries for multiple files at the same time.
-        // // will fail if it doesn't find the right data point before the time > resTime (target time)
-        // while ( (resFile != fileName) && (time <= resTime) ) {
-        //     i += 1;
-        //     resTime = responses[i]["time"];
-        //     resFile = responses[i]["notes"].slice(6,-1).trim();
-        // }
         
         if ((resTime != time) || (resFile != fileName)) {
             // if resTime and resFile don't match then there's a problem. For now, just echo this.
