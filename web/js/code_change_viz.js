@@ -111,5 +111,8 @@ function displayCodeChangeViz() {
         var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
         var color = _interpolateColor('pink', 'lightgreen', proportion)
         return color;
+    })
+    .on("click", function(d, i) {
+        console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves);
     });
 }
