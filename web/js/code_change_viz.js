@@ -56,6 +56,7 @@ function initialize() {
                 }
 
                 mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
+                changeIndex += 1;
             } else {
                 mainData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1})
             }
