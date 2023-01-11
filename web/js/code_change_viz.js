@@ -6,7 +6,9 @@ mainData = []
 function initialize() {
 
     var mainChanges = codeChangeTimes["main.py"];
-    console.log(mainChanges);
+    console.log("Main Changes: " + mainChanges);
+    console.log("All Event Times: " + eventTimes);
+
 
     if (mainChanges.length > 1) {
         for (var i = 1; i < mainChanges.length; i++) {
@@ -55,25 +57,7 @@ function initialize() {
         }
     }
 
-    // console.log("main data" + JSON.stringify(mainData))
-
 }
-
-// var data = [1, 2, 3, 4, 5];
-
-// var svg = d3.select("body").append("svg")
-//   .attr("width", 200)
-//   .attr("height", 200);
-
-// var circles = svg.selectAll("circle")
-//   .data(data)
-//   .enter()
-//   .append("circle")
-//   .attr({
-//       "cx": (d, i) => i * 50 + 25,
-//       "cy": 25,
-//       "r": d
-//     });
 
 function _interpolateColor(color1, color2, percentage) {
     var interpolate = d3.interpolate(color1, color2);
