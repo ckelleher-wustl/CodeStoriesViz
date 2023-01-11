@@ -61,7 +61,7 @@ function initialize() {
             }
         }
 
-        console.log("main data:" + mainData);
+        console.log("main data:" + JSON.stringify(mainData));
         console.log("main changes:" + mainChanges);
     }
 }
