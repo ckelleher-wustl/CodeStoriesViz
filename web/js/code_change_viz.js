@@ -9,31 +9,36 @@ function initialize() {
     console.log("Main Changes: " + mainChanges);
     console.log("All Event Times: " + eventTimes);
 
-
+    
+    //  change this so that we can not draw in time periods where there's no activity
     if (mainChanges.length > 1) {
-        for (var i = 1; i < mainChanges.length; i++) {
-            var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i-1, codeEntries);
+        changeIndex = 1;
+        
+        // for (var i = 1; i < mainChanges.length; i++) {
+        for (var i = 1; i < eventTimes.length; i++) {
+            
+            //  initialize the code state info
+            var codeState1I = _getIForTimeAndFile(mainChanges[changeIndex-1], "main.py", i-1, codeEntries);
             var codeState1 = codeEntries[codeState1I]["code_text"];
             var codeState1Time = codeEntries[codeState1I]["time"];
 
-            var codeState2I = _getIForTimeAndFile(mainChanges[i], "main.py", i, codeEntries);
+            var codeState2I = _getIForTimeAndFile(mainChanges[changeIndex], "main.py", i, codeEntries);
             var codeState2 = codeEntries[codeState2I]["code_text"];
             var codeState2Time = codeEntries[codeState2I]["time"];
 
+            // calculate difference patch
             var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
             var numHunks = patch['hunks'].length;
 
             var numAdds = 0;
             var numRemoves = 0;
 
-            // console.log("Patch: " + patch);
             for(var h = 0; h < numHunks; h++) {
                 var lines = patch['hunks'][h]['lines'];
 
                 for (var line in lines) {
                     var currLines = lines[line].trim();
                     if (currLines.length > 1) {
-                        // console.log("line: " + currLines.length + " " + currLines) ;
                         if (lines[line].startsWith("+")) {
                             numAdds += 1;
                         } else if (lines[line].startsWith("-")) {
@@ -41,23 +46,70 @@ function initialize() {
                         }
                     }
                 }
-
             }
 
-            // console.log("numAdds " + numAdds);
-            // console.log("numRemoves " + numRemoves);mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+            if (codeState2Time == eventTimes[i]) {
+                // store the change info for rendering
+                if (changeIndex == 1) {
+                    // this is the initial data point
+                    mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+                }
 
-            // store the change info for rendering
-            if (i == 1) {
-                // this is the initial data point
-                mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+                mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
+            } else {
+                mainData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1})
             }
-
-            mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
         }
-    }
 
+        console.log("main data:" + mainData);
+        console.log("main changes:" + mainChanges);
+    }
 }
+
+    //     for (var i = 1; i < mainChanges.length; i++) {
+
+    //         //  initialize the code state info
+    //         var codeState1I = _getIForTimeAndFile(mainChanges[i-1], "main.py", i-1, codeEntries);
+    //         var codeState1 = codeEntries[codeState1I]["code_text"];
+    //         var codeState1Time = codeEntries[codeState1I]["time"];
+
+    //         var codeState2I = _getIForTimeAndFile(mainChanges[i], "main.py", i, codeEntries);
+    //         var codeState2 = codeEntries[codeState2I]["code_text"];
+    //         var codeState2Time = codeEntries[codeState2I]["time"];
+
+    //         // calculate difference patch
+    //         var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
+    //         var numHunks = patch['hunks'].length;
+
+    //         var numAdds = 0;
+    //         var numRemoves = 0;
+
+    //         for(var h = 0; h < numHunks; h++) {
+    //             var lines = patch['hunks'][h]['lines'];
+
+    //             for (var line in lines) {
+    //                 var currLines = lines[line].trim();
+    //                 if (currLines.length > 1) {
+    //                     if (lines[line].startsWith("+")) {
+    //                         numAdds += 1;
+    //                     } else if (lines[line].startsWith("-")) {
+    //                         numRemoves += 1;
+    //                     }
+    //                 }
+    //             }
+    //         }
+
+    //         // store the change info for rendering
+    //         if (i == 1) {
+    //             // this is the initial data point
+    //             mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+    //         }
+
+    //         mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
+    //     }
+    // }
+
+
 
 function _interpolateColor(color1, color2, percentage) {
     var interpolate = d3.interpolate(color1, color2);
