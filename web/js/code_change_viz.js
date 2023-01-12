@@ -9,7 +9,7 @@ function initialize() {
     mainData = _getChangeDataForFilename(fileName);
 
     for (key in Object.keys(eventListsByKey)) {
-        console.log("key " + key + " " + eventListsByKey[key]);
+        console.log("key " + key + " " + eventListsByKey[0]);
     }
    
 }
