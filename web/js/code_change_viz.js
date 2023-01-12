@@ -102,8 +102,12 @@ function displayCodeChangeViz() {
     .attr('y1', 25)
     .attr('x2', 1200)
     .attr('y2', 25)
-    .attr('stroke', 'black')
+    .attr('stroke', 'black');
 
+    svgContainer.selectAll("svg")
+    .data(Object.keys(dataByFileName))
+    .enter()
+    .selectAll("circle")
     .data(function(d,i) {
         return(dataByFileName[d])
     })
