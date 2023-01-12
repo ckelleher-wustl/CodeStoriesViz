@@ -18,7 +18,7 @@ function initialize() {
         console.log("key " + keys[key] + " " + fileData.length);
     }
 
-    console.log("allData " + JSON.stringify(dataByFileName));
+    // console.log("allData " + JSON.stringify(dataByFileName));
 }
 
 function _getChangeDataForFilename(fileName) {
