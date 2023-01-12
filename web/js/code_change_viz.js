@@ -8,8 +8,8 @@ function initialize() {
     var fileName = "main.py";
     mainData = _getChangeDataForFilename(fileName);
 
-    for (key in Object.keys(codeEntries)) {
-        console.log("key " + key + " " + codeEntries[key]);
+    for (key in Object.keys(eventListsByKey)) {
+        console.log("key " + key + " " + eventListsByKey[key]);
     }
    
 }

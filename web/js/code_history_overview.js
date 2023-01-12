@@ -137,7 +137,7 @@ function createEventsListByFile() {
             // this is a redundant if statement to record the eventsByKey data
             if (ret[1][key] == nextTime) {
                 eventListsByKey[key].push({text:"+", key: key, idx: (eventListsByKey[key].length), time: (eventTimes[eventListsByKey[key].length])} );
-                console.log("text: +" + key + " " +  (eventListsByKey[key].length) + " " + (eventTimes[eventListsByKey[key].length]));
+                // console.log("text: +" + key + " " +  (eventListsByKey[key].length) + " " + (eventTimes[eventListsByKey[key].length]));
                 
                 // indices[key][0] = indices[key][0] + 1; // this is currently done by the other if
             } else {
