@@ -5,23 +5,27 @@ mainData = []
 
 function initialize() {
 
-    var mainChanges = codeChangeTimes["main.py"];
-    // console.log("Main Changes: " + mainChanges);
-    // console.log("All Event Times: " + eventTimes);
+    var fileName = "main.py";
+    mainData = _getChangeDataForFilename(fileName);
+   
+}
+
+function _getChangeDataForFilename(fileName) {
+    var changeTimes = codeChangeTimes[fileName];
+    changeData = [];
     
     //  change this so that we can not draw in time periods where there's no activity
-    if (mainChanges.length > 1) {
+    if (changeTimes.length > 1) {
         changeIndex = 1;
-        
-        // for (var i = 1; i < mainChanges.length; i++) {
+
         for (var i = 1; i < eventTimes.length; i++) {
             
             //  initialize the code state info
-            var codeState1I = _getIForTimeAndFile(mainChanges[changeIndex-1], "main.py", i-1, codeEntries);
+            var codeState1I = _getIForTimeAndFile(changeTimes[changeIndex-1], fileName, i-1, codeEntries);
             var codeState1 = codeEntries[codeState1I]["code_text"];
             var codeState1Time = codeEntries[codeState1I]["time"];
 
-            var codeState2I = _getIForTimeAndFile(mainChanges[changeIndex], "main.py", i, codeEntries);
+            var codeState2I = _getIForTimeAndFile(changeTimes[changeIndex], fileName, i, codeEntries);
             var codeState2 = codeEntries[codeState2I]["code_text"];
             var codeState2Time = codeEntries[codeState2I]["time"];
 
@@ -51,18 +55,17 @@ function initialize() {
                 // store the change info for rendering
                 if (changeIndex == 1) {
                     // this is the initial data point
-                    mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, code_text: codeState1})
+                    changeData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, code_text: codeState1})
                 }
 
-                mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, code_text: codeState2})
+                changeData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, code_text: codeState2})
                 changeIndex += 1;
             } else {
-                mainData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
+                changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
             }
         }
 
-        console.log("main data:" + JSON.stringify(mainData));
-        // console.log("main changes:" + mainChanges);
+        console.log("main data:" + JSON.stringify(changeData));
     }
 }
 
