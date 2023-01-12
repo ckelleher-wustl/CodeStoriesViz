@@ -109,7 +109,8 @@ function displayCodeChangeViz() {
     .enter()
     .selectAll("circle")
     .data(function(d,i) {
-        return(dataByFileName[d])
+        console.log("d is " + d + dataByFileName[d]);
+        return(dataByFileName[d]);
     })
     .enter()
     .append('circle')
