@@ -97,16 +97,16 @@ function displayCodeChangeViz() {
     .data(Object.keys(dataByFileName))
     .enter()
     .append("svg").attr("width", 1500).attr("height", 50)
-    .append("line")
-    .attr('x1', 0)
-    .attr('y1', 25)
-    .attr('x2', 1200)
-    .attr('y2', 25)
-    .attr('stroke', 'black');
+    // .append("line")
+    // .attr('x1', 0)
+    // .attr('y1', 25)
+    // .attr('x2', 1200)
+    // .attr('y2', 25)
+    // .attr('stroke', 'black');
 
-    svgContainer.selectAll("svg")
-    .data(Object.keys(dataByFileName))
-    .enter()
+    // svgContainer.selectAll("svg")
+    // .data(Object.keys(dataByFileName))
+    // .enter()
     .selectAll("circle")
     .data(function(d,i) {
         console.log("d is " + d + dataByFileName[d]);
