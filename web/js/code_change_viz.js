@@ -8,11 +8,11 @@ function initialize() {
     var fileName = "main.py";
     mainData = _getChangeDataForFilename(fileName);
 
-    console.log("codeChangeArray " + JSON.stringify(codeChangeArray));
-    console.log("codeChangeTimes " + JSON.stringify(codeChangeTimes));
-    // for (key in Object.keys(eventListsByKey)) {
-    //     console.log("key " + key + " " + eventListsByKey[0]);
-    // }
+    // console.log("codeChangeArray " + JSON.stringify(codeChangeArray));
+    // console.log("codeChangeTimes " + JSON.stringify(codeChangeTimes));
+    for (key in Object.keys(codeChangeTimes)) {
+        console.log("key " + key + " " + codeChangeTimes[key]);
+    }
    
 }
 
