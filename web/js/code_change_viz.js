@@ -51,13 +51,13 @@ function initialize() {
                 // store the change info for rendering
                 if (changeIndex == 1) {
                     // this is the initial data point
-                    mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0})
+                    mainData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, code_text: codeState1})
                 }
 
-                mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves})
+                mainData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, code_text: codeState2})
                 changeIndex += 1;
             } else {
-                mainData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1})
+                mainData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
             }
         }
 
@@ -114,5 +114,21 @@ function displayCodeChangeViz() {
     })
     .on("click", function(d, i) {
         console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves);
+
+        // look for the previous change to this file, which might not be at the previous eventTime.
+        var idx = i;
+        var prevRecord = {}
+        if (idx >= 0) {
+            idx-=1;
+            prevRecord = mainData[idx];
+
+            while (mainData[idx].numAdds == -1) {
+                idx -=1;
+                prevRecord = mainData[idx];
+            }
+        }
+
+
+        displayCodeChangeSummary(mainData[idx].time, mainData[idx].code_text, d.time, d.code_text);
     });
 }
