@@ -96,12 +96,12 @@ function displayCodeChangeViz() {
     svgContainer.selectAll("svg")
     .data(Object.keys(dataByFileName))
     .enter()
-    .append("svg").attr("width", 1500).attr("height", 100)
+    .append("svg").attr("width", 1500).attr("height", 50)
     .append("line")
     .attr('x1', 0)
-    .attr('y1', 50)
+    .attr('y1', 25)
     .attr('x2', 1200)
-    .attr('y2', 50)
+    .attr('y2', 25)
     .attr('stroke', 'black');
 
     // const svg = svgContainer.append("svg")
