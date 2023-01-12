@@ -69,7 +69,7 @@ function _getChangeDataForFilename(fileName) {
             }
         }
 
-        console.log("main data:" + JSON.stringify(changeData));
+        // console.log("main data:" + JSON.stringify(changeData));
     }
 
     return changeData;
@@ -108,7 +108,7 @@ function displayCodeChangeViz() {
         var changes = d.numAdds + d.numRemoves;
 
         // there's no data for this point
-        console.log("changes: " + changes);
+        // console.log("changes: " + changes);
         if (changes < 0) {
             return 0;
         } else {
