@@ -102,17 +102,33 @@ function displayCodeChangeViz() {
     .attr('y1', 25)
     .attr('x2', 1200)
     .attr('y2', 25)
-    .attr('stroke', 'black');
+    .attr('stroke', 'black')
 
-    // const svg = svgContainer.append("svg")
-    //     .attr("width", 1500)
-    //     .attr("height", 100);
-    // const line = svg.append('line')
-    // .attr('x1', 0)
-    // .attr('y1', 50)
-    // .attr('x2', 1200)
-    // .attr('y2', 50)
-    // .attr('stroke', 'black');
+    .data(function(d,i) {
+        return(dataByFileName[d])
+    })
+    .enter()
+    .append('circle')
+    .attr('cx', (d, i) => 10 + (maxWidth * i))
+    .attr('cy', 25)
+    .attr('r', function(d) {
+        return 10;
+        // var changes = d.numAdds + d.numRemoves;
+
+        // if (changes < 0) {
+        //     return 0;
+        // } else {
+        //     return( 3 + (changes)/150 * (maxWidth) )
+        // }
+    })
+    .attr('fill', function(d) {
+        return "lightblue";
+        // var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
+        // var color = _interpolateColor('pink', 'lightgreen', proportion)
+        // return color;
+    })
+
+
 
     // const g = svg.append('g');
     // // const data = d3.range(10).map(() => d3.randomUniform(0, 20)());
