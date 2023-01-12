@@ -102,7 +102,7 @@ function displayCodeChangeViz() {
     // .attr('y1', 25)
     // .attr('x2', 1200)
     // .attr('y2', 25)
-    // .attr('stroke', 'black');
+    // .attr('stroke', 'black')
 
     // svgContainer.selectAll("svg")
     // .data(Object.keys(dataByFileName))
@@ -117,20 +117,20 @@ function displayCodeChangeViz() {
     .attr('cx', (d, i) => 10 + (maxWidth * i))
     .attr('cy', 25)
     .attr('r', function(d) {
-        return 10;
-        // var changes = d.numAdds + d.numRemoves;
+        // return 10;
+        var changes = d.numAdds + d.numRemoves;
 
-        // if (changes < 0) {
-        //     return 0;
-        // } else {
-        //     return( 3 + (changes)/150 * (maxWidth) )
-        // }
+        if (changes < 0) {
+            return 0;
+        } else {
+            return( 3 + (changes)/150 * (maxWidth) )
+        }
     })
     .attr('fill', function(d) {
-        return "lightblue";
-        // var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
-        // var color = _interpolateColor('pink', 'lightgreen', proportion)
-        // return color;
+        // return "lightblue";
+        var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
+        var color = _interpolateColor('pink', 'lightgreen', proportion)
+        return color;
     })
 
 
