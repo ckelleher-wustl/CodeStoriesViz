@@ -9,10 +9,11 @@ function initialize() {
     mainData = _getChangeDataForFilename(fileName);
 
     // console.log("codeChangeArray " + JSON.stringify(codeChangeArray));
-    console.log("codeChangeTimes " + JSON.stringify(codeChangeTimes));
+    // console.log("codeChangeTimes " + JSON.stringify(codeChangeTimes));
     console.log(Object.keys(codeChangeTimes));
-    for (key in Object.keys(codeChangeTimes)) {
-        console.log("key " + key + " " + codeChangeTimes[key]);
+    var keys = Object.keys(codeChangeTimes)
+    for (key in keys) {
+        console.log("key " + key + " " + keys[key]);
     }
    
 }
