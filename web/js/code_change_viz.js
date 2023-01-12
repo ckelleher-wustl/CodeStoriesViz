@@ -2,19 +2,23 @@ width = 500;
 height = 100;
 
 mainData = []
+var dataByFileName = {}
 
 function initialize() {
 
     var fileName = "main.py";
     mainData = _getChangeDataForFilename(fileName);
 
-    // console.log("codeChangeArray " + JSON.stringify(codeChangeArray));
-    // console.log("codeChangeTimes " + JSON.stringify(codeChangeTimes));
     console.log(Object.keys(codeChangeTimes));
     var keys = Object.keys(codeChangeTimes)
     for (key in keys) {
-        console.log("key " + key + " " + keys[key]);
+        console.log("key " + keys[key]);
+
+        var fileData = _getChangeDataForFilename(keys[key]);
+        dataByFileName[keys[key]] = fileData;
     }
+
+    console.log("allData " + JSON.stringify(dataByFileName));
    
 }
 
