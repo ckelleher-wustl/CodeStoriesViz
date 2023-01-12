@@ -67,6 +67,8 @@ function _getChangeDataForFilename(fileName) {
 
         console.log("main data:" + JSON.stringify(changeData));
     }
+
+    return changeData;
 }
 
 function _interpolateColor(color1, color2, percentage) {
