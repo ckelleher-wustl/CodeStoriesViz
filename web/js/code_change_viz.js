@@ -9,13 +9,13 @@ function initialize() {
     var fileName = "main.py";
     mainData = _getChangeDataForFilename(fileName);
 
-    console.log(Object.keys(codeChangeTimes));
+    // console.log(Object.keys(codeChangeTimes));
     var keys = Object.keys(codeChangeTimes)
     for (key in keys) {
-        console.log("key " + keys[key]);
-
         var fileData = _getChangeDataForFilename(keys[key]);
         dataByFileName[keys[key]] = fileData;
+
+        console.log("key " + keys[key] + " " + fileData.length);
     }
 
     console.log("allData " + JSON.stringify(dataByFileName));
