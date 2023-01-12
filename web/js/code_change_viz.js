@@ -94,7 +94,7 @@ function displayCodeChangeViz() {
     var svgContainer = d3.select("#svg_test");
 
     svgContainer.selectAll("svg")
-    .data(dataByFileName)
+    .data(Object.keys(dataByFileName))
     .enter()
     .append("svg").attr("width", 1500).attr("height", 100)
     .append("line")
