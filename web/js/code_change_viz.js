@@ -18,7 +18,7 @@ function initialize() {
         console.log("key " + keys[key] + " " + fileData.length);
 
         for (item in fileData){
-            console.log(JSON.stringify(item));
+            console.log(JSON.stringify(fileData[item]));
         }
     }
 
