@@ -105,6 +105,8 @@ function _interpolateColor(color1, color2, percentage) {
 
 function displayCodeChangeViz() {
     var maxWidth = 1200/mainData.length;
+
+    console.log(JSON.stringify(dataByFileName));
     
     var svgContainer = d3.select("#svg_test");
 
@@ -121,13 +123,14 @@ function displayCodeChangeViz() {
     // .attr('y2', 25)
     // .attr('stroke', 'black')
 
-    // svgContainer.selectAll("svg")
-    // .data(Object.keys(dataByFileName))
-    // .enter()
     .selectAll("circle")
     .data(function(d,i) {
         console.log("d is " + d + dataByFileName[d].length);
         currentData = d;
+
+        // d => (d3.entries(d["grades"]).map(obj => {
+        //     obj['Name'] = d['Name']
+        //     return obj;
         return(dataByFileName[d]);
     })
     .enter()
