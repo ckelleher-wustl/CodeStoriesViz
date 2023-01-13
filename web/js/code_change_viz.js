@@ -160,7 +160,13 @@ function displayCodeChangeViz() {
             }
         }
 
-        displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.time, d.code_text);
+        console.log(d.fileName + " " + dataByFileName[d.fileName][idx].time);
+        console.log(dataByFileName[d.fileName][idx].code_text);
+
+        console.log(d.fileName + " " + d.time);
+        console.log(d.code_text);
+
+        // displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.time, d.code_text);
     });
 
 
