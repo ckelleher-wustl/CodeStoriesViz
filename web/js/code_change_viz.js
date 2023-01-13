@@ -108,6 +108,8 @@ function displayCodeChangeViz() {
     
     var svgContainer = d3.select("#svg_test");
 
+    var currentData = "";
+
     svgContainer.selectAll("svg")
     .data(Object.keys(dataByFileName))
     .enter()
@@ -125,6 +127,7 @@ function displayCodeChangeViz() {
     .selectAll("circle")
     .data(function(d,i) {
         console.log("d is " + d + dataByFileName[d].length);
+        currentData = d;
         return(dataByFileName[d]);
     })
     .enter()
@@ -147,6 +150,26 @@ function displayCodeChangeViz() {
         var color = _interpolateColor('pink', 'lightgreen', proportion)
         return color;
     })
+    .on("click", function(d, i) {
+        console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves + " " + currentData);
+
+        //  todo: I think to bring this back, I'm going to need to pass the name of the file somehow
+
+        // // look for the previous change to this file, which might not be at the previous eventTime.
+        // var idx = i;
+        // var prevRecord = {}
+        // if (idx >= 0) {
+        //     idx-=1;
+        //     prevRecord = mainData[idx];
+
+        //     while (mainData[idx].numAdds == -1) {
+        //         idx -=1;
+        //         prevRecord = mainData[idx];
+        //     }
+        // }
+
+        // displayCodeChangeSummary(mainData[idx].time, mainData[idx].code_text, d.time, d.code_text);
+    });
 
 
 
