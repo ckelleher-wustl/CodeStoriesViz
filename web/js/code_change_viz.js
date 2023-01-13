@@ -141,23 +141,23 @@ function displayCodeChangeViz() {
     .attr('cx', (d, i) => 10 + (maxWidth * i))
     .attr('cy', 25)
     .attr('r', function(d) {
-        // return 10;
-        var changes = d.numAdds + d.numRemoves;
+        return 10;
+        // var changes = d.numAdds + d.numRemoves;
 
-        if (changes < 0) {
-            return 0;
-        } else {
-            return( 3 + (changes)/150 * (maxWidth) )
-        }
+        // if (changes < 0) {
+        //     return 0;
+        // } else {
+        //     return( 3 + (changes)/150 * (maxWidth) )
+        // }
     })
     .attr('fill', function(d) {
-        // return "lightblue";
-        var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
-        var color = _interpolateColor('pink', 'lightgreen', proportion)
-        return color;
+        return "lightblue";
+        // var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
+        // var color = _interpolateColor('pink', 'lightgreen', proportion)
+        // return color;
     })
     .on("click", function(d, i) {
-        console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves + " " + JSON.stringify(d));
+        console.log("point " + JSON.stringify(d));
 
         //  todo: I think to bring this back, I'm going to need to pass the name of the file somehow
 
