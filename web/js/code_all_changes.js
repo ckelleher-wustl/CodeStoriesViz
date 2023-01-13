@@ -21,7 +21,7 @@ function getAllCodeEdits() {
             console.log("0th entry" + JSON.stringify(codeEntries[0]));
 
             initializeHistoryOverview(codeEntries);
-            displayHistoryOverview();
+            // displayHistoryOverview(); // for now, removing the table view in favor of the bubble overview
 
             // testing different code summary option
             initialize();
