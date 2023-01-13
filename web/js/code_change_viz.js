@@ -17,8 +17,9 @@ function initialize() {
 
         console.log("key " + keys[key] + " " + fileData.length);
 
+        console.log("FILE: " + keys[key]);
         for (item in fileData){
-            console.log(JSON.stringify(fileData[item]));
+            console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] ));
         }
     }
 
