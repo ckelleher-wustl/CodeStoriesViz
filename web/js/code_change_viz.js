@@ -16,6 +16,10 @@ function initialize() {
         dataByFileName[keys[key]] = fileData;
 
         console.log("key " + keys[key] + " " + fileData.length);
+
+        for (item in fileData){
+            console.log(JSON.stringify(item));
+        }
     }
 
     // console.log("allData " + JSON.stringify(dataByFileName));
