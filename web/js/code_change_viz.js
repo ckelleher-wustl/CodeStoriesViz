@@ -162,12 +162,12 @@ function displayCodeChangeViz() {
     svgContainer.selectAll("svg")
     // .data(d3.entries(dataByFileName))
     // .enter()
-    .append("svg").attr("width", 1500).attr("height", 30)
+    // .append("svg").attr("width", 1500).attr("height", 30)
     .append("line")
     .attr('x1', 0)
-    .attr('y1', 25)
+    .attr('y1', 15)
     .attr('x2', 1200)
-    .attr('y2', 25)
+    .attr('y2', 15)
     .attr('stroke', 'black');
 }
 
