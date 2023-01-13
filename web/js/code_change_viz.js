@@ -19,7 +19,7 @@ function initialize() {
 
         console.log("FILE: " + keys[key]);
         for (item in fileData){
-            console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] ));
+            console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] );
         }
     }
 
