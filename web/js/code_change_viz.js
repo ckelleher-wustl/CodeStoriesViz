@@ -101,16 +101,13 @@ function _interpolateColor(color1, color2, percentage) {
 
 
 function displayCodeChangeViz() {
-    var maxWidth = 1200/mainData.length;
-    
+    var maxWidth = 1200/mainData.length;  // todo - fix this
     var svgContainer = d3.select("#svg_test");
-
-    var currentData = "";
 
     svgContainer.selectAll("svg")
     .data(d3.entries(dataByFileName))
     .enter()
-    .append("svg").attr("width", 1500).attr("height", 50)
+    .append("svg").attr("width", 1500).attr("height", 30)
     // .append("line")
     // .attr('x1', 0)
     // .attr('y1', 25)
@@ -125,9 +122,8 @@ function displayCodeChangeViz() {
     .enter()
     .append('circle')
     .attr('cx', (d, i) => 10 + (maxWidth * i))
-    .attr('cy', 25)
+    .attr('cy', 15)
     .attr('r', function(d) {
-        // return 10;
         var changes = d.value.numAdds + d.value.numRemoves;
 
         if (changes < 0) {
@@ -137,13 +133,11 @@ function displayCodeChangeViz() {
         }
     })
     .attr('fill', function(d) {
-        // return "lightblue";
         var proportion = (d.value.numAdds/(d.value.numAdds + d.value.numRemoves))
         var color = _interpolateColor('pink', 'lightgreen', proportion)
         return color;
     })
     .on("click", function(d, i) {
-        // console.log("point " + JSON.stringify(d));
 
         // // look for the previous change to this file, which might not be at the previous eventTime.
         var idx = i;
@@ -160,113 +154,7 @@ function displayCodeChangeViz() {
             }
         }
 
-        // console.log(d.fileName + " " + dataByFileName[d.fileName][idx].time);
-        // console.log(dataByFileName[d.fileName][idx].code_text);
-
-        console.log("D IS " + JSON.stringify(d));
-        // console.log(d.code_text);
-
         displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.value.time, d.value.code_text);
     });
-
-
-
-    // const g = svg.append('g');
-    // // const data = d3.range(10).map(() => d3.randomUniform(0, 20)());
-    // g.selectAll('circle')
-    // .data(mainData)
-    // .enter()
-    // .append('circle')
-    // .attr('cx', (d, i) => 10 + (maxWidth * i))
-    // .attr('cy', 50)
-    // .attr('r', function(d) {
-    //     var changes = d.numAdds + d.numRemoves;
-
-    //     // there's no data for this point
-    //     // console.log("changes: " + changes);
-    //     if (changes < 0) {
-    //         return 0;
-    //     } else {
-    //         return( 3 + (changes)/150 * (maxWidth) )
-    //     }
-    // })
-    // // } d => (3 + (d.numAdds + d.numRemoves)/150 * (maxWidth-15)) )
-    // .attr('fill', function(d) {
-    //     var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
-    //     var color = _interpolateColor('pink', 'lightgreen', proportion)
-    //     return color;
-    // })
-    // .on("click", function(d, i) {
-    //     console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves);
-
-    //     // look for the previous change to this file, which might not be at the previous eventTime.
-    //     var idx = i;
-    //     var prevRecord = {}
-    //     if (idx >= 0) {
-    //         idx-=1;
-    //         prevRecord = mainData[idx];
-
-    //         while (mainData[idx].numAdds == -1) {
-    //             idx -=1;
-    //             prevRecord = mainData[idx];
-    //         }
-    //     }
-
-    //     displayCodeChangeSummary(mainData[idx].time, mainData[idx].code_text, d.time, d.code_text);
-    // });
 }
 
-//     const svg = svgContainer.append("svg")
-//         .attr("width", 1500)
-//         .attr("height", 100);
-//     const line = svg.append('line')
-//     .attr('x1', 0)
-//     .attr('y1', 50)
-//     .attr('x2', 1200)
-//     .attr('y2', 50)
-//     .attr('stroke', 'black');
-
-//     const g = svg.append('g');
-//     // const data = d3.range(10).map(() => d3.randomUniform(0, 20)());
-//     g.selectAll('circle')
-//     .data(mainData)
-//     .enter()
-//     .append('circle')
-//     .attr('cx', (d, i) => 10 + (maxWidth * i))
-//     .attr('cy', 50)
-//     .attr('r', function(d) {
-//         var changes = d.numAdds + d.numRemoves;
-
-//         // there's no data for this point
-//         // console.log("changes: " + changes);
-//         if (changes < 0) {
-//             return 0;
-//         } else {
-//             return( 3 + (changes)/150 * (maxWidth) )
-//         }
-//     })
-//     // } d => (3 + (d.numAdds + d.numRemoves)/150 * (maxWidth-15)) )
-//     .attr('fill', function(d) {
-//         var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
-//         var color = _interpolateColor('pink', 'lightgreen', proportion)
-//         return color;
-//     })
-//     .on("click", function(d, i) {
-//         console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves);
-
-//         // look for the previous change to this file, which might not be at the previous eventTime.
-//         var idx = i;
-//         var prevRecord = {}
-//         if (idx >= 0) {
-//             idx-=1;
-//             prevRecord = mainData[idx];
-
-//             while (mainData[idx].numAdds == -1) {
-//                 idx -=1;
-//                 prevRecord = mainData[idx];
-//             }
-//         }
-
-//         displayCodeChangeSummary(mainData[idx].time, mainData[idx].code_text, d.time, d.code_text);
-//     });
-// }
