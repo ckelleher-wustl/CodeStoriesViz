@@ -78,7 +78,14 @@ function _getIForTimeAndFile(targetTime, targetFile, startingIdx, responses) {
         resFile = responses[startingIdx]["notes"].slice(6,-1).trim();
     }
 
-    return startingIdx;
+    // it's possible this data point doesn't exist, so we should communicate that.
+    if ((resFile == targetFile) && (targetTime == resTime)) {
+        return startingIdx;
+    } else {
+        return -1;
+    }
+
+    // return startingIdx;
 }
 
 

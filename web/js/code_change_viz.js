@@ -28,6 +28,9 @@ function initialize() {
 
 function _getChangeDataForFilename(fileName) {
     var changeTimes = codeChangeTimes[fileName];
+
+    console.log("change times: " + fileName);
+    console.log("\t" + JSON.stringify(changeTimes));
     changeData = [];
     
     //  change this so that we can not draw in time periods where there's no activity
@@ -38,45 +41,52 @@ function _getChangeDataForFilename(fileName) {
             
             //  initialize the code state info
             var codeState1I = _getIForTimeAndFile(changeTimes[changeIndex-1], fileName, i-1, codeEntries);
-            var codeState1 = codeEntries[codeState1I]["code_text"];
-            var codeState1Time = codeEntries[codeState1I]["time"];
-
             var codeState2I = _getIForTimeAndFile(changeTimes[changeIndex], fileName, i, codeEntries);
-            var codeState2 = codeEntries[codeState2I]["code_text"];
-            var codeState2Time = codeEntries[codeState2I]["time"];
 
-            // calculate difference patch
-            var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
-            var numHunks = patch['hunks'].length;
+            if ((codeState1I != -1) && (codeState2I != -1) ) {
 
-            var numAdds = 0;
-            var numRemoves = 0;
+                var codeState1 = codeEntries[codeState1I]["code_text"];
+                var codeState1Time = codeEntries[codeState1I]["time"];
+            
+                var codeState2 = codeEntries[codeState2I]["code_text"];
+                var codeState2Time = codeEntries[codeState2I]["time"];
 
-            for(var h = 0; h < numHunks; h++) {
-                var lines = patch['hunks'][h]['lines'];
+                // calculate difference patch
+                var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
+                var numHunks = patch['hunks'].length;
 
-                for (var line in lines) {
-                    var currLines = lines[line].trim();
-                    if (currLines.length > 1) {
-                        if (lines[line].startsWith("+")) {
-                            numAdds += 1;
-                        } else if (lines[line].startsWith("-")) {
-                            numRemoves += 1;
+                var numAdds = 0;
+                var numRemoves = 0;
+
+                for(var h = 0; h < numHunks; h++) {
+                    var lines = patch['hunks'][h]['lines'];
+
+                    for (var line in lines) {
+                        var currLines = lines[line].trim();
+                        if (currLines.length > 1) {
+                            if (lines[line].startsWith("+")) {
+                                numAdds += 1;
+                            } else if (lines[line].startsWith("-")) {
+                                numRemoves += 1;
+                            }
                         }
                     }
                 }
-            }
 
-            if (codeState2Time == eventTimes[i]) {
-                // store the change info for rendering
-                if (changeIndex == 1) {
-                    // this is the initial data point
-                    changeData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, code_text: codeState1})
+                if (codeState2Time == eventTimes[i]) {
+                    // store the change info for rendering
+                    if (changeIndex == 1) {
+                        // this is the initial data point
+                        changeData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, code_text: codeState1})
+                    }
+
+                    changeData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, code_text: codeState2})
+                    changeIndex += 1;
+                } else {
+                    changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
                 }
-
-                changeData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, code_text: codeState2})
-                changeIndex += 1;
             } else {
+                // there are no indices for these times
                 changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
             }
         }
