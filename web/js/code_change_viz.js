@@ -145,20 +145,20 @@ function displayCodeChangeViz() {
     .on("click", function(d, i) {
         console.log("point " + JSON.stringify(d));
 
-        //  todo: I think to bring this back, I'm going to need to pass the name of the file somehow
-
         // // look for the previous change to this file, which might not be at the previous eventTime.
-        // var idx = i;
-        // var prevRecord = {}
-        // if (idx >= 0) {
-        //     idx-=1;
-        //     prevRecord = mainData[idx];
+        var idx = i;
+        var prevRecord = {}
+        if (idx >= 0) {
+            idx-=1;
+            prevRecord = dataByFileName[d.fileName];
+
+            console.log("prev data" + JSON.stringify(prevRecord));
 
         //     while (mainData[idx].numAdds == -1) {
         //         idx -=1;
         //         prevRecord = mainData[idx];
         //     }
-        // }
+        }
 
         // displayCodeChangeSummary(mainData[idx].time, mainData[idx].code_text, d.time, d.code_text);
     });
