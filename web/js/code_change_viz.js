@@ -166,7 +166,7 @@ function displayCodeChangeViz() {
         console.log("D IS " + JSON.stringify(d));
         // console.log(d.code_text);
 
-        // displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.time, d.code_text);
+        displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.value.time, d.value.code_text);
     });
 
 
