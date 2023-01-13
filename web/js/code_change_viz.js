@@ -113,7 +113,7 @@ function displayCodeChangeViz() {
     var currentData = "";
 
     svgContainer.selectAll("svg")
-    .data(Object.keys(dataByFileName))
+    .data(d3.entries(dataByFileName))
     .enter()
     .append("svg").attr("width", 1500).attr("height", 50)
     // .append("line")
@@ -124,15 +124,18 @@ function displayCodeChangeViz() {
     // .attr('stroke', 'black')
 
     .selectAll("circle")
-    .data(function(d,i) {
-        console.log("d is " + d + dataByFileName[d].length);
-        currentData = d;
+    // .data(function(d,i) {
+    //     console.log("d is " + d + dataByFileName[d].length);
+    //     currentData = d;
 
-        // d => (d3.entries(d["grades"]).map(obj => {
-        //     obj['Name'] = d['Name']
-        //     return obj;
-        return(dataByFileName[d]);
-    })
+    //     // d => (d3.entries(d["grades"]).map(obj => {
+    //     //     obj['Name'] = d['Name']
+    //     //     return obj;
+    //     return(dataByFileName[d]);
+    // })
+    .data(  d => (d3.entries(d['value']).map(obj => {
+             obj['fileName'] = d['key']
+             return obj; })) )
     .enter()
     .append('circle')
     .attr('cx', (d, i) => 10 + (maxWidth * i))
@@ -154,7 +157,7 @@ function displayCodeChangeViz() {
         return color;
     })
     .on("click", function(d, i) {
-        console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves + " " + currentData);
+        console.log("point " + d.time + " " + d.numAdds + " " + d.numRemoves + " " + JSON.stringify(d));
 
         //  todo: I think to bring this back, I'm going to need to pass the name of the file somehow
 
