@@ -154,13 +154,13 @@ function displayCodeChangeViz() {
 
             console.log("prev data" + JSON.stringify(prevRecord));
 
-        //     while (mainData[idx].numAdds == -1) {
-        //         idx -=1;
-        //         prevRecord = mainData[idx];
-        //     }
+            while (dataByFileName[d.fileName].numAdds == -1) {
+                idx -=1;
+                prevRecord = dataByFileName[d.fileName][idx];
+            }
         }
 
-        // displayCodeChangeSummary(mainData[idx].time, mainData[idx].code_text, d.time, d.code_text);
+        displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.time, d.code_text);
     });
 
 
