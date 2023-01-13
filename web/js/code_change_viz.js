@@ -143,7 +143,7 @@ function displayCodeChangeViz() {
         return color;
     })
     .on("click", function(d, i) {
-        console.log("point " + JSON.stringify(d));
+        // console.log("point " + JSON.stringify(d));
 
         // // look for the previous change to this file, which might not be at the previous eventTime.
         var idx = i;
@@ -164,7 +164,7 @@ function displayCodeChangeViz() {
         // console.log(dataByFileName[d.fileName][idx].code_text);
 
         console.log("D IS " + JSON.stringify(d));
-        console.log(d.code_text);
+        // console.log(d.code_text);
 
         // displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.time, d.code_text);
     });
