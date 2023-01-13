@@ -150,7 +150,7 @@ function displayCodeChangeViz() {
         var prevRecord = {}
         if (idx >= 0) {
             idx-=1;
-            prevRecord = dataByFileName[d.fileName];
+            prevRecord = dataByFileName[d.fileName][idx];
 
             console.log("prev data" + JSON.stringify(prevRecord));
 
