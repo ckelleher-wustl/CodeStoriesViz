@@ -15,9 +15,6 @@ function initialize() {
         var fileData = _getChangeDataForFilename(keys[key]);
         dataByFileName[keys[key]] = fileData;
 
-        console.log("key " + keys[key] + " " + fileData.length);
-
-        console.log("FILE: " + keys[key]);
         for (item in fileData){
             console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] );
         }
@@ -29,8 +26,8 @@ function initialize() {
 function _getChangeDataForFilename(fileName) {
     var changeTimes = codeChangeTimes[fileName];
 
-    console.log("change times: " + fileName);
-    console.log("\t" + JSON.stringify(changeTimes));
+    // console.log("change times: " + fileName);
+    // console.log("\t" + JSON.stringify(changeTimes));
     changeData = [];
     
     //  change this so that we can not draw in time periods where there's no activity
@@ -132,7 +129,8 @@ function displayCodeChangeViz() {
     //     return(dataByFileName[d]);
     // })
     .data(  d => (d3.entries(d['value']).map(obj => {
-             obj['fileName'] = d['key']
+             obj['fileName'] = d['key'];
+             console.log("obj: " + JSON.stringify(obj));
              return obj; })) )
     .enter()
     .append('circle')
