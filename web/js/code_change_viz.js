@@ -13,11 +13,13 @@ function initialize() {
     var keys = Object.keys(codeChangeTimes)
     for (key in keys) {
         var fileData = _getChangeDataForFilename(keys[key]);
-        dataByFileName[keys[key]] = fileData;
-
-        for (item in fileData){
-            console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] );
+        if (fileData.length > 1) {
+            dataByFileName[keys[key]] = fileData;
         }
+
+        // for (item in fileData){
+        //     console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] );
+        // }
     }
 
     // console.log("allData " + JSON.stringify(dataByFileName));
