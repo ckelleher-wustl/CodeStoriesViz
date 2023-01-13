@@ -130,7 +130,7 @@ function displayCodeChangeViz() {
     // })
     .data(  d => (d3.entries(d['value']).map(obj => {
              obj['fileName'] = d['key'];
-             console.log("obj: " + JSON.stringify(obj));
+            //  console.log("obj: " + JSON.stringify(obj));
              return obj; })) )
     .enter()
     .append('circle')
@@ -147,6 +147,7 @@ function displayCodeChangeViz() {
         // }
     })
     .attr('fill', function(d) {
+        console.log("numAdds: " + d.value.numAdds)
         return "lightblue";
         // var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
         // var color = _interpolateColor('pink', 'lightgreen', proportion)
