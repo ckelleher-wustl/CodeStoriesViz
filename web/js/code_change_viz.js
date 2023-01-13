@@ -108,12 +108,13 @@ function displayCodeChangeViz() {
     .data(d3.entries(dataByFileName))
     .enter()
     .append("svg").attr("width", 1500).attr("height", 30)
-    .append("line")
-    .attr('x1', 0)
-    .attr('y1', 25)
-    .attr('x2', 1200)
-    .attr('y2', 25)
-    .attr('stroke', 'black')
+    // .append("line")
+    // .attr('x1', 0)
+    // .attr('y1', 25)
+    // .attr('x2', 1200)
+    // .attr('y2', 25)
+    // .attr('stroke', 'black');
+
 
     .selectAll("circle")
     .data(  d => (d3.entries(d['value']).map(obj => {
@@ -156,5 +157,17 @@ function displayCodeChangeViz() {
 
         displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.value.time, d.value.code_text);
     });
+
+
+    svgContainer.selectAll("svg")
+    // .data(d3.entries(dataByFileName))
+    // .enter()
+    .append("svg").attr("width", 1500).attr("height", 30)
+    .append("line")
+    .attr('x1', 0)
+    .attr('y1', 25)
+    .attr('x2', 1200)
+    .attr('y2', 25)
+    .attr('stroke', 'black');
 }
 
