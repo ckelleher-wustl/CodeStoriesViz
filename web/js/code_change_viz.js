@@ -105,8 +105,6 @@ function _interpolateColor(color1, color2, percentage) {
 
 function displayCodeChangeViz() {
     var maxWidth = 1200/mainData.length;
-
-    console.log(JSON.stringify(dataByFileName));
     
     var svgContainer = d3.select("#svg_test");
 
