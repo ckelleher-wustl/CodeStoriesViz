@@ -1,13 +1,13 @@
 ckelleher@caikel-cse MINGW64 ~/git/CodeStoriesViz/web (master)
 $$ "python" -m http.server 8080 --directory "c:\Users\ckelleher\git\CodeStoriesViz\web"
 Serving HTTP on :: port 8080 (http://[::]:8080/) ...
-::1 - - [13/Jan/2023 10:44:50] "GET /code_all_changes.html HTTP/1.1" 200 -
-::1 - - [13/Jan/2023 10:44:50] "GET /css/code_cluster_view.css HTTP/1.1" 200 -
-::1 - - [13/Jan/2023 10:44:50] "GET /js/code_change_summary.js HTTP/1.1" 200 -
-::1 - - [13/Jan/2023 10:44:50] "GET /js/code_history_overview.js HTTP/1.1" 200 -
-::1 - - [13/Jan/2023 10:44:50] "GET /js/code_change_viz.js HTTP/1.1" 200 -
-::1 - - [13/Jan/2023 10:44:50] "GET /js/code_all_changes.js HTTP/1.1" 200 -
-::1 - - [13/Jan/2023 10:44:50] code 404, message File not found
-::1 - - [13/Jan/2023 10:44:50] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [13/Jan/2023 10:46:37] "GET /code_all_changes.html HTTP/1.1" 200 -
+::1 - - [13/Jan/2023 10:46:37] "GET /css/code_cluster_view.css HTTP/1.1" 200 -
+::1 - - [13/Jan/2023 10:46:37] "GET /js/code_change_summary.js HTTP/1.1" 200 -
+::1 - - [13/Jan/2023 10:46:37] "GET /js/code_history_overview.js HTTP/1.1" 200 -
+::1 - - [13/Jan/2023 10:46:37] "GET /js/code_change_viz.js HTTP/1.1" 200 -
+::1 - - [13/Jan/2023 10:46:37] "GET /js/code_all_changes.js HTTP/1.1" 200 -
+::1 - - [13/Jan/2023 10:46:37] code 404, message File not found
+::1 - - [13/Jan/2023 10:46:37] "GET /favicon.ico HTTP/1.1" 404 -
 
 Keyboard interrupt received, exiting.

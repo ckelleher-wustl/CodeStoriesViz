@@ -119,39 +119,28 @@ function displayCodeChangeViz() {
     // .attr('stroke', 'black')
 
     .selectAll("circle")
-    // .data(function(d,i) {
-    //     console.log("d is " + d + dataByFileName[d].length);
-    //     currentData = d;
-
-    //     // d => (d3.entries(d["grades"]).map(obj => {
-    //     //     obj['Name'] = d['Name']
-    //     //     return obj;
-    //     return(dataByFileName[d]);
-    // })
     .data(  d => (d3.entries(d['value']).map(obj => {
              obj['fileName'] = d['key'];
-            //  console.log("obj: " + JSON.stringify(obj));
              return obj; })) )
     .enter()
     .append('circle')
     .attr('cx', (d, i) => 10 + (maxWidth * i))
     .attr('cy', 25)
     .attr('r', function(d) {
-        return 10;
-        // var changes = d.numAdds + d.numRemoves;
+        // return 10;
+        var changes = d.value.numAdds + d.value.numRemoves;
 
-        // if (changes < 0) {
-        //     return 0;
-        // } else {
-        //     return( 3 + (changes)/150 * (maxWidth) )
-        // }
+        if (changes < 0) {
+            return 0;
+        } else {
+            return( 3 + (changes)/150 * (maxWidth) )
+        }
     })
     .attr('fill', function(d) {
-        console.log("numAdds: " + d.value.numAdds)
-        return "lightblue";
-        // var proportion = (d.numAdds/(d.numAdds + d.numRemoves))
-        // var color = _interpolateColor('pink', 'lightgreen', proportion)
-        // return color;
+        // return "lightblue";
+        var proportion = (d.value.numAdds/(d.value.numAdds + d.value.numRemoves))
+        var color = _interpolateColor('pink', 'lightgreen', proportion)
+        return color;
     })
     .on("click", function(d, i) {
         console.log("point " + JSON.stringify(d));
