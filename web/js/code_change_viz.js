@@ -161,6 +161,6 @@ function displayCodeChangeViz() {
     .attr('y1', 15)
     .attr('x2', 1200)
     .attr('y2', 15)
-    .attr('stroke', 'black');
+    .attr('stroke', 'gray');
 }
 
