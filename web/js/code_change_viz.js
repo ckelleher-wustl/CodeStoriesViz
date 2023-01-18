@@ -22,9 +22,17 @@ function initialize() {
         //     console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] );
         // }
     }
-    console.log(dataByFileName[keys[0]]);
+    // console.log(JSON.stringify(dataByFileName[keys[0]]));
+    getIndexForTime(16112);
 
     // console.log("allData " + JSON.stringify(dataByFileName));
+}
+
+function getIndexForTime(time) {
+    var keys = Object.keys(codeChangeTimes);
+    for (item in dataByFileName[keys[key]]) {
+        console.log(JSON.stringify(item));
+    }
 }
 
 function _getChangeDataForFilename(fileName) {
