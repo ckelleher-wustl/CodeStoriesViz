@@ -130,5 +130,14 @@
         "prevTabId": 56985709,
         "prevUrl": "http://localhost:8080/code_all_changes.html",
         "time": 1674075867
+    },
+    {
+        "action": "navigate between urls in the same tab (link)",
+        "curTabId": 56986036,
+        "curTitle": "(851) Songs that use Chromatic Mediant chords - YouTube",
+        "curUrl": "https://www.youtube.com/watch?v=kfvrwCxa720",
+        "prevTabId": 56986036,
+        "prevUrl": "https://www.youtube.com/watch?v=Vyc8lezaa9g",
+        "time": 1674076356
     }
 ]

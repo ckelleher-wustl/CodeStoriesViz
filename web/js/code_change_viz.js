@@ -32,8 +32,9 @@ function getIndexForTime(time) {
     console.log("Get index for time " + time);
     var keys = Object.keys(codeChangeTimes);
     console.log(JSON.stringify(dataByFileName[keys[0]]));
-    for (item in dataByFileName[keys[0]]) {
-        console.log("item: " + JSON.stringify(item));
+    var codeTimes = dataByFileName[keys[0]];
+    for (item in codeTimes) {
+        console.log("item: " + codeTimes[item]["time"]);
     }
 }
 
