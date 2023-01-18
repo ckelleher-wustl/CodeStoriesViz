@@ -76,5 +76,32 @@
         "prevTabId": 56986184,
         "prevUrl": "https://www.google.com/search?q=d3+set+text+value+of+a+paragraph+%3Cp%3E&rlz=1C1GCEU_enUS822US822&oq=d3+set+text+value+of+a+paragraph+%3Cp%3E&aqs=chrome..69i57j33i160l3.14612j0j7&sourceid=chrome&ie=UTF-8",
         "time": 1674074220
+    },
+    {
+        "action": "navigate between urls in the same tab (reload)",
+        "curTabId": 56986184,
+        "curTitle": "DOM Manipulation using D3.js",
+        "curUrl": "https://www.tutorialsteacher.com/d3js/dom-manipulation-using-d3js",
+        "prevTabId": 56986184,
+        "prevUrl": "https://www.tutorialsteacher.com/d3js/dom-manipulation-using-d3js",
+        "time": 1674074273
+    },
+    {
+        "action": "revisit",
+        "curTabId": 56985709,
+        "curTitle": "localhost:8080/code_all_changes.html",
+        "curUrl": "http://localhost:8080/code_all_changes.html",
+        "prevTabId": 56986184,
+        "prevUrl": "https://www.tutorialsteacher.com/d3js/dom-manipulation-using-d3js",
+        "time": 1674074274
+    },
+    {
+        "action": "navigate between urls in the same tab (reload)",
+        "curTabId": 56985709,
+        "curTitle": "localhost:8080/code_all_changes.html",
+        "curUrl": "http://localhost:8080/code_all_changes.html",
+        "prevTabId": 56985709,
+        "prevUrl": "http://localhost:8080/code_all_changes.html",
+        "time": 1674074277
     }
 ]
