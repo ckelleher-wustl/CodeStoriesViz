@@ -17,16 +17,13 @@ function initialize() {
         if (fileData.length > 1) {
             dataByFileName[keys[key]] = fileData;
         }
-
-        // for (item in fileData){
-        //     console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] );
-        // }
     }
-    // console.log(JSON.stringify(dataByFileName[keys[0]]));
-    getIndexForTime(16112);
+    var tI = getIndexForTime(16112);
+    console.log("16112 : " + tI);
 
-    // console.log("allData " + JSON.stringify(dataByFileName));
 }
+
+
 
 function getIndexForTime(time) {
     console.log("Get index for time " + time);
@@ -34,7 +31,11 @@ function getIndexForTime(time) {
     console.log(JSON.stringify(dataByFileName[keys[0]]));
     var codeTimes = dataByFileName[keys[0]];
     for (item in codeTimes) {
-        console.log("item: " + codeTimes[item]["time"]);
+        var itemTime = codeTimes[item]["time"]
+        if (time == itemTime) {
+            return item
+        }
+        // console.log("item: " + codeTimes[item]["time"]);
     }
 }
 
