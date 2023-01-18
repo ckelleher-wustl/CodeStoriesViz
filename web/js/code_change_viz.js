@@ -154,6 +154,7 @@ function displayCodeChangeViz() {
         var svgContainer = d3.select("#svg_test");
         var msg = svgContainer.select("p");
         console.log(msg);
+        msg.text("setting text message");
         
 
         displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.value.time, d.value.code_text);
