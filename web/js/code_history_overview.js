@@ -77,7 +77,7 @@ function getNextTime(indices) {
         var nxtIdx = indices[indexPair][0];
 
         if (nxtIdx < indices[indexPair][1]) {
-            // console.log("NEXT TIME: " + indexPair + " " + nxtIdx + " " + codeChangeTimes[indexPair][nxtIdx]);
+            console.log("NEXT TIME: " + indexPair + " " + nxtIdx + " " + codeChangeTimes[indexPair][nxtIdx]);
 
             if (codeChangeTimes[indexPair][0] < minTime) {
                 minTime = codeChangeTimes[indexPair][nxtIdx]
