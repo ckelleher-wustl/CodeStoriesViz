@@ -103,5 +103,14 @@
         "prevTabId": 56985709,
         "prevUrl": "http://localhost:8080/code_all_changes.html",
         "time": 1674074277
+    },
+    {
+        "action": "hyperlink opened in new tab but new tab is not active tab",
+        "curTabId": 56986036,
+        "curTitle": "(851) How to voice lead a chord progression - YouTube",
+        "curUrl": "https://www.youtube.com/watch?v=Vyc8lezaa9g",
+        "prevTabId": 56985709,
+        "prevUrl": "http://localhost:8080/code_all_changes.html",
+        "time": 1674074834
     }
 ]

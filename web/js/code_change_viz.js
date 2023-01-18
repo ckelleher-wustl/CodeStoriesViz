@@ -9,7 +9,7 @@ function initialize() {
     var fileName = "main.py";
     mainData = _getChangeDataForFilename(fileName);
 
-    // console.log(Object.keys(codeChangeTimes));
+    console.log(Object.keys(codeChangeTimes));
     var keys = Object.keys(codeChangeTimes)
     for (key in keys) {
         var fileData = _getChangeDataForFilename(keys[key]);
@@ -153,7 +153,6 @@ function displayCodeChangeViz() {
 
         var svgContainer = d3.select("#svg_test");
         var msg = svgContainer.select("p");
-        console.log(msg);
         msg.text(d.fileName + ": " + dataByFileName[d.fileName][idx].time + " - " + d.value.time);
         
 
