@@ -29,9 +29,10 @@ function initialize() {
 }
 
 function getIndexForTime(time) {
+    console.log("Get index for time " + time);
     var keys = Object.keys(codeChangeTimes);
     for (item in dataByFileName[keys[key]]) {
-        console.log(JSON.stringify(item));
+        console.log("item: " + JSON.stringify(item));
     }
 }
 
