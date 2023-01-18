@@ -74,10 +74,11 @@ function getNextTime(indices) {
     minTime = Infinity;
     minKeyTime = {}
     for (indexPair in indices) {
+        console.log("indexPair: " + JSON.stringify(indexPair));
         var nxtIdx = indices[indexPair][0];
 
         if (nxtIdx < indices[indexPair][1]) {
-            console.log("NEXT TIME: " + indexPair + " " + nxtIdx + " " + codeChangeTimes[indexPair][nxtIdx]);
+            // console.log("NEXT TIME: " + indexPair + " " + nxtIdx + " " + codeChangeTimes[indexPair][nxtIdx]);
 
             if (codeChangeTimes[indexPair][0] < minTime) {
                 minTime = codeChangeTimes[indexPair][nxtIdx]
