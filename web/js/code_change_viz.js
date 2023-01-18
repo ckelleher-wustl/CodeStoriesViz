@@ -9,8 +9,9 @@ function initialize() {
     var fileName = "main.py";
     mainData = _getChangeDataForFilename(fileName);
 
-    console.log(Object.keys(codeChangeTimes));
-    var keys = Object.keys(codeChangeTimes)
+    
+    var keys = Object.keys(codeChangeTimes);
+    
     for (key in keys) {
         var fileData = _getChangeDataForFilename(keys[key]);
         if (fileData.length > 1) {
@@ -21,6 +22,7 @@ function initialize() {
         //     console.log("\t" + fileData[item]["time"] +  ": " + fileData[item]["numAdds"] );
         // }
     }
+    console.log(dataByFileName[keys[0]]);
 
     // console.log("allData " + JSON.stringify(dataByFileName));
 }
