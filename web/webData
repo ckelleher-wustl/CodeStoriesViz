@@ -1,0 +1,80 @@
+[
+    {
+        "action": "add opened tab that is not in storage",
+        "curTabId": 56985709,
+        "curUrl": "http://localhost:8080/code_all_changes.html",
+        "prevTabId": 56985709,
+        "prevUrl": "",
+        "time": "1/13/2023, 9:03:43 PM"
+    },
+    {
+        "action": "add opened tab that is not in storage",
+        "curTabId": 56986010,
+        "curUrl": "https://www.tutorialsteacher.com/d3js/function-of-data-in-d3js",
+        "prevTabId": 56986010,
+        "prevUrl": "",
+        "time": "1/13/2023, 9:03:43 PM"
+    },
+    {
+        "action": "revisit",
+        "curTabId": 56986010,
+        "curTitle": "Function of Data in D3",
+        "curUrl": "https://www.tutorialsteacher.com/d3js/function-of-data-in-d3js",
+        "prevTabId": 56985876,
+        "prevUrl": "chrome://extensions/",
+        "time": 1673665434
+    },
+    {
+        "action": "navigate between urls in the same tab (link)",
+        "curTabId": 56986010,
+        "curTitle": "DOM Manipulation using D3.js",
+        "curUrl": "https://www.tutorialsteacher.com/d3js/dom-manipulation-using-d3js",
+        "prevTabId": 56986010,
+        "prevUrl": "https://www.tutorialsteacher.com/d3js/function-of-data-in-d3js",
+        "time": 1673665438
+    },
+    {
+        "action": "navigate between urls in the same tab (link)",
+        "curTabId": 56986010,
+        "curTitle": "Event handling in D3",
+        "curUrl": "https://www.tutorialsteacher.com/d3js/event-handling-in-d3js",
+        "prevTabId": 56986010,
+        "prevUrl": "https://www.tutorialsteacher.com/d3js/dom-manipulation-using-d3js",
+        "time": 1673665727
+    },
+    {
+        "action": "revisit",
+        "curTabId": 56985876,
+        "curTitle": "Extensions",
+        "curUrl": "chrome://extensions/",
+        "prevTabId": 56986010,
+        "prevUrl": "https://www.tutorialsteacher.com/d3js/event-handling-in-d3js",
+        "time": 1673666608
+    },
+    {
+        "action": "add opened tab that is not in storage",
+        "curTabId": 56986184,
+        "curUrl": "chrome://newtab/",
+        "prevTabId": 56986184,
+        "prevUrl": "",
+        "time": "1/18/2023, 2:36:15 PM"
+    },
+    {
+        "action": "navigate between urls in the same tab (generated)",
+        "curTabId": 56986184,
+        "curTitle": "d3 set text value of a paragraph <p> - Google Search",
+        "curUrl": "https://www.google.com/search?q=d3+set+text+value+of+a+paragraph+%3Cp%3E&rlz=1C1GCEU_enUS822US822&oq=d3+set+text+value+of+a+paragraph+%3Cp%3E&aqs=chrome..69i57j33i160l3.14612j0j7&sourceid=chrome&ie=UTF-8",
+        "prevTabId": 56986184,
+        "prevUrl": "chrome://newtab/",
+        "time": 1674074205
+    },
+    {
+        "action": "navigate between urls in the same tab (link)",
+        "curTabId": 56986184,
+        "curTitle": "DOM Manipulation using D3.js",
+        "curUrl": "https://www.tutorialsteacher.com/d3js/dom-manipulation-using-d3js",
+        "prevTabId": 56986184,
+        "prevUrl": "https://www.google.com/search?q=d3+set+text+value+of+a+paragraph+%3Cp%3E&rlz=1C1GCEU_enUS822US822&oq=d3+set+text+value+of+a+paragraph+%3Cp%3E&aqs=chrome..69i57j33i160l3.14612j0j7&sourceid=chrome&ie=UTF-8",
+        "time": 1674074220
+    }
+]
