@@ -130,12 +130,20 @@ function displayCodeClusterViz(data) {
     .selectAll("rect")
     .data( data )
     .enter()
+    .append('rect')
     .attr('x', 100)
-    .attr('y', 15)
+    .attr('y', 5)
     .attr('width', 30)
     .attr('height', 20)
     .attr('stroke', 'black')
     .attr('fill', 'aliceblue');
+
+    newSvg.append("line")
+    .attr('x1', 0)
+    .attr('y1', 15)
+    .attr('x2', 1200)
+    .attr('y2', 15)
+    .attr('stroke', 'gray');
 
 //     svg.append('rect')
 //   .attr('x', 10)
