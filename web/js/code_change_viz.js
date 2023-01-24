@@ -18,6 +18,13 @@ function initialize() {
             dataByFileName[keys[key]] = fileData;
         }
     }
+
+    d3.csv("../data/codeCluster_gitClassification.csv", function(data) {
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+        }
+    });
+
     var tI = getIndexForTime(16112);
     console.log("16112 : " + tI);
 
