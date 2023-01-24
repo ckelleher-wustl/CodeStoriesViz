@@ -115,6 +115,8 @@ function displayCodeClusterViz(data) {
 
     var newSvg = svgContainer.append("svg");
 
+    console.log("cluster data " + data);
+
     newSvg.attr("width", 1500).attr("height", 30)
     // .append("line")
     // .attr('x1', 0)
@@ -122,6 +124,7 @@ function displayCodeClusterViz(data) {
     // .attr('x2', 1200)
     // .attr('y2', 15)
     // .attr('stroke', 'gray');
+
 
     // newSvg
     .selectAll("rect")
