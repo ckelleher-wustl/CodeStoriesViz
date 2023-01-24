@@ -125,7 +125,7 @@ function displayCodeClusterViz(data) {
 
     newSvg.selectAll("rect")
     .data( data )
-    .attr('x', (d, i) => 10 + (maxWidth * i))
+    .attr('x', 100)
     .attr('y', 15)
     .attr('width', 30)
     .attr('height', 20)
