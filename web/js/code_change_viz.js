@@ -113,7 +113,23 @@ function displayCodeClusterViz() {
     var maxWidth = 1200/mainData.length;  // todo - fix this
     var svgContainer = d3.select("#svg_test");
 
-    svgContainer.append("svg").attr("width", 1500).attr("height", 30);
+    var newSvg = svgContainer.append("svg");
+
+    newSvg.attr("width", 1500).attr("height", 30)
+    .append("line")
+    .attr('x1', 0)
+    .attr('y1', 15)
+    .attr('x2', 1200)
+    .attr('y2', 15)
+    .attr('stroke', 'gray');
+
+//     svg.append('rect')
+//   .attr('x', 10)
+//   .attr('y', 120)
+//   .attr('width', 600)
+//   .attr('height', 40)
+//   .attr('stroke', 'black')
+//   .attr('fill', '#69a3b2');
 }
 
 
