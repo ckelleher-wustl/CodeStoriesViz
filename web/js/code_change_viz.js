@@ -24,7 +24,7 @@ function initialize() {
         //     console.log(data[i]);
         // }
 
-        displayCodeClusterViz();
+        displayCodeClusterViz(data);
     });
 
     var tI = getIndexForTime(16112);
@@ -109,7 +109,7 @@ function _interpolateColor(color1, color2, percentage) {
     return interpolate(percentage);
 }
 
-function displayCodeClusterViz() {
+function displayCodeClusterViz(data) {
     var maxWidth = 1200/mainData.length;  // todo - fix this
     var svgContainer = d3.select("#svg_test");
 
@@ -122,6 +122,15 @@ function displayCodeClusterViz() {
     .attr('x2', 1200)
     .attr('y2', 15)
     .attr('stroke', 'gray');
+
+    newSvg.selectAll("rect")
+    .data( data )
+    .attr('x', (d, i) => 10 + (maxWidth * i))
+    .attr('y', 15)
+    .attr('width', 30)
+    .attr('height', 20)
+    .attr('stroke', 'black')
+    .attr('fill', 'aliceblue');
 
 //     svg.append('rect')
 //   .attr('x', 10)
