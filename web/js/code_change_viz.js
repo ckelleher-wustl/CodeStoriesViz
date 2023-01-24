@@ -124,10 +124,15 @@ function displayCodeClusterViz(data) {
     .append('rect')
     .attr('x', function(d) {
         var startPos = getIndexForTime(d.startTime);
-        return startPos * maxWidth;
+        return 10 + startPos * maxWidth;
     })
     .attr('y', 5)
-    .attr('width', 30)
+    .attr('width', function(d) {
+        var startPos = getIndexForTime(d.startTime);
+        var endPos = getIndexForTime(d.endTime);
+
+        return (endPos - startPos) * maxWidth;
+    })
     .attr('height', 20)
     .attr('stroke', 'black')
     .attr('fill', 'aliceblue');
