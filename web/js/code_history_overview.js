@@ -153,3 +153,48 @@ function createEventsListByFile() {
     }
     // console.log(eventListsByKey);
 }
+
+
+function displayClusterOverview() {
+
+    d3.select('#code_overview')
+    .append('table')
+    .selectAll('tr')
+    .data(d3.values(eventListsByKey))
+    .enter()
+    .append('tr');
+
+    d3.select("#code_overview")
+    .selectAll("table")
+    .selectAll("tr")
+    .data(d3.values(eventListsByKey))
+    .selectAll("td")
+    .data(function(d, i) { 
+        // console.log("selected line is " + d + " " + d3.keys(eventListsByKey)[i])
+        return d; 
+    })
+    .enter()
+    .append('td')
+    .text(function(d, i) { return (d.text) ; }) // d is testData[i]
+    .attr("id", function(d) {
+        return(d.key + ";" + d.idx + ";" + d.time);
+    })
+    .on('click', function(d,i){ 
+        // need to figure out which file this is.
+        // console.log("selected element is " + d + " with id =" + this.id);
+        generateCodeDisplay(codeEntries, i, this.id, d.text);
+    });
+}
+
+
+function getIndexForTime(time) {
+    // console.log("Get index for time " + time);
+    
+    for (item in eventTimes) {
+        var itemTime = eventTimes[item]
+        if (time == itemTime) {
+            return item
+        }
+        // console.log("item: " + codeTimes[item]["time"]);
+    }
+}

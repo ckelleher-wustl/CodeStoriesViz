@@ -20,9 +20,11 @@ function initialize() {
     }
 
     d3.csv("../data/codeCluster_gitClassification.csv", function(data) {
-        for (var i = 0; i < data.length; i++) {
-            console.log(data[i]);
-        }
+        // for (var i = 0; i < data.length; i++) {
+        //     console.log(data[i]);
+        // }
+
+        displayCodeClusterViz();
     });
 
     var tI = getIndexForTime(16112);
@@ -30,21 +32,6 @@ function initialize() {
 
 }
 
-
-
-function getIndexForTime(time) {
-    // console.log("Get index for time " + time);
-    var keys = Object.keys(codeChangeTimes);
-    // console.log(JSON.stringify(dataByFileName[keys[0]]));
-    var codeTimes = dataByFileName[keys[0]];
-    for (item in codeTimes) {
-        var itemTime = codeTimes[item]["time"]
-        if (time == itemTime) {
-            return item
-        }
-        // console.log("item: " + codeTimes[item]["time"]);
-    }
-}
 
 function _getChangeDataForFilename(fileName) {
     var changeTimes = codeChangeTimes[fileName];
@@ -122,6 +109,13 @@ function _interpolateColor(color1, color2, percentage) {
     return interpolate(percentage);
 }
 
+function displayCodeClusterViz() {
+    var maxWidth = 1200/mainData.length;  // todo - fix this
+    var svgContainer = d3.select("#svg_test");
+
+    svgContainer.append("svg").attr("width", 1500).attr("height", 30);
+}
+
 
 function displayCodeChangeViz() {
     var maxWidth = 1200/mainData.length;  // todo - fix this
@@ -131,7 +125,6 @@ function displayCodeChangeViz() {
     .data(d3.entries(dataByFileName))
     .enter()
     .append("svg").attr("width", 1500).attr("height", 30)
-
 
     .selectAll("circle")
     .data(  d => (d3.entries(d['value']).map(obj => {
