@@ -115,7 +115,7 @@ function displayCodeClusterViz(data) {
 
     var newSvg = svgContainer.append("svg");
 
-    console.log("cluster data " + data);
+    console.log("cluster data " + JSON.stringify(data));
 
     newSvg.attr("width", 1500).attr("height", 30)
     // .append("line")
