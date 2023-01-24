@@ -116,14 +116,15 @@ function displayCodeClusterViz(data) {
     var newSvg = svgContainer.append("svg");
 
     newSvg.attr("width", 1500).attr("height", 30)
-    .append("line")
-    .attr('x1', 0)
-    .attr('y1', 15)
-    .attr('x2', 1200)
-    .attr('y2', 15)
-    .attr('stroke', 'gray');
+    // .append("line")
+    // .attr('x1', 0)
+    // .attr('y1', 15)
+    // .attr('x2', 1200)
+    // .attr('y2', 15)
+    // .attr('stroke', 'gray');
 
-    newSvg.selectAll("rect")
+    // newSvg
+    .selectAll("rect")
     .data( data )
     .attr('x', 100)
     .attr('y', 15)
