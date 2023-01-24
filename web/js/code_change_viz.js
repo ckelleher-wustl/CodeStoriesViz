@@ -118,20 +118,14 @@ function displayCodeClusterViz(data) {
     console.log("cluster data " + JSON.stringify(data));
 
     newSvg.attr("width", 1500).attr("height", 30)
-    // .append("line")
-    // .attr('x1', 0)
-    // .attr('y1', 15)
-    // .attr('x2', 1200)
-    // .attr('y2', 15)
-    // .attr('stroke', 'gray');
-
-
-    // newSvg
     .selectAll("rect")
     .data( data )
     .enter()
     .append('rect')
-    .attr('x', 100)
+    .attr('x', function(d) {
+        var startPos = getIndexForTime(d.startTime);
+        return startPos * maxWidth;
+    })
     .attr('y', 5)
     .attr('width', 30)
     .attr('height', 20)
@@ -145,13 +139,6 @@ function displayCodeClusterViz(data) {
     .attr('y2', 15)
     .attr('stroke', 'gray');
 
-//     svg.append('rect')
-//   .attr('x', 10)
-//   .attr('y', 120)
-//   .attr('width', 600)
-//   .attr('height', 40)
-//   .attr('stroke', 'black')
-//   .attr('fill', '#69a3b2');
 }
 
 
