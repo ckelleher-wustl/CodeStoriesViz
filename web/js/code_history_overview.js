@@ -77,10 +77,14 @@ function getNextTime(indices) {
         // console.log("indexPair: " + JSON.stringify(indexPair) + " " + JSON.stringify(indices));
         var nxtIdx = indices[indexPair][0];
 
+        // if we haven't run out of data for this file
         if (nxtIdx < indices[indexPair][1]) {
             // console.log("NEXT TIME: " + indexPair + " " + nxtIdx + " " + codeChangeTimes[indexPair][nxtIdx]);
 
-            if (codeChangeTimes[indexPair][0] < minTime) {
+
+            // prev 0
+            if (codeChangeTimes[indexPair][nxtIdx]< minTime) {
+                console.log("\tMINTIME " + minTime + " -> " +  codeChangeTimes[indexPair][nxtIdx] );
                 minTime = codeChangeTimes[indexPair][nxtIdx]
             }
 
@@ -90,6 +94,7 @@ function getNextTime(indices) {
         }
     }
 
+    // todo: these are returning out of order sometimes.
     console.log("returning minTime = " + minTime + " minKeyTime = " + JSON.stringify(minKeyTime));
     return [minTime, minKeyTime];
     

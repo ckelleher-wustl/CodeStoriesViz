@@ -184,5 +184,23 @@
         "prevTabId": 56986036,
         "prevUrl": "https://www.youtube.com/watch?v=kfvrwCxa720",
         "time": 1674078502
+    },
+    {
+        "action": "revisit",
+        "curTabId": 56985709,
+        "curTitle": "localhost:8080/code_all_changes.html",
+        "curUrl": "http://localhost:8080/code_all_changes.html",
+        "prevTabId": 56985876,
+        "prevUrl": "chrome://extensions/",
+        "time": 1674080394
+    },
+    {
+        "action": "navigate between urls in the same tab (reload)",
+        "curTabId": 56985709,
+        "curTitle": "localhost:8080/code_all_changes.html",
+        "curUrl": "http://localhost:8080/code_all_changes.html",
+        "prevTabId": 56985709,
+        "prevUrl": "http://localhost:8080/code_all_changes.html",
+        "time": 1674080397
     }
 ]
