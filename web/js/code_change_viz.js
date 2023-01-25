@@ -146,8 +146,12 @@ function displayCodeClusterViz(data) {
         var startPos = getIndexForTime(d.startTime);
         var endPos = getIndexForTime(d.endTime);
 
-        console.log("d is " + d);
+        console.log("d is " + JSON.stringify(d));
         console.log(startPos + " - " + endPos);
+
+        for (key in dataByFileName.keys()) {
+            console.log("key" + key);
+        }
         
 
         // displayCodeChangeSummary(dataByFileName[d.fileName][startPos].time, dataByFileName[d.fileName][startPos].code_text, dataByFileName[d.fileName][endPos].time, dataByFileName[d.fileName][endPos].code_text);
