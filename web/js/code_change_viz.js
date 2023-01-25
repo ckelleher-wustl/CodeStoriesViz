@@ -150,7 +150,7 @@ function displayCodeClusterViz(data) {
         console.log(startPos + " - " + endPos);
 
         for (key in Object.keys(dataByFileName)) {
-            console.log("key" + JSON.stringify(dataByFileName[key]));
+            console.log("key" + dataByFileName[key]);
         }
         
 
