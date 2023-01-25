@@ -135,7 +135,20 @@ function displayCodeClusterViz(data) {
     })
     .attr('height', 20)
     .attr('stroke', 'black')
-    .attr('fill', 'aliceblue');
+    .attr('fill', 'aliceblue')
+
+    // todo: add this in. not totally sure how to get the filename associated with the cluster, but the start and end times should be
+    // pretty straightforward
+
+    .on("click", function(d, i) {
+
+        // // look for the previous change to this file, which might not be at the previous eventTime.
+        var startPos = getIndexForTime(d.startTime);
+        var endPos = getIndexForTime(d.endTime);
+        
+
+        displayCodeChangeSummary(dataByFileName[d.fileName][startPos].time, dataByFileName[d.fileName][startPos].code_text, dataByFileName[d.fileName][endPos].time, dataByFileName[d.fileName][endPos].code_text);
+    });
 
     newSvg.append("line")
     .attr('x1', 0)
