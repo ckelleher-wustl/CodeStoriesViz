@@ -149,8 +149,9 @@ function displayCodeClusterViz(data) {
         console.log("d is " + JSON.stringify(d));
         console.log(startPos + " - " + endPos);
 
-        for (key in Object.keys(dataByFileName)) {
-            console.log("key" + JSON.stringify(dataByFileName));
+        var keys = Object.keys(dataByFileName);
+        for (key in keys) {
+            console.log("key" + keys[key]);
         }
         
 
