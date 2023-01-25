@@ -145,9 +145,12 @@ function displayCodeClusterViz(data) {
         // // look for the previous change to this file, which might not be at the previous eventTime.
         var startPos = getIndexForTime(d.startTime);
         var endPos = getIndexForTime(d.endTime);
+
+        console.log("d is " + d);
+        console.log(startPos + " - " + endPos);
         
 
-        displayCodeChangeSummary(dataByFileName[d.fileName][startPos].time, dataByFileName[d.fileName][startPos].code_text, dataByFileName[d.fileName][endPos].time, dataByFileName[d.fileName][endPos].code_text);
+        // displayCodeChangeSummary(dataByFileName[d.fileName][startPos].time, dataByFileName[d.fileName][startPos].code_text, dataByFileName[d.fileName][endPos].time, dataByFileName[d.fileName][endPos].code_text);
     });
 
     newSvg.append("line")
