@@ -162,7 +162,7 @@ function displayCodeClusterViz(data) {
         console.log("filename is " + fileName);
         
 
-        // displayCodeChangeSummary(dataByFileName[d.fileName][startPos].time, dataByFileName[d.fileName][startPos].code_text, dataByFileName[d.fileName][endPos].time, dataByFileName[d.fileName][endPos].code_text);
+         displayCodeChangeSummary(dataByFileName[fileName][startPos].time, dataByFileName[fileName][startPos].code_text, dataByFileName[fileName][endPos].time, dataByFileName[fileName][endPos].code_text);
     });
 
     newSvg.append("line")

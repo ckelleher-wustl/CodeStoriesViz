@@ -1,13 +1,183 @@
 ckelleher@caikel-cse MINGW64 ~/git/CodeStoriesViz/web (master)
 $$ "python" -m http.server 8080 --directory "c:\Users\ckelleher\git\CodeStoriesViz\web"
 Serving HTTP on :: port 8080 (http://[::]:8080/) ...
-::1 - - [24/Jan/2023 21:56:05] "GET /code_all_changes.html HTTP/1.1" 200 -
-::1 - - [24/Jan/2023 21:56:05] "GET /css/code_cluster_view.css HTTP/1.1" 200 -
-::1 - - [24/Jan/2023 21:56:05] "GET /js/code_all_changes.js HTTP/1.1" 200 -
-::1 - - [24/Jan/2023 21:56:05] "GET /js/code_change_viz.js HTTP/1.1" 200 -
-::1 - - [24/Jan/2023 21:56:05] "GET /js/code_history_overview.js HTTP/1.1" 200 -
-::1 - - [24/Jan/2023 21:56:05] "GET /js/code_change_summary.js HTTP/1.1" 200 -
-::1 - - [24/Jan/2023 21:56:06] code 404, message File not found
-::1 - - [24/Jan/2023 21:56:06] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [24/Jan/2023 22:02:28] "GET /code_all_changes.html HTTP/1.1" 200 -
+::1 - - [24/Jan/2023 22:02:28] "GET /css/code_cluster_view.css HTTP/1.1" 200 -
+::1 - - [24/Jan/2023 22:02:28] "GET /js/code_change_summary.js HTTP/1.1" 200 -
+::1 - - [24/Jan/2023 22:02:28] "GET /js/code_history_overview.js HTTP/1.1" 200 -
+::1 - - [24/Jan/2023 22:02:28] "GET /js/code_change_viz.js HTTP/1.1" 200 -
+::1 - - [24/Jan/2023 22:02:28] "GET /js/code_all_changes.js HTTP/1.1" 200 -
+::1 - - [24/Jan/2023 22:02:29] code 404, message File not found
+::1 - - [24/Jan/2023 22:02:29] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /css/accordion.css HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /css/collapsible.css HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /css/diff.css HTTP/1.1" 200 -
 
+
+::1 - - [25/Jan/2023 14:28:14] "GET /node_modules/diff2html/bundles/css/diff2html.min.css HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /node_modules/diff/dist/diff.js HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /js/youtube.js HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /node_modules/diff2html/bundles/js/diff2html.min.js HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /js/includehtml.js HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /js/accordion.js HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /clusters_gitClassification.html HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] "GET /data/repeatVisits.json HTTP/1.1" 200 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n6_2022-10-27-20_11_17.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n9_2022-10-27-20_12_37.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n10_2022-10-27-20_13_09.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n11_2022-10-27-20_13_22.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n14_2022-10-27-20_16_03.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n25_2022-10-27-20_38_50.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n12_2022-10-27-20_13_47.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n23_2022-10-27-20_37_18.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n22_2022-10-27-20_36_59.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n13_2022-10-27-20_14_54.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n26_2022-10-27-20_38_59.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n27_2022-10-27-20_39_41.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n31_2022-10-27-20_45_59.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n33_2022-10-27-20_47_37.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n35_2022-10-27-20_54_27.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n37_2022-10-27-20_57_01.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n39_2022-10-27-20_58_35.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n41_2022-10-27-20_59_48.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n43_2022-10-27-21_03_24.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n45_2022-10-27-21_07_16.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n46_2022-10-27-21_07_48.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n47_2022-10-27-21_10_41.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n48_2022-10-27-21_11_12.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n54_2022-10-27-21_24_25.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n50_2022-10-27-21_12_24.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n52_2022-10-27-21_23_53.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n59_2022-10-27-21_37_28.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n64_2022-10-27-21_47_48.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n56_2022-10-27-21_32_34.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n57_2022-10-27-21_37_10.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n65_2022-10-27-21_49_40.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n66_2022-10-27-21_49_46.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n67_2022-10-27-21_49_58.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n70_2022-10-27-21_59_40.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n72_2022-10-27-22_04_09.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n74_2022-10-27-22_06_07.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n75_2022-10-27-22_11_59.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n81_2022-10-27-22_25_30.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n78_2022-10-27-22_12_49.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n82_2022-10-27-22_26_32.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n73_2022-10-27-22_04_59.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n77_2022-10-27-22_12_20.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n87_2022-10-27-22_30_17.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n86_2022-10-27-22_29_55.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n92_2022-10-27-22_54_44.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n89_2022-10-27-22_48_46.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n93_2022-10-27-22_55_15.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n90_2022-10-27-22_53_48.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n94_2022-10-27-22_55_51.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n98_2022-10-27-23_05_08.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n100_2022-10-27-23_06_04.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n101_2022-10-27-23_06_16.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:14] "GET /images/techWithTim1/screencapture-n104_2022-10-27-23_07_38.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:14] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n105_2022-10-27-23_09_07.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n107_2022-10-27-23_10_10.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n109_2022-10-27-23_11_50.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n110_2022-10-27-23_34_56.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n111_2022-10-27-23_34_59.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n112_2022-10-27-23_35_08.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n115_2022-10-27-23_54_06.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n120_2022-10-27-23_57_13.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n118_2022-10-27-23_56_12.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n124_2022-10-28-00_03_55.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n122_2022-10-27-23_58_52.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n128_2022-10-28-00_08_24.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n130_2022-10-28-00_10_32.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n127_2022-10-28-00_05_53.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n146_2022-10-28-01_21_55.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n131_2022-10-28-00_11_39.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n151_2022-10-28-02_02_34.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n160_2022-10-28-03_23_07.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n144_2022-10-28-01_17_29.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n150_2022-10-28-02_01_09.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n163_2022-10-28-03_27_28.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n161_2022-10-28-03_23_25.png HTTP/1.1" 404 -
+::1 - - [25/Jan/2023 14:28:15] code 404, message File not found
+::1 - - [25/Jan/2023 14:28:15] "GET /images/techWithTim1/screencapture-n164_2022-10-28-03_27_49.png HTTP/1.1" 404 -
+mages/techWithTim1/screencapture-n164_2022-10-28-03_27_49.png HTTP/1.1" 404 -
+
+
+
+
+
 Keyboard interrupt received, exiting.
