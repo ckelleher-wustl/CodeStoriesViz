@@ -1,13 +1,13 @@
 width = 500;
 height = 100;
 
-mainData = []
+// mainData = []
 var dataByFileName = {}
 
 function initialize() {
 
-    var fileName = "main.py";
-    mainData = _getChangeDataForFilename(fileName);
+    // var fileName = "main.py";
+    // mainData = _getChangeDataForFilename(fileName);
 
     
     var keys = Object.keys(codeChangeTimes);
@@ -38,6 +38,8 @@ function _getChangeDataForFilename(fileName) {
 
     // console.log("change times: " + fileName);
     // console.log("\t" + JSON.stringify(changeTimes));
+    // console.log("event times: " + fileName);
+    // console.log("\t" + JSON.stringify(eventTimes));
     changeData = [];
     
     //  change this so that we can not draw in time periods where there's no activity
@@ -110,7 +112,7 @@ function _interpolateColor(color1, color2, percentage) {
 }
 
 function displayCodeClusterViz(data) {
-    var maxWidth = 1200/mainData.length;  // todo - fix this
+    var maxWidth = 1200/eventTimes.length;  
     var svgContainer = d3.select("#svg_test");
 
     var newSvg = svgContainer.append("svg");
@@ -176,7 +178,7 @@ function displayCodeClusterViz(data) {
 
 
 function displayCodeChangeViz() {
-    var maxWidth = 1200/mainData.length;  // todo - fix this
+    var maxWidth = 1200/eventTimes.length;  // todo - fix this
     var svgContainer = d3.select("#svg_test");
 
     svgContainer.selectAll("svg")

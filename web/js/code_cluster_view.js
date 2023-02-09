@@ -164,5 +164,5 @@ function processCSV(csv) {
 
 
 function getAllCodeIntervals() {
-    d3.csv("data/codeCluster_gitClassification.csv", processCSV);
+    d3.csv("data/codeCluster_IFStudio.csv", processCSV);
 }

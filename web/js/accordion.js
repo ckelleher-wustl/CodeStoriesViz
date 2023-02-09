@@ -41,8 +41,12 @@ function addListeners() {
     next = document.getElementById("nextCode");
     prev = document.getElementById("previousCode");
 
-    next.addEventListener('click', showNextCode);
-    prev.addEventListener('click', showPreviousCode);
+    if (next != null) {
+        next.addEventListener('click', showNextCode);
+    }
+    if (prev != null) {
+        prev.addEventListener('click', showPreviousCode);
+    }
 
     // console.log("next code: " + next);
     // console.log("prev code" + prev);
@@ -164,7 +168,7 @@ function updateSearchInfo(searchData) {
     // console.log(html);
 
     const webAccordion = document.getElementById('search_container');
-    console.log("webAccordion " + webAccordion);
+    // console.log("webAccordion " + webAccordion);
     webAccordion.innerHTML = html;
 
 }
@@ -247,12 +251,15 @@ function getSearchUI(searchTitle) {
 
 function addWebEpisode() {
     const webAccordion = document.getElementById('search_container');
-    console.log("webAccordion " + webAccordion);
+    // console.log("webAccordion " + webAccordion);
 
-    var search = "This is the title for a search.";
+    if (webAccordion != null) {
 
-    var html = getSearchUI(search);
-    html = html + getSearchUI(search);
+        var search = "This is the title for a search.";
 
-    webAccordion.innerHTML = html;
+        var html = getSearchUI(search);
+        html = html + getSearchUI(search);
+
+        webAccordion.innerHTML = html;
+    }
 }

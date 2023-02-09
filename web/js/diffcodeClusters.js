@@ -269,7 +269,7 @@ function setClusterBounds(startTime, endTime) {
 }
 
 function loadCodeClusters() {
-    var clusterFile = 'data/codeCluster.csv'
+    var clusterFile = 'data/codeCluster_IFStudio.csv'
     console.log("clusterFile is " + clusterFile)
     // $.csv.toObjects(clusterFile):
 

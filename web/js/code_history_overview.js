@@ -23,9 +23,11 @@ function initializeHistoryOverview(codeEntries) {
         // console.log(codeEntry + " " + fileName + ": " + codeChangeTimes[fileName])
     }
 
+    // console.log("codeChangeTimes " + JSON.stringify(codeChangeTimes));
+
     createEventsListByFile();
 
-    console.log("eventTimes: " + eventTimes);
+    // console.log("eventTimes: " + eventTimes);
 }
 
 function displayHistoryOverview() {
@@ -120,33 +122,38 @@ function createEventsListByFile() {
         var activityAtTime = {}
         activityAtTime['time'] = nextTime;
 
-        // events list approach
-        eventTimes.push(nextTime); // record the next time
+
+        if (nextTime != Infinity) {
+            // console.log("Next Time: " + nextTime);
+
+            // events list approach
+            eventTimes.push(nextTime); // record the next time
 
 
-        for (key in ret[1]) {
+            for (key in ret[1]) {
 
-            // object for each time
-            if (ret[1][key] == nextTime) {
-                activityAtTime[key] = true;
-                // console.log("next time " + indices[key][0]);
-                indices[key][0] = indices[key][0] + 1;
-            } else {
-                activityAtTime[key] = false;
-            }
+                // object for each time
+                if (ret[1][key] == nextTime) {
+                    activityAtTime[key] = true;
+                    // console.log("next time " + indices[key][0]);
+                    indices[key][0] = indices[key][0] + 1;
+                } else {
+                    activityAtTime[key] = false;
+                }
 
-            if (!(key in eventListsByKey)) { 
-                eventListsByKey[key] = [] // make an array for each key
-            }
+                if (!(key in eventListsByKey)) { 
+                    eventListsByKey[key] = [] // make an array for each key
+                }
 
-            // this is a redundant if statement to record the eventsByKey data
-            if (ret[1][key] == nextTime) {
-                eventListsByKey[key].push({text:"+", key: key, idx: (eventListsByKey[key].length), time: (eventTimes[eventListsByKey[key].length])} );
-                // console.log("text: +" + key + " " +  (eventListsByKey[key].length) + " " + (eventTimes[eventListsByKey[key].length]));
-                
-                // indices[key][0] = indices[key][0] + 1; // this is currently done by the other if
-            } else {
-                eventListsByKey[key].push({text:"-", key: key, idx: (eventListsByKey[key].length), time: (eventTimes[eventListsByKey[key].length])});
+                // this is a redundant if statement to record the eventsByKey data
+                if (ret[1][key] == nextTime) {
+                    eventListsByKey[key].push({text:"+", key: key, idx: (eventListsByKey[key].length), time: (eventTimes[eventListsByKey[key].length])} );
+                    // console.log("text: +" + key + " " +  (eventListsByKey[key].length) + " " + (eventTimes[eventListsByKey[key].length]));
+                    
+                    // indices[key][0] = indices[key][0] + 1; // this is currently done by the other if
+                } else {
+                    eventListsByKey[key].push({text:"-", key: key, idx: (eventListsByKey[key].length), time: (eventTimes[eventListsByKey[key].length])});
+                }
             }
         }
         // console.log(moreEventsExist(indices) + JSON.stringify(activityAtTime));

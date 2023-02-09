@@ -54,6 +54,7 @@ function _getIndexForPreviousFileChange(responses, fileName, time, idx) {
 
 // helper function to find the appropriate code entry for a target time and file
 function _getIForTimeAndFile(targetTime, targetFile, startingIdx, responses) {
+
     var resTime = responses[startingIdx]["time"];
     var resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
 
@@ -100,6 +101,8 @@ function generateCodeDisplay(responses, i, id, cmd) {
     var idx = idInfo[1];
     var time = idInfo[2];
     console.log("show " + id);
+
+    // console.log("looking for " + fileName + " " + time);
 
     i = _getIForTimeAndFile(time, fileName, i, responses);
     

@@ -145,12 +145,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_gitClassification.csv')
+searchDF = pd.read_csv('web/data/searchClusters_IFStudio.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_gitClassification.csv')
+codeDF = pd.read_csv('web/data/codeCluster_IFStudio.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type'], axis=1, inplace=True)
 print(codeDF)
 

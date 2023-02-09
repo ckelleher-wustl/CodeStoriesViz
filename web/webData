@@ -105,15 +105,6 @@
         "time": 1674074277
     },
     {
-        "action": "hyperlink opened in new tab but new tab is not active tab",
-        "curTabId": 56986036,
-        "curTitle": "(851) How to voice lead a chord progression - YouTube",
-        "curUrl": "https://www.youtube.com/watch?v=Vyc8lezaa9g",
-        "prevTabId": 56985709,
-        "prevUrl": "http://localhost:8080/code_all_changes.html",
-        "time": 1674074834
-    },
-    {
         "action": "revisit",
         "curTabId": 56985709,
         "curTitle": "localhost:8080/code_all_changes.html",
@@ -130,15 +121,6 @@
         "prevTabId": 56985709,
         "prevUrl": "http://localhost:8080/code_all_changes.html",
         "time": 1674075867
-    },
-    {
-        "action": "navigate between urls in the same tab (link)",
-        "curTabId": 56986036,
-        "curTitle": "(851) Songs that use Chromatic Mediant chords - YouTube",
-        "curUrl": "https://www.youtube.com/watch?v=kfvrwCxa720",
-        "prevTabId": 56986036,
-        "prevUrl": "https://www.youtube.com/watch?v=Vyc8lezaa9g",
-        "time": 1674076356
     },
     {
         "action": "revisit",
@@ -177,15 +159,6 @@
         "time": 1674078445
     },
     {
-        "action": "navigate between urls in the same tab (link)",
-        "curTabId": 56986036,
-        "curTitle": "(851) Songs that use Inversions - YouTube",
-        "curUrl": "https://www.youtube.com/watch?v=aMLdWrZqwLg",
-        "prevTabId": 56986036,
-        "prevUrl": "https://www.youtube.com/watch?v=kfvrwCxa720",
-        "time": 1674078502
-    },
-    {
         "action": "revisit",
         "curTabId": 56985709,
         "curTitle": "localhost:8080/code_all_changes.html",
@@ -202,15 +175,6 @@
         "prevTabId": 56985709,
         "prevUrl": "http://localhost:8080/code_all_changes.html",
         "time": 1674080397
-    },
-    {
-        "action": "revisit",
-        "curTabId": 56986036,
-        "curTitle": "(851) Songs to recognise different chord types by ear - YouTube",
-        "curUrl": "https://www.youtube.com/watch?v=aMLdWrZqwLg",
-        "prevTabId": 56985709,
-        "prevUrl": "http://localhost:8080/code_all_changes.html",
-        "time": 1674087292
     },
     {
         "action": "revisit",

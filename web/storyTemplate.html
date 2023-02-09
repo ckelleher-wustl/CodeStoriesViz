@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+        <script src="node_modules/diff/dist/diff.js"></script>
+      
+        <link rel="stylesheet" type="text/css" href="node_modules/diff2html/bundles/css/diff2html.min.css"/>
+        <script src="node_modules/diff2html/bundles/js/diff2html.min.js"></script>
+        <script src="//unpkg.com/string-similarity/umd/string-similarity.min.js"></script>
+
+
+        <link rel="stylesheet" href="css/collapsible.css">
+        <link rel="stylesheet" href="css/accordion.css">
+        <link rel="stylesheet" href="css/diff.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/accordion.css" media="screen" /> -->
+    </head>
+
+    <body>
+        
+
+        <!-- <script type="text/javascript" src="data/repeatVisits.json"></script> -->
+        <script type="text/javascript" src="js/youtube.js"></script>
+        <script type="text/javascript" src="js/create_cluster_overviews.js"></script>
+        <script type="text/javascript" src="js/accordion.js"></script>
+
+        <script>
+
+            $( document ).ready(function() {
+                console.log( "ready!" );
+
+                var html = createClusterView();
+                console.log("CREATE CLUSTER: " + html);
+                $("body").append(html);
+
+                initCollapsibles();
+            });
+        
+            function initCollapsibles() {   
+              var coll = document.getElementsByClassName("collapsible");
+              var i;
+              
+              console.log("adding listeners....")
+              for (i = 0; i < coll.length; i++) {
+                console.log("adding listener to " + coll[i]);
+                coll[i].addEventListener("click", function() {
+                  this.classList.toggle("active");
+                  var content = this.nextElementSibling;
+                  if (content.style.display === "block") {
+                    content.style.display = "none";
+                    // console.log("closed")
+                  } else {
+                    content.style.display = "block";
+                    console.log(content)
+
+                    console.log("FILENAME: " + content.getAttribute("--filename"));
+              
+                    var diff = Diff.createTwoFilesPatch(content.getAttribute("--filename") + "(before)", content.getAttribute("--filename") + "(after)", content.getAttribute("--start-code"), content.getAttribute("--end-code"),"","",{context:5, ignoreWhitespace: false});
+                    console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
+              
+                    var addition = "";
+                    diff.split("\n").forEach(part => {
+                      if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
+                        addition = part
+                      }
+                      console.log(part.length + " " + part)
+                    })
+                    // this.textContent = addition
+                    var diffHtml = Diff2Html.html(diff, {
+                        drawFileList: false,
+                        //matching: 'words',
+                        outputFormat: 'side-by-side',
+                    });
+                    content.querySelector("p").innerHTML = diffHtml;
+                  }
+                });
+              }
+            }
+          </script>
+    </body>
+
+</html>
