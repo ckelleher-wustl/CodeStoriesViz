@@ -16,7 +16,7 @@ function initializeHistoryOverview(codeEntries) {
 
         if ( !(fileName in codeChangeTimes) ) {
             codeChangeTimes[fileName] = [];
-            console.log("added " + fileName);
+            // console.log("added " + fileName);
         }
 
         codeChangeTimes[fileName].push(time);
@@ -111,10 +111,8 @@ function createEventsListByFile() {
     eventTimes = []
 
 
-    // while (moreEventsExist(indices)) {
-    for (var i = 0; i < 61; i++) {
+    while (moreEventsExist(indices)) {
         var ret = getNextTime(indices);
-        
 
         var nextTime = ret[0];
 
@@ -122,20 +120,20 @@ function createEventsListByFile() {
         var activityAtTime = {}
         activityAtTime['time'] = nextTime;
 
-
         if (nextTime != Infinity) {
-            // console.log("Next Time: " + nextTime);
 
             // events list approach
-            eventTimes.push(nextTime); // record the next time
-
+            // if we don't already have this time recorded, then record it.
+            if (nextTime != eventTimes[eventTimes.length-1]) { 
+                eventTimes.push(nextTime); // record the next time
+                // console.log("event times " + eventTimes);
+            }
 
             for (key in ret[1]) {
 
                 // object for each time
                 if (ret[1][key] == nextTime) {
                     activityAtTime[key] = true;
-                    // console.log("next time " + indices[key][0]);
                     indices[key][0] = indices[key][0] + 1;
                 } else {
                     activityAtTime[key] = false;
@@ -148,17 +146,17 @@ function createEventsListByFile() {
                 // this is a redundant if statement to record the eventsByKey data
                 if (ret[1][key] == nextTime) {
                     eventListsByKey[key].push({text:"+", key: key, idx: (eventListsByKey[key].length), time: (eventTimes[eventListsByKey[key].length])} );
-                    // console.log("text: +" + key + " " +  (eventListsByKey[key].length) + " " + (eventTimes[eventListsByKey[key].length]));
-                    
-                    // indices[key][0] = indices[key][0] + 1; // this is currently done by the other if
                 } else {
                     eventListsByKey[key].push({text:"-", key: key, idx: (eventListsByKey[key].length), time: (eventTimes[eventListsByKey[key].length])});
                 }
+
             }
         }
-        // console.log(moreEventsExist(indices) + JSON.stringify(activityAtTime));
     }
-    // console.log(eventListsByKey);
+
+    delete eventListsByKey["webData"]; //webData isn't a code file, so we want to filter it out if it exists
+    // console.log("Events lists: " + JSON.stringify(eventListsByKey));
+
 }
 
 

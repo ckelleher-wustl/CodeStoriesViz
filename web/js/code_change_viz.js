@@ -5,30 +5,30 @@ height = 100;
 var dataByFileName = {}
 
 function initialize() {
-
-    // var fileName = "main.py";
-    // mainData = _getChangeDataForFilename(fileName);
-
     
     var keys = Object.keys(codeChangeTimes);
     
     for (key in keys) {
         var fileData = _getChangeDataForFilename(keys[key]);
-        if (fileData.length > 1) {
+        if ((fileData.length > 1) && (keys[key] != "webData")) {
+            // console.log("adding data for " + keys[key] + fileData.length);
             dataByFileName[keys[key]] = fileData;
+        } else {
+            // console.log("filtering data for " + keys[key]);
         }
     }
 
-    d3.csv("../data/codeCluster_gitClassification.csv", function(data) {
-        // for (var i = 0; i < data.length; i++) {
-        //     console.log(data[i]);
-        // }
+    // removing clusters for now
+    // d3.csv("../data/codeCluster_gitClassification.csv", function(data) {
+    //     // for (var i = 0; i < data.length; i++) {
+    //     //     console.log(data[i]);
+    //     // }
 
-        displayCodeClusterViz(data);
-    });
+    //     displayCodeClusterViz(data);
+    // });
 
-    var tI = getIndexForTime(16112);
-    console.log("16112 : " + tI);
+    // var tI = getIndexForTime(16112);
+    // console.log("16112 : " + tI);
 
 }
 
@@ -38,8 +38,6 @@ function _getChangeDataForFilename(fileName) {
 
     // console.log("change times: " + fileName);
     // console.log("\t" + JSON.stringify(changeTimes));
-    // console.log("event times: " + fileName);
-    // console.log("\t" + JSON.stringify(eventTimes));
     changeData = [];
     
     //  change this so that we can not draw in time periods where there's no activity
@@ -47,10 +45,12 @@ function _getChangeDataForFilename(fileName) {
         changeIndex = 1;
 
         for (var i = 1; i < eventTimes.length; i++) {
-            
+ 
             //  initialize the code state info
-            var codeState1I = _getIForTimeAndFile(changeTimes[changeIndex-1], fileName, i-1, codeEntries);
-            var codeState2I = _getIForTimeAndFile(changeTimes[changeIndex], fileName, i, codeEntries);
+            var codeState1I = _getIForTimeAndFile(changeTimes[changeIndex-1], fileName, 0, codeEntries);
+            var codeState2I = _getIForTimeAndFile(changeTimes[changeIndex], fileName, 0, codeEntries);
+
+            // console.log("i" + i + " " + changeTimes[changeIndex-1] + " - " + changeTimes[changeIndex] + "; " + codeState1I + " " + codeState2I);
 
             if ((codeState1I != -1) && (codeState2I != -1) ) {
 
@@ -59,6 +59,8 @@ function _getChangeDataForFilename(fileName) {
             
                 var codeState2 = codeEntries[codeState2I]["code_text"];
                 var codeState2Time = codeEntries[codeState2I]["time"];
+                
+                // console.log(fileName + " code interval: " + codeState1Time + " - " + codeState2Time);
 
                 // calculate difference patch
                 var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
@@ -87,22 +89,31 @@ function _getChangeDataForFilename(fileName) {
                     if (changeIndex == 1) {
                         // this is the initial data point
                         changeData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, code_text: codeState1})
+                        // console.log("adding in initial " + codeEntries[codeState1I]["time"]);
                     }
 
                     changeData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, code_text: codeState2})
                     changeIndex += 1;
-                } else {
-                    changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
+                    // console.log("adding entry with changes " + codeEntries[codeState2I]["time"]);
+                } else { 
+                    changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"});
+
+                    // console.log("codeState2Time == eventTimes[i]" + codeState2Time + " = " + eventTimes[i]);
+                    // console.log("entry with no changes " + eventTimes[i]);
                 }
             } else {
                 // there are no indices for these times
                 changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
+
+                // console.log("CAN'T FIND: " + changeTimes[changeIndex-1] + "( " + codeState1I + " ) - " + changeTimes[changeIndex] + "( " + codeState2I + " )");
             }
         }
 
         // console.log("main data:" + JSON.stringify(changeData));
     }
 
+    // console.log("eventTimes  " + JSON.stringify(eventTimes));
+    // console.log("changeData for " + fileName +  " "  + JSON.stringify(changeData));
     return changeData;
 }
 
@@ -117,14 +128,13 @@ function displayCodeClusterViz(data) {
 
     var newSvg = svgContainer.append("svg");
 
-    console.log("cluster data " + JSON.stringify(data));
-
     newSvg.attr("width", 1500).attr("height", 30)
     .selectAll("rect")
     .data( data )
     .enter()
     .append('rect')
     .attr('x', function(d) {
+        // console.log("d " + JSON.stringify(d));
         var startPos = getIndexForTime(d.startTime);
         return 10 + startPos * maxWidth;
     })
@@ -181,6 +191,20 @@ function displayCodeChangeViz() {
     var maxWidth = 1200/eventTimes.length;  // todo - fix this
     var svgContainer = d3.select("#svg_test");
 
+    // console.log("dataByFileName " + JSON.stringify(d3.entries(dataByFileName)) );
+    // var entries = d3.entries(dataByFileName);
+    // for (entry in d3.entries(dataByFileName)) {
+    //     // console.log(entries[entry]["key"] );
+
+    //     // + " " + JSON.stringify(entries[entry]["value"])
+    //     var values = entries[entry]["value"];
+    //     for (value in values) {
+    //         if (values[value]["numAdds"] != -1){
+    //             console.log("\t" + values[value]["time"] + " " +values[value]["numAdds"]);
+    //         }
+    //     }
+    // }
+
     svgContainer.selectAll("svg")
     .data(d3.entries(dataByFileName))
     .enter()
@@ -192,7 +216,13 @@ function displayCodeChangeViz() {
              return obj; })) )
     .enter()
     .append('circle')
-    .attr('cx', (d, i) => 10 + (maxWidth * i))
+    .attr('cx', function(d, i) {
+        if (d.value.time == 0) {
+            return 10;
+        } else {
+            return 10 + (maxWidth * i);
+        }
+    })
     .attr('cy', 15)
     .attr('r', function(d) {
         var changes = d.value.numAdds + d.value.numRemoves;
@@ -213,24 +243,39 @@ function displayCodeChangeViz() {
         // // look for the previous change to this file, which might not be at the previous eventTime.
         var idx = i;
         var prevRecord = {}
-        if (idx >= 0) {
+        console.log("showing idx " + i + " " + JSON.stringify(d));
+        if (idx > 0) {
             idx-=1;
             prevRecord = dataByFileName[d.fileName][idx];
 
-            console.log("prev data" + JSON.stringify(prevRecord));
+            //  dataByFileName[d.fileName][idx].time
 
-            while (dataByFileName[d.fileName].numAdds == -1) {
+            console.log("prev data " + prevRecord.time + "  " + prevRecord.numAdds );
+
+            while ((prevRecord.numAdds == -1) && (idx > 0)) {
                 idx -=1;
                 prevRecord = dataByFileName[d.fileName][idx];
+                console.log("prev data " + prevRecord.time + "  " + prevRecord.numAdds );
             }
         }
 
         var svgContainer = d3.select("#svg_test");
         var msg = svgContainer.select("p");
-        msg.text(d.fileName + ": " + dataByFileName[d.fileName][idx].time + " - " + d.value.time);
+        // msg.text(d.fileName + ": " + dataByFileName[d.fileName][idx].time + " - " + d.value.time);
         
+        console.log("idx " + idx);
+        console.log("diff " + d.fileName + ": " + dataByFileName[d.fileName][idx].time + " - " + d.value.time);
 
-        displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.value.time, d.value.code_text);
+        if (d.value.time == 0) {
+            console.log(" time is zero")
+            displayCodeChangeSummary(0, "", d.value.time, d.value.code_text);
+            msg.text(d.fileName + ": " + "0" + " - " + d.value.time);
+        } else {
+            displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.value.time, d.value.code_text); 
+            msg.text(d.fileName + ": " + dataByFileName[d.fileName][idx].time + " - " + d.value.time);
+        }
+
+        // displayCodeChangeSummary(dataByFileName[d.fileName][idx].time, dataByFileName[d.fileName][idx].code_text, d.value.time, d.value.code_text);
     });
 
 

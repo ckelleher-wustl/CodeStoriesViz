@@ -57,7 +57,7 @@ function displayCodeChangeSummary(prevName, prevCode, currName, currCode) { //re
         })
         .style("background-color", "aliceblue");
 
-        console.log("time is " + time + " " + i)
+        // console.log("time is " + time + " " + i)
     }
 
 }

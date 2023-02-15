@@ -1,0 +1,1395 @@
+<button type='button' class='collapsible active'>search: imagenet class list</button><div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(1365)'>"imagenet data downloader"</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-11_30_58.png' width='180' height='112'> </td></tr><tr><td>imagenet downloader</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(1413)'>imagenet class list</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-11_33_57.png' width='180' height='112'> </td></tr><tr><td>imagenet class labels</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-11_38_12.png' width='180' height='112'> </td></tr><tr><td>raw imagenet class labels list</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-12_43_00.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>imagenet class list</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-12_43_50.png' width='180' height='112'> </td></tr><tr><td>imagenet class list download zip</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>+ import pandas as pd</button>
+   <div class='content' --start-code='imagenet_classes = []
+   with open("imagenet1000_clsidx_to_labels.txt", “rb") as f:
+      imagenet_classes.append(f.readlines())
+   ' --end-code='import pandas as pd
+   import numpy as np
+   import matplotlib.pyplot as plt
+   import csv
+   import ast
+   
+   with open("imagenet1000_clsidx_to_labels.txt", "r") as f:
+      imagenet_classes = ast.literal_eval(f.read())
+   
+   imagenet_classes
+   '>
+   <p> code content will go here</p>
+   <button type='button' class='collapsible active'>search: python check if string contains string</button>
+   <div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(1951)'>python how to read a dictionary from txt</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-13_39_12.png' width='180' height='112'> </td></tr><tr><td>how to read a dictionary
+   from a file in Python</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-13_40_16.png' width='180' height='112'> </td></tr><tr><td>literal_eval (method docs)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-13_41_04.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to read a dictionary from a file in Python</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-13_41_54.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>how to read a dictionary from a file in Python</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(2132)'>python check if string contains string</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-14_06_18.png' width='180' height='112'> </td></tr><tr><td>does python have a string "contains" substring method?</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   </div>
+   </div>
+   </div>
+   <button type='button' class='collapsible active'>+    if "banana" in v:</button>
+   <div class='content' --start-code='for k, v in imagenet_classes.items():
+      if v.contains("banana"):|
+         print(k)
+   ' --end-code='for k, v in imagenet_classes.items():
+      if "banana" in v:
+         print(k)
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>search: python list of commonly eaten foods</button><div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(2169)'>imagenet food classes</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-20-15_15_15.png' width='180' height='112'> </td></tr><tr><td>food image classification</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(2318)'>python list of common eaten foods</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-10_01_46.png' width='180' height='112'> </td></tr><tr><td>wikipedia list of common
+   eaten foods</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(2328)'>python list of commonly eaten foods</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-10_06_09.png' width='180' height='112'> </td></tr><tr><td>stackoverflow question -
+   list of common foods</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-10_07_50.png' width='180' height='112'> </td></tr><tr><td>usda foods list</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-10_09_58.png' width='180' height='112'> </td></tr><tr><td>usda food data central</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-10_10_43.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>stackoverflow question - list of common foods</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>search: python set intersection</button><div class='content'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-11_19_06.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>stackoverflow question - list of common foods</td></tr></tbody></table></div>
+   <div class='title'><span><a href='javascript:' onclick='seek(2806)'>conda how to install in current env with pip</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-11_35_12.png' width='180' height='112'> </td></tr><tr><td>stackoverflow - using pip to install packages to Anaconda environment</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(3493)'>python create a list from list of lists</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-13_21_02.png' width='180' height='112'> </td></tr><tr><td>stackoverflow how to make a flat list out of a list of lists</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(4078)'>get items from a list</a></span></div><hr>
+   <div class='webImageLongRow'>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(4466)'>python set intersection</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-21-14_56_12.png' width='180' height='112'> </td></tr><tr><td>Python set intersection method</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>+ import nltk</button>
+   <div class='content' --start-code='from nltk.corpus import wordnet as wn
+   food = wn.synset("food.n.02")
+   list(set([w for s in food.closure(lambda s:s.hyponyms()) for w in s.lemma_names()]))
+   ' --end-code='import nltk
+   
+   from nltk.corpus import wordnet as wn
+   food = wn.synset("food.n.02")
+   food_list = list(set([w for s in food.closure(lambda s:s.hyponyms()) for w in s.lemma_names()]))
+   
+   food_list
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+    print(food_item.lower().split("_"))</button>
+   <div class='content' --start-code='for food_item in food_list:
+      print((food_item.lower().strip("_")) .
+   ' --end-code='for food_item in food_list:
+      print(food_item.lower().split("_"))'>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ food_list = [food for sublist in food_item.lower().split("_") for food_item in food_list]</button>
+   <div class='content' --start-code='# Remove punctuation and lower
+   food_list = [food_item.lower().split("_") for food_item in food_list]
+   food_list
+   ' --end-code='# Remove punctuation and lower
+   food_list = [food for sublist in food_item.lower().split("_") for food_item in food_list]
+   food_list
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ # Check ImageNet classes for foods</button>
+   <div class='content' --start-code='for k, v in imagenet_classes:
+      if v.lower() in flat_food_list:
+         print(k)
+   ' --end-code='# Check ImageNet classes for foods
+   for k, v in imagenet_classes.items():
+      print(v.lower().split(","))
+      if v.lower().split(",") in flat_food_list:
+         print(k, v)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+    # print(v.lower().split(","))</button>
+   <div class='content' --start-code='# Check ImageNet classes for foods
+   
+   # Look at imagenet classes
+   
+   for k,v in imagenet_classes.items():
+      # Get value from imagenet classes (string)
+      print(v.lower().split(",").strip(" "))
+      # See if value appears in flat_food_list
+      if v.lower().split(",") in flat_food_list:
+         print(k,v)
+   ' --end-code='# Check ImageNet classes for foods
+   
+   # Look at imagenet classes
+   for k,v in imagenet_classes.items():
+      # Get value from imagenet classes (string)
+      # print(v.lower().split(","))
+      print([space_word.strip(" ") for space_word in v.lower().split(",")])
+      # See if value appears in flat_food_list
+      if v.lower().split(",") in flat_food_list:
+         print(k,v)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ set(["string_1", "string_2"]).intersect(set["string_1"])</button>
+   <div class='content' --start-code='set(["string_1", "string_2"]).intersection("string_1"))
+   ' --end-code='set(["string_1", "string_2"]).intersect(set["string_1"])
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ intersect_str = set(["string_1", "string_2"]).intersection(set(["string_1"])) </button>
+   <div class='content' --start-code='intersect_str = set(["string_1", "string_2"]).intersection(set("string_1"))
+   intersect_str
+   ' --end-code='intersect_str = set(["string_1", "string_2"]).intersection(set(["string_1"]))
+   intersect_str
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+    # Get value from imagenet_classes (string)</button>
+   <div class='content' --start-code='# Check ImageNet classes for foods
+   
+   # Look at imagenet classes
+   for k, v in imagenet_classes.items():
+      # Get value from imagenet_classes (string)
+      # print(v.lower().split(","))
+      imagenet_class_set = set([space_word.strip(" ") for space_word in v.lower().split(",")])
+      print([imagenet_class_set])
+      # See if value appears in flat_food_list
+      if v.lower().split(",") in flat_food_list:
+         print(k, v)
+   ' --end-code='# Check ImageNet classes for foods
+   
+   # Look at imagenet classes
+   for k, v in imagenet_classes.items():
+      # Get value from imagenet_classes (string)
+      # print(v.lower().split(","))
+      imagenet_class_set = set([space_word.strip(" ") for space_word in v.lower().split(",")])
+      # print([imagenet_class_set])
+      # See if value appears in flat_food_list
+      if imagenet_class_set.intersection(flat_food_list):
+         print(k, v)
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>search: ruffed grouse images</button><div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(4746)'>ruffed grouse</a></span></div><hr>
+   <div class='webImageLongRow'>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(4760)'>ruffed grouse images</a></span></div><hr>
+   <div class='webImageLongRow'>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>+ imagenet_manual_fitlered_food_classes = {}</button>
+   <div class='content' --start-code='len(imagenet_food_classes)
+   
+   
+   # What classes shouldn"t be there? — Going through the imagenet_food_classes
+   non_food_classes_manual_sort = [457, 494, 567, 626, 723, 738, 760, 923, 972,
+   
+   imagenet_classes
+   ' --end-code='imagenet_manual_fitlered_food_classes = {}
+   for k, v in imagenet_food_classes.items():
+      if k not in non_food_classes_manual_sort: # don"t won"t keys that aren"t food (from the manual sort)
+         imagenet_manual_fitlered_food_classes[k] = v
+   imagenet_manual_fitlered_food_classes
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ imagenet_non_food_classes = {}</button>
+   <div class='content' --start-code='# Get food class keys
+   food_class_keys = list(imagenet_manual_fitlered_food_classes.keys())
+   food_class_keys [:10]
+   
+   imagenet_non_food_classes = {}
+   ' --end-code='imagenet_non_food_classes = {}
+   for k, v in imagenet_classes.items():
+      if k not in food_class_keys:
+         imagenet_non_food_classes[k] = v
+   imagenet_non_food_classes
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>revisit: raw csv of imagenet classes</button><div class='content'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-15_34_52.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>imagenet downloader</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-15_36_05.png' width='180' height='112'> </td></tr><tr><td>csv overview of the imagenet classes</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-15_51_24.png' width='180' height='112'> </td></tr><tr><td>words.txt</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-15_51_24.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>classes in imagenet (csv overview)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-15_53_58.png' width='180' height='112'> </td></tr><tr><td>raw csv of imagenet classes</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-15_54_50.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>imagenet downloader</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-15_55_39.png' width='180' height='112'> </td></tr><tr><td>downloader.py</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-22-16_03_03.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>raw csv of imagenet classes</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>+ import pandas as csv </button>
+   <div class='content' --start-code='import pandas as csv
+   
+   df = pd.read_csv("https://raw.githubusercontent.com/mf1024/ImageNet—Datasets—Downloader/master/classes_in_imagenet.csv")
+   df.head()
+   ' --end-code='import pandas as csv
+   
+   df = pd.read_csv("https://raw.githubusercontent.com/mf1024/ImageNet-Datasets-Downloader/master/classes_in_imagenet.csv)
+   df.head()
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ df["class_name"].str.lower()</button>
+   <div class='content' --start-code='df["class_name"].lower()
+   
+   ' --end-code='df["class_name"].str.lower()
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ df_non_food = df[~df["class_name"].str.contains("food")]</button>
+   <div class='content' --start-code='# Filter dataframe from food classes
+   df_non_food = df[~df["class_name"].str().contains("food")]
+   df_non_food
+   
+   flat_food_list[:5]
+   ' --end-code='# Filter dataframe from food classes
+   df_non_food = df[~df["class_name"].str.contains("food")]
+   df_non_food
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ len(df.drop_duplicates())</button>
+   <div class='content' --start-code='len(df)
+   
+   len(df["class_name"].unique())
+   ' --end-code='len(df)
+   
+   len(df.drop_duplicates())
+   
+   len(df["class_name"].unique())
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ flat_food_list[:5]</button>
+   <div class='content' --start-code='# Filter dataframe from food classes
+   df_non_food = df[df["class_name"].str.contains("food")]
+   df_non_food
+   ' --end-code='flat_food_list[:5]
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ # Remove NaN's</button>
+   <div class='content' --start-code='len(df)
+   
+   df.isna()
+   ' --end-code='len(df)
+   
+   # Remove NaN"s
+   df.dropna(inplace=True)
+   
+   len(df["class_name"].unique())
+   
+   df.info()
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>df_non_food = df[df["class_name"].str.lower().contains("food")]</button>
+   <div class='content' --start-code='# Filter dataframe from food classes
+   df_non_food = df[df["class_name"].str.lower().contains("food")]
+   df_non_food
+   ' --end-code='# Filter dataframe from food classes
+   df_non_food = df[df["class_name"].str.lower().contains("food")]
+   df_non_food
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>df_non_food = df[~df["class_name"].str.isin(flat_food_list)]</button>
+   <div class='content' --start-code='# Filter dataframe from food classes
+   df_non_food = df[~df["class_name"].str.contains("food")]
+   df_non_food
+   ' --end-code=''>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>df_non_food = df[~df["class_name"].isin(flat_food_list)]</button>
+   <div class='content' --start-code='# Filter dataframe from food classes
+   df_non_food = df[~df["class_name"].isin(flat_food_list)]
+   df_food = df[df["class_name"].isin(flat_food_list)]
+   len(df_non_food), len(df_food)
+   
+   list(df["class_name"])
+   ' --end-code='# Filter dataframe from food classes
+   df_non_food = df[~df["class_name"].isin(flat_food_list)]
+   df_food = df[df["class_name"].isin(flat_food_list)]
+   len(df_non_food), len(df_food)
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ 'shell',</button>
+   <div class='content' --start-code='# Manually removing not foods from flat_food_list
+   not_food_list = ["ball",
+      "puppy",
+      "dog",
+      "bar",
+      "blade",
+      "garden",
+      "hand",
+      "head",
+      "jacket",
+      "junk",
+      "key",
+      "leg",
+      "oven",
+      "pin",
+   
+   ' --end-code='"shell",
+   "pilot",
+   "runner",
+   "smith",
+   "ash",
+   "sand"]
+   
+   
+   not_food_list[:5]
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ # Filter dataframe from food classes</button>
+   <div class='content' --start-code='len(df_food)
+   
+   list(df_food.class_name)[:5]
+   
+   list(df_food.class_name)
+   ' --end-code='# Filter dataframe from food classes
+   df_non_food = df[~df["class_name"].isin(flat_food_list)]
+   df_food = df[df["class_name"].isin(flat_food_list)]
+   df_food = df_food[~df["class_name"].isin(not_food_list)] # remove even more not food items
+   len(df_non_food), len(df_food)
+   
+   len(df_food)
+   
+   list(df_food.class_name)[:5]
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ len(imagenet_non_food_class_ids_and_names_dict)</button>
+   <div class='content' --start-code='imagenet_food_class_ids = df_food[["synid", "class_name"]].to_dict()
+   imagenet_food_class_ids
+   ' --end-code='len(imagenet_non_food_class_ids_and_names_dict)
+   
+   list(imagenet_food_class_ids_and_names_dict.keys())
+   '>
+   <p> code content will go here</p>
+   <button type='button' class='collapsible active'>revisit: downloader.py</button>
+   <div class='content'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-23-16_14_33.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>imagenet downloader</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-23-16_28_08.png' width='180' height='112'> </td></tr><tr><td>Downloading the ImageNet</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-23-16_32_42.png' width='180' height='112'> </td></tr><tr><td>imagenet downloader</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-23-16_40_10.png' width='180' height='112'> </td></tr><tr><td>imagenet downloader</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-23-16_41_03.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>downloader.py</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>search: maximum length of python arg list</button>
+   <div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(10791)'>python how to pass list as command line argument</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-23-21_26_48.png' width='180' height='112'> </td></tr><tr><td>how to pass an entire list as command line argument in python</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(11323)'>how to pass python list to command line</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-10_02_18.png' width='180' height='112'> </td></tr><tr><td>pass list as a command line argument in python</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-10_04_46.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>stackoverflow pass list as command line arg.</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-10_06_44.png' width='180' height='112'> </td></tr><tr><td>python command line arguments</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-10_08_23.png' width='180' height='112'> </td></tr><tr><td>downloader script (in IDE now)</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(11509)'>pass string from file to python command line</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-10_11_26.png' width='180' height='112'> </td></tr><tr><td>passing strings as python command-line arguments</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(11744)'>python use contexts of txt file in command line</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-10_27_47.png' width='180' height='112'> </td></tr><tr><td>execute a command by reading contents of a text file</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(12479)'>maximum length of python arg list</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-11_23_51.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>imagenet downloader</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-11_25_06.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>imagenet downloader</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   </div>
+   </div>
+   </div>
+   <button type='button' class='collapsible active'>+ !python ImageNet-Datasets—Downloader/downloader.py \</button>
+   <div class='content' --start-code='test_list_images = ["n13918387",
+    "n13919547"]
+   
+   !python ImageNet-Datasets-Downloader/downloader.py \
+      -data_root test_images \
+      -use_class_list=True \
+      -number_of_classes test_list_images \
+      -images_per_class 10|
+   ' --end-code='!python ImageNet-Datasets—Downloader/downloader.py \
+      -data_root test_images \
+      -use_class_list=True \
+      -class_list $empty_string \
+      -images_per_class 10
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ # Get food and non-food string class IDs</button>
+   <div class='content' --start-code='# Get food string class IDs
+   food_class_id_list = list(imagenet_food_class_ids_and_names_dict.keys())
+   food_class_id_list[:10]
+   ' --end-code='# Get food and non-food string class IDs
+   food_class_id_list = list(imagenet_food_class_ids_and_names_dict.keys()) |
+   non_food_class_id_list = list(imagenet_non_food_class_ids_and_names_dict.keys())
+   food_class_id_list[:5], non_food_class_id_list[:5]
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+       long_string += " " + item</button>
+   <div class='content' --start-code='def convert_list_to_long_string(targ_list):
+      long_string = ""
+      for item in targ_list:
+      long_string += " " + item
+      long_string = long_string[1:]
+      return long_string
+   
+   food_class_id_string = convert_list_to_long_string(food_class_id_list)
+   non_food_class_id_string = convert_list_to_long_string(non_food_class_id_list)
+   food_class_id_string[:10], non_food_class_id_string[:10]
+   ' --end-code='def convert_list_to_long_string(targ_list):
+      long_string = ""
+      for item in targ_list:
+         long_string += " " + item
+      long_string = long_string[1:]
+      return long_string
+   
+   food_class_id_string = convert_list_to_long_string(food_class_id_list)
+   non_food_class_id_string = convert_list_to_long_string(non_food_class_id_list)
+   food_class_id_string[:10], non_food_class_id_string[:10]
+   
+   food_class_id_string|
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ len(non_food_class_id_list)</button>
+   <div class='content' --start-code='!mkdir data/non_food_images/
+   
+   
+   len(food_class_id_list)
+   
+   !python ImageNet-Datasets-Downloader/downloader.py \
+      -data_root data/food_images \
+      -use_class_list=True \
+      -class_list $food_class_id_string \
+      -images_per_class 100
+   ' --end-code='!mkdir data/non_food_images/
+   
+   len(non_food_class_id_list)
+   
+   !python ImageNet-Datasets-Downloader/downloader.py \
+      -data_root data/non_food_images \
+      -use_class_list=True \
+      -class_list $non_food_class_id_string \
+      -images_per_class 10
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ tf.config.list_physical_devices()</button>
+   <div class='content' --start-code='import tensorflow as tf' --end-code='import tensorflow as tf
+   
+   tf.config.list_physical_devices()
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>search: tensorflow convert saved model to tflite model</button><div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(13341)'>turn off tensorflow warnings</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-12_37_30.png' width='180' height='112'> </td></tr><tr><td>Disable Tensorflow debugging information</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(13433)'>tensorflow load images</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-12_44_16.png' width='180' height='112'> </td></tr><tr><td>Load and preprocess images</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(13451)'>keras image dataset from directory</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-12_55_21.png' width='180' height='112'> </td></tr><tr><td>keras image dataset from
+   directory</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(13485)'>tensorflow convert saved model to tflite model</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-12_58_27.png' width='180' height='112'> </td></tr><tr><td>tensorflow lite converter</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-24-13_38_53.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>keras image dataset from directory</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>+ !mkdir data/model_test_images/train</button>
+   <div class='content' --start-code='import os
+   for dirs, sub_dirs, files in os.walk("data/model_test_images/"):
+      print(dirs)
+      print(sub_dirs)
+      print(files)
+   ' --end-code='!mkdir data/model_test_images/train
+   !mkdir data/model_test_images/test
+   
+   import os
+   for dirs, sub_dirs, files in os.walk("data/model_test_images/"):
+      print(dirs)
+      print(sub_dirs)
+      print(files)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ len(aircraft_images)</button>
+   <div class='content' --start-code='aircraft_images = os.listdir("data/model_test_images/aircraft")
+   aircraft_images
+   ' --end-code='aircraft_images = os.listdir("data/model_test_images/aircraft")
+   len(aircraft_images)
+   
+   train_split = int(0.8 * len(aircraft_images))
+   train_split
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ train_idx = np.arange(len(aircraft_images))</button>
+   <div class='content' --start-code='import numpy as np
+   
+   train_idx = np.range(len(aircraft_images))
+   train_idx
+   ' --end-code='import numpy as np
+   
+   train_idx = np.arange(len(aircraft_images))
+   train_idx
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>search: python shutil copy</button><div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(14557)'>python random select k</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-25-09_57_26.png' width='180' height='112'> </td></tr><tr><td>python random sample() to choose multiple items from any sequence</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(14572)'>python random seed</a></span></div><hr>
+   <div class='webImageLongRow'>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(15821)'>python shutil copy</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-25-12_24_04.png' width='180' height='112'> </td></tr><tr><td>How do I copy a file in python</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>+ target_dirs = os.listdir("data/model_test_images_split/)</button>
+   <div class='content' --start-code='import random
+   random.sample(aircraft_images, 10)
+   ' --end-code='target_dirs = os.listdir("data/model_test_images_split/)
+   target_dirs
+   
+   import random
+   def create_train_test_list(target_dir):
+      random.seed(42)
+      image_list = os.listdir(target_dir)
+      train_split = int(0.8 * len(image_list))
+      train_image_list = random.sample(image_list, train_split)
+      test image list = list(set(image_list).difference(set(train_image_list)))
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+    # Copy testing images</button>
+   <div class='content' --start-code='# Create a function to move images
+   for image_dir in os.listdir("model_test_images"):
+      print(image_dir)
+   ' --end-code='   # Copy testing images
+      copy_images_to_file(img_path_list=test_image_list,
+         target_dir=target_dir,
+         train=False)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ # Create a function to move images</button>
+   <div class='content' --start-code='data_dir = "data/model_test_images"
+   target_dir = "data/model_test_images_split"
+   for image_dir in os.listdir(data_dir):
+      # print(image_dir)
+      # print(os.path.join(data_dir, image_dir))
+      for split_dir in ["train", "test"]:
+         os.makedirs(os.path.join(target_dir, image_dir, split_dir))
+   
+      # Make training and test lists of target images
+      train_image_list, test_image_list = create_train_test_list(os.path.join(data_dir, image_dir))
+      # print(len(train_image_list), len(test_image_list))
+   
+      # Copy training images
+      copy_images_to_file(img_path_list=train_image_list,
+         target_dir=target_dir,
+         train=True)
+   
+   # Copy testing images
+   ' --end-code='# Create a function to move images
+   from shutil import copy2
+   data_dir = "data/model_test_images"
+   target_dir = “data/model_test_images_split"
+   for image_dir in os.listdir(data_dir):
+      # print(image_dir)
+      # print(os.path.join(data_dir, image_dir))
+      for split_dir in ["train", "test"]:
+         os.makedirs(os.path.join(target_dir, split_dir, image_dir), exist_ok=True)
+   
+      # Make training and test lists of target images
+      train_image_list, test_image_list = create_train_test_list(os.path.join(data_dir, image_dir))
+      # print(len(train_image_list), len(test_image_list))
+   
+      # Copy training images
+      copy_images_to_file(img_path_list=train_image_list,
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+       split_dir = "train"</button>
+   <div class='content' --start-code='def copy_images_to_file(img_path_list, target_dir, train=True):
+      if train:
+         print(target_dir)
+         os.makedirs(os.p
+   else:
+      split_dir = "tes
+      os.makedirs(os.p
+   
+      #Copy images
+      for image_path in im
+         image_file_name
+         dest_path = os.p
+         print(f"Copying:
+         copy2(image_path, dest_path)
+   ' --end-code='def copy_images_to_file(img_path_list, target_dir, train=True):
+      if train:
+         split_dir = "train"
+      else:
+         split_dir = "test"
+   
+      # Copy images
+      for image_path in img_path_list[:5]:
+         image_file_name = os.path.split(image_path) [-1]
+         dest_path = os.path.join(target_dir, split_dir, image_dir, image_file_name)
+         print(f"Copying: {image_path} to {dest_path}")
+         copy2(image_path, dest_path)
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>+ # Copy images</button>
+   <div class='content' --start-code='target_dir = "data/model_test_images_split"
+   for image_dir in os.listdir(data_dir):
+      for split_dir in ["train", "test"]:
+         os.makedirs(os.path.join(target_dir, split_dir, image_dir), exist_ok=True)
+   
+      # Make training and test lists of target images
+      train_image_list, test_image_list = create_train_test_list(os.path.join(data_dir, image_dir))
+      # print(len(train_image_list), len(test_image_list))
+   
+      # Copy training images
+      copy_images_to_file(img_path_list=train_image_list,
+         target_dir=target_dir,
+         train=True)
+   
+      # Copy testing images
+         copy_images_to_file(img_path_list=test_image_list,
+            target_dir=target_dir,
+            train=False)
+   ' --end-code='# Copy images
+   for image_path in img_path_list:
+      image_file_name = os.path.split(image_path)[-1]
+      dest_path = os.path.join(target_dir, split_dir, image_dir, image_file_name)
+      print(f"Copying: {image_path} to {dest_path}")
+      copy2(image_path, dest_path)
+   
+   # Create a function to move images
+   from shutil import copy2
+   data_dir = "data/model_test_images"
+   target_dir = "data/model_test_images_split"
+   for image_dir in os.listdir(data_dir):
+      for split_dir in ["train", "test"]:
+         os.makedirs(os.path.join(target_dir, split_dir, image_dir), exist_ok=True)
+   '>
+   <p> code content will go here</p>
+   </div>
+   <button type='button' class='collapsible active'>search: images efficient net B0</button><div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(17789)'>efficient net B0</a></span></div><hr>
+   <div class='webImageLongRow'>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(17791)'>images efficient net B0</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-25-15_00_16.png' width='180' height='112'> </td></tr><tr><td>EfficientNet: Improving Accuracy and Efficiency through AutoML and Model Scaling</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>search: cors policy google storage bucket</button><div class='content'>
+   <div class='title'><span><a href='javascript:' onclick='seek(17833)'>tensorflow efficientnetb0</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-25-15_03_31.png' width='180' height='112'> </td></tr><tr><td>tf.keras.application.efficientnet.EfficientNetB0</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(18026)'>tensorflow functional api</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-25-15_12_02.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tf.keras.application.efficientnet.EfficientNetB0</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(18063)'>tensorflow functional api</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-09_49_59.png' width='180' height='112'> </td></tr><tr><td>tensorflow functional api</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-09_52_19.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tf.keras.applications.efficientnet.EfficientNetB0</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-09_56_07.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tf.keras.applications.efficientnet.EfficientNetB0</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_06_52.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tf.keras.applications.efficientnet.EfficientNetB0</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(18377)'>keras plot model</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_22_12.png' width='180' height='112'> </td></tr><tr><td>keras model plotting utilities</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_26_47.png' width='180' height='112'> </td></tr><tr><td>graphviz</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(18529)'>weights and biases tensor flow</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_29_27.png' width='180' height='112'> </td></tr><tr><td>Visualizing TensorFlow2 models with Weights and Biases</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_30_22.png' width='180' height='112'> </td></tr><tr><td>tf2 CNN with W&B</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_43_40.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tf2 CNN with W&B</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_49_02.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Visualizing TensorFlow 2 models with Weights and Biases</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(18748)'>weights and biases tensor flow guide</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_52_30.png' width='180' height='112'> </td></tr><tr><td>Introduction to TensorFlow with Weights and Biases</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_53_28.png' width='180' height='112'> </td></tr><tr><td>WandB fashionMNIST tensorflow</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-10_59_24.png' width='180' height='112'> </td></tr><tr><td>weights and biases page</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_00_06.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>WandB fashionMNIST tensorflow</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_05_01.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tf2 CNN with W&B</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(19223)'>weights and biases sync tensorboard</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_21_41.png' width='180' height='112'> </td></tr><tr><td>TensorBoard</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_24_02.png' width='180' height='112'> </td></tr><tr><td>Configure Experiments with wandb.config</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_24_53.png' width='180' height='112'> </td></tr><tr><td>Quickstart</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_25_27.png' width='180' height='112'> </td></tr><tr><td>TensorFlow</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_26_36.png' width='180' height='112'> </td></tr><tr><td>tf-cnn-fashion</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(19366)'>tensorflow keras plot model</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-11_31_35.png' width='180' height='112'> </td></tr><tr><td>tf.keras.utils.plot_model</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-12_08_52.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tf2 CNN with W&B</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_03_56.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tensorflow overview page</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_04_58.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>TensorBoard documentation</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_06_46.png' width='180' height='112'> </td></tr><tr><td>book (his) zero to mastery TensorFlow for Deep Learning</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_21_45.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>book
+   (his) zero to mastery TensorFlow for Deep Learning</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_27_57.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>weights and biases page</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(20333)'>weights and biases sync tensorboard</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_36_41.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>book
+   (his) zero to mastery TensorFlow for Deep Learning</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_37_20.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Tensorboard docs</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_38_16.png' width='180' height='112'> </td></tr><tr><td>Experiment Logging with Tensorboard and wandb</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_40_13.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>book
+   (his) zero to mastery TensorFlow for Deep Learning</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_42_08.png' width='180' height='112'> </td></tr><tr><td>localhost</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_48_10.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>weights and biases page (his account)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_50_25.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>Experiment Logging with Tensorboard and wandb</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-13_58_19.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>weights and biases page (his account)</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(20879)'>weights and biases log tensorboard logs</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-14_00_50.png' width='180' height='112'> </td></tr><tr><td>Logging with Weights & Biases - Monitoring your neural network's training made easy</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-26-14_03_51.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>weights and biases page (his account)</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(24307)'>python get list of all files in directory</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-27-13_11_11.png' width='180' height='112'> </td></tr><tr><td>python list files in a directory: step-by-step guide</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-10_21_23.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>weights and biases page (his account)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-10_23_15.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>wandb compute stats (his account)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-11_13_41.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>tensorflow lite conversion page</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-11_22_32.png' width='180' height='112'> </td></tr><tr><td>repl.it</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-11_23_49.png' width='180' height='112'> </td></tr><tr><td>see all repls</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-11_24_24.png' width='180' height='112'> </td></tr><tr><td>fork orderlymintcream2 repl</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-11_26_44.png' width='180' height='112'> </td></tr><tr><td>food-not-food repl repository</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-11_33_55.png' width='180' height='112'> </td></tr><tr><td>classification on imbalanced data</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_17_00.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>classification on imbalanced data page</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_20_22.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>weights and biases page (his account)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_21_26.png' width='180' height='112'> </td></tr><tr><td>wandb runs (his account)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_29_09.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>wandb runs (his account)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_39_02.png' width='180' height='112'> </td></tr><tr><td>console.cloud.google.com</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_45_47.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>console.cloud bucket</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_46_55.png' width='180' height='112'> </td></tr><tr><td>colab.research.google.com</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_48_28.png' width='180' height='112'> </td></tr><tr><td>colab new notebook</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(28169)'>google storage pricing</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-13_52_11.png' width='180' height='112'> </td></tr><tr><td>cloud storage pricing</td></tr></tbody></table></div>
+   </div>
+   <div class='title'><span><a href='javascript:' onclick='seek(28231)'>cors policy google storage bucket</a></span></div><hr>
+   <div class='webImageLongRow'>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-14_19_47.png' width='180' height='112'> </td></tr><tr><td>cross-origin resource sharing (CORS)</td></tr></tbody></table></div>
+           <div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/foodNotFood/screencapture-localhost-8000-2022-01-28-14_41_01.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>google cloud bucket</td></tr></tbody></table></div>
+   </div>
+   </div>
+   
+   <button type='button' class='collapsible active'>+ # Make model untrainable</button>
+   <div class='content' --start-code='base_model = tf.keras.applications.EfficientNetB0(include_top=False)
+   base_model
+   ' --end-code='base_model = tf.keras.applications.EfficientNetB0(include_top=False)
+   
+   # Make model untrainable
+   base_model.trainable = False
+   
+   # Build a functional model
+   input_layer = tf.keras.Input(shape=(224, 223, 3))
+   x = base_model(input_layer)
+   x = tf.keras.
+   output_layer
+   
+   # Construct model
+   model_1 = tf.keras.Model(input_layer, output_layer)
+   model_1
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ !pip install pydot</button>
+   <div class='content' --start-code='tf.keras.utils.plot_model(model_1)
+   ' --end-code='!pip install pydot
+   !pip install wandb
+   
+   import tensorflow as tf
+   tf.get_logger().setLevel("INFO")
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ wandb.init(project="100k-livestream-video", sync_tensorboard=True)</button>
+   <div class='content' --start-code='import wandb
+   ' --end-code='import wandb
+   wandb.init(project="100k-livestream-video", sync_tensorboard=True)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ input_tayer = tf.keras.input(shape=(224, 243, 3)) </button>
+   <div class='content' --start-code='model_1 = tf.keras.Model(input_layer, output_layer)
+   
+   tf.keras.utils.plot_model(model_1, include_shapes=True)
+   ' --end-code='input_tayer = tf.keras.input(shape=(224, 243, 3))
+   x = base_model(input_layer)
+   x = tf.keras.layers.GlobalAveragePooling2D()(x)
+   output_layer = tf.keras.layers.Dense(1, activation="sigmoid")(x)
+   
+   # Construct model
+   model_1 = tf.keras.Model(input_layer, output_layer)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ # Create EarlyStopping callback</button>
+   <div class='content' --start-code='# Compile model
+   model_1.compile(loss=tf.keras.losses.BinaryCrossentropy(),
+      optimizer=tf.keras.optimizers.Adam(),
+      metrics=["accuracy"]
+   )' --end-code='# Create EarlyStopping callback
+   early_stopping = tf.keras.callbacks.EarlyStopping(patience=5,
+      monitor="val_loss"
+   )
+   
+   # Fit model
+   history_1 = model_1.fit((train_data,
+      epochs=25,
+      validation_data=test_data,
+      callbacks=[early_stopping])
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>not available</button>
+   <div class='content' --start-code='model_1.evaluate(test_data)
+   ' --end-code='model_1.evaluate(test_data)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ !pip install pydot</button>
+   <div class='content' --start-code='# Get helper_functions.py script from course GitHub
+   !wget https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learni
+   
+   # Import helper functions we"re going to use
+   from helper_functions import create_tensorboard_callback, plot_loss_curve
+   ' --end-code='!pip install pydot
+   !pip install wandb
+   # Get helper_functions.py script from course GitHub
+   !wget https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learni
+   
+   # Import helper functions we"re going to use
+   from helper_functions import create_tensorboard_callback, plot_loss_curve
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ # Fit model</button>
+   <div class='content' --start-code='   monitor="val_loss"
+   }
+   
+   history_1 = model_1.fit(train_data,
+      epochs=50,
+      validation_data=test_data,
+      callbacks=[early_stopping,
+         create_tensorboard_callback("logs")])
+   ' --end-code='# Fit model
+   history_1 = model_1.fit(train_data,
+      epochs=50,
+      validation_data=test_data,
+      callbacks=[early_stopping
+         create_tensorboard_callback("logs", model_1.name)])
+   
+   model_1.evaluate(test_data)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ # wandb.tensorboard.patch(root_logdir="logs")</button>
+   <div class='content' --start-code='import wandb
+   wandb.tensorboard.patch(root_logdir="logs/")
+   wandb.init(project="100k-livestream-video", sync_tensorboard=True)
+   ' --end-code='import wandb
+   # wandb.tensorboard.patch(root_logdir="logs")
+   wandb.init(project="100k-livestream-video", sync_tensorboard=True)
+   '>
+   <p> code content will go here</p>
+   </button>tton type='button' class='collapsible active'>+ len(image_files)
+   <div class='content' --start-code='import os
+   image_files = []
+   
+   for dirs, sub_dirs, files in os.walk("data/imagenet_images/"):
+      image_files.append(files)
+   len(image_files)
+   ' --end-code='len(image_files)
+   image_files'>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ ima</button>
+   <div class='content' --start-code='import os
+   image_files = []
+   for dirs, sub_dirs, files in os.walk("data/imagenet_images/imagenet_images/"):
+      image_files.append(file for file in files)
+   len(image_files)
+   
+   image_files
+   ' --end-code='import os
+   image_files = []
+   ima
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ len(image_dirs) </button>
+   <div class='content' --start-code='image_dirs = []
+   for dirs, sub_dirs, files in os.walk("data/imagenet_images/"):
+      image_dirs.append(sub_dirs)
+      for item in files:
+         image_files.append(item)
+      len(image_files)
+   
+   image_files[:5], sub_dirs[:5]
+   ' --end-code='len(image_dirs)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ len(image_dirs)</button>
+   <div class='content' --start-code='image_dirs = []
+   for dirs, dirs, files in os.walk("data/imagenet_images/"):
+      print(sub_dirs)
+      image_dirs.append(sub_dirs)
+      for item in files:
+         image_files.append(item)
+   len(image_files)
+   
+   image_files[:5], dirs[:5]
+   ' --end-code='len(image_dirs)
+   
+   image_dirs
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ from shutil import copy2</button>
+   <div class='content' --start-code='import os
+   
+   for dirs, sub_dirs, files in os.walk("data/model_test_images/"):
+      print(dirs)
+      print(sub_dirs)
+      print(files)
+   
+   import random
+   def create_train_test_list(target_dir):
+      random.seed(42)
+      image_list = [os.path.join(target_dir, img_path) for img_path in os.listdir(target_dir)]
+      train_split = int(0.8 * len(image_list))
+      train_image_list = random.sample(image_list, train_split)
+   ' --end-code='import os
+   from shutil import copy2
+   import random
+   
+   for dirs, sub_dirs, files in os.walk("data/imagenet_images"):
+      print(dirs)
+      print(sub_dirs)
+      print(files)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+    random.seed(42)</button>
+   <div class='content' --start-code='def create_train_test_list(target_dir):
+      random. seed(42)
+      image_list = [os.path.join(target_dir, img_path) for img_path in os.listdir(target_dir)]
+      train_split = int(0.8 * len(image_list))
+      train_image_list = random.sample(image_list, train_split)
+      test_image_list = list(set(image_list).difference(set(train_image_list)))
+      return train_image_list, test_image_list
+   
+   train_image_list, test_image_list = create_train_test_list("data/model_test_images/aircraft")
+   len(train_image_list), len(test_image_list)
+   ' --end-code='def create_train_test_list(target_dir):
+      random.seed(42)
+      image_list = [os.path.join(target_dir, img_path) for img_path in os.listdir(target_dir)]
+      train_split = int(0.8 * len(image_list))
+      train_image_list = random.sample(image_list, train_split)
+      test_image_list = list(set(image_list).difference(set(train_image_list)))
+      return train_image_list, test_image_list
+   
+   train_image_list, test_image_list = create_train_test_list("data/model_test_images/aircraft")
+   len(train_image_list), len(test_image_list)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ food_list_filter[:5], non_food_list_filter[:5]</button>
+   <div class='content' --start-code='food_list_filter = df_food.class_name.tolist()
+   non_food_list_filter = df_non_food.class_name.tolist()
+   ' --end-code='food_list_filter = df_food.class_name.tolist()
+   non_food_list_filter = df_non_food.class_name.tolist()
+   
+   food_list_filter[:5], non_food_list_filter[:5]
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ # Get list of downloaded ImageNet class folder names</button>
+   <div class='content' --start-code='# Move food images to food_images folder
+   imagenet_downloaded_image_folders = os.listdir("data/imagenet_images/")
+   imagenet_downloaded_image_folders
+   ' --end-code='# Get list of downloaded ImageNet class folder names
+   imagenet_downloaded_image_folders = [folder_name.lower() for folder_name in os.listdir("data/imagenet_images/")]
+   imagenet_downloaded_image_folders[:5]
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ start_dir = "data/imagenet_images"</button>
+   <div class='content' --start-code='from shutil import copy2
+   start_dir = "imagenet_images"
+   dest_dir = "data/food_images"
+   for image_folder in imagenet_downloaded_image_folders:
+      if image_folder in food_list_filter:
+      # Make new target dir
+      dest_dir = os.path.join(dest_dir, image_folder)
+      os.makedirs(dest_dir, exist_ok=True)
+   
+      start_dir = os.path.join(start_dir, image_folder)
+      images_to_copy = os.listdir(start_dir)
+      for image_to_copy in images_to_copy:
+         image_filename = image_to_copy.split()[-1]
+         start_path = os.path.join(start_dir, image_filename)
+         dest_path = os.path.join(dest_dir, image_filename)
+         print(f"Copying: {start_path} to {dest_path}...")
+         # copy2(image_to_copy)
+   ' --end-code='from shutil import copy2
+   start_dir = "data/imagenet_images"
+   dest_dir = "data/food_images"
+   for image_folder in os.listdir(start_dir):
+      target_image_folder = None
+      print(f"Image folder: .... {image_folder}...
+      if image_folder.lower() in food_list_filter:
+         # Make new target dir
+         new_dest_dir = os.path.join(dest_dir, im
+         print(f"Making folder: {new_dest_dir}...")
+         os.makedirs(new_dest_dir, exist_ok=True)
+   
+   
+         # Images to copy
+         target_image_folder = os.path.join(start_dir, image_folder)
+      else:
+         pass
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+    for file in files:</button>
+   <div class='content' --start-code='# Extract food_images files and move to train/food_images
+   # Do the same with test & non_food_images
+   food_image_filepaths = []
+   for dir, sub_dir, files in os.walk("data/food_images/"):
+      food_image_filepaths.append(files)
+   food_images_filepaths
+   ' --end-code='food_image_filepaths = []
+   for dir, sub_dir, files in os.walk("data/food_images/"):
+      for file in files:
+         food_image_filepaths.append(os.path.join(dir, file))
+   len(food_image_filepaths)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+       non_food_image_filepaths.append(os.path.join(dir, file))</button>
+   <div class='content' --start-code='# Extract food_images files and move to train/food_images
+   # Do the same with test & non_food_images
+   food_image_filepaths = [1
+   for dir, sub_dir, files in os.walk("data/food_images/"):
+      for file in files:
+         food_image_filepaths.append(os.path.join(dir, file))
+   
+   non_food_image_filepaths = []
+   for dir, sub_dir, files in os.walk("data/non_food_images/"):
+      for file in files:
+         food_image_filepaths.append(os.path.join(dir, file))
+   food_image_filepaths[:5]
+   ' --end-code='non_food_image_filepaths = []
+   for dir, sub_dir, files in os.walk("data/non_food_images/"):
+      for file in files:
+         non_food_image_filepaths.append(os.path.join(dir, file))
+   food_image_filepaths[:5], non_food_image_filepaths[:5]
+   
+   def create_train_test_list(image_list):
+      random.seed(42)
+      # image_list = [os.path.join(target_dir, img_path) for img_path in os.listdir(target_dir)]
+      train_split = int(0.8 * len(image_list))
+      train_image_list = random.sample(image_list, train_split)
+      test_image_list = list(set(image_list).difference(set(train_image_list)))
+      return train_image_list, test_image_list
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ train_images, test_images = create_train_test_list(non_food_image_filepaths)</button>
+   <div class='content' --start-code='# Move to train and test
+   def copy_images_to_file(img_path_list, target_dir, train=True):
+      if train:
+         split_dir = "train"
+      else:
+         split_dir = "test"
+   
+      # Copy images
+      for image_path in img_path_list:
+         image_file_name = os.path.split(image_path)[-1]
+         dest_path = os.path.join(target_dir, split_dir, image_dir, image_file_name)
+         print(f"Copying: {image_path} to {dest_path}")
+         copy2(image_path, dest_path)
+   ' --end-code='train_images, test_images = create_train_test_list(non_food_image_filepaths)
+   
+   copy_images_to_file(image_list=train_images, target dir="data/train/non_food_images/")
+   copy_images_to_file(image_list=test_images, target_dir="data/test/non_food_images/")
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ (variable) saved_model_dir: Literal('food_not_food_model_v0')</button>
+   <div class='content' --start-code='# Convert the model
+   converter = tf.lite.TFLiteConverter.from_saved_model(saved_model_dir)
+   tflite_model = converter.convert()
+   
+   # Save the model
+   with open("model.tflite", "wb") as f:
+      f.write(tflite_model)
+   ' --end-code='(variable) saved_model_dir: Literal("food_not_food_model_v0")
+   saved_model_dir = "food_not_food_model_v0"
+   converter = tf.lite.TFLiteConverter.from_saved_model(saved_model_dir) # path to the SavedModel directory
+   tflite_model = converter.convert()
+   
+   # Save the model.
+   with open("food_not_food_model_v0.tflite", "wb") as f:
+      f.write(tflite_model)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ test_dir = "data/test"</button>
+   <div class='content' --start-code='total_samples = len(os.listdir(train_dir))
+   num_food_samples = len(os.listdir(train_dir + "food_images"))
+   num_non_food_samples = len(os.listdir(train_dir + "non_food_images"))
+   total_samples, num_food_samples, num_non_food_samples
+   ' --end-code='test_dir = "data/test"
+   train_dir, test_dir
+   
+   total_samples = len(os.listdir(train_dir))
+   num_food_samples = len(os.listdir(os.path.join(train_dir, "food_images")))
+   num_non_food_samples = len(os.listdir(os.path.join(train_dir, "non_food_images")))
+   total_samples, num_food_samples, num_non_food_samples
+   
+   # See: https://www.tensorflow.org/tutorials/structured_data/imbalanced_data
+   # Scaling by total/2 helps keep the loss to a similar magnitude.
+   # The sum of the weights of all examples stays the same.
+   weight_for_0 = (1 / neg) * (total / 2.0)
+   weight_for_1 = (1 / pos) * (total / 2.0)
+   
+   class_weight = {0: weight_for_0, 1: weight_for_1}
+   
+   print("weight for class 0: {:.2f}".format(weight_for_0))
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ class_weight = {0: weight_for_0, 1: weight_for_1}</button>
+   <div class='content' --start-code='# See: https://wa. tensorflow.org/tutorials/structured data/inbalanced data
+   # Scaling by total/2 helps keep the loss to a similar magnitude.
+   # The sun of the weights of all examples stays the same.
+   weight_for_0 = (1 / num_food_samples) * (total_samples / 2.0)
+   weight_for_1 = (1 / num_non_food_samples) * (total_samples / 2.0)
+   
+   class_weight = {0: weight_for_0, 1: weight_for_1}
+   
+   print("Weight for class 0: {:.2f}".format(weight_for_0))
+   print("Weight for class 1: {:.2f}".format(weight_for_1))
+   ' --end-code='class_weight = {0: weight_for_0, 1: weight_for_1}
+   
+   print(f"Weight for class 0: {weight_for_0}")
+   print(f"Weight for class 1: {weight_for_1}")
+   
+   # Load in data
+   train_data = tf.keras.preprocessing.image_dataset_from_directory(train_dir,
+      batch_size=32,
+      image_size=(224, 224)
+   )
+   
+   test data = tf.keras.preprocessing.image dataset from directorv(test_dir,
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ # Fit model</button>
+   <div class='content' --start-code='# wandb.tensorboard.patch(root_logdir="logs")
+   wandb.init(project="100k-livestream-video", sync_tensorboard=True)
+   history_1 = model_1.fit(train_data,
+      epochs=5,
+      validation_data=test_data,
+      callbacks=[early_stopping,
+         create_tensorboard_callback("logs", model_1.name)])
+   ' --end-code='# Fit model
+   import wandb
+   # wandb.tensorboard.patch(root_logdir="logs")
+   wandb.init(project="100k-livestream-video", sync_tensorboard=True)
+   history_1 = model_1.fit(train_data,
+      epochs=5,
+      validation_data=test_data,
+      callbacks=[early_stopping,
+         create_tensorboard_callback("logs", model_1.name)],
+      class_weight=class_weight) # adjust for different numbers of classes...
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>not available</button>
+   <div class='content' --start-code='model_1.evaluate(test_data)
+   ' --end-code='model_1.evaluate(test_data)
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+ model_1. save("food_not_food_model_v1")</button>
+   <div class='content' --start-code='len(os.listdir("data/train/food_images/")), len(os.listdir("data/train/non_food_images/"))
+   ' --end-code='len(os.listdir("data/train/food_images/")), len(os.listdir("data/train/non_food_images/"))
+   
+   model_1. save("food_not_food_model_v1")
+   '>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>+       <br></button>
+   <div class='content' --start-code='<IDOCTYPE html>
+   <html>
+      <head>
+         <meta charset="utf-8" />
+         <meta name="viewport" content="width=device-width" />
+         <title>Hello World - TensorFlow.js</title>
+         <link href="style.css" rel="stylesheet" type="text/css" />
+      </head>
+      <body>
+         <h1>Food Not Food</h1>
+         <p>This app will tell you if the image you upload is food or not.</p>
+         <p>Yes. That"s it. </p>
+         <p>It"ll use a computer vision machine learning model to classify your
+         image as "food" or "not food".</p>
+         <br>
+         <p>This Line below will say loaded if TensorFlow.js is loaded:</p>
+         <p id="status">Awaiting TF.js load</p>
+         <p id="model_status">Awaiting TF.js model/TFLite model loading</p>
+   
+         <!— Upload image —>
+         <p><label for="file" style="cursor; pointer;">Upload Image</label></p>
+         <p><input type="file" accept="image/+" name="image" id="file-input"
+         /></p>
+         <p<img id="image" width="200" /></p>
+   
+         <p>Predicted class:</p>
+         <p id="predicted_class"></p>
+         <p>Predicted probability:</p>
+         <p id="predicted_prob"></p>
+   
+         <script
+            src="https://cdn.jsdelivr.net/ngm/gtensorflow/tfjs/dist/tf.min.js"
+            type="text/javascript"
+         ></script>
+         <script
+            src="https://cdn.jsdelivr.net/ngm/gtensorflow/tfjs-tflite00.0.1-alpha.7/dist/tf-tflite.min.js"></script>
+   
+         <script src="script.js"></script>
+      </body>
+   </html>
+   ' --end-code='      <title>Hello World - TensorFlow.js</title>
+         <link href="style.css" rel="stylesheet" type="text/css" />
+      </head>
+      <body>
+         <h1>Food Not Food</h1>
+         <p>This app will tell you if the image you upload is food or not.</p>
+         <p>Yes. That"s it. </p>
+         <p>It"ll use a computer vision machine learning model to classify your
+         image as "food" or "not food".</p>
+         <br>
+         <p>This Line below will say loaded if TensorFlow.js is loaded:</p>
+         <p id="status">Awaiting TF.js load</p>
+   
+         <br>
+         <p>This line below will say loaded if the model is loaded</p>
+         <p id="status">Awaiting TF.js model/TFLite model loading</p>
+   
+         <!— Upload image —>
+         <br>
+         <p><label for="file" style="cursor; pointer;">Upload Image</label></p>
+         <p><input type="file" accept="image/+" name="image" id="file-input"
+         /></p>
+         <p<img id="image" width="200" /></p>
+   
+         <p>Predicted class:</p>
+         <p id="predicted_class"></p>
+         <p>Predicted probability:</p>
+         <p id="predicted_prob"></p>
+   
+         <script
+            src="https://cdn.jsdelivr.net/ngm/gtensorflow/tfjs/dist/tf.min.js"
+            type="text/javascript"
+         ></script>
+         <script
+            src="https://cdn.jsdelivr.net/ngm/gtensorflow/tfjs-tflite00.0.1-alpha.7/dist/tf-tflite.min.js"></script>
+   
+         <script src="script.js"></script>
+      </body>
+   </html>'>
+   <p> code content will go here</p>
+   </div><button type='button' class='collapsible active'>const classes = {</button>
+   <div class='content' --start-code='const classes = {
+      1: “food",
+      2: "not_food"
+   };
+   
+   const status = document.getElementById(“status");
+   
+   if (status) {
+      status.innerText = "Loaded TensorFlow.js - version:" + tf.version.tfjs;
+   }
+   
+   let model; // This is in global scope
+   
+   const loadModel = async () => {
+      try {
+         const tfliteModel = await tflite.loadTFLiteModel(
+            //
+            "https://storage.googleapis. con/food-vision-models-test/10_whole_foods_
+            model_v0. tflite"
+            "/10_whole_foods_model_vo. tflite"
+         );
+         model = tfliteModel; // assigning it to the global scope model as
+         tfliteModel can only be used within this scope
+         // console. log(tfliteModel);
+   
+         // Check if model loaded
+         if (tfliteModel) {
+            model_status.innerText = "Model loaded";
+         }
+      } catch (error) {
+         console.log(error);
+      }
+   
+      // // Prepare input tensors.
+      // const img = tf.browser.fromPixels(document.querySelector("img"));
+      // const input = tf.sub(tf.div(tf.expandDims(img), 127.5), 3);
+   
+      // // Run inference and get output tensors.
+      // let outputTensor = tfliteModel.predict(input);
+      // console.log(outputTensor.dataSync());
+   };
+   ' --end-code=''>
+   <p> code content will go here</p>
+   </div>

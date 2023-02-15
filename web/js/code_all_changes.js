@@ -4,11 +4,11 @@ var codeChangeArray = []
 var codeEntries = {}
 
 var eventListsByKey = {} 
-var eventTimes = []
+// var eventTimes = []
 
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    // console.log( "ready!" );
     getAllCodeEdits();
 
 })
@@ -18,7 +18,7 @@ function getAllCodeEdits() {
     $.get('http://localhost:3000/getCodeText', { offset: 0, order : "ASC", limit: 500 }, 
         function(response){
             codeEntries = response;
-            console.log("0th entry" + JSON.stringify(codeEntries[0]));
+            // console.log("0th entry" + JSON.stringify(codeEntries[0]));
 
             initializeHistoryOverview(codeEntries);
             // displayHistoryOverview(); // for now, removing the table view in favor of the bubble overview
@@ -39,9 +39,9 @@ function _getIndexForPreviousFileChange(responses, fileName, time, idx) {
     for (var i = idx-1; i >=0; i--) {
         var resTime = responses[i]["time"];
         var resFile = responses[i]["notes"].slice(6,-1).trim()
-        console.log("checking " + resTime + " " + resFile + " == " + fileName);
+        // console.log("checking " + resTime + " " + resFile + " == " + fileName);
         if (resFile != fileName) {
-            console.log("diff file");
+            // console.log("diff file");
         } else if (resTime < time) { // want to make sure these aren't the same time somehow
                 lastIndex = i;
                 break;
@@ -58,6 +58,8 @@ function _getIForTimeAndFile(targetTime, targetFile, startingIdx, responses) {
     var resTime = responses[startingIdx]["time"];
     var resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
 
+    // console.log("looking for " +targetTime + " " + targetFile + " " + resTime + " " + resFile);
+
     // fix situations were the predicted location for the time is wrong.
     while (resTime < targetTime) {
         startingIdx+=1;
@@ -73,7 +75,7 @@ function _getIForTimeAndFile(targetTime, targetFile, startingIdx, responses) {
 
     // there's still an issue if there are entries for multiple files at the same time.
     // will fail if it doesn't find the right data point before the time > resTime (target time)
-    while ( (resFile != targetFile) && (targetTime <= resTime) ) {
+    while ( (resFile != targetFile) && (targetTime <= resTime) && (startingIdx < responses.length-1) ) {
         startingIdx += 1;
         resTime = responses[startingIdx]["time"];
         resFile = responses[startingIdx]["notes"].slice(6,-1).trim();
@@ -100,7 +102,7 @@ function generateCodeDisplay(responses, i, id, cmd) {
     var fileName = idInfo[0];
     var idx = idInfo[1];
     var time = idInfo[2];
-    console.log("show " + id);
+    // console.log("show " + id);
 
     // console.log("looking for " + fileName + " " + time);
 
@@ -108,17 +110,17 @@ function generateCodeDisplay(responses, i, id, cmd) {
     
     
     if (cmd == "+") {
-        console.log("cmd=" + cmd + " fileName=" + fileName + " idx=" + idx + " time=" + time);
-        console.log( JSON.stringify(responses[i]) );
+        // console.log("cmd=" + cmd + " fileName=" + fileName + " idx=" + idx + " time=" + time);
+        // console.log( JSON.stringify(responses[i]) );
         
         var resTime = responses[i]["time"];
         var resFile = responses[i]["notes"].slice(6,-1).trim()
         
         if ((resTime != time) || (resFile != fileName)) {
             // if resTime and resFile don't match then there's a problem. For now, just echo this.
-            console.log("Time and File Info DOESN'T MATCH");
-            console.log("\tresTime " + resTime + "==" + time);
-            console.log("\tresFile " + resFile + "==" + fileName);
+            // console.log("Time and File Info DOESN'T MATCH");
+            // console.log("\tresTime " + resTime + "==" + time);
+            // console.log("\tresFile " + resFile + "==" + fileName);
 
         } else {
             // otherwise, we want to get the code files and display them
@@ -133,7 +135,7 @@ function generateCodeDisplay(responses, i, id, cmd) {
 
                 displayCodeChangeSummary(prevTime, prevCode, time, currCode);
             } else {
-                console.log("No previous code for " + fileName + " and time " + time);
+                // console.log("No previous code for " + fileName + " and time " + time);
             }
         // var 
         }   
