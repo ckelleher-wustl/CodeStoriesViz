@@ -30,6 +30,14 @@ function getAllCodeEdits() {
 
 }
 
+function _getFilename(notesEntry) {
+    var fileName = notesEntry.slice(6,-1).trim()
+    if (fileName.includes(";")) {
+        fileName = fileName.slice(0, fileName.indexOf(";"));
+    }
+    return fileName;
+}
+
 // helper function to find the previous code change for a file to account for toggling between files when editing
 function _getIndexForPreviousFileChange(responses, fileName, time, idx) {
     
@@ -38,7 +46,7 @@ function _getIndexForPreviousFileChange(responses, fileName, time, idx) {
     // start looking at the idx for the current file and move down from there.
     for (var i = idx-1; i >=0; i--) {
         var resTime = responses[i]["time"];
-        var resFile = responses[i]["notes"].slice(6,-1).trim()
+        var resFile = _getFilename(responses[i]["notes"])
         // console.log("checking " + resTime + " " + resFile + " == " + fileName);
         if (resFile != fileName) {
             // console.log("diff file");
@@ -55,22 +63,23 @@ function _getIndexForPreviousFileChange(responses, fileName, time, idx) {
 // helper function to find the appropriate code entry for a target time and file
 function _getIForTimeAndFile(targetTime, targetFile, startingIdx, responses) {
 
-    var resTime = responses[startingIdx]["time"];
-    var resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
 
-    // console.log("looking for " +targetTime + " " + targetFile + " " + resTime + " " + resFile);
+    var resTime = responses[startingIdx]["time"];
+    var resFile = _getFilename(responses[startingIdx]["notes"]);
+
+    console.log("looking for " +targetTime + " " + targetFile + " " + resTime + " " + resFile);
 
     // fix situations were the predicted location for the time is wrong.
     while (resTime < targetTime) {
         startingIdx+=1;
         resTime = responses[startingIdx]["time"];
-        resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
+        resFile = _getFilename(responses[startingIdx]["notes"]);
     }
 
     while (resTime > targetTime) {
         startingIdx-=1;
         resTime = responses[startingIdx]["time"];
-        resFile = responses[startingIdx]["notes"].slice(6,-1).trim()
+        resFile = _getFilename(responses[startingIdx]["notes"]);
     }
 
     // there's still an issue if there are entries for multiple files at the same time.
@@ -78,7 +87,7 @@ function _getIForTimeAndFile(targetTime, targetFile, startingIdx, responses) {
     while ( (resFile != targetFile) && (targetTime <= resTime) && (startingIdx < responses.length-1) ) {
         startingIdx += 1;
         resTime = responses[startingIdx]["time"];
-        resFile = responses[startingIdx]["notes"].slice(6,-1).trim();
+        resFile = _getFilename(responses[startingIdx]["notes"]);
     }
 
     // it's possible this data point doesn't exist, so we should communicate that.
@@ -114,7 +123,7 @@ function generateCodeDisplay(responses, i, id, cmd) {
         // console.log( JSON.stringify(responses[i]) );
         
         var resTime = responses[i]["time"];
-        var resFile = responses[i]["notes"].slice(6,-1).trim()
+        var resFile = _getFilename(responses[i]["notes"]);
         
         if ((resTime != time) || (resFile != fileName)) {
             // if resTime and resFile don't match then there's a problem. For now, just echo this.
