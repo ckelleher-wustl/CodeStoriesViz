@@ -10,6 +10,7 @@ function initialize() {
     
     for (key in keys) {
         var fileData = _getChangeDataForFilename(keys[key]);
+        // console.log("filedata for " + keys[key] + " is " + JSON.stringify(fileData));
         if ((fileData.length > 1) && (keys[key] != "webData")) {
             // console.log("adding data for " + keys[key] + fileData.length);
             dataByFileName[keys[key]] = fileData;
@@ -34,6 +35,7 @@ function initialize() {
 
 
 function _getChangeDataForFilename(fileName) {
+    console.log("getting change data for " + fileName);
     var changeTimes = codeChangeTimes[fileName];
 
     // console.log("change times: " + fileName);
@@ -61,6 +63,8 @@ function _getChangeDataForFilename(fileName) {
                 var codeState2Time = codeEntries[codeState2I]["time"];
                 
                 // console.log(fileName + " code interval: " + codeState1Time + " - " + codeState2Time);
+                // console.log("codeState1: " + codeState1);
+                // console.log("codeState2: " + codeState2);
 
                 // calculate difference patch
                 var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
@@ -69,8 +73,9 @@ function _getChangeDataForFilename(fileName) {
                 var numAdds = 0;
                 var numRemoves = 0;
 
+                var lines = [];
                 for(var h = 0; h < numHunks; h++) {
-                    var lines = patch['hunks'][h]['lines'];
+                    lines = patch['hunks'][h]['lines'];
 
                     for (var line in lines) {
                         var currLines = lines[line].trim();
@@ -250,12 +255,9 @@ function displayCodeChangeViz() {
 
             //  dataByFileName[d.fileName][idx].time
 
-            console.log("prev data " + prevRecord.time + "  " + prevRecord.numAdds );
-
             while ((prevRecord.numAdds == -1) && (idx > 0)) {
                 idx -=1;
                 prevRecord = dataByFileName[d.fileName][idx];
-                console.log("prev data " + prevRecord.time + "  " + prevRecord.numAdds );
             }
         }
 

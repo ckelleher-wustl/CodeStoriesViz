@@ -12,6 +12,11 @@ function initializeHistoryOverview(codeEntries) {
         // let's get the name of the file first
         var notes = codeEntries[codeEntry]['notes'];
         var fileName = notes.slice(6,-1).trim()
+        // console.log("OLD " + fileName);
+        if (fileName.includes(";")) {
+            fileName = fileName.slice(0, fileName.indexOf(";"));
+        }
+        // console.log("NEW " + fileName);
         var time = codeEntries[codeEntry]['time'];
 
         if ( !(fileName in codeChangeTimes) ) {
