@@ -20,13 +20,13 @@ function initialize() {
     }
 
     // removing clusters for now
-    // d3.csv("../data/codeCluster_gitClassification.csv", function(data) {
-    //     // for (var i = 0; i < data.length; i++) {
-    //     //     console.log(data[i]);
-    //     // }
+    d3.csv("../data/codeCluster_wordle_byFile.csv", function(data) {
+        // for (var i = 0; i < data.length; i++) {
+        //     console.log(data[i]);
+        // }
 
-    //     displayCodeClusterViz(data);
-    // });
+        displayCodeClusterViz(data);
+    });
 
     // var tI = getIndexForTime(16112);
     // console.log("16112 : " + tI);
@@ -35,7 +35,7 @@ function initialize() {
 
 
 function _getChangeDataForFilename(fileName) {
-    console.log("getting change data for " + fileName);
+    // console.log("getting change data for " + fileName);
     var changeTimes = codeChangeTimes[fileName];
 
     // console.log("change times: " + fileName);
@@ -127,13 +127,22 @@ function _interpolateColor(color1, color2, percentage) {
     return interpolate(percentage);
 }
 
+// there has to be a better way to do this
+var fileNum = 0;
+var numFiles = 8;
+var lastFilename = "hi";
+
 function displayCodeClusterViz(data) {
     var maxWidth = 1200/eventTimes.length;  
     var svgContainer = d3.select("#svg_test");
 
     var newSvg = svgContainer.append("svg");
 
-    newSvg.attr("width", 1500).attr("height", 30)
+    fileNum = 0;
+    numFiles = 8;
+    lastFilename = "";
+
+    newSvg.attr("width", 1500).attr("height", 30 * numFiles)
     .selectAll("rect")
     .data( data )
     .enter()
@@ -143,7 +152,19 @@ function displayCodeClusterViz(data) {
         var startPos = getIndexForTime(d.startTime);
         return 10 + startPos * maxWidth;
     })
-    .attr('y', 5)
+    .attr('y', function(d) {
+        console.log("lastFilename = " + lastFilename + " d.fileName = " + d.filename);
+        if (lastFilename == "") {
+            lastFilename = d.filename;
+        }
+
+        if (lastFilename != d.filename) {
+            lastFilename = d.filename;
+            fileNum += 1;
+        }
+
+        return 5 + (30 * fileNum);
+    })
     .attr('width', function(d) {
         var startPos = getIndexForTime(d.startTime);
         var endPos = getIndexForTime(d.endTime);
@@ -154,16 +175,13 @@ function displayCodeClusterViz(data) {
     .attr('stroke', 'black')
     .attr('fill', 'aliceblue')
 
-    // todo: add this in. not totally sure how to get the filename associated with the cluster, but the start and end times should be
-    // pretty straightforward
-
     .on("click", function(d, i) {
 
         // // look for the previous change to this file, which might not be at the previous eventTime.
         var startPos = getIndexForTime(d.startTime);
         var endPos = getIndexForTime(d.endTime);
 
-        console.log("d is " + JSON.stringify(d));
+        console.log("d is " + JSON.stringify(d.fileName));
         console.log(startPos + " - " + endPos);
 
         var fileName = "";
@@ -177,9 +195,11 @@ function displayCodeClusterViz(data) {
         }
 
         console.log("filename is " + fileName);
-        
+        displayCodeChangeSummary(dataByFileName[fileName][startPos].time, dataByFileName[fileName][startPos].code_text, dataByFileName[fileName][endPos].time, dataByFileName[fileName][endPos].code_text);
 
-         displayCodeChangeSummary(dataByFileName[fileName][startPos].time, dataByFileName[fileName][startPos].code_text, dataByFileName[fileName][endPos].time, dataByFileName[fileName][endPos].code_text);
+        var svgContainer = d3.select("#svg_test");
+        var msg = svgContainer.select("p");
+        msg.text(fileName + ": " + d.startTime + " - " + d.endTime);
     });
 
     newSvg.append("line")
@@ -261,6 +281,9 @@ function displayCodeChangeViz() {
             }
         }
 
+
+        // this is what updates the header p with the filename and time ranges.
+        // todo - add this to the clustering
         var svgContainer = d3.select("#svg_test");
         var msg = svgContainer.select("p");
         // msg.text(d.fileName + ": " + dataByFileName[d.fileName][idx].time + " - " + d.value.time);

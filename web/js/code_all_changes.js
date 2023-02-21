@@ -18,7 +18,6 @@ function getAllCodeEdits() {
     $.get('http://localhost:3000/getCodeText', { offset: 0, order : "ASC", limit: 500 }, 
         function(response){
             codeEntries = response;
-            // console.log("0th entry" + JSON.stringify(codeEntries[0]));
 
             initializeHistoryOverview(codeEntries);
             // displayHistoryOverview(); // for now, removing the table view in favor of the bubble overview
@@ -67,7 +66,7 @@ function _getIForTimeAndFile(targetTime, targetFile, startingIdx, responses) {
     var resTime = responses[startingIdx]["time"];
     var resFile = _getFilename(responses[startingIdx]["notes"]);
 
-    console.log("looking for " +targetTime + " " + targetFile + " " + resTime + " " + resFile);
+    // console.log("looking for " +targetTime + " " + targetFile + " " + resTime + " " + resFile);
 
     // fix situations were the predicted location for the time is wrong.
     while (resTime < targetTime) {
