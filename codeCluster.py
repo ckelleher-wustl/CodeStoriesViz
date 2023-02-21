@@ -23,6 +23,8 @@ class CodeEntries:
 
     lineHistory = {}
 
+    entriesByFilename = {}
+
     def get_code_entries(self):
         
         # This is the only data required by the api 
@@ -33,91 +35,130 @@ class CodeEntries:
         }
         # Making the get request
         response = requests.get(self.API_url, params=data)
-        print("got response")
         
-        # print(f"best match: {bestMatch}")
         self.code_entries = response.json()
 
+        self.splitByFilename()
         self.get_match_affinity()
 
-        # self.process_code()
 
+
+    def splitByFilename(self):
+        for codeEvent in self.code_entries:
+            filename = codeEvent["notes"]
+            filename = filename[6:]
+            if (";" in filename):
+                filename = filename[0:filename.index(';')]
+
+            if (filename not in self.entriesByFilename):
+                self.entriesByFilename[filename] = [codeEvent]
+            else:
+                self.entriesByFilename[filename].append(codeEvent)      
+        # for fName in self.entriesByFilename:
+        #     print(f"{fName} contains {len(self.entriesByFilename[fName])}")
+
+    def getFilename(notes):
+        filename = notes[6:]
+        if (";" in filename):
+            filename = filename[0:filename.index(';')]
+
+        return filename
+
+
+
+    # split the code text into individual lines for analysis
     def get_code_lines(self, code_text):
         
         lines = code_text.split("\n")
-        # print(f"\n#code lines: " + str(len(lines)))
         for i in range(0, len(lines)):
             lines[i] = lines[i].strip()
 
         return lines
 
+    
     def get_match_affinity(self):
-        print("Getting match affinity")
-        # print(f"codeentries length {len(self.code_entries)}")
-        with open("web/data/codeAffinity.csv", "w", encoding="utf-8", newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            pastEvent = None
-            writer.writerow(["begin", "end", "matches", "target code", "comp code"])
-            idx = 0
-            for codeEvent in self.code_entries:
+        # # if we want to split the clusters by files.
+        # for filename in self.entriesByFilename:
+
+        #     if len(self.entriesByFilename[filename]) > 1:
+
+        #         pastEvent = None
+        #         self.clusterStartTime = 0
+
+        #         for codeEvent in self.entriesByFilename[filename]:
+
+        #             # let's only pay attention when there's actually some code
+        #             if len(codeEvent["code_text"].strip()) > 0:
+        #                 if (pastEvent):
+        #                     self.match_lines(filename, pastEvent, codeEvent)
+                        
+        #                 pastEvent = codeEvent
+        #         # if (self.clusterStartTime != -1):
+        #         #     print(f"{self.clusterStartTime},{pastEvent['time']},'code', {filename}")
+
+        
+        # if we want to just consider the stream of edits.
+        pastEvent = None
+        self.clusterStartTime = 0
+        for codeEntry in self.code_entries:
+
+            # let's only pay attention when there's actually some code
+            if len(codeEntry["code_text"].strip()) > 0:
+                if (pastEvent):
+                    filename = self.getFilename(codeEntry["notes"])
+                    # webData should not be considered a code filename
+                    if (filename != "webData"):
+                        self.match_lines(self.getFilename(codeEntry["notes"]), pastEvent, codeEntry)
                 
-                # if (idx > 20):
-                #     break
+                pastEvent = codeEvent
 
-                # idx += 1
+    def match_lines(self, filename, pastEvt, currEvt):
 
-                # print(f"\nidx is {idx}")
-
-                # let's only pay attention when there's actually some code
-                if len(codeEvent["code_text"].strip()) > 0:
-                    # print(f"codeevent is {codeEvent}")
-                    # print(f"pastevent is {pastEvent}")
-                    if (pastEvent):
-                        self.match_lines(pastEvent, codeEvent, writer)
-                    pastEvent = codeEvent
-
-            print(f"{self.clusterStartTime},{pastEvent['time']},'code'")
-            
-
-    def match_lines(self, pastEvt, currEvt, writer):
-
-        # print(f"TIME: {currEvt['time']}")
-
+        # break current and past code into lines
         pastLines = self.get_code_lines(pastEvt['code_text'])
         currentLines = self.get_code_lines(currEvt['code_text'])
 
-        # print(f"\tpastLines is {len(pastLines)} ")
-        # print(f"\tcurrentLines is {len(currentLines)} ")
-        # print(targetLines)
+        idx = 0
 
-        numMatches = 0
+        partialMatches = 0
+        partialMatchLines = []
+        newLines = []
+        perfectMatches = []
+        
+
+        # iterate through the current lines
         for currentLine in currentLines:
             if len(currentLine) > 1:
-                # print(f"\ttrying to match: {currentLine}")
                 bestMatch = self.best_match(currentLine, pastLines)
                 if ( int(bestMatch['ratio']) >= 90 and int(bestMatch['ratio']) < 100 ):
-                    numMatches += 1
-                #     print(f"\t\tmatch found: {bestMatch}")
-                # else:
-                #     print(f"\t\tNO MATCH FOUND: _{currentLine}_")
+                    partialMatches += 1
+                    partialMatchLines.append(idx)
+                elif (int(bestMatch['ratio']) == 100):
+                    perfectMatches.append(idx)
+                else:
+                    newLines.append(idx)
 
-        # print(f"target: {len(targetEvt['code_text'])} \n{[targetEvt['code_text']]}")
-        # print(f"comp: {len(compEvt['code_text'])} \n{[compEvt['code_text']]}")
-        # print(f"num matches: {numMatches}\n") 
-        # writer.writerow([targetEvt['time'], compEvt['time'], numMatches, [targetEvt['code_text']], [compEvt['code_text']]])
+                idx += 1 # trying to ignore blank lines in trying to look at where insertions happen
 
-        if numMatches > 0:
+        #  considering broadening the cluster criteria, but not sure it makes sense.
+        # print(f"\n {pastEvt['time']}  - {currEvt['time']}")
+        # if len(partialMatchLines):
+        #         print(f"partialMatchLines {partialMatches} {partialMatchLines}")
+        # if len(newLines):
+        #     print(f"newLines {newLines}")
+        # if len(perfectMatches):
+        #     print(f"perfectMatches {perfectMatches}")
+
+        if partialMatches > 0:
             # we've just found the beginning of a cluster
             if not self.inCluster:
                 # print(f"starting a new cluster {pastEvt['time']}")
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
-            # else:
-            #     print("added to cluster")
         else:
             # we've just come out of a cluster, so print it out
             if self.inCluster:
-                print(f"{self.clusterStartTime},{pastEvt['time']},'code'")
+                print(f"{self.clusterStartTime},{pastEvt['time']},'code', {filename}")
             # else:
             #     print(f"No cluster for: {pastEvt['time']},'code'")
             self.inCluster = False

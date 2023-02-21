@@ -20,7 +20,7 @@ function initialize() {
     }
 
     // removing clusters for now
-    d3.csv("../data/codeCluster_wordle_byFile.csv", function(data) {
+    d3.csv("../data/codeCluster_gitMosaic.csv", function(data) {
         // for (var i = 0; i < data.length; i++) {
         //     console.log(data[i]);
         // }
