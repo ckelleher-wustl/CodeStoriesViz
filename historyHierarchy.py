@@ -3,7 +3,7 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-projectName = "gitClassification"
+projectName = "gitMosaic"
 imageDir = "/images/" + projectName + "/"
 
 def get_search_overview_html(responseEntries):
@@ -130,10 +130,13 @@ def get_code_entries(startTime, endTime):
         data = {
         'begin': startTime,
         'end': endTime,
+        'file_extension': '.py',
         }
         # Making the get request
+        # print("making get request...")
         response = requests.get(code_url, params=data)
         # print(f"summary: {response.json()}")
+        # print("...get response")
 
         summaryLine = ["not available", "", ""]
         if len(response.json()) > 0:
@@ -145,13 +148,13 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_IFStudio.csv')
+searchDF = pd.read_csv('web/data/searchClusters_gitMosaic.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_IFStudio.csv')
-codeDF.set_axis(['startTime', 'endTime', 'type'], axis=1, inplace=True)
+codeDF = pd.read_csv('web/data/codeCluster_gitMosaic.csv')
+codeDF.set_axis(['startTime', 'endTime', 'type', 'filename'], axis=1, inplace=True)
 print(codeDF)
 
 searchIdx = 0
@@ -160,13 +163,18 @@ clusterCnt = 1
 
 html = ""
 
+# TODO: something in here seems to be hitting an infinite loop - figure out where.
 
 # organize these into parent/child clusters
 while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
 
+    
+
     if (searchDF.iloc[searchIdx]["startTime"] < codeDF.iloc[codeIdx]["startTime"]) :
         startTime = searchDF.iloc[searchIdx]['startTime']
         endTime = searchDF.iloc[searchIdx]['endTime']
+
+        # print(f"starting search cluster {startTime} - {endTime}")
         [searchSummary, newHtml] = get_search_entries(startTime, endTime, html)
 
         # print(f"newHTML {newHtml}")
@@ -187,8 +195,14 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         try:
             
             while (codeDF.iloc[codeIdx]["startTime"] < searchDF.iloc[searchIdx]["endTime"] ):
+
+                # print(f"code cluster starts {codeDF.iloc[codeIdx]['startTime']} and search ends at {searchDF.iloc[searchIdx]['endTime']}")
+                
                 startTime = codeDF.iloc[codeIdx]['startTime']
                 endTime = codeDF.iloc[codeIdx]['endTime']
+                
+                # print(f"adding code sub-cluster {startTime} - {endTime}")
+                
                 [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
 
                 startingCode = startingCode.replace('\'', '"')
@@ -219,7 +233,12 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
     else:
         startTime = codeDF.iloc[codeIdx]['startTime']
         endTime = codeDF.iloc[codeIdx]['endTime']
+
+        # print(f"starting code cluster {startTime} - {endTime}")
+
+        # print("requesting code entries...")
         [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
+        # print("...got code entries")
 
         startingCode = startingCode.replace('\'', '"')
         endingCode = endingCode.replace('\'', '"')
@@ -243,12 +262,14 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         # print(codeClusterHtml)
 
         addedSearch = false
-        print(f"Search Start: {searchDF.iloc[searchIdx]['startTime']}")
-        print(f"CODE End: {codeDF.iloc[codeIdx]['endTime']}")
+        # print(f"Search Start: {searchDF.iloc[searchIdx]['startTime']}")
+        # print(f"CODE End: {codeDF.iloc[codeIdx]['endTime']}")
         while searchIdx < len(searchDF) and codeIdx < len(codeDF) and (searchDF.iloc[searchIdx]["startTime"] < codeDF.iloc[codeIdx]["endTime"] ):
             # html += "<p> adding a subcluster</p>\n"
             startTime = searchDF.iloc[searchIdx]['startTime']
             endTime = searchDF.iloc[searchIdx]['endTime']
+
+            # print(f"adding search subcluster {startTime} {endTime}")
 
             [searchSummary, newHtml] = get_search_entries(startTime, endTime, html)
             end = 0
@@ -272,6 +293,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         clusterCnt += 1
 
 
+# print(f"out of while loop")
 if (searchIdx < len(searchDF)):
     for i in range (searchIdx, len(searchDF)):
         startTime = searchDF.iloc[searchIdx]['startTime']
@@ -288,6 +310,10 @@ else:
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
         clusterCnt += 1
 
-print(f"HTML: \n{html}")
+# print(f"HTML: \n{html}")
 
 # type = df.iloc[i]["type"]
+
+text_file = open("gitMosaic.html", "w")
+n = text_file.write(html)
+text_file.close()

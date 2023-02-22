@@ -1,171 +1,211 @@
 ,eventID,time,filename,type,page,clusterID
-0,1,0,search: set up venv python;,search, set up venv python;,0
-1,2,6,visit: Creating a Virtual Environment – Real Python;,visit, Creating a Virtual Environment – Real Python;,0
-2,5,394,search: trash vs non trash classifier;,search, trash vs non trash classifier;,1
-3,6,424,visit: Waste Classifier Machine Learning - Rootstrap;,visit, Waste Classifier Machine Learning - Rootstrap;,1
-4,7,460,search: image classification python;,search, image classification python;,2
-5,8,468,search: image classification python pytorch;,search, image classification python pytorch;,3
-6,9,477,visit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,3
-7,10,523,search: enter a venv from cmd;,search, enter a venv from cmd;,4
-8,11,524,visit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,visit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,4
-9,12,557,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,5
-10,13,589,revisit: python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,revisit, python - How to activate virtual environment from Windows 10 command prompt - Stack Overflow;,6
-11,14,602,visit: Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch - YouTube Series — PyTorch Tutorials 1.13.0+cu117 documentation;,6
-12,15,627,visit: Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Introduction to PyTorch — PyTorch Tutorials 1.13.0+cu117 documentation;,6
-13,16,694,visit: Introduction to PyTorch - YouTube;,visit, Introduction to PyTorch - YouTube;,6
-14,17,763,visit: Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,visit, Quickstart — PyTorch Tutorials 1.13.0+cu117 documentation;,6
-15,18,798,search: install pytorch;,search, install pytorch;,7
-16,19,801,visit: Installation — Torch-TensorRT v1.1.1 documentation;,visit, Installation — Torch-TensorRT v1.1.1 documentation;,7
-17,20,835,visit: Start Locally | PyTorch;,visit, Start Locally | PyTorch;,7
-18,23,1033,revisit: Introduction to PyTorch - YouTube;,revisit, Introduction to PyTorch - YouTube;,8
-19,24,1045,visit: Building Models with PyTorch - YouTube;,visit, Building Models with PyTorch - YouTube;,8
-20,25,1101,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,9
-21,32,2005,search: trash image dataset;,search, trash image dataset;,10
-22,33,2019,visit: http://tacodataset.org/;,visit, http://tacodataset.org/;,10
-23,34,2038,visit: GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,visit, GitHub - pedropro/TACO: 🌮 Trash Annotations in Context Dataset Toolkit;,10
-24,35,2107,search: waste image dataset;,search, waste image dataset;,11
-25,36,2130,visit: Garbage Classification | Kaggle;,visit, Garbage Classification | Kaggle;,11
-26,37,2139,visit: WasteNet - Recycleye - The world's largest dataset for waste;,visit, WasteNet - Recycleye - The world's largest dataset for waste;,11
-27,38,2181,revisit: Garbage Classification | Kaggle;,revisit, Garbage Classification | Kaggle;,11
-28,41,2556,search: access and open pil image;,search, access and open pil image;,12
-29,42,2559,visit: Python PIL | Image.open() method - GeeksforGeeks;,visit, Python PIL | Image.open() method - GeeksforGeeks;,12
-30,43,2654,search: python accessing a directory;,search, python accessing a directory;,13
-31,44,2657,visit: Accessing directories and files using python - Stack Overflow;,visit, Accessing directories and files using python - Stack Overflow;,13
-32,47,3066,search: relative path python;,search, relative path python;,14
-33,48,3067,visit: Relative paths in Python - Stack Overflow;,visit, Relative paths in Python - Stack Overflow;,14
-34,51,3219,search: how to find if a directory exists in python;,search, how to find if a directory exists in python;,15
-35,52,3221,visit: How do I check if directory exists in Python? - Stack Overflow;,visit, How do I check if directory exists in Python? - Stack Overflow;,15
-36,53,3299,search: directing to an existing directory in python;,search, directing to an existing directory in python;,16
-37,54,3315,visit: Change current working directory with Python - GeeksforGeeks;,visit, Change current working directory with Python - GeeksforGeeks;,16
-38,55,3382,search: locate a path to a directory in python;,search, locate a path to a directory in python;,17
-39,56,3388,visit: python - How do I get the full path of the current file's directory? - Stack Overflow;,visit, python - How do I get the full path of the current file's directory? - Stack Overflow;,17
-40,59,3597,search: get the path of a directory python;,search, get the path of a directory python;,18
-41,60,3604,visit: Python Directory & File Management - A Quick and Easy Tutorial - DataFlair;,visit, Python Directory & File Management - A Quick and Easy Tutorial - DataFlair;,18
-42,65,3829,search: pytorch how to create a dataset;,search, pytorch how to create a dataset;,19
-43,66,3836,visit: A detailed example of data loaders with PyTorch;,visit, A detailed example of data loaders with PyTorch;,19
-44,67,3868,"visit: Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",visit," Writing Custom Datasets, DataLoaders and Transforms — PyTorch Tutorials 1.13.0+cu117 documentation;",19
-45,68,4041,visit: Creating Your Own Datasets — pytorch_geometric  documentation;,visit, Creating Your Own Datasets — pytorch_geometric  documentation;,19
-46,69,4072,visit: How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,visit, How to use Datasets and DataLoader in PyTorch for custom text data | by Wherll | Towards Data Science;,19
-47,70,4129,search: pytorch how to create a custom dataset for image classification;,search, pytorch how to create a custom dataset for image classification;,20
-48,71,4144,visit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,visit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,20
-49,76,4831,search: python random integer;,search, python random integer;,21
-50,77,4833,visit: Python Random randint() Method;,visit, Python Random randint() Method;,21
-51,78,4859,search: how to pick a random pictures from a directory python;,search, how to pick a random pictures from a directory python;,22
-52,79,4865,visit: discord.py - How do i get a random image from a folder python - Stack Overflow;,visit, discord.py - How do i get a random image from a folder python - Stack Overflow;,22
-53,80,4921,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,23
-54,83,5354,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,24
-55,86,5630,revisit: Accessing directories and files using python - Stack Overflow;,revisit, Accessing directories and files using python - Stack Overflow;,25
-56,87,5647,search: check if a directory exists python;,search, check if a directory exists python;,26
-57,88,5648,visit: Python: Check if a File or Directory Exists - GeeksforGeeks;,visit, Python: Check if a File or Directory Exists - GeeksforGeeks;,26
-58,89,5742,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,27
-59,90,5794,search: clean out all files and folders in directory python;,search, clean out all files and folders in directory python;,28
-60,91,5797,visit: python - How to delete the contents of a folder? - Stack Overflow;,visit, python - How to delete the contents of a folder? - Stack Overflow;,28
-61,92,6265,search: generate a random list of numbers python;,search, generate a random list of numbers python;,29
-62,93,6268,visit: Generating random number list in Python - GeeksforGeeks;,visit, Generating random number list in Python - GeeksforGeeks;,29
-63,94,6380,revisit: Python: Check if a File or Directory Exists - GeeksforGeeks;,revisit, Python: Check if a File or Directory Exists - GeeksforGeeks;,30
-64,95,6386,revisit: discord.py - How do i get a random image from a folder python - Stack Overflow;,revisit, discord.py - How do i get a random image from a folder python - Stack Overflow;,31
-65,96,6398,revisit: Generating random number list in Python - GeeksforGeeks;,revisit, Generating random number list in Python - GeeksforGeeks;,32
-66,99,6954,search: how to use random choice for a list;,search, how to use random choice for a list;,33
-67,100,6978,search: how to use random to select some percentage for a list;,search, how to use random to select some percentage for a list;,34
-68,101,6980,visit: How to Randomly Select Elements From a List in Python;,visit, How to Randomly Select Elements From a List in Python;,34
-69,102,7247,search: selecting random elements from list python without repetition;,search, selecting random elements from list python without repetition;,35
-70,103,7249,visit: python - Random without repetition? - Stack Overflow;,visit, python - Random without repetition? - Stack Overflow;,35
-71,104,7299,visit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,visit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,35
-72,105,7367,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,36
-73,108,7719,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,37
-74,109,7733,search: flatten array python;,search, flatten array python;,38
-75,110,7740,visit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,visit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,38
-76,111,7769,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,39
-77,114,8514,search: grab 80 elements from array python;,search, grab 80 elements from array python;,40
-78,115,8527,search: grab 80 percent of elements from array python;,search, grab 80 percent of elements from array python;,41
-79,116,8530,visit: python - Percent list slicing - Stack Overflow;,visit, python - Percent list slicing - Stack Overflow;,41
-80,117,8592,visit: numpy.percentile() in python - GeeksforGeeks;,visit, numpy.percentile() in python - GeeksforGeeks;,41
-81,118,8616,search: round python;,search, round python;,42
-82,119,8617,visit: Python round() Function;,visit, Python round() Function;,42
-83,120,8793,search: find the difference elements between two lists python;,search, find the difference elements between two lists python;,43
-84,121,8795,visit: Python How to Find the Difference Between Two Lists - codingem.com;,visit, Python How to Find the Difference Between Two Lists - codingem.com;,43
-85,122,8817,visit: python - Get difference between two lists - Stack Overflow;,visit, python - Get difference between two lists - Stack Overflow;,43
-86,129,9924,search: check if all values in list are unique python;,search, check if all values in list are unique python;,44
-87,130,9926,visit: python - Checking if all elements in a list are unique - Stack Overflow;,visit, python - Checking if all elements in a list are unique - Stack Overflow;,44
-88,134,10228,revisit: Randomly select elements from list without repetition in Python - GeeksforGeeks;,revisit, Randomly select elements from list without repetition in Python - GeeksforGeeks;,45
-89,135,10268,search: how to random selecting from a list without repetition python;,search, how to random selecting from a list without repetition python;,46
-90,136,10284,visit: python - How do I create a list of random numbers without duplicates - Stack Overflow;,visit, python - How do I create a list of random numbers without duplicates - Stack Overflow;,46
-91,137,10315,visit: Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,visit, Selecting Random Elements from a List Without Repetition - Python Cookbook [Book];,46
-92,138,10351,revisit: How to Randomly Select Elements From a List in Python;,revisit, How to Randomly Select Elements From a List in Python;,47
-93,139,10405,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,48
-94,140,10437,visit: Python | random.sample() function - GeeksforGeeks;,visit, Python | random.sample() function - GeeksforGeeks;,48
-95,143,10903,search: how to move images from one folder to another in python;,search, how to move images from one folder to another in python;,49
-96,144,10908,visit: How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,visit, How to Move Files in Python: Single and Multiple File Examples – LearnDataSci;,49
-97,145,10962,search: shutil move without deleting;,search, shutil move without deleting;,50
-98,146,10964,visit: python - shutil.move doesn't delete source files - Stack Overflow;,visit, python - shutil.move doesn't delete source files - Stack Overflow;,50
-99,147,10976,visit: Python | shutil.move() method - GeeksforGeeks;,visit, Python | shutil.move() method - GeeksforGeeks;,50
-100,148,11022,search: how to copy and paste img in python;,search, how to copy and paste img in python;,51
-101,149,11051,search: how to move image in python without deleting source files;,search, how to move image in python without deleting source files;,52
-102,150,11058,visit: How to move a file in Python? - Stack Overflow;,visit, How to move a file in Python? - Stack Overflow;,52
-103,151,11147,visit: Copy all files from one directory to another using Python - GeeksforGeeks;,visit, Copy all files from one directory to another using Python - GeeksforGeeks;,52
-104,152,11200,search: shutil copy2;,search, shutil copy2;,53
-105,153,11210,visit: How to Copy Files in Python | Towards Data Science;,visit, How to Copy Files in Python | Towards Data Science;,53
-106,154,11309,search: how to copy files in python;,search, how to copy files in python;,54
-107,155,11310,visit: python - How to copy files - Stack Overflow;,visit, python - How to copy files - Stack Overflow;,54
-108,165,12696,revisit: python - Get difference between two lists - Stack Overflow;,revisit, python - Get difference between two lists - Stack Overflow;,55
-109,166,12699,revisit: python - Random without repetition? - Stack Overflow;,revisit, python - Random without repetition? - Stack Overflow;,56
-110,167,12708,revisit: python - How do I make a flat list out of a list of lists? - Stack Overflow;,revisit, python - How do I make a flat list out of a list of lists? - Stack Overflow;,57
-111,170,12979,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,58
-112,172,13844,search: how to show fig python;,search, how to show fig python;,59
-113,173,13846,visit: Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,visit, Matplotlib.figure.Figure.show() in Python - GeeksforGeeks;,59
-114,176,13942,search: how to show fig python but not close right away;,search, how to show fig python but not close right away;,60
-115,177,13967,search: how to show figure python matplotlib without close right away;,search, how to show figure python matplotlib without close right away;,61
-116,178,13972,visit: python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,visit, python - Is there a way to detach matplotlib plots so that the computation can continue? - Stack Overflow;,61
-117,179,14031,search: how to avoid plt closing on its own;,search, how to avoid plt closing on its own;,62
-118,180,14033,visit: python - Closing pyplot windows - Stack Overflow;,visit, python - Closing pyplot windows - Stack Overflow;,62
-119,183,14131,search: fig show closed on its own;,search, fig show closed on its own;,63
-120,184,14132,visit: python - view and then close the figure automatically in matplotlib? - Stack Overflow;,visit, python - view and then close the figure automatically in matplotlib? - Stack Overflow;,63
-121,187,14430,search: windows path strip image name;,search, windows path strip image name;,64
-122,188,14435,visit: c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,visit, c - How to remove filename from path in Windows File Filter Driver? - Stack Overflow;,64
-123,190,14552,search: how to grab a file name from a pil image path;,search, how to grab a file name from a pil image path;,65
-124,191,14553,"visit: python - Extract file name from path, no matter what the os/path format - Stack Overflow;",visit," python - Extract file name from path, no matter what the os/path format - Stack Overflow;",65
-125,193,14704,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,66
-126,194,14828,search: torchvision.datasets.ImageFolder;,search, torchvision.datasets.ImageFolder;,67
-127,195,14832,visit: ImageFolder — Torchvision main documentation;,visit, ImageFolder — Torchvision main documentation;,67
-128,196,14899,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,68
-129,197,15058,revisit: ImageFolder — Torchvision main documentation;,revisit, ImageFolder — Torchvision main documentation;,69
-130,200,15220,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,70
-131,207,15759,search: make directory within directory python;,search, make directory within directory python;,71
-132,208,15762,visit: Create a directory in Python - GeeksforGeeks;,visit, Create a directory in Python - GeeksforGeeks;,71
-133,209,15830,search: FileNotFoundError: [WinError 3] The system cannot find the path specified;,search, FileNotFoundError: [WinError 3] The system cannot find the path specified;,72
-134,210,15831,visit: python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,visit, python 3.x - FileNotFoundError: [WinError 3] The system cannot find the path specified: - Stack Overflow;,72
-135,217,16210,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,73
-136,224,17779,search: import python file as module;,search, import python file as module;,74
-137,225,17783,visit: Python 3: Import Another Python File as a Module — Computer Science Atlas;,visit, Python 3: Import Another Python File as a Module — Computer Science Atlas;,74
-138,230,18574,search: common pytorch cnn model;,search, common pytorch cnn model;,75
-139,231,18578,visit: Convolutional Neural Network Pytorch | CNN Using Pytorch;,visit, Convolutional Neural Network Pytorch | CNN Using Pytorch;,75
-140,232,18788,visit: PyTorch CNN: The Basics and a Quick Tutorial;,visit, PyTorch CNN: The Basics and a Quick Tutorial;,75
-141,233,18849,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,76
-142,234,19110,search: general cnn architecture for image classification pytorch;,search, general cnn architecture for image classification pytorch;,77
-143,235,19115,visit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,visit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,77
-144,236,20826,search: how to visualize batch size and epochs;,search, how to visualize batch size and epochs;,78
-145,237,20843,"visit: Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",visit," Epochs, Iterations and Batch Size | Deep Learning Basics - YouTube;",78
-146,240,21447,revisit: Start Locally | PyTorch;,revisit, Start Locally | PyTorch;,79
-147,241,21469,revisit: Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,revisit, Implementation of a CNN based Image Classifier using PyTorch - GeeksforGeeks;,80
-148,242,21554,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,81
-149,243,21783,search: difference between adam and sgd;,search, difference between adam and sgd;,82
-150,244,21798,visit: Adam vs. SGD: Closing the generalization gap on image classification;,visit, Adam vs. SGD: Closing the generalization gap on image classification;,82
-151,245,22014,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,83
-152,246,22086,visit: Serialization semantics — PyTorch 1.13 documentation;,visit, Serialization semantics — PyTorch 1.13 documentation;,83
-153,247,22132,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,83
-154,250,23736,revisit: Building Models with PyTorch - YouTube;,revisit, Building Models with PyTorch - YouTube;,84
-155,253,26373,revisit: Adam vs. SGD: Closing the generalization gap on image classification;,revisit, Adam vs. SGD: Closing the generalization gap on image classification;,85
-156,254,26385,search: how to load pth file pytorch;,search, how to load pth file pytorch;,86
-157,255,26387,visit: python - How to load .pth file? - Stack Overflow;,visit, python - How to load .pth file? - Stack Overflow;,86
-158,256,26405,visit: Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,visit, Saving and Loading Models — PyTorch Tutorials 1.12.1+cu102 documentation;,86
-159,257,26640,search: load pth file pytorch and testng;,search, load pth file pytorch and testng;,87
-160,258,26648,visit: How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - vision - PyTorch Forums;,87
-161,259,26669,visit: How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,visit, How to test image for classification on my pretrained CNN .pth file - #2 by ptrblck - vision - PyTorch Forums;,87
-162,260,26689,revisit: 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,revisit, 04. PyTorch Custom Datasets - Zero to Mastery Learn PyTorch for Deep Learning;,88
-163,261,26713,revisit: Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,revisit, Training a Classifier — PyTorch Tutorials 1.13.0+cu117 documentation;,89
-164,271,27670,search: making a confusion matrix pytorch;,search, making a confusion matrix pytorch;,90
-165,272,27675,visit: Confusion Matrix — PyTorch-Metrics 0.11.0 documentation;,visit, Confusion Matrix — PyTorch-Metrics 0.11.0 documentation;,90
-166,273,27691,visit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,visit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,90
-167,274,27903,search: scikit learn confusion matrix;,search, scikit learn confusion matrix;,91
-168,275,27904,visit: sklearn.metrics.confusion_matrix — scikit-learn 1.2.0 documentation;,visit, sklearn.metrics.confusion_matrix — scikit-learn 1.2.0 documentation;,91
-169,276,27966,revisit: PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,revisit, PyTorch Confusion Matrix for multi-class image classification - Knowledge Transfer;,92
+0,6,1293,search: test website;,search, test website;,0
+1,8,3180,visit: How to test Chrome Extensions Â· Endtest;,visit, How to test Chrome Extensions Â· Endtest;,0
+2,9,3186,revisit: chrome://extensions/;,revisit, chrome://extensions/;,1
+3,10,3189,revisit: How to test Chrome Extensions Â· Endtest;,revisit, How to test Chrome Extensions Â· Endtest;,2
+4,11,3224,search: testing web extension chrome;,search, testing web extension chrome;,3
+5,12,11293,revisit: chrome://extensions/;,revisit, chrome://extensions/;,4
+6,13,11296,revisit: GitHub - TriPham2110/webActivities;,revisit, GitHub - TriPham2110/webActivities;,5
+7,14,11353,search: python load photo;,search, python load photo;,6
+8,15,12356,visit: What libraries can load image in Python and what are their difference? | by Kevin Luk | Towards Data Science;,visit, What libraries can load image in Python and what are their difference? | by Kevin Luk | Towards Data Science;,6
+9,16,12366,revisit: python load photo;,revisit, python load photo;,6
+10,17,12374,visit: Reading images in Python - GeeksforGeeks;,visit, Reading images in Python - GeeksforGeeks;,6
+11,18,12421,search: imageio python;,search, imageio python;,7
+12,19,12422,visit: Welcome to imageio’s documentation! — imageio 2.25.1 documentation;,visit, Welcome to imageio’s documentation! — imageio 2.25.1 documentation;,7
+13,20,12428,visit: Imageio Usage Examples — imageio 2.25.1 documentation;,visit, Imageio Usage Examples — imageio 2.25.1 documentation;,7
+14,21,12716,visit: API Reference — imageio 2.25.1 documentation;,visit, API Reference — imageio 2.25.1 documentation;,7
+15,22,12722,visit: imageio.v3.imread — imageio 2.25.1 documentation;,visit, imageio.v3.imread — imageio 2.25.1 documentation;,7
+16,23,12756,search: imageio ndimage;,search, imageio ndimage;,8
+17,24,12766,revisit: API Reference — imageio 2.25.1 documentation;,revisit, API Reference — imageio 2.25.1 documentation;,9
+18,25,12814,revisit: imageio.v3.imread — imageio 2.25.1 documentation;,revisit, imageio.v3.imread — imageio 2.25.1 documentation;,9
+19,26,12848,visit: imageio/v3.py at v2.25.1 · imageio/imageio · GitHub;,visit, imageio/v3.py at v2.25.1 · imageio/imageio · GitHub;,9
+20,884,12914,search: python downsize photo;,search, python downsize photo;,10
+21,885,12943,visit: Resize images using Python | Opensource.com;,visit, Resize images using Python | Opensource.com;,10
+22,889,13149,revisit: API Reference — imageio 2.25.1 documentation;,revisit, API Reference — imageio 2.25.1 documentation;,11
+23,890,13158,search: pillow image resize python;,search, pillow image resize python;,12
+24,891,13173,visit: Python PIL | Image.resize() method - GeeksforGeeks;,visit, Python PIL | Image.resize() method - GeeksforGeeks;,12
+25,898,13463,search: dog clip art;,search, dog clip art;,13
+26,899,13470,search: husky clip art;,search, husky clip art;,14
+27,900,13484,search: house clipart;,search, house clipart;,15
+28,901,13536,revisit: Python PIL | Image.resize() method - GeeksforGeeks;,revisit, Python PIL | Image.resize() method - GeeksforGeeks;,16
+29,907,13576,search: house clipart jpeg;,search, house clipart jpeg;,17
+30,908,13579,search: house clipart jpg;,search, house clipart jpg;,18
+31,915,13773,search: python pil iterate over pixels;,search, python pil iterate over pixels;,19
+32,916,13782,visit: python - How to loop all image pixels and tell whether they are black or white - Stack Overflow;,visit, python - How to loop all image pixels and tell whether they are black or white - Stack Overflow;,19
+33,917,13814,revisit: Python PIL | Image.resize() method - GeeksforGeeks;,revisit, Python PIL | Image.resize() method - GeeksforGeeks;,20
+34,918,13819,revisit: python - How to loop all image pixels and tell whether they are black or white - Stack Overflow;,revisit, python - How to loop all image pixels and tell whether they are black or white - Stack Overflow;,21
+35,925,13933,search: An image access object;,search, An image access object;,22
+36,926,13934,visit: Image object (Access) | Microsoft Learn;,visit, Image object (Access) | Microsoft Learn;,22
+37,927,13946,visit: python - How to iterate correctly over a pixel access object from PIL? - Stack Overflow;,visit, python - How to iterate correctly over a pixel access object from PIL? - Stack Overflow;,22
+38,928,13984,"visit: Get image size (width, height) with Python, OpenCV, Pillow (PIL) | note.nkmk.me;",visit," Get image size (width, height) with Python, OpenCV, Pillow (PIL) | note.nkmk.me;",22
+39,941,14372,visit: How to find the average colour of an image in Python with OpenCV? - Stack Overflow;,visit, How to find the average colour of an image in Python with OpenCV? - Stack Overflow;,22
+40,942,14385,search: python get average color of image;,search, python get average color of image;,23
+41,943,14389,search: python get average color of image pil;,search, python get average color of image pil;,24
+42,944,14402,"revisit: Get image size (width, height) with Python, OpenCV, Pillow (PIL) | note.nkmk.me;",revisit," Get image size (width, height) with Python, OpenCV, Pillow (PIL) | note.nkmk.me;",25
+43,945,14405,revisit: python get average color of image pil;,revisit, python get average color of image pil;,26
+44,975,16091,revisit: How to find the average colour of an image in Python with OpenCV? - Stack Overflow;,revisit, How to find the average colour of an image in Python with OpenCV? - Stack Overflow;,27
+45,976,16224,search: fastest way to calculate average color of image in python;,search, fastest way to calculate average color of image in python;,28
+46,977,16234,visit: Finding the Most Common Colors in Python | by M. Rake Linggar A. | Towards Data Science;,visit, Finding the Most Common Colors in Python | by M. Rake Linggar A. | Towards Data Science;,28
+47,978,16353,search: kmeans runtime;,search, kmeans runtime;,29
+48,979,16358,visit: algorithm - What is the time complexity of k-means? - Stack Overflow;,visit, algorithm - What is the time complexity of k-means? - Stack Overflow;,29
+49,990,16925,search: python pixel similarity;,search, python pixel similarity;,30
+50,991,16944,search: python vector similarity;,search, python vector similarity;,31
+51,992,16957,search: scipy spatial;,search, scipy spatial;,32
+52,993,16960,visit: Spatial algorithms and data structures (scipy.spatial) — SciPy v1.10.1 Manual;,visit, Spatial algorithms and data structures (scipy.spatial) — SciPy v1.10.1 Manual;,32
+53,994,16988,visit: scipy.spatial.KDTree — SciPy v1.10.1 Manual;,visit, scipy.spatial.KDTree — SciPy v1.10.1 Manual;,32
+54,995,17110,search: python kdtree example;,search, python kdtree example;,33
+55,996,17122,visit: scipy.spatial.KDTree.query — SciPy v1.10.1 Manual;,visit, scipy.spatial.KDTree.query — SciPy v1.10.1 Manual;,33
+56,997,17153,revisit: scipy.spatial.KDTree — SciPy v1.10.1 Manual;,revisit, scipy.spatial.KDTree — SciPy v1.10.1 Manual;,34
+57,1000,17693,revisit: scipy.spatial.KDTree.query — SciPy v1.10.1 Manual;,revisit, scipy.spatial.KDTree.query — SciPy v1.10.1 Manual;,35
+58,1010,18258,"search: RGB (177, 182, 182);",search," RGB (177, 182, 182);",36
+59,1011,18261,"visit: Converting Colors - RGB - 177, 182, 182;",visit," Converting Colors - RGB - 177, 182, 182;",36
+60,1017,18916,search: pil update pixel;,search, pil update pixel;,37
+61,1018,18917,visit: python - Changing pixel color value in PIL - Stack Overflow;,visit, python - Changing pixel color value in PIL - Stack Overflow;,37
+62,1019,19086,visit: Python PIL | putpixel() method - GeeksforGeeks;,visit, Python PIL | putpixel() method - GeeksforGeeks;,37
+63,1028,19339,search: pil append images;,search, pil append images;,38
+64,1029,19347,"visit: Concatenate images with Python, Pillow | note.nkmk.me;",visit," Concatenate images with Python, Pillow | note.nkmk.me;",38
+65,1041,21508,search: pil read in images faster;,search, pil read in images faster;,39
+66,1042,21514,visit: How to speed up image loading in pillow (python)? - Stack Overflow;,visit, How to speed up image loading in pillow (python)? - Stack Overflow;,39
+67,1043,21603,search: pil image draft;,search, pil image draft;,40
+68,1044,21606,visit: Python PIL | Image.draft() method - GeeksforGeeks;,visit, Python PIL | Image.draft() method - GeeksforGeeks;,40
+69,1045,21633,revisit: How to speed up image loading in pillow (python)? - Stack Overflow;,revisit, How to speed up image loading in pillow (python)? - Stack Overflow;,41
+70,1046,21638,revisit: Python PIL | Image.draft() method - GeeksforGeeks;,revisit, Python PIL | Image.draft() method - GeeksforGeeks;,42
+71,1073,36075,"revisit: Get image size (width, height) with Python, OpenCV, Pillow (PIL) | note.nkmk.me;",revisit," Get image size (width, height) with Python, OpenCV, Pillow (PIL) | note.nkmk.me;",43
+72,1074,84715,revisit: Python PIL | Image.draft() method - GeeksforGeeks;,revisit, Python PIL | Image.draft() method - GeeksforGeeks;,44
+73,1123,88338,search: python check values nearby in matrix;,search, python check values nearby in matrix;,45
+74,1124,88344,visit: Checking the value of close by elements in a matrix in python - Stack Overflow;,visit, Checking the value of close by elements in a matrix in python - Stack Overflow;,45
+75,1139,89004,search: python random number in range;,search, python random number in range;,46
+76,1140,89006,visit: Access denied;,visit, Access denied;,46
+77,1147,89217,search: color wheel jpg;,search, color wheel jpg;,47
+78,1148,89333,search: python convert image to jpg;,search, python convert image to jpg;,48
+79,1149,89341,visit: Convert an image into jpg format using Pillow in Python - GeeksforGeeks;,visit, Convert an image into jpg format using Pillow in Python - GeeksforGeeks;,48
+80,1157,89923,search: python find dominant color in image;,search, python find dominant color in image;,49
+81,1158,89926,visit: Python - Find dominant/most common color in an image - Stack Overflow;,visit, Python - Find dominant/most common color in an image - Stack Overflow;,49
+82,1159,89962,visit: GitHub - fengsp/color-thief-py: Grabs the dominant color or a representative color palette from an image. Uses Python and Pillow.;,visit, GitHub - fengsp/color-thief-py: Grabs the dominant color or a representative color palette from an image. Uses Python and Pillow.;,49
+83,1160,89993,search: fastest unsupervised clustering;,search, fastest unsupervised clustering;,50
+84,1161,90031,revisit: GitHub - fengsp/color-thief-py: Grabs the dominant color or a representative color palette from an image. Uses Python and Pillow.;,revisit, GitHub - fengsp/color-thief-py: Grabs the dominant color or a representative color palette from an image. Uses Python and Pillow.;,51
+85,1175,90902,visit: python - Convert numpy array to tuple - Stack Overflow;,visit, python - Convert numpy array to tuple - Stack Overflow;,51
+86,1176,91027,visit: How to Convert NumPy Array of Floats into Integers - Statology;,visit, How to Convert NumPy Array of Floats into Integers - Statology;,51
+87,1180,91303,search: python blend image with pixel color;,search, python blend image with pixel color;,52
+88,1181,91321,visit: Temporary Page;,visit, Temporary Page;,52
+89,1182,92012,visit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,visit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,52
+90,1183,92119,search: kmeans pil image;,search, kmeans pil image;,53
+91,1184,92130,visit: python - How to use`kmeans` parameter in Pillow Image.quantize? - Stack Overflow;,visit, python - How to use`kmeans` parameter in Pillow Image.quantize? - Stack Overflow;,53
+92,1185,92179,visit: Python PIL | Image.quantize() method - GeeksforGeeks;,visit, Python PIL | Image.quantize() method - GeeksforGeeks;,53
+93,1186,92225,revisit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,revisit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,54
+94,1193,92379,visit: python - Getting list of pixel values from PIL - Stack Overflow;,visit, python - Getting list of pixel values from PIL - Stack Overflow;,54
+95,1205,96798,search: Segmentation fault: 11;,search, Segmentation fault: 11;,55
+96,1206,96822,search: Segmentation fault: 11 every other time i run python kmeans;,search, Segmentation fault: 11 every other time i run python kmeans;,56
+97,1207,96826,visit: Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,visit, Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,56
+98,1215,97046,visit: Segmentation Fault in KMeans on OSX;,visit, Segmentation Fault in KMeans on OSX;,56
+99,1216,97072,search: sklearn kmeans segfault;,search, sklearn kmeans segfault;,57
+100,1217,97082,visit: c++ - python memory error for kmeans in scikit-learn - Stack Overflow;,visit, c++ - python memory error for kmeans in scikit-learn - Stack Overflow;,57
+101,1218,97184,search: mac check memory usage;,search, mac check memory usage;,58
+102,1220,97293,revisit: sklearn kmeans segfault;,revisit, sklearn kmeans segfault;,59
+103,1221,97297,revisit: c++ - python memory error for kmeans in scikit-learn - Stack Overflow;,revisit, c++ - python memory error for kmeans in scikit-learn - Stack Overflow;,59
+104,1222,97394,revisit: Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,revisit, Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,60
+105,1223,97617,search: python kmeans most dominant color;,search, python kmeans most dominant color;,61
+106,1224,97623,visit: Dominant colors in an image using k-means clustering | by Shivam Thakkar | buZZrobot | Medium;,visit, Dominant colors in an image using k-means clustering | by Shivam Thakkar | buZZrobot | Medium;,61
+107,1229,98091,revisit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,revisit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,62
+108,1237,98262,search: rgb 122 119 113;,search, rgb 122 119 113;,63
+109,1238,98310,search: 159 155 145;,search, 159 155 145;,64
+110,1239,98319,search: rgb 159 155 145;,search, rgb 159 155 145;,65
+111,1243,98384,search: rgb 75 102  69;,search, rgb 75 102  69;,66
+112,1248,98652,search: rgb 111  58  51;,search, rgb 111  58  51;,67
+113,1249,98654,revisit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,revisit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,68
+114,1250,98679,revisit: Dominant colors in an image using k-means clustering | by Shivam Thakkar | buZZrobot | Medium;,revisit, Dominant colors in an image using k-means clustering | by Shivam Thakkar | buZZrobot | Medium;,69
+115,1251,98689,search: rgb 145 112 106;,search, rgb 145 112 106;,70
+116,1252,98693,revisit: Dominant colors in an image using k-means clustering | by Shivam Thakkar | buZZrobot | Medium;,revisit, Dominant colors in an image using k-means clustering | by Shivam Thakkar | buZZrobot | Medium;,71
+117,1256,98837,search: python show color;,search, python show color;,72
+118,1257,98838,revisit: Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,revisit, Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,73
+119,1258,98846,search: rgb 125 85 77;,search, rgb 125 85 77;,74
+120,1259,98848,revisit: Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,revisit, Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,75
+121,1264,98965,search: rgb 211 169 13;,search, rgb 211 169 13;,76
+122,1265,98983,search: rgb 105 112  7;,search, rgb 105 112  7;,77
+123,1266,98984,revisit: Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,revisit, Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub;,78
+124,1267,99006,revisit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,revisit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,79
+125,1268,99908,search: kmeans number in cluster;,search, kmeans number in cluster;,80
+126,1269,99918,revisit: python - Getting list of pixel values from PIL - Stack Overflow;,revisit, python - Getting list of pixel values from PIL - Stack Overflow;,81
+127,1270,99923,revisit: Temporary Page;,revisit, Temporary Page;,82
+128,1271,99928,revisit: GitHub - fengsp/color-thief-py: Grabs the dominant color or a representative color palette from an image. Uses Python and Pillow.;,revisit, GitHub - fengsp/color-thief-py: Grabs the dominant color or a representative color palette from an image. Uses Python and Pillow.;,83
+129,1272,99935,revisit: Convert an image into jpg format using Pillow in Python - GeeksforGeeks;,revisit, Convert an image into jpg format using Pillow in Python - GeeksforGeeks;,84
+130,1273,99938,revisit: Access denied;,revisit, Access denied;,85
+131,1274,99949,revisit: Python PIL | Image.draft() method - GeeksforGeeks;,revisit, Python PIL | Image.draft() method - GeeksforGeeks;,86
+132,1275,99953,"revisit: Concatenate images with Python, Pillow | note.nkmk.me;",revisit," Concatenate images with Python, Pillow | note.nkmk.me;",87
+133,1276,99957,revisit: scipy.spatial.KDTree.query — SciPy v1.10.1 Manual;,revisit, scipy.spatial.KDTree.query — SciPy v1.10.1 Manual;,88
+134,1277,99962,revisit: Finding the Most Common Colors in Python | by M. Rake Linggar A. | Towards Data Science;,revisit, Finding the Most Common Colors in Python | by M. Rake Linggar A. | Towards Data Science;,89
+135,1278,100025,visit: 2.3. Clustering — scikit-learn 1.2.1 documentation;,visit, 2.3. Clustering — scikit-learn 1.2.1 documentation;,89
+136,1279,100061,visit: sklearn.cluster.OPTICS — scikit-learn 1.2.1 documentation;,visit, sklearn.cluster.OPTICS — scikit-learn 1.2.1 documentation;,89
+137,1280,100325,search: best clustering algorithm for pixel data;,search, best clustering algorithm for pixel data;,90
+138,1281,100334,revisit: kmeans number in cluster;,revisit, kmeans number in cluster;,91
+139,1285,100444,revisit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,revisit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,92
+140,1289,100581,search: k means predict probability;,search, k means predict probability;,93
+141,1290,100583,visit: python - How to get the probability of belonging to clusters for k-means? - Data Science Stack Exchange;,visit, python - How to get the probability of belonging to clusters for k-means? - Data Science Stack Exchange;,93
+142,1291,100605,search: k means predict probability sklearn;,search, k means predict probability sklearn;,94
+143,1292,100631,revisit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,revisit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,95
+144,1304,101228,"search: rgb 211, 169, 13;",search," rgb 211, 169, 13;",96
+145,1305,101233,revisit: sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,revisit, sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation;,97
+146,1317,105822,revisit: kmeans number in cluster;,revisit, kmeans number in cluster;,98
+147,1324,106631,visit: python - Convert a column in a dataframe from type string to tuple - Stack Overflow;,visit, python - Convert a column in a dataframe from type string to tuple - Stack Overflow;,98
+148,1325,106647,search: pandas string to tuple;,search, pandas string to tuple;,99
+149,1326,106652,visit: Python | Convert String to Tuple - GeeksforGeeks;,visit, Python | Convert String to Tuple - GeeksforGeeks;,99
+150,1330,106754,search: pandas column of tuples becomes string;,search, pandas column of tuples becomes string;,100
+151,1331,106761,visit: python pandas - Convert a column of tuples to string column - Stack Overflow;,visit, python pandas - Convert a column of tuples to string column - Stack Overflow;,100
+152,1332,106773,revisit: pandas column of tuples becomes string;,revisit, pandas column of tuples becomes string;,100
+153,1363,109814,search: python image similarity;,search, python image similarity;,101
+154,1364,109821,visit: How To Measure Image Similarities In Python | Better Programming;,visit, How To Measure Image Similarities In Python | Better Programming;,101
+155,1365,109830,visit: Measuring similarity in two images using Python | by Param Raval | Towards Data Science;,visit, Measuring similarity in two images using Python | by Param Raval | Towards Data Science;,101
+156,1366,109869,search: python image similarity pil;,search, python image similarity pil;,102
+157,1367,109871,visit: python - How to check similarity of two images that have different pixelization - Stack Overflow;,visit, python - How to check similarity of two images that have different pixelization - Stack Overflow;,102
+158,1368,109970,search: python jpg similarity;,search, python jpg similarity;,103
+159,1370,110058,search: pil image to numpy array;,search, pil image to numpy array;,104
+160,1371,110060,visit: python - How do I convert a PIL Image into a NumPy array? - Stack Overflow;,visit, python - How do I convert a PIL Image into a NumPy array? - Stack Overflow;,104
+161,1378,110371,search: numpy mean square error;,search, numpy mean square error;,105
+162,1379,110372,visit: python - Mean Squared Error in Numpy? - Stack Overflow;,visit, python - Mean Squared Error in Numpy? - Stack Overflow;,105
+163,1389,110967,visit: matplotlib.pyplot.hist — Matplotlib 3.7.0 documentation;,visit, matplotlib.pyplot.hist — Matplotlib 3.7.0 documentation;,105
+164,1401,124435,revisit: python - Mean Squared Error in Numpy? - Stack Overflow;,revisit, python - Mean Squared Error in Numpy? - Stack Overflow;,105
+165,1409,125675,search: numpy array of strings;,search, numpy array of strings;,106
+166,1410,125676,visit: numpy.chararray — NumPy v1.24 Manual;,visit, numpy.chararray — NumPy v1.24 Manual;,106
+167,1414,125745,visit: numpy.matrix.T — NumPy v1.24 Manual;,visit, numpy.matrix.T — NumPy v1.24 Manual;,106
+168,1415,125748,visit: numpy.matrix.H — NumPy v1.24 Manual;,visit, numpy.matrix.H — NumPy v1.24 Manual;,106
+169,1416,125758,visit: numpy.record — NumPy v1.24 Manual;,visit, numpy.record — NumPy v1.24 Manual;,106
+170,1417,125765,visit: Standard array subclasses — NumPy v1.24 Manual;,visit, Standard array subclasses — NumPy v1.24 Manual;,106
+171,1418,125777,search: numpy initialize array of strings;,search, numpy initialize array of strings;,107
+172,1419,125779,visit: python - How to create a numpy array of arbitrary length strings? - Stack Overflow;,visit, python - How to create a numpy array of arbitrary length strings? - Stack Overflow;,107
+173,1449,131445,search: python range;,search, python range;,108
+174,1450,131453,visit: Python range() Function;,visit, Python range() Function;,108
+175,1451,131464,visit: W3Schools Tryit Editor;,visit, W3Schools Tryit Editor;,108
+176,1502,173080,revisit: Python range() Function;,revisit, Python range() Function;,108
+177,1503,173124,search: python subtract arrays of vectors;,search, python subtract arrays of vectors;,109
+178,1541,174303,search: numpy random array of shape;,search, numpy random array of shape;,110
+179,1545,174492,search: numpy MSE of multiple parallel arrays;,search, numpy MSE of multiple parallel arrays;,111
+180,1546,174495,visit: performance - python fast mean squared error between two large 2d lists - Stack Overflow;,visit, performance - python fast mean squared error between two large 2d lists - Stack Overflow;,111
+181,1547,174540,search: numpy MSE of multiple parallel 3d arrays;,search, numpy MSE of multiple parallel 3d arrays;,112
+182,1548,174550,visit: numpy - Compute Root Mean Squared Error and obtain a 3D array in Python - Stack Overflow;,visit, numpy - Compute Root Mean Squared Error and obtain a 3D array in Python - Stack Overflow;,112
+183,1566,175032,search: numpy matrix operations;,search, numpy matrix operations;,113
+184,1567,175037,visit: Top 10 Matrix Operations in Numpy with Examples | by Rukshan Pramoditha | Towards Data Science;,visit, Top 10 Matrix Operations in Numpy with Examples | by Rukshan Pramoditha | Towards Data Science;,113
+185,1568,175046,visit: numpy.matrix — NumPy v1.24 Manual;,visit, numpy.matrix — NumPy v1.24 Manual;,113
+186,1569,175068,revisit: numpy.matrix.T — NumPy v1.24 Manual;,revisit, numpy.matrix.T — NumPy v1.24 Manual;,114
+187,1601,182359,revisit: numpy - Compute Root Mean Squared Error and obtain a 3D array in Python - Stack Overflow;,revisit, numpy - Compute Root Mean Squared Error and obtain a 3D array in Python - Stack Overflow;,115
+188,1610,187835,search: 2400x1200 dpi;,search, 2400x1200 dpi;,116
+189,1611,187840,visit: How much can 2400 x 1200 DPI resolve?: Printers and Printing Forum: Digital Photography Review;,visit, How much can 2400 x 1200 DPI resolve?: Printers and Printing Forum: Digital Photography Review;,116
+190,1612,187901,search: what does dpi mean printer;,search, what does dpi mean printer;,117
+191,1613,187938,search: HP T830;,search, HP T830;,118
+192,1614,187951,search: HP T830 dimensions;,search, HP T830 dimensions;,119
+193,1615,188123,search: 12000*24;,search, 12000*24;,120
+194,1616,188225,search: 200*60;,search, 200*60;,121
+195,1617,188226,revisit: 12000*24;,revisit, 12000*24;,122
+196,1618,188255,revisit: 200*60;,revisit, 200*60;,123
+197,1619,188268,search: 288000 / 12000;,search, 288000 / 12000;,124
+198,1620,188281,revisit: 200*60;,revisit, 200*60;,125
+199,1621,188836,search: 4800 X 4800 pixel image;,search, 4800 X 4800 pixel image;,126
+200,1622,188850,visit: Reddit - Dive into anything;,visit, Reddit - Dive into anything;,126
+201,1623,188856,visit: https://preview.redd.it/4ml1cncfzbo31.jpg?width=960&crop=smart&auto=webp&v=enabled&s=d590adcbcf859ea1aeeb0bb6bc042b2945ab3089;,visit, https://preview.redd.it/4ml1cncfzbo31.jpg?width=960&crop=smart&auto=webp&v=enabled&s=d590adcbcf859ea1aeeb0bb6bc042b2945ab3089;,126
+202,1624,188872,revisit: Reddit - Dive into anything;,revisit, Reddit - Dive into anything;,126
+203,1625,188875,revisit: 4800 X 4800 pixel image;,revisit, 4800 X 4800 pixel image;,126
+204,1626,188884,revisit: Reddit - Dive into anything;,revisit, Reddit - Dive into anything;,126
+205,1627,188888,visit: https://external-preview.redd.it/JknhB5PAOUc-fUdVdFYN-0D0W_3cw-rCDWZD1ArFtFw.jpg?width=960&crop=smart&auto=webp&v=enabled&s=8c596a0eb67973302d992285f939f1b61f32ec95;,visit, https://external-preview.redd.it/JknhB5PAOUc-fUdVdFYN-0D0W_3cw-rCDWZD1ArFtFw.jpg?width=960&crop=smart&auto=webp&v=enabled&s=8c596a0eb67973302d992285f939f1b61f32ec95;,126
+206,1628,188925,revisit: Reddit - Dive into anything;,revisit, Reddit - Dive into anything;,126
+207,1629,188935,revisit: 4800 X 4800 pixel image;,revisit, 4800 X 4800 pixel image;,126
+208,1633,190318,search: prevent python paging;,search, prevent python paging;,127
+209,1634,190329,visit: Memory Management — Python 3.11.2 documentation;,visit, Memory Management — Python 3.11.2 documentation;,127

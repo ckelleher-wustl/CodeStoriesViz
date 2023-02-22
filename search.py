@@ -230,7 +230,7 @@ def getClusters(df):
 
 
 # read in the search events data
-df = pd.read_csv('web/data/searchEvts_gitClassification_filtered.csv')
+df = pd.read_csv('web/data/searchEvts_gitMosaic.csv')
 
 # split the type: pagedesc into separate columns
 split = df['filename'].str.split(":", 1, expand=True)

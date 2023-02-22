@@ -110,7 +110,7 @@ class CodeEntries:
                     if (filename != "webData"):
                         self.match_lines(self.getFilename(codeEntry["notes"]), pastEvent, codeEntry)
                 
-                pastEvent = codeEvent
+                pastEvent = codeEntry
 
     def match_lines(self, filename, pastEvt, currEvt):
 
