@@ -19,6 +19,7 @@ def get_search_overview_html(responseEntries):
 
     for i in range (0, len(responseEntries)):
         notes = responseEntries[i]['notes']
+        url = responseEntries[i]['timed_url']
 
         if (notes.startswith("search:")):
 
@@ -32,7 +33,7 @@ def get_search_overview_html(responseEntries):
             searchString = notes[start: end]
             if (firstSearch == false):
                 html += "</div>\n"
-            html += "<div class='title'><span><a href='javascript:' onclick='seek(" + str(responseEntries[i]['time']) + ")'>" + searchString + "</a></span></div><hr>\n"
+            html += "<div class='title'><span><a href='" + url + "' target='_blank' rel='noreferrer noopener'>" + searchString + "</a></span></div><hr>\n"
             html += "<div class='webImageLongRow'>\n"
 
             firstSearch = false
@@ -48,9 +49,9 @@ def get_search_overview_html(responseEntries):
 
             # print(f"visit/revisit info {responseEntries[i]}['notes']")
             if (responseEntries[i]['notes'].startswith('revisit:')):
-                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'>" + pageName + "</td></tr></tbody></table></div>\n"
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='" + url + "' target='_blank' rel='noreferrer noopener'>" + pageName + "</a></td></tr></tbody></table></div>\n"
             else: 
-                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td>" + pageName + "</td></tr></tbody></table></div>\n"
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td><a href='" + url + "' target='_blank' rel='noreferrer noopener'>" + pageName + "</a></td></tr></tbody></table></div>\n"
 
     html += "</div>\n" # close open webImageLongRow
     
