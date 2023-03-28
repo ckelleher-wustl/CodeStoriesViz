@@ -1,7 +1,7 @@
 var codeChangeTimes = {}
 var codeChangeArray = []
 
-var codeEntries = {}
+// var codeEntries = {}
 
 var eventListsByKey = {} 
 // var eventTimes = []
@@ -9,15 +9,30 @@ var eventListsByKey = {}
 
 $( document ).ready(function() {
     // console.log( "ready!" );
-    getAllCodeEdits();
+    // getAllCodeEdits();
+
+    setup();
 
 })
+
+function setup() {
+    initializeHistoryOverview(codeEntries);
+    // displayHistoryOverview(); // for now, removing the table view in favor of the bubble overview
+
+    // testing different code summary option
+    initialize();
+    displayCodeChangeViz();
+}
 
 // query the database for all code changes. Initialize and display the history overview
 function getAllCodeEdits() {
     $.get('http://localhost:3000/getCodeText', { offset: 0, order : "ASC", limit: 500 }, 
         function(response){
             codeEntries = response;
+
+            console.log("\n\n\n\n\n");
+            console.log("var codeEntries = " + JSON.stringify(codeEntries) + ";");
+            console.log("\n\n\n\n\n");
 
             initializeHistoryOverview(codeEntries);
             // displayHistoryOverview(); // for now, removing the table view in favor of the bubble overview

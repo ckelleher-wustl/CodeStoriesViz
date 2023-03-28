@@ -8,16 +8,63 @@ function initialize() {
     
     var keys = Object.keys(codeChangeTimes);
     
+    var totalPrintAdds = 0;
+    var totalCommentAdds = 0;
+    var totalPrintRemovals = 0;
+    var totalCommentRemovals = 0;
+
+    var totalLineAdds= 0;
+    var totalLineRemovals = 0;
+
+    var totalCodeChanges = 0;
+
     for (key in keys) {
         var fileData = _getChangeDataForFilename(keys[key]);
         // console.log("filedata for " + keys[key] + " is " + JSON.stringify(fileData));
-        if ((fileData.length > 1) && (keys[key] != "webData")) {
+        if ((fileData.length > 1) && (keys[key] != "webData") && (!keys[key].includes("/dist/"))) {
             // console.log("adding data for " + keys[key] + fileData.length);
             dataByFileName[keys[key]] = fileData;
+
+            for (var data in fileData) {
+                // console.log(JSON.stringify(fileData[data]));
+                if (fileData[data]["time"] > 0 ) {
+
+                    if ((fileData[data]["numAdds"] > 0) || (fileData[data]["numRemovals"] > 0)) {
+                        if (fileData[data]["printAdds"] > 0) totalPrintAdds += fileData[data]["printAdds"];
+                        if (fileData[data]["commentAdds"] > 0) totalCommentAdds += fileData[data]["commentAdds"];
+
+                        if (fileData[data]["printRemovals"] > 0) totalPrintRemovals += fileData[data]["printRemovals"];
+                        if (fileData[data]["commentRemovals"] > 0) totalCommentRemovals += fileData[data]["commentRemovals"];
+
+                        if (fileData[data]["numAdds"] > 0) totalLineAdds += fileData[data]["numAdds"];
+                        if (fileData[data]["numRemoves"] > 0) totalLineRemovals += fileData[data]["numRemoves"];
+
+                        totalCodeChanges += 1;
+                    }
+
+                    
+                }
+            }
+            
         } else {
             // console.log("filtering data for " + keys[key]);
         }
+
     }
+
+    // print out some stats about coding behavior
+    console.log("printAdds " + totalPrintAdds);
+    console.log("commentAdds " + totalCommentAdds);
+    console.log("printRemovals " + totalPrintRemovals);
+    console.log("commentRemovals " + totalCommentRemovals);
+    
+    console.log("lineAdds " + totalLineAdds);
+    console.log("lineRemovals " + totalLineRemovals);
+
+    console.log("num code changes " + totalCodeChanges );
+
+    console.log("print adds" + ", " + "comment adds" + ", " + "lines added" + ", " + "print removes" + ", " + "comment removes" + ", " + "line removes" + ", " + "code edits");
+    console.log(totalPrintAdds + ", " + totalCommentAdds + ", " + totalLineAdds + ", " + totalPrintRemovals + ", " + totalCommentRemovals + ", " + totalLineRemovals + ", " + totalCodeChanges);
 
     // removing clusters for now
     d3.csv("../data/codeCluster_gitMosaic.csv", function(data) {
@@ -73,6 +120,12 @@ function _getChangeDataForFilename(fileName) {
                 var numAdds = 0;
                 var numRemoves = 0;
 
+                var printAdds = 0;
+                var printRemoves = 0;
+
+                var commentAdds = 0;
+                var commentRemoves = 0;
+
                 var lines = [];
                 for(var h = 0; h < numHunks; h++) {
                     lines = patch['hunks'][h]['lines'];
@@ -82,8 +135,32 @@ function _getChangeDataForFilename(fileName) {
                         if (currLines.length > 1) {
                             if (lines[line].startsWith("+")) {
                                 numAdds += 1;
+
+                                var l = lines[line].substring(1).trim();
+
+                                // record the addition of print statements.
+                                if (l.startsWith("print") || l.startsWith("console.log")) {
+                                    printAdds += 1;
+                                }
+
+                                // record the addition of comments
+                                if (l.startsWith("#") || l.startsWith("//")) {
+                                    commentAdds += 1;
+                                }
                             } else if (lines[line].startsWith("-")) {
                                 numRemoves += 1;
+
+                                var l = lines[line].substring(1).trim();
+
+                                // record the removal of print statements.
+                                if (l.startsWith("print") || l.startsWith("console.log")) {
+                                    printRemoves += 1;
+                                }
+
+                                // record the removal of comments
+                                if (l.startsWith("#") || l.startsWith("//")) {
+                                    commentRemoves += 1;
+                                }
                             }
                         }
                     }
@@ -93,22 +170,22 @@ function _getChangeDataForFilename(fileName) {
                     // store the change info for rendering
                     if (changeIndex == 1) {
                         // this is the initial data point
-                        changeData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, code_text: codeState1})
+                        changeData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, printAdds: printAdds, printRemoves: printRemoves, commentAdds: commentAdds, commentRemoves: commentRemoves, code_text: codeState1})
                         // console.log("adding in initial " + codeEntries[codeState1I]["time"]);
                     }
 
-                    changeData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, code_text: codeState2})
+                    changeData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, printAdds: printAdds, printRemoves: printRemoves, commentAdds: commentAdds, commentRemoves: commentRemoves, code_text: codeState2})
                     changeIndex += 1;
                     // console.log("adding entry with changes " + codeEntries[codeState2I]["time"]);
                 } else { 
-                    changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"});
+                    changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, printAdds: printAdds, printRemoves: printRemoves, commentAdds: commentAdds, commentRemoves: commentRemoves, code_text: "n/a"});
 
                     // console.log("codeState2Time == eventTimes[i]" + codeState2Time + " = " + eventTimes[i]);
                     // console.log("entry with no changes " + eventTimes[i]);
                 }
             } else {
                 // there are no indices for these times
-                changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, code_text: "n/a"})
+                changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, printAdds: -1, printRemoves: -1, commentAdds: -1, commentRemoves: -1,code_text: "n/a"})
 
                 // console.log("CAN'T FIND: " + changeTimes[changeIndex-1] + "( " + codeState1I + " ) - " + changeTimes[changeIndex] + "( " + codeState2I + " )");
             }
