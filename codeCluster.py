@@ -57,7 +57,7 @@ class CodeEntries:
         # for fName in self.entriesByFilename:
         #     print(f"{fName} contains {len(self.entriesByFilename[fName])}")
 
-    def getFilename(notes):
+    def getFilename(self, notes):
         filename = notes[6:]
         if (";" in filename):
             filename = filename[0:filename.index(';')]
@@ -105,6 +105,9 @@ class CodeEntries:
             # let's only pay attention when there's actually some code
             if len(codeEntry["code_text"].strip()) > 0:
                 if (pastEvent):
+
+                    # print(f"codeEntry['notes']_{codeEntry['notes']}")
+        
                     filename = self.getFilename(codeEntry["notes"])
                     # webData should not be considered a code filename
                     if (filename != "webData"):
@@ -158,7 +161,7 @@ class CodeEntries:
         else:
             # we've just come out of a cluster, so print it out
             if self.inCluster:
-                print(f"{self.clusterStartTime},{pastEvt['time']},'code', {filename}")
+                print(f"{self.clusterStartTime},{pastEvt['time']},'code',{filename}")
             # else:
             #     print(f"No cluster for: {pastEvt['time']},'code'")
             self.inCluster = False

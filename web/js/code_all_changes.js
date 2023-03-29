@@ -1,7 +1,7 @@
 var codeChangeTimes = {}
 var codeChangeArray = []
 
-// var codeEntries = {}
+var codeEntries = {}
 
 var eventListsByKey = {} 
 // var eventTimes = []
@@ -9,9 +9,9 @@ var eventListsByKey = {}
 
 $( document ).ready(function() {
     // console.log( "ready!" );
-    // getAllCodeEdits();
+    getAllCodeEdits();
 
-    setup();
+    // setup();
 
 })
 

@@ -3,7 +3,7 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-projectName = "gitMosaic"
+projectName = "user6"
 imageDir = "/images/" + projectName + "/"
 
 def get_search_overview_html(responseEntries):
@@ -149,12 +149,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_gitMosaic.csv')
+searchDF = pd.read_csv('web/data/codeHistoryStudy/user6_searchCluster.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_gitMosaic.csv')
+codeDF = pd.read_csv('web/data/codeHistoryStudy/user6_codeCluster.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type', 'filename'], axis=1, inplace=True)
 print(codeDF)
 
@@ -311,7 +311,7 @@ else:
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
         clusterCnt += 1
 
-# print(f"HTML: \n{html}")
+print(f"HTML: \n{html}")
 
 # type = df.iloc[i]["type"]
 
