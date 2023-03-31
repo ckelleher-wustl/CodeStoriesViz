@@ -39,6 +39,21 @@ function displayCodeChangeSummary(prevName, prevCode, currName, currCode) { //re
 
             }
 
+            if (prevName != 0) {
+                var html = ""
+                var printInfo = countPrints(patch);
+                var commentInfo = countComments(patch);
+
+                console.log("commentInfo " + JSON.stringify(commentInfo));
+
+                html += printInfo["html"];
+                html += commentInfo["html"];
+        
+                var statsDiv = d3.select("#stats_container");
+                statsDiv.html(html);
+            }
+        
+
         
     } else {
 
@@ -60,4 +75,5 @@ function displayCodeChangeSummary(prevName, prevCode, currName, currCode) { //re
         // console.log("time is " + time + " " + i)
     }
 
+    
 }

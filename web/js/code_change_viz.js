@@ -4,6 +4,17 @@ height = 100;
 // mainData = []
 var dataByFileName = {}
 
+// // determine whether a given line contains some kind of printing, regardless of whether it's added or removed.
+// var printStatements = {}
+// function isPrintStatement(statement) {
+//     if (statement.includes("print(") || statement.includes("console.log(") || statement.includes("alert(")) {
+//         console.log("\tprint: " + statement);
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
 function initialize() {
     
     var keys = Object.keys(codeChangeTimes);
@@ -108,10 +119,6 @@ function _getChangeDataForFilename(fileName) {
             
                 var codeState2 = codeEntries[codeState2I]["code_text"];
                 var codeState2Time = codeEntries[codeState2I]["time"];
-                
-                // console.log(fileName + " code interval: " + codeState1Time + " - " + codeState2Time);
-                // console.log("codeState1: " + codeState1);
-                // console.log("codeState2: " + codeState2);
 
                 // calculate difference patch
                 var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
@@ -127,6 +134,18 @@ function _getChangeDataForFilename(fileName) {
                 var commentRemoves = 0;
 
                 var lines = [];
+
+                console.log(codeState1Time  + "s" + " - " + codeState2Time + "s");
+
+                // analyze print usage
+                // if (codeState1Time != 0) {
+                //     var printInfo = countPrints(patch);
+                //     var commentInfo = countComments(patch);
+
+                //     var statsDiv = d3.select("#stats_container");
+                //     statsDiv.html(printInfo["html"]);
+                // }
+
                 for(var h = 0; h < numHunks; h++) {
                     lines = patch['hunks'][h]['lines'];
 
@@ -138,10 +157,10 @@ function _getChangeDataForFilename(fileName) {
 
                                 var l = lines[line].substring(1).trim();
 
-                                // record the addition of print statements.
-                                if (l.startsWith("print") || l.startsWith("console.log")) {
-                                    printAdds += 1;
-                                }
+                                // // record the addition of print statements.
+                                // if (isPrintStatement(lines[line])) {
+                                //     printAdds += 1;
+                                // }
 
                                 // record the addition of comments
                                 if (l.startsWith("#") || l.startsWith("//")) {
@@ -152,10 +171,10 @@ function _getChangeDataForFilename(fileName) {
 
                                 var l = lines[line].substring(1).trim();
 
-                                // record the removal of print statements.
-                                if (l.startsWith("print") || l.startsWith("console.log")) {
-                                    printRemoves += 1;
-                                }
+                                // // record the addition of print statements.
+                                // if (isPrintStatement(lines[line])) {
+                                //     printAdds += 1;
+                                // }
 
                                 // record the removal of comments
                                 if (l.startsWith("#") || l.startsWith("//")) {
