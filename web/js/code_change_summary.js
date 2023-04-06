@@ -43,11 +43,13 @@ function displayCodeChangeSummary(prevName, prevCode, currName, currCode) { //re
                 var html = ""
                 var printInfo = countPrints(patch);
                 var commentInfo = countComments(patch);
+                var modInfo = countModifiedLines(patch);
 
-                console.log("commentInfo " + JSON.stringify(commentInfo));
+                // console.log("commentInfo " + JSON.stringify(commentInfo));
 
                 html += printInfo["html"];
                 html += commentInfo["html"];
+                html += modInfo["html"];
         
                 var statsDiv = d3.select("#stats_container");
                 statsDiv.html(html);
