@@ -10,7 +10,7 @@ function isPrintStatement(statement) {
 
 // determine whether a given line is a comment
 function isCommentStatement(statement) {
-    if (statement.startsWith('#') || statement.startsWith('//')) {
+    if (statement.startsWith('#') || statement.startsWith('//') || statement.startsWith("<!--") || statement.includes("-->")) {
         return true;
     } else {
         return false;
@@ -40,9 +40,24 @@ function trimStatement(statement) {
         statement = statement.substring(1).trim();
     } else if (statement.startsWith("//")) {
         statement = statement.substring(2).trim();
+    } else if (statement.startsWith("<!--")) {
+        statement = statement.substring(4).trim();
+    } else if (statement.endsWith('-->')) {
+        statement = statement.substring(0, statement.length-3);
+    }
+
+    // sometimes comments get commented out - we want to keep trimming until we have the underlying code line - but starting comments only
+    while(isCommentStatement(statement) && !statement.includes("-->")) {
+        console.log("trim statement " + statement);
+        statement = trimStatement(statement);
     }
 
     return statement;
+}
+
+function formatForDisplay(statement) {
+    var text = statement.replaceAll("<", "&lt;").replace(">", "&gt;");
+    return text;
 }
 
 
@@ -69,10 +84,12 @@ function countPrints(patch) {
             // determine whether this is a print statement of some flavor.
             if (isPrintStatement(lines[line]) && isModifiedStatement(lines[line])) {
 
+                var stmt = lines[line];
+                console.log("pre trim: " + stmt + " " + (printStatements.includes(stmt)));
                 // get the trimmed statement so we can keep track of uniqueness
-                var stmt = trimStatement(lines[line]);
+                stmt = trimStatement(lines[line]);
 
-                // console.log("trimmed: " + stmt + " " + (stmt in printStatements));
+                console.log("post-trim: " + stmt + " " + (printStatements.includes(stmt)));
 
                 if (!(printStatements.includes(stmt))) {
                     // console.log("\tappend:" + stmt + (printStatements.includes("stmt")) + printStatements.length);
@@ -87,7 +104,7 @@ function countPrints(patch) {
 
     var html = "<br> Print Statements (" + printStatements.length + "):\n<ul>";
     for (var s in printStatements) {
-        html += "<li>" + printStatements[s] + "</li>"
+        html += "<li>" + formatForDisplay(printStatements[s]) + "</li>"
     }
     html += "</ul>"
 
@@ -125,10 +142,10 @@ function countComments(patch) {
                 // console.log("possible Comment:_" + stmt + "_" + isCommentStatement(stmt));
 
                 if ((stmt.length > 0) && (isCommentStatement(stmt))) {
-                    if ((lines[line].trim()[0] == "+") && !(commentsAdded.includes(stmt))) {
+                    if ((lines[line].trim()[0] == "+") && !(commentsAdded.includes(trimStatement(stmt)))) {
                         // console.log("\tappend:" + stmt + (printStatements.includes("stmt")) + printStatements.length);
                         commentsAdded.push(trimStatement(stmt));
-                    } else if ((lines[line].trim()[0] == "-") && !(commentsRemoved.includes(stmt))) {
+                    } else if ((lines[line].trim()[0] == "-") && !(commentsRemoved.includes(trimStatement(stmt)))) {
                         // console.log("\tappend:" + stmt + (printStatements.includes("stmt")) + printStatements.length);
                         commentsRemoved.push(trimStatement(stmt));
                     }
@@ -141,13 +158,13 @@ function countComments(patch) {
 
     var html = "<br> Comments Added (" + commentsAdded.length + "):\n<ul>";
     for (var s in commentsAdded) {
-        html += "<li>" + commentsAdded[s] + "</li>"
+        html += "<li>" + formatForDisplay(commentsAdded[s]) + "</li>"
     }
     html += "</ul>"
 
     html += "<br> Comments Removed (" + commentsRemoved.length + "):\n<ul>";
     for (var s in commentsRemoved) {
-        html += "<li>" + commentsRemoved[s] + "</li>"
+        html += "<li>" + formatForDisplay(commentsRemoved[s]) + "</li>"
     }
     html += "</ul>"
 
@@ -209,9 +226,13 @@ function countModifiedLines(patch) {
             if (isModifiedStatement(lines[line])) {
                 var stmt = trimStatement(lines[line]);
 
-                if ((stmt.length> 1) && !printStatements.includes(stmt) && !(commentsAdded.includes(stmt) && !(commentsRemoved.includes(stmt)))) {
+
+                if ( (stmt.length> 1) && !printStatements.includes(stmt) && !commentsAdded.includes(stmt) && !commentsRemoved.includes(stmt) ) {
                     if (lines[line].startsWith("+")) {
+                        console.log("adding: " + stmt);
+                        console.log(" is added comment->" + commentsAdded.includes(stmt) + commentsAdded.includes("</div>") + " " + commentsAdded);
                         addedLines.push(stmt);
+                        console.log(" is added comment->" + commentsAdded.includes(stmt) + " " + commentsAdded + "\n");
                     } 
                 }
             }
@@ -222,7 +243,7 @@ function countModifiedLines(patch) {
             if (isModifiedStatement(lines[line])) {
                 var stmt = trimStatement(lines[line]);
 
-                if ((stmt.length> 1) && !printStatements.includes(stmt) && !(commentsAdded.includes(stmt) && !(commentsRemoved.includes(stmt)))) {
+                if ( (stmt.length> 1) && !printStatements.includes(stmt) && !commentsAdded.includes(stmt) && !commentsRemoved.includes(stmt) ) {
                     if (lines[line].startsWith("-")) {
                         // we want to avoid double counting 
                         if (!addedLines.includes(stmt)) {
@@ -287,22 +308,19 @@ function countModifiedLines(patch) {
 
     var html = "<br> Added Lines (" + addedLines.length + "):\n<ul>";
     for (var s in addedLines) {
-        var text = addedLines[s].replaceAll("<", "&lt;").replace(">", "&gt;");
-        html += "<li><pre>" + text + "</pre></li>"
+        html += "<li><pre>" +  formatForDisplay(addedLines[s]) + "</pre></li>"
     }
     html += "</ul>"
 
     html += "<br> Changed Lines (" + changedLines.length + "):\n<ul>";
     for (var s in changedLines) {
-        var text = changedLines[s].replaceAll("<", "&lt;").replace(">", "&gt;");
-        html += "<li><pre>" + text + "</pre></li>"
+        html += "<li><pre>" + formatForDisplay(changedLines[s]) + "</pre></li>"
     }
     html += "</ul>"
     
     html += "<br> Removed Lines (" + removedLines.length + "):\n<ul>";
     for (var s in removedLines) {
-        var text = removedLines[s].replaceAll("<", "&lt;").replace(">", "&gt;");
-        html += "<li><pre>" + text + "</pre></li>"
+        html += "<li><pre>" + formatForDisplay(removedLines[s]) + "</pre></li>"
     }
     html += "</ul>"
     return {count: removedLines.length, html: html};
