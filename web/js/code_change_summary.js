@@ -39,7 +39,7 @@ function displayCodeChangeSummary(prevName, prevCode, currName, currCode) { //re
 
             }
 
-            if (prevName != 0) {
+            if (prevName != currName) {
                 var html = ""
                 var printInfo = countPrints(patch);
                 var commentInfo = countComments(patch);

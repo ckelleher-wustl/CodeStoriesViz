@@ -1,222 +1,107 @@
 width = 500;
 height = 100;
 
-// mainData = []
 var dataByFileName = {}
-
-// // determine whether a given line contains some kind of printing, regardless of whether it's added or removed.
-// var printStatements = {}
-// function isPrintStatement(statement) {
-//     if (statement.includes("print(") || statement.includes("console.log(") || statement.includes("alert(")) {
-//         console.log("\tprint: " + statement);
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
 
 function initialize() {
     
     var keys = Object.keys(codeChangeTimes);
     
-    var totalPrintAdds = 0;
+    var totalPrint = 0;
+
     var totalCommentAdds = 0;
-    var totalPrintRemovals = 0;
     var totalCommentRemovals = 0;
 
     var totalLineAdds= 0;
+    var totalLineChanges = 0;
     var totalLineRemovals = 0;
 
-    var totalCodeChanges = 0;
-
+ 
     for (key in keys) {
+
+        // changeData.push({time: codeState1Time, print: printInfo["count"], commentAdds: commentInfo["countAdd"], commentRemoves: commentInfo["countRemoved"], 
+        //                 lineAdd: modInfo["addcount"], lineChange: modInfo["changecount"], lineRemoves: modInfo["removecount"], code_text: codeState1});
+
+
         var fileData = _getChangeDataForFilename(keys[key]);
         // console.log("filedata for " + keys[key] + " is " + JSON.stringify(fileData));
         if ((fileData.length > 1) && (keys[key] != "webData") && (!keys[key].includes("/dist/"))) {
-            // console.log("adding data for " + keys[key] + fileData.length);
+            console.log("adding data for " + keys[key] + fileData.length);
             dataByFileName[keys[key]] = fileData;
+
+            console.log("print", "commentAdds", "commentRemovals", "lineAdd", "lineChange", "lineRemoves");
 
             for (var data in fileData) {
                 // console.log(JSON.stringify(fileData[data]));
                 if (fileData[data]["time"] > 0 ) {
 
-                    if ((fileData[data]["numAdds"] > 0) || (fileData[data]["numRemovals"] > 0)) {
-                        if (fileData[data]["printAdds"] > 0) totalPrintAdds += fileData[data]["printAdds"];
-                        if (fileData[data]["commentAdds"] > 0) totalCommentAdds += fileData[data]["commentAdds"];
+                    console.log(fileData[data]["print"], fileData[data]["commentAdds"], fileData[data]["commentRemoves"], fileData[data]["lineAdd"], 
+                        fileData[data]["lineChange"], fileData[data]["lineRemoves"]);
 
-                        if (fileData[data]["printRemovals"] > 0) totalPrintRemovals += fileData[data]["printRemovals"];
-                        if (fileData[data]["commentRemovals"] > 0) totalCommentRemovals += fileData[data]["commentRemovals"];
+                    totalPrint += fileData[data]["print"];
 
-                        if (fileData[data]["numAdds"] > 0) totalLineAdds += fileData[data]["numAdds"];
-                        if (fileData[data]["numRemoves"] > 0) totalLineRemovals += fileData[data]["numRemoves"];
+                    totalCommentAdds += fileData[data]["commentAdds"];
+                    totalCommentRemovals += fileData[data]["commentRemoves"];
 
-                        totalCodeChanges += 1;
-                    }
+                    totalLineAdds += fileData[data]["lineAdd"];
+                    totalLineChanges += fileData[data]["lineChange"];
+                    totalLineRemovals += fileData[data]["lineRemoves"];
+
+                    // if ((fileData[data]["numAdds"] > 0) || (fileData[data]["numRemovals"] > 0)) {
+                    //     if (fileData[data]["printAdds"] > 0) totalPrintAdds += fileData[data]["printAdds"];
+                    //     if (fileData[data]["commentAdds"] > 0) totalCommentAdds += fileData[data]["commentAdds"];
+
+                    //     if (fileData[data]["printRemovals"] > 0) totalPrintRemovals += fileData[data]["printRemovals"];
+                    //     if (fileData[data]["commentRemovals"] > 0) totalCommentRemovals += fileData[data]["commentRemovals"];
+
+                    //     if (fileData[data]["numAdds"] > 0) totalLineAdds += fileData[data]["numAdds"];
+                    //     if (fileData[data]["numRemoves"] > 0) totalLineRemovals += fileData[data]["numRemoves"];
+
+                    //     totalCodeChanges += 1;
+                    // }
 
                     
                 }
             }
+
+            console.log(totalPrint, totalCommentAdds, totalCommentRemovals, totalLineAdds, 
+                        totalLineChanges, totalLineRemovals);
             
-        } else {
-            // console.log("filtering data for " + keys[key]);
-        }
+        } 
+        // else {
+        //     // console.log("filtering data for " + keys[key]);
+        // }
 
     }
 
     // print out some stats about coding behavior
-    console.log("printAdds " + totalPrintAdds);
-    console.log("commentAdds " + totalCommentAdds);
-    console.log("printRemovals " + totalPrintRemovals);
-    console.log("commentRemovals " + totalCommentRemovals);
+    // console.log("printAdds " + totalPrintAdds);
+    // console.log("commentAdds " + totalCommentAdds);
+    // console.log("printRemovals " + totalPrintRemovals);
+    // console.log("commentRemovals " + totalCommentRemovals);
     
-    console.log("lineAdds " + totalLineAdds);
-    console.log("lineRemovals " + totalLineRemovals);
+    // console.log("lineAdds " + totalLineAdds);
+    // console.log("lineRemovals " + totalLineRemovals);
 
-    console.log("num code changes " + totalCodeChanges );
+    // console.log("num code changes " + totalCodeChanges );
 
-    console.log("print adds" + ", " + "comment adds" + ", " + "lines added" + ", " + "print removes" + ", " + "comment removes" + ", " + "line removes" + ", " + "code edits");
-    console.log(totalPrintAdds + ", " + totalCommentAdds + ", " + totalLineAdds + ", " + totalPrintRemovals + ", " + totalCommentRemovals + ", " + totalLineRemovals + ", " + totalCodeChanges);
+    // console.log("print adds" + ", " + "comment adds" + ", " + "lines added" + ", " + "print removes" + ", " + "comment removes" + ", " + "line removes" + ", " + "code edits");
+    // console.log(totalPrintAdds + ", " + totalCommentAdds + ", " + totalLineAdds + ", " + totalPrintRemovals + ", " + totalCommentRemovals + ", " + totalLineRemovals + ", " + totalCodeChanges);
 
     // removing clusters for now
-    d3.csv("../data/codeCluster_gitMosaic.csv", function(data) {
-        // for (var i = 0; i < data.length; i++) {
-        //     console.log(data[i]);
-        // }
+    // d3.csv("../data/codeCluster_gitMosaic.csv", function(data) {
+    //     // for (var i = 0; i < data.length; i++) {
+    //     //     console.log(data[i]);
+    //     // }
 
-        displayCodeClusterViz(data);
-    });
+    //     displayCodeClusterViz(data);
+    // });
 
     // var tI = getIndexForTime(16112);
     // console.log("16112 : " + tI);
 
 }
 
-
-function _getChangeDataForFilename(fileName) {
-    // console.log("getting change data for " + fileName);
-    var changeTimes = codeChangeTimes[fileName];
-
-    // console.log("change times: " + fileName);
-    // console.log("\t" + JSON.stringify(changeTimes));
-    changeData = [];
-    
-    //  change this so that we can not draw in time periods where there's no activity
-    if (changeTimes.length > 1) {
-        changeIndex = 1;
-
-        for (var i = 1; i < eventTimes.length; i++) {
- 
-            //  initialize the code state info
-            var codeState1I = _getIForTimeAndFile(changeTimes[changeIndex-1], fileName, 0, codeEntries);
-            var codeState2I = _getIForTimeAndFile(changeTimes[changeIndex], fileName, 0, codeEntries);
-
-            // console.log("i" + i + " " + changeTimes[changeIndex-1] + " - " + changeTimes[changeIndex] + "; " + codeState1I + " " + codeState2I);
-
-            if ((codeState1I != -1) && (codeState2I != -1) ) {
-
-                var codeState1 = codeEntries[codeState1I]["code_text"];
-                var codeState1Time = codeEntries[codeState1I]["time"];
-            
-                var codeState2 = codeEntries[codeState2I]["code_text"];
-                var codeState2Time = codeEntries[codeState2I]["time"];
-
-                // calculate difference patch
-                var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
-                var numHunks = patch['hunks'].length;
-
-                var numAdds = 0;
-                var numRemoves = 0;
-
-                var printAdds = 0;
-                var printRemoves = 0;
-
-                var commentAdds = 0;
-                var commentRemoves = 0;
-
-                var lines = [];
-
-                console.log(codeState1Time  + "s" + " - " + codeState2Time + "s");
-
-                // analyze print usage
-                // if (codeState1Time != 0) {
-                //     var printInfo = countPrints(patch);
-                //     var commentInfo = countComments(patch);
-
-                //     var statsDiv = d3.select("#stats_container");
-                //     statsDiv.html(printInfo["html"]);
-                // }
-
-                for(var h = 0; h < numHunks; h++) {
-                    lines = patch['hunks'][h]['lines'];
-
-                    for (var line in lines) {
-                        var currLines = lines[line].trim();
-                        if (currLines.length > 1) {
-                            if (lines[line].startsWith("+")) {
-                                numAdds += 1;
-
-                                var l = lines[line].substring(1).trim();
-
-                                // // record the addition of print statements.
-                                // if (isPrintStatement(lines[line])) {
-                                //     printAdds += 1;
-                                // }
-
-                                // record the addition of comments
-                                if (l.startsWith("#") || l.startsWith("//")) {
-                                    commentAdds += 1;
-                                }
-                            } else if (lines[line].startsWith("-")) {
-                                numRemoves += 1;
-
-                                var l = lines[line].substring(1).trim();
-
-                                // // record the addition of print statements.
-                                // if (isPrintStatement(lines[line])) {
-                                //     printAdds += 1;
-                                // }
-
-                                // record the removal of comments
-                                if (l.startsWith("#") || l.startsWith("//")) {
-                                    commentRemoves += 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (codeState2Time == eventTimes[i]) {
-                    // store the change info for rendering
-                    if (changeIndex == 1) {
-                        // this is the initial data point
-                        changeData.push({time: codeEntries[codeState1I]["time"], numAdds: lines.length, numRemoves: 0, printAdds: printAdds, printRemoves: printRemoves, commentAdds: commentAdds, commentRemoves: commentRemoves, code_text: codeState1})
-                        // console.log("adding in initial " + codeEntries[codeState1I]["time"]);
-                    }
-
-                    changeData.push({time: codeEntries[codeState2I]["time"], numAdds: numAdds, numRemoves: numRemoves, printAdds: printAdds, printRemoves: printRemoves, commentAdds: commentAdds, commentRemoves: commentRemoves, code_text: codeState2})
-                    changeIndex += 1;
-                    // console.log("adding entry with changes " + codeEntries[codeState2I]["time"]);
-                } else { 
-                    changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, printAdds: printAdds, printRemoves: printRemoves, commentAdds: commentAdds, commentRemoves: commentRemoves, code_text: "n/a"});
-
-                    // console.log("codeState2Time == eventTimes[i]" + codeState2Time + " = " + eventTimes[i]);
-                    // console.log("entry with no changes " + eventTimes[i]);
-                }
-            } else {
-                // there are no indices for these times
-                changeData.push({time:codeEntries[i]["time"], numAdds: -1, numRemoves: -1, printAdds: -1, printRemoves: -1, commentAdds: -1, commentRemoves: -1,code_text: "n/a"})
-
-                // console.log("CAN'T FIND: " + changeTimes[changeIndex-1] + "( " + codeState1I + " ) - " + changeTimes[changeIndex] + "( " + codeState2I + " )");
-            }
-        }
-
-        // console.log("main data:" + JSON.stringify(changeData));
-    }
-
-    // console.log("eventTimes  " + JSON.stringify(eventTimes));
-    // console.log("changeData for " + fileName +  " "  + JSON.stringify(changeData));
-    return changeData;
-}
 
 function _interpolateColor(color1, color2, percentage) {
     var interpolate = d3.interpolate(color1, color2);
@@ -229,6 +114,7 @@ var numFiles = 8;
 var lastFilename = "hi";
 
 function displayCodeClusterViz(data) {
+    console.log("displayCodeCluster " + JSON.stringify(data));
     var maxWidth = 1200/eventTimes.length;  
     var svgContainer = d3.select("#svg_test");
 
@@ -244,8 +130,9 @@ function displayCodeClusterViz(data) {
     .enter()
     .append('rect')
     .attr('x', function(d) {
-        // console.log("d " + JSON.stringify(d));
+        console.log("rect d " + JSON.stringify(d));
         var startPos = getIndexForTime(d.startTime);
+        console.log("startPos " + startPos);
         return 10 + startPos * maxWidth;
     })
     .attr('y', function(d) {
@@ -312,19 +199,8 @@ function displayCodeChangeViz() {
     var maxWidth = 1200/eventTimes.length;  // todo - fix this
     var svgContainer = d3.select("#svg_test");
 
-    // console.log("dataByFileName " + JSON.stringify(d3.entries(dataByFileName)) );
-    // var entries = d3.entries(dataByFileName);
-    // for (entry in d3.entries(dataByFileName)) {
-    //     // console.log(entries[entry]["key"] );
-
-    //     // + " " + JSON.stringify(entries[entry]["value"])
-    //     var values = entries[entry]["value"];
-    //     for (value in values) {
-    //         if (values[value]["numAdds"] != -1){
-    //             console.log("\t" + values[value]["time"] + " " +values[value]["numAdds"]);
-    //         }
-    //     }
-    // }
+    // changeData.push({time: codeState1Time, print: printInfo["count"], commentAdds: commentInfo["countAdd"], commentRemoves: commentInfo["countRemoved"], 
+    //                     lineAdd: modInfo["addcount"], lineChange: modInfo["changecount"], lineRemoves: modInfo["removecount"], code_text: codeState1});
 
     svgContainer.selectAll("svg")
     .data(d3.entries(dataByFileName))
@@ -346,7 +222,9 @@ function displayCodeChangeViz() {
     })
     .attr('cy', 15)
     .attr('r', function(d) {
-        var changes = d.value.numAdds + d.value.numRemoves;
+        // console.log("d " + JSON.stringify(d));
+        var changes = d.value.lineAdd + d.value.lineChange + d.value.lineRemoves + d.value.commentAdds + d.value.commentRemoves;
+        console.log("changes " + changes);
 
         if (changes < 0) {
             return 0;
@@ -355,9 +233,10 @@ function displayCodeChangeViz() {
         }
     })
     .attr('fill', function(d) {
-        var proportion = (d.value.numAdds/(d.value.numAdds + d.value.numRemoves))
+        var proportion = ((d.value.lineAdd + d.value.lineChange )/(d.value.lineAdd + d.value.lineChange + d.value.lineRemoves + d.value.commentAdds + d.value.commentRemoves));
         var color = _interpolateColor('pink', 'lightgreen', proportion)
         return color;
+        // return 'lightgreen';
     })
     .on("click", function(d, i) {
 
@@ -371,7 +250,7 @@ function displayCodeChangeViz() {
 
             //  dataByFileName[d.fileName][idx].time
 
-            while ((prevRecord.numAdds == -1) && (idx > 0)) {
+            while ((prevRecord.addcount == -1) && (idx > 0)) {
                 idx -=1;
                 prevRecord = dataByFileName[d.fileName][idx];
             }
@@ -409,3 +288,60 @@ function displayCodeChangeViz() {
     .attr('stroke', 'gray');
 }
 
+
+function _getChangeDataForFilename(fileName) {
+    // console.log("getting change data for " + fileName);
+    var changeTimes = codeChangeTimes[fileName];
+
+    console.log("change times: " + fileName);
+    console.log("\t" + JSON.stringify(changeTimes));
+    changeData = [];
+    
+    //  change this so that we can not draw in time periods where there's no activity
+    if (changeTimes.length > 1) {
+        changeIndex = 1;
+
+        for (var i = 1; i < eventTimes.length; i++) {
+
+            //  initialize the code state info
+            var codeState1I = _getIForTimeAndFile(changeTimes[changeIndex-1], fileName, 0, codeEntries);
+            var codeState2I = _getIForTimeAndFile(changeTimes[changeIndex], fileName, 0, codeEntries);
+
+            // console.log("i" + i + " " + changeTimes[changeIndex-1] + " - " + changeTimes[changeIndex] + "; " + codeState1I + " " + codeState2I);
+
+            if ((codeState1I != -1) && (codeState2I != -1) ) {
+
+                var codeState1 = codeEntries[codeState1I]["code_text"];
+                var codeState1Time = codeEntries[codeState1I]["time"];
+            
+                var codeState2 = codeEntries[codeState2I]["code_text"];
+                var codeState2Time = codeEntries[codeState2I]["time"];
+
+                // calculate difference patch
+                var patch = Diff.structuredPatch(codeState1Time + "s", codeState2Time + "s", codeState1, codeState2, null, null, [ignorewhitespace=true]);
+
+                // console.log(codeState1Time  + "s" + " - " + codeState2Time + "s");
+
+                // analyze print usage
+                if(codeState1Time != codeState2Time) {
+                    var printInfo = countPrints(patch);
+                    var commentInfo = countComments(patch);
+                    var modInfo = countModifiedLines(patch);
+
+                    changeData.push({time: codeState1Time, print: printInfo["count"], commentAdds: commentInfo["countAdd"], commentRemoves: commentInfo["countRemoved"], 
+                        lineAdd: modInfo["addcount"], lineChange: modInfo["changecount"], lineRemoves: modInfo["removecount"], code_text: codeState1});
+
+                    changeIndex += 1;
+                }
+
+            }
+
+            // console.log("main data:" + JSON.stringify(changeData));
+        }
+
+        // console.log("eventTimes  " + JSON.stringify(eventTimes));
+        // console.log("changeData for " + fileName +  " "  + JSON.stringify(changeData));
+    
+    }
+    return changeData;
+}

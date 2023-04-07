@@ -85,11 +85,11 @@ function countPrints(patch) {
             if (isPrintStatement(lines[line]) && isModifiedStatement(lines[line])) {
 
                 var stmt = lines[line];
-                console.log("pre trim: " + stmt + " " + (printStatements.includes(stmt)));
+                // console.log("pre trim: " + stmt + " " + (printStatements.includes(stmt)));
                 // get the trimmed statement so we can keep track of uniqueness
                 stmt = trimStatement(lines[line]);
 
-                console.log("post-trim: " + stmt + " " + (printStatements.includes(stmt)));
+                // console.log("post-trim: " + stmt + " " + (printStatements.includes(stmt)));
 
                 if (!(printStatements.includes(stmt))) {
                     // console.log("\tappend:" + stmt + (printStatements.includes("stmt")) + printStatements.length);
@@ -323,7 +323,7 @@ function countModifiedLines(patch) {
         html += "<li><pre>" + formatForDisplay(removedLines[s]) + "</pre></li>"
     }
     html += "</ul>"
-    return {count: removedLines.length, html: html};
+    return {addcount: addedLines.length, changecount: changedLines.length, removecount: removedLines.length, html: html};
 
 }
 

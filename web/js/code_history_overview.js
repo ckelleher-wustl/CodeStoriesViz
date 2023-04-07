@@ -32,7 +32,7 @@ function initializeHistoryOverview(codeEntries) {
 
     createEventsListByFile();
 
-    // console.log("eventTimes: " + eventTimes);
+    console.log("eventTimes: " + eventTimes);
 }
 
 function displayHistoryOverview() {
@@ -207,4 +207,7 @@ function getIndexForTime(time) {
         }
         // console.log("item: " + codeTimes[item]["time"]);
     }
+
+    console.log("Can't find item for " + time);
+    console.log(JSON.stringify(eventTimes));
 }
