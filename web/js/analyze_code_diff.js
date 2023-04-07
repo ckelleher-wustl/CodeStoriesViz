@@ -42,8 +42,12 @@ function trimStatement(statement) {
         statement = statement.substring(2).trim();
     } else if (statement.startsWith("<!--")) {
         statement = statement.substring(4).trim();
-    } else if (statement.endsWith('-->')) {
+    } 
+    
+    // this could be on the same line as <!--
+    if (statement.endsWith('-->')) {
         statement = statement.substring(0, statement.length-3);
+        statement = statement.trim();
     }
 
     // sometimes comments get commented out - we want to keep trimming until we have the underlying code line - but starting comments only
