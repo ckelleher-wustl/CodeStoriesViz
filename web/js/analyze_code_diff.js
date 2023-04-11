@@ -52,7 +52,7 @@ function trimStatement(statement) {
 
     // sometimes comments get commented out - we want to keep trimming until we have the underlying code line - but starting comments only
     while(isCommentStatement(statement) && !statement.includes("-->")) {
-        console.log("trim statement " + statement);
+        // console.log("trim statement " + statement);
         statement = trimStatement(statement);
     }
 
@@ -70,7 +70,7 @@ function countPrints(patch) {
 
     printStatements = []; 
     
-    console.log("NEW PRINTS PATCH");
+    // console.log("NEW PRINTS PATCH");
     var numHunks = patch['hunks'].length;
 
     var lines = [];
@@ -122,7 +122,7 @@ function countComments(patch) {
     commentsAdded = [];
     commentsRemoved = [];
     
-    console.log("NEW COMMENTS PATCH");
+    // console.log("NEW COMMENTS PATCH");
     var numHunks = patch['hunks'].length;
 
     var lines = [];
@@ -233,10 +233,7 @@ function countModifiedLines(patch) {
 
                 if ( (stmt.length> 1) && !printStatements.includes(stmt) && !commentsAdded.includes(stmt) && !commentsRemoved.includes(stmt) ) {
                     if (lines[line].startsWith("+")) {
-                        console.log("adding: " + stmt);
-                        console.log(" is added comment->" + commentsAdded.includes(stmt) + commentsAdded.includes("</div>") + " " + commentsAdded);
                         addedLines.push(stmt);
-                        console.log(" is added comment->" + commentsAdded.includes(stmt) + " " + commentsAdded + "\n");
                     } 
                 }
             }

@@ -32,7 +32,7 @@ function initializeHistoryOverview(codeEntries) {
 
     createEventsListByFile();
 
-    console.log("eventTimes: " + eventTimes);
+    // console.log("eventTimes: " + eventTimes);
 }
 
 function displayHistoryOverview() {

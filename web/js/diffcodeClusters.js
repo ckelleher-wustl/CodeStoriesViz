@@ -152,7 +152,7 @@ function handlePossibleModification(match, line, lineGroup, modLines) {
 }
 
 function summarizeCodeChanges() {
-    console.log("summarize code changes")
+    // console.log("summarize code changes")
     var newLines = 0;
     var modLines = 0;
 
@@ -183,7 +183,7 @@ function summarizeCodeChanges() {
                 // filter out any whitespace lines
                 if (line.length > 1) {
                     if (line.startsWith('+')) {
-                        console.log("ADDED " + getStatementClass(line.substring(1)) + ": " + line.substring(1) );
+                        // console.log("ADDED " + getStatementClass(line.substring(1)) + ": " + line.substring(1) );
                         
                         if (deletedLines.length > 0) {
 
@@ -191,11 +191,11 @@ function summarizeCodeChanges() {
 
                             if (match["rating"] >= 0.7)  {
                                 modLines = handlePossibleModification(match, line, deletedLines, modLines);
-                                console.log("+modlines now " + JSON.stringify(modLines));
+                                // console.log("+modlines now " + JSON.stringify(modLines));
                             } else {
                                 newLines.push(line.substring(1));
                             }
-                            console.log("Best delete match " + JSON.stringify(match["line"]));
+                            // console.log("Best delete match " + JSON.stringify(match["line"]));
                         } else {
                             newLines.push(line.substring(1));
                         }
@@ -203,7 +203,7 @@ function summarizeCodeChanges() {
                         console.log("REMOVED " + getStatementClass(line.substring(1)) + ": " + line.substring(1) );
                         // deletedLines.push(line.substring(1));    
                         
-                        console.log("checking newLines " + JSON.stringify(newLines));
+                        // console.log("checking newLines " + JSON.stringify(newLines));
                         
                         if (newLines.length > 0) {
 
@@ -211,11 +211,11 @@ function summarizeCodeChanges() {
 
                             if (match["rating"] >= 0.7)  {
                                 modLines = handlePossibleModification(match, line, newLines, modLines);
-                                console.log("-modlines now " + JSON.stringify(modLines));
+                                // console.log("-modlines now " + JSON.stringify(modLines));
                             } else {
                                 deletedLines.push(line.substring(1));
                             }
-                            console.log("Best add match " + JSON.stringify(match["line"]));
+                            // console.log("Best add match " + JSON.stringify(match["line"]));
                         } else {
                             deletedLines.push(line.substring(1));
                         }
@@ -228,11 +228,8 @@ function summarizeCodeChanges() {
     showCodeChanges(deletedLines, modLines, newLines);
 }
 
-
-//TODO: figure out which new ones are really actually new.
-// then move towards characterizing the kinds of changes in each period of time.
 function showCodeChanges(deletedLines, modifiedLines, addedLines){
-    console.log("showCodeChanges " + JSON.stringify(deletedLines))
+    // console.log("showCodeChanges " + JSON.stringify(deletedLines))
     const changesDiv = document.getElementById('changes');
 
     changeString = "<b>" + "DELETED LINES" + "</b>"

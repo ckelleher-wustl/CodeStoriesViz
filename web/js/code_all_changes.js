@@ -17,6 +17,7 @@ $( document ).ready(function() {
 
 function setup() {
     initializeHistoryOverview(codeEntries);
+    initializeSearchBubble();
     // displayHistoryOverview(); // for now, removing the table view in favor of the bubble overview
 
     // testing different code summary option

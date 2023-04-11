@@ -17,6 +17,7 @@ function initialize() {
     var totalLineRemovals = 0;
 
  
+    console.log("filename", "print", "commentAdds", "commentRemovals", "lineAdd", "lineChange", "lineRemoves");
     for (key in keys) {
 
         // changeData.push({time: codeState1Time, print: printInfo["count"], commentAdds: commentInfo["countAdd"], commentRemoves: commentInfo["countRemoved"], 
@@ -24,18 +25,14 @@ function initialize() {
 
 
         var fileData = _getChangeDataForFilename(keys[key]);
-        // console.log("filedata for " + keys[key] + " is " + JSON.stringify(fileData));
         if ((fileData.length > 1) && (keys[key] != "webData") && (!keys[key].includes("/dist/"))) {
-            console.log("adding data for " + keys[key] + fileData.length);
             dataByFileName[keys[key]] = fileData;
-
-            console.log("print", "commentAdds", "commentRemovals", "lineAdd", "lineChange", "lineRemoves");
-
+            
             for (var data in fileData) {
                 // console.log(JSON.stringify(fileData[data]));
                 if (fileData[data]["time"] > 0 ) {
 
-                    console.log(fileData[data]["print"], fileData[data]["commentAdds"], fileData[data]["commentRemoves"], fileData[data]["lineAdd"], 
+                    console.log(keys[key], fileData[data]["print"], fileData[data]["commentAdds"], fileData[data]["commentRemoves"], fileData[data]["lineAdd"], 
                         fileData[data]["lineChange"], fileData[data]["lineRemoves"]);
 
                     totalPrint += fileData[data]["print"];
@@ -47,59 +44,13 @@ function initialize() {
                     totalLineChanges += fileData[data]["lineChange"];
                     totalLineRemovals += fileData[data]["lineRemoves"];
 
-                    // if ((fileData[data]["numAdds"] > 0) || (fileData[data]["numRemovals"] > 0)) {
-                    //     if (fileData[data]["printAdds"] > 0) totalPrintAdds += fileData[data]["printAdds"];
-                    //     if (fileData[data]["commentAdds"] > 0) totalCommentAdds += fileData[data]["commentAdds"];
-
-                    //     if (fileData[data]["printRemovals"] > 0) totalPrintRemovals += fileData[data]["printRemovals"];
-                    //     if (fileData[data]["commentRemovals"] > 0) totalCommentRemovals += fileData[data]["commentRemovals"];
-
-                    //     if (fileData[data]["numAdds"] > 0) totalLineAdds += fileData[data]["numAdds"];
-                    //     if (fileData[data]["numRemoves"] > 0) totalLineRemovals += fileData[data]["numRemoves"];
-
-                    //     totalCodeChanges += 1;
-                    // }
-
-                    
                 }
             }
 
-            console.log(totalPrint, totalCommentAdds, totalCommentRemovals, totalLineAdds, 
-                        totalLineChanges, totalLineRemovals);
-            
+            console.log(keys[key]+"_total", totalPrint, totalCommentAdds, totalCommentRemovals, totalLineAdds, 
+                        totalLineChanges, totalLineRemovals);  
         } 
-        // else {
-        //     // console.log("filtering data for " + keys[key]);
-        // }
-
     }
-
-    // print out some stats about coding behavior
-    // console.log("printAdds " + totalPrintAdds);
-    // console.log("commentAdds " + totalCommentAdds);
-    // console.log("printRemovals " + totalPrintRemovals);
-    // console.log("commentRemovals " + totalCommentRemovals);
-    
-    // console.log("lineAdds " + totalLineAdds);
-    // console.log("lineRemovals " + totalLineRemovals);
-
-    // console.log("num code changes " + totalCodeChanges );
-
-    // console.log("print adds" + ", " + "comment adds" + ", " + "lines added" + ", " + "print removes" + ", " + "comment removes" + ", " + "line removes" + ", " + "code edits");
-    // console.log(totalPrintAdds + ", " + totalCommentAdds + ", " + totalLineAdds + ", " + totalPrintRemovals + ", " + totalCommentRemovals + ", " + totalLineRemovals + ", " + totalCodeChanges);
-
-    // removing clusters for now
-    // d3.csv("../data/codeCluster_gitMosaic.csv", function(data) {
-    //     // for (var i = 0; i < data.length; i++) {
-    //     //     console.log(data[i]);
-    //     // }
-
-    //     displayCodeClusterViz(data);
-    // });
-
-    // var tI = getIndexForTime(16112);
-    // console.log("16112 : " + tI);
-
 }
 
 
@@ -116,7 +67,7 @@ var lastFilename = "hi";
 function displayCodeClusterViz(data) {
     console.log("displayCodeCluster " + JSON.stringify(data));
     var maxWidth = 1200/eventTimes.length;  
-    var svgContainer = d3.select("#svg_test");
+    var svgContainer = d3.select("#svg_code");
 
     var newSvg = svgContainer.append("svg");
 
@@ -180,7 +131,7 @@ function displayCodeClusterViz(data) {
         console.log("filename is " + fileName);
         displayCodeChangeSummary(dataByFileName[fileName][startPos].time, dataByFileName[fileName][startPos].code_text, dataByFileName[fileName][endPos].time, dataByFileName[fileName][endPos].code_text);
 
-        var svgContainer = d3.select("#svg_test");
+        var svgContainer = d3.select("#svg_code");
         var msg = svgContainer.select("p");
         msg.text(fileName + ": " + d.startTime + " - " + d.endTime);
     });
@@ -197,7 +148,7 @@ function displayCodeClusterViz(data) {
 
 function displayCodeChangeViz() {
     var maxWidth = 1200/eventTimes.length;  // todo - fix this
-    var svgContainer = d3.select("#svg_test");
+    var svgContainer = d3.select("#svg_code");
 
     // changeData.push({time: codeState1Time, print: printInfo["count"], commentAdds: commentInfo["countAdd"], commentRemoves: commentInfo["countRemoved"], 
     //                     lineAdd: modInfo["addcount"], lineChange: modInfo["changecount"], lineRemoves: modInfo["removecount"], code_text: codeState1});
@@ -224,7 +175,7 @@ function displayCodeChangeViz() {
     .attr('r', function(d) {
         // console.log("d " + JSON.stringify(d));
         var changes = d.value.lineAdd + d.value.lineChange + d.value.lineRemoves + d.value.commentAdds + d.value.commentRemoves;
-        console.log("changes " + changes);
+        // console.log("changes " + changes);
 
         if (changes < 0) {
             return 0;
@@ -259,7 +210,7 @@ function displayCodeChangeViz() {
 
         // this is what updates the header p with the filename and time ranges.
         // todo - add this to the clustering
-        var svgContainer = d3.select("#svg_test");
+        var svgContainer = d3.select("#svg_code");
         var msg = svgContainer.select("p");
         // msg.text(d.fileName + ": " + dataByFileName[d.fileName][idx].time + " - " + d.value.time);
         
@@ -293,8 +244,8 @@ function _getChangeDataForFilename(fileName) {
     // console.log("getting change data for " + fileName);
     var changeTimes = codeChangeTimes[fileName];
 
-    console.log("change times: " + fileName);
-    console.log("\t" + JSON.stringify(changeTimes));
+    // console.log("change times: " + fileName);
+    // console.log("\t" + JSON.stringify(changeTimes));
     changeData = [];
     
     //  change this so that we can not draw in time periods where there's no activity
