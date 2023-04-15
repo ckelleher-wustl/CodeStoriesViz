@@ -131,7 +131,7 @@ def get_code_entries(startTime, endTime):
         data = {
         'begin': startTime,
         'end': endTime,
-        'file_extension': '.py',
+        # 'file_extension': '.py',
         }
         # Making the get request
         # print("making get request...")
@@ -142,6 +142,8 @@ def get_code_entries(startTime, endTime):
         summaryLine = ["not available", "", ""]
         if len(response.json()) > 0:
             summaryLine  = get_code_summary(response.json())
+        else:
+            print(f"response is blank {data} {code_url}")
 
         return summaryLine
 
@@ -248,6 +250,9 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         # endingCode = "this is the ending code"
 
         if len(codeSummary) == 0:
+            print(f"interval {startingCode} - {endingCode} no summary")
+            print(f"Start:{startingCode}\n\n")
+            print(f"End: {endingCode}\n\n")
             codeSummary = "not available"
      
         # print("\ncodecluster html: " + "<button type='button' class='collapsible active'>" + codeSummary)
@@ -308,6 +313,8 @@ else:
         startTime = codeDF.iloc[codeIdx]['startTime']
         endTime = codeDF.iloc[codeIdx]['endTime']
         codeSummary = get_code_entries(startTime, endTime)
+
+
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
         clusterCnt += 1
 
