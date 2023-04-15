@@ -15,6 +15,7 @@
 
     <script type="text/javascript" src="../js/storystudy/user9_task1.js"></script>
 
+    <script type="text/javascript" src="../js/searchBubbleViz.js"></script>
     <script type="text/javascript" src="../js/analyze_code_diff.js"></script>
     <script type="text/javascript" src="../js/code_change_summary.js"></script>
     <script type="text/javascript" src="../js/code_history_overview.js"></script>
@@ -24,13 +25,20 @@
 
 <body>
 
-    <div id="svg_test" style="width: 100%">
+    <div id="svg_code" style="width: 100%">
         <p>Code Bubble Overview:</p>
     </div>
+    <div id="svg_search" style="width: 100%" data="../data/storystudy/user9_task1.csv">
+        <p>Search Bubble Overview:</p>
+    </div>
     
-    <!-- <div id="code_overview" style="width: 100%">
-        <p>Code Change Overview Here</p>
-    </div> -->
+    <div id="search_selected" style="width: 100%">
+        <p>search details</p>
+    </div>
+    <div id="code_selected" style="width: 100%">
+        <p>code details</p>
+    </div>
+
     <div id="code_container" style="width: 100%">
         <p>Code Here</p>
     </div>
