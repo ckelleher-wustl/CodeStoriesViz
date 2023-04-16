@@ -103,6 +103,13 @@ def get_code_summary(responseEntries):
 
         if ((len(summaryLine) <= 4) and (line.startswith("+"))):
             summaryLine = line
+        elif ((len(summaryLine) <=3) and line.startswith("-")):
+            summaryLine = line
+
+    if (len(summaryLine) > 25):
+        summaryLine = summaryLine[:25]
+
+    summaryLine = summaryLine.replace("<", "").replace(">", "")
 
     if (len(summaryLine) <= 4):
         for i in range (0, len(responseEntries)):
@@ -322,6 +329,6 @@ print(f"HTML: \n{html}")
 
 # type = df.iloc[i]["type"]
 
-text_file = open("gitMosaic.html", "w")
-n = text_file.write(html)
-text_file.close()
+# text_file = open("gitMosaic.html", "w")
+# n = text_file.write(html)
+# text_file.close()

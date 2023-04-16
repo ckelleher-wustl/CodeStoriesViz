@@ -158,12 +158,18 @@ class CodeEntries:
                 # print(f"starting a new cluster {pastEvt['time']}")
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
+        elif ( (len(perfectMatches) > 0) and ( len(currentLines) != len(pastLines) ) ):
+            if not self.inCluster:
+                # print(f"starting a new cluster {pastEvt['time']}")
+                self.inCluster = True
+                self.clusterStartTime = pastEvt['time']
         else:
             # we've just come out of a cluster, so print it out
             if self.inCluster:
                 print(f"{self.clusterStartTime},{pastEvt['time']},'code',{filename}")
             # else:
-            #     print(f"No cluster for: {pastEvt['time']},'code'")
+            #     if ( len(perfectMatches) > 0 ):
+            #         print(f"No cluster for: {pastEvt['time']},'code', numCurrentLines={len(currentLines)} numPastLines={len(pastLines)}")
             self.inCluster = False
                 
 
