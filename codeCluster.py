@@ -38,6 +38,7 @@ class CodeEntries:
         
         self.code_entries = response.json()
 
+
         self.splitByFilename()
         self.get_match_affinity()
 
@@ -118,9 +119,14 @@ class CodeEntries:
                     # webData should not be considered a code filename
                     # and (filename == pastFilename)?
                     if ((filename != "webData") ):
+                        # print(f"sending {pastEvent['time']}-{codeEntry['time']}")
                         self.match_lines(self.getFilename(codeEntry["notes"]), pastEvent, codeEntry)
                 
                 pastEvent = codeEntry
+            
+        # if there's an in-progress cluster at the end, print it out.
+        if (self.inCluster):
+            print(f"{self.clusterStartTime},{pastEvent['time']},'code',{self.getFilename(pastEvent['notes'])}")
 
     def match_lines(self, filename, pastEvt, currEvt):
 
@@ -134,12 +140,17 @@ class CodeEntries:
         currFilename = self.getFilename(currEvt["notes"])
         currTime = currEvt["time"]
 
-        if ((pastFilename != currFilename) and (self.inCluster)):
-            print(f"{self.clusterStartTime},{pastEvt['time']},'code',{pastFilename}")
-            if debug:
-                print(f"{currTime}: filenames don't match {pastFilename} != {currFilename}")
-            self.inCluster = False
-            return
+        # if (debug):
+        #     print(f"\t{pastEvt['time']}-{currTime}")
+
+        # if ((pastFilename != currFilename) ):
+        #     if (self.inCluster):
+        #         # print(f"{self.clusterStartTime},{pastEvt['time']},'code',{pastFilename}")
+        #         if debug:
+        #             print(f"{currTime}: filenames don't match {pastFilename} != {currFilename}")
+        #         self.inCluster = False
+        #         # return
+        
 
         idx = 0
 
@@ -168,19 +179,38 @@ class CodeEntries:
 
         # echo decision making info
         if (debug):
-            print(f"\t{pastEvt['time']}-{currEvt['time']}: partialMatches={partialMatches} perfectMatches={perfectMatches} newLines={newLines} currLineLength={len(currentLines)} pastLineLength={len(pastLines)}")
+            if (pastFilename == currFilename):
+                print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: partialMatches={partialMatches} perfectMatches={len(perfectMatches)} newLines={len(newLines)} currLineLength={len(currentLines)} pastLineLength={len(pastLines)}")
+            else:
+                print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: Filename mismatch {pastFilename} != {currFilename}")
+
+            if (pastEvt['time'] ==  currEvt['time']):
+                print(f"\tPAST {pastEvt}\n")
+                print(f"\tCURR {currEvt}\n")
 
 
-        # continue existing clusters only....
-        # no changes made, don't start a cluster, but continue if there's an existing one.
-        if ( (partialMatches == 0) and (len(perfectMatches) > 0) and (len(currentLines) == len(pastLines) ) ):
-            if self.inCluster:
+
+        if ((pastFilename != currFilename) ):
+            if (self.inCluster):
+                print(f"{self.clusterStartTime},{pastEvt['time']},'code',{pastFilename}")
+                self.inCluster = False
                 return
+            else:
+                if (debug):
+                    print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: not in cluster {pastFilename} != {currFilename}")
+
+
+        # if (pastFilename == currFilename):
+            # continue existing clusters only....
+            # no changes made, don't start a cluster, but continue if there's an existing one.
+        if ( (partialMatches == 0) and (len(perfectMatches) > 0) and (len(newLines) == 0) and (len(currentLines) == len(pastLines) ) ):
+            if self.inCluster:
+                self.inCluster = True
 
 
         # start or continue clusters.
         # at least one line has been edited
-        if partialMatches > 0:
+        elif partialMatches > 0:
             if not self.inCluster:
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
@@ -208,13 +238,20 @@ class CodeEntries:
             if self.inCluster:
                 print(f"{self.clusterStartTime},{pastEvt['time']},'code',{pastFilename}")
                 if debug:
-                    print(f"{currTime}: partialMatches={partialMatches} perfectMatches={perfectMatches} newLines={newLines} currLineLength={len(currentLines)} pastLineLength={len(pastLines)}")
+                    print(f"{currTime}: partialMatches={partialMatches} perfectMatches={len(perfectMatches)} newLines={len(newLines)} currLineLength={len(currentLines)} pastLineLength={len(pastLines)}")
+                    print("\n")
 
+            # if there's a big clump that's come in, then we should start another cluster immediately.
+            if (  (pastFilename == currFilename) and (len(perfectMatches) > 0) and (len(currentLines)- len(pastLines) >= 4) ):
+                # print(f"\t starting new cluster {pastEvt['time']}")
+                self.clusterStartTime = pastEvt['time']
+                self.inCluster = True
+            else:
+                 self.inCluster = False
 
-            # else:
-            #     if ( len(perfectMatches) > 0 ):
-            #         print(f"No cluster for: {pastEvt['time']},'code', numCurrentLines={len(currentLines)} numPastLines={len(pastLines)}")
-            self.inCluster = False
+        if (debug):
+            print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: inCluster: {self.inCluster} {(partialMatches == 0) and (len(perfectMatches) > 0) and (len(newLines)> 0 and (len(currentLines) == len(pastLines)) )}")
+        
                 
 
 

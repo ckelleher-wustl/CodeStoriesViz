@@ -1,165 +1,74 @@
 ,eventID,time,filename,type,page,clusterID
-0,5,3622173,search: html game body;,search, html game body;,0
-1,6,3622174,visit: HTML Game Example;,visit, HTML Game Example;,0
-2,7,3622191,search: properties of game html;,search, properties of game html;,1
-3,8,3622194,visit: Game Tutorial;,visit, Game Tutorial;,1
-4,9,3622229,search: flappy bird game examples;,search, flappy bird game examples;,2
-5,10,3622236,visit: Flappy Bird Game in JavaScript - GeeksforGeeks;,visit, Flappy Bird Game in JavaScript - GeeksforGeeks;,2
-6,11,3622260,visit: How to Make a Flappy Bird in Scratch | Create & Learn;,visit, How to Make a Flappy Bird in Scratch | Create & Learn;,2
-7,12,3622275,search: html properties for flappy bird game;,search, html properties for flappy bird game;,3
-8,13,3622286,visit: Flappy Bird Game Using HTML & JavaScript (Source Code);,visit, Flappy Bird Game Using HTML & JavaScript (Source Code);,3
-9,14,3622297,visit: Portfolio Website Using HTML CSS And JAVASCRIPT ( Source Code);,visit, Portfolio Website Using HTML CSS And JAVASCRIPT ( Source Code);,3
-10,15,3622307,revisit: Flappy Bird Game Using HTML & JavaScript (Source Code);,revisit, Flappy Bird Game Using HTML & JavaScript (Source Code);,3
-11,16,3622335,visit: Flappy Bird Javascript;,visit, Flappy Bird Javascript;,3
-12,17,3622401,revisit: Flappy Bird Game Using HTML & JavaScript (Source Code);,revisit, Flappy Bird Game Using HTML & JavaScript (Source Code);,3
-13,18,3622478,revisit: html properties for flappy bird game;,revisit, html properties for flappy bird game;,3
-14,19,3622496,search: connecting html to javascript;,search, connecting html to javascript;,4
-15,20,3622496,search: connecting html to javascript;,search, connecting html to javascript;,4
-16,21,3622549,search: canvas attribute html;,search, canvas attribute html;,5
-17,22,3622550,visit: HTML canvas Tag;,visit, HTML canvas Tag;,5
-18,23,3622598,search: width for game canvas flappy bird html;,search, width for game canvas flappy bird html;,6
-19,24,3622613,search: flappy bird html css js;,search, flappy bird html css js;,7
-20,25,3622614,revisit: Flappy Bird Game in JavaScript - GeeksforGeeks;,revisit, Flappy Bird Game in JavaScript - GeeksforGeeks;,8
-21,26,3622670,search: approparite widths and heights for games html css js;,search, approparite widths and heights for games html css js;,9
-22,27,3622671,visit: javascript - JS Game set responsive height and width to canvas using CSS instead of JS - Stack Overflow;,visit, javascript - JS Game set responsive height and width to canvas using CSS instead of JS - Stack Overflow;,9
-23,28,3622701,"visit: How to build a game with HTML, CSS, and JavaScript - LogRocket Blog;",visit," How to build a game with HTML, CSS, and JavaScript - LogRocket Blog;",9
-24,33,3622891,search: localhost 8000;,search, localhost 8000;,10
-25,34,3622892,visit: https://localhost8000.com/;,visit, https://localhost8000.com/;,10
-26,36,3622903,visit: http://localhost:8000/flappy_bear/;,visit, http://localhost:8000/flappy_bear/;,10
-27,37,3622918,"revisit: How to build a game with HTML, CSS, and JavaScript - LogRocket Blog;",revisit," How to build a game with HTML, CSS, and JavaScript - LogRocket Blog;",11
-28,38,3622929,search: css for flappy bird game;,search, css for flappy bird game;,12
-29,39,3622933,revisit: CSS only Flappy Bird Game;,revisit, CSS only Flappy Bird Game;,13
-30,40,3622965,search: css for flappy bird game with image background;,search, css for flappy bird game with image background;,14
-31,41,3622972,visit: Create Flappy Bird clone in Javascript HTML CSS - YouTube;,visit, Create Flappy Bird clone in Javascript HTML CSS - YouTube;,14
-32,42,3623165,visit: Create Flappy Bird Game CLONE With JavaScript & HTML5 | JavaScript Project For Beginners - YouTube;,visit, Create Flappy Bird Game CLONE With JavaScript & HTML5 | JavaScript Project For Beginners - YouTube;,14
-33,43,3623207,"visit: GitHub - noanonoa/flappy-bird: Flappy Bird game project built using vanilla HTML, CSS, and JavaScript;",visit," GitHub - noanonoa/flappy-bird: Flappy Bird game project built using vanilla HTML, CSS, and JavaScript;",14
-34,44,3623213,visit: flappy-bird/style.css at master · noanonoa/flappy-bird · GitHub;,visit, flappy-bird/style.css at master · noanonoa/flappy-bird · GitHub;,14
-35,45,3623228,"revisit: GitHub - noanonoa/flappy-bird: Flappy Bird game project built using vanilla HTML, CSS, and JavaScript;",revisit," GitHub - noanonoa/flappy-bird: Flappy Bird game project built using vanilla HTML, CSS, and JavaScript;",14
-36,46,3623244,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,15
-37,49,3623290,visit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,visit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,15
-38,52,3623427,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,15
-39,53,3623442,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,15
-40,56,3623564,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,15
-41,59,3623602,search: flappy bird background;,search, flappy bird background;,16
-42,60,3623604,visit: flappy bird background - Google Search;,visit, flappy bird background - Google Search;,16
-43,63,3623635,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,17
-44,64,3623694,revisit: HTML canvas Tag;,revisit, HTML canvas Tag;,18
-45,65,3623700,search: linear gradient css;,search, linear gradient css;,19
-46,66,3623705,visit: linear-gradient() - CSS: Cascading Style Sheets | MDN;,visit, linear-gradient() - CSS: Cascading Style Sheets | MDN;,19
-47,69,3623736,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,20
-48,70,3623743,revisit: flappy bird background - Google Search;,revisit, flappy bird background - Google Search;,21
-49,71,3623749,search: flappy bird png;,search, flappy bird png;,22
-50,74,3623780,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,23
-51,75,3623812,revisit: flappy bird png;,revisit, flappy bird png;,24
-52,76,3623858,visit: Flappy Bird png images | PNGEgg;,visit, Flappy Bird png images | PNGEgg;,24
-53,77,3623862,"visit: Flappy Bird Blue Minecraft, bird, flappy Bird, bird png | PNGEgg;",visit," Flappy Bird Blue Minecraft, bird, flappy Bird, bird png | PNGEgg;",24
-54,78,3623871,"visit: Free download | Flappy Bird Blue Minecraft, bird, flappy Bird, bird png | PNGEgg;",visit," Free download | Flappy Bird Blue Minecraft, bird, flappy Bird, bird png | PNGEgg;",24
-55,79,3623879,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,25
-56,80,3623945,revisit: linear gradient css;,revisit, linear gradient css;,26
-57,81,3623955,search: how to have a set image for a background css;,search, how to have a set image for a background css;,27
-58,82,3623957,visit: CSS Background Image;,visit, CSS Background Image;,27
-59,85,3624000,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,28
-60,88,3624076,revisit: CSS Background Image;,revisit, CSS Background Image;,29
-61,89,3624083,search: styling a flappy bird canvas;,search, styling a flappy bird canvas;,30
-62,90,3624094,visit: Flappy Bird Style Sprites | OpenGameArt.org;,visit, Flappy Bird Style Sprites | OpenGameArt.org;,30
-63,91,3624101,search: styling a flappy bird canvas html;,search, styling a flappy bird canvas html;,31
-64,92,3624103,revisit: Canvas - simple Flappy Bird concept;,revisit, Canvas - simple Flappy Bird concept;,32
-65,93,3624127,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,33
-66,94,3624139,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,34
-67,99,3624203,revisit: Canvas - simple Flappy Bird concept;,revisit, Canvas - simple Flappy Bird concept;,35
-68,100,3624216,search: why is my canvas red on vscide;,search, why is my canvas red on vscide;,36
-69,101,3624228,search: canvas tag html5;,search, canvas tag html5;,37
-70,102,3624230,visit: HTML Canvas;,visit, HTML Canvas;,37
-71,103,3624284,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,38
-72,104,3624291,revisit: HTML Canvas;,revisit, HTML Canvas;,39
-73,105,3624328,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,40
-74,106,3624417,search: why is my canvas syntax highlighting not working;,search, why is my canvas syntax highlighting not working;,41
-75,107,3624429,visit: GitHub - RealPeha/canvas-syntax-highlight: Syntax highlighting on the canvas;,visit, GitHub - RealPeha/canvas-syntax-highlight: Syntax highlighting on the canvas;,41
-76,108,3624436,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,42
-77,119,3624727,search: margin html tag;,search, margin html tag;,43
-78,120,3624728,visit: CSS Margin;,visit, CSS Margin;,43
-79,121,3624759,revisit: CSS Margin;,revisit, CSS Margin;,43
-80,122,3624801,search: background-repeat;,search, background-repeat;,44
-81,123,3624803,visit: background-repeat - CSS: Cascading Style Sheets | MDN;,visit, background-repeat - CSS: Cascading Style Sheets | MDN;,44
-82,124,3624840,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,45
-83,125,3624860,revisit: background-repeat - CSS: Cascading Style Sheets | MDN;,revisit, background-repeat - CSS: Cascading Style Sheets | MDN;,46
-84,126,3624879,search: how to center bg image css;,search, how to center bg image css;,47
-85,127,3624880,visit: CSS background-position property;,visit, CSS background-position property;,47
-86,130,3624895,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,48
-87,141,3625012,revisit: CSS background-position property;,revisit, CSS background-position property;,49
-88,142,3625015,search: box shadow css;,search, box shadow css;,50
-89,143,3625016,visit: box-shadow - CSS: Cascading Style Sheets | MDN;,visit, box-shadow - CSS: Cascading Style Sheets | MDN;,50
-90,144,3625031,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,51
-91,147,3625091,revisit: box-shadow - CSS: Cascading Style Sheets | MDN;,revisit, box-shadow - CSS: Cascading Style Sheets | MDN;,52
-92,148,3625101,search: css attributes;,search, css attributes;,53
-93,149,3625105,search: css attributes z index ];,search, css attributes z index ];,54
-94,150,3625142,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,55
-95,151,3625156,revisit: css attributes z index ];,revisit, css attributes z index ];,56
-96,152,3625160,visit: z-index - CSS: Cascading Style Sheets | MDN;,visit, z-index - CSS: Cascading Style Sheets | MDN;,56
-97,153,3625211,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,57
-98,165,3625351,revisit: z-index - CSS: Cascading Style Sheets | MDN;,revisit, z-index - CSS: Cascading Style Sheets | MDN;,58
-99,166,3625359,search: how to make an image span the whole page html;,search, how to make an image span the whole page html;,59
-100,167,3625361,"visit: html - With CSS, how do I make an image span the full width of the page as a background image? - Stack Overflow;",visit," html - With CSS, how do I make an image span the full width of the page as a background image? - Stack Overflow;",59
-101,168,3625385,visit: Edit fiddle - JSFiddle - Code Playground;,visit, Edit fiddle - JSFiddle - Code Playground;,59
-102,171,3625416,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,60
-103,178,3625452,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,61
-104,181,3625530,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,62
-105,184,3625547,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,63
-106,187,3625575,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,64
-107,198,3625667,revisit: Edit fiddle - JSFiddle - Code Playground;,revisit, Edit fiddle - JSFiddle - Code Playground;,65
-108,199,3625675,search: webkit background css;,search, webkit background css;,66
-109,200,3625682,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,67
-110,201,3625685,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,68
-111,202,3625698,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,69
-112,203,3625720,revisit: Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,revisit, Build a Flappy Bird Game using HTML CSS & JavaScript - YouTube;,69
-113,204,3625741,revisit: webkit background css;,revisit, webkit background css;,70
-114,205,3625750,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,71
-115,206,3625774,search: flappy bird end game;,search, flappy bird end game;,72
-116,207,3625777,visit: flappy bird end game - Google Search;,visit, flappy bird end game - Google Search;,72
-117,208,3625787,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,73
-118,227,3626153,search: flappy bird background css;,search, flappy bird background css;,74
-119,228,3626156,revisit: CSS only Flappy Bird Game;,revisit, CSS only Flappy Bird Game;,75
-120,229,3626180,"revisit: GitHub - noanonoa/flappy-bird: Flappy Bird game project built using vanilla HTML, CSS, and JavaScript;",revisit," GitHub - noanonoa/flappy-bird: Flappy Bird game project built using vanilla HTML, CSS, and JavaScript;",76
-121,230,3626185,revisit: flappy-bird/style.css at master · noanonoa/flappy-bird · GitHub;,revisit, flappy-bird/style.css at master · noanonoa/flappy-bird · GitHub;,76
-122,231,3626244,search: background image css zooming in too mcuh;,search, background image css zooming in too mcuh;,77
-123,232,3626245,visit: html - Why is my container background image so zoomed in? - Stack Overflow;,visit, html - Why is my container background image so zoomed in? - Stack Overflow;,77
-124,233,3626258,visit: background - CSS: Cascading Style Sheets | MDN;,visit, background - CSS: Cascading Style Sheets | MDN;,77
-125,234,3626285,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,78
-126,237,3626320,search: github flappy bird game;,search, github flappy bird game;,79
-127,238,3626329,visit: flappy-bird-game · GitHub Topics · GitHub;,visit, flappy-bird-game · GitHub Topics · GitHub;,79
-128,239,3626334,visit: GitHub - Abhay557/Flappy-Bird: Creating Flappy Bird Html Game On Autocode.;,visit, GitHub - Abhay557/Flappy-Bird: Creating Flappy Bird Html Game On Autocode.;,79
-129,240,3626337,visit: Flappy-Bird/index.html at main · Abhay557/Flappy-Bird · GitHub;,visit, Flappy-Bird/index.html at main · Abhay557/Flappy-Bird · GitHub;,79
-130,241,3626348,revisit: flappy-bird-game · GitHub Topics · GitHub;,revisit, flappy-bird-game · GitHub Topics · GitHub;,79
-131,242,3626367,"visit: GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",visit," GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",79
-132,243,3626375,visit: FlappyBird/index.html at master · amoldalwai/FlappyBird · GitHub;,visit, FlappyBird/index.html at master · amoldalwai/FlappyBird · GitHub;,79
-133,244,3626380,"revisit: GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",revisit," GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",79
-134,245,3626406,visit: FlappyBird/modeselect.html at master · amoldalwai/FlappyBird · GitHub;,visit, FlappyBird/modeselect.html at master · amoldalwai/FlappyBird · GitHub;,79
-135,246,3626410,revisit: flappy-bird-game · GitHub Topics · GitHub;,revisit, flappy-bird-game · GitHub Topics · GitHub;,79
-136,247,3626416,visit: GitHub - the-javapocalypse/flappybee: A simple game in JavaScript similar to Flappy Bird;,visit, GitHub - the-javapocalypse/flappybee: A simple game in JavaScript similar to Flappy Bird;,79
-137,248,3626424,visit: flappybee/index.html at master · the-javapocalypse/flappybee · GitHub;,visit, flappybee/index.html at master · the-javapocalypse/flappybee · GitHub;,79
-138,249,3626473,revisit: flappy-bird-game · GitHub Topics · GitHub;,revisit, flappy-bird-game · GitHub Topics · GitHub;,79
-139,250,3626484,"revisit: GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",revisit," GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",79
-140,251,3626488,visit: FlappyBird/daybackground.html at master · amoldalwai/FlappyBird · GitHub;,visit, FlappyBird/daybackground.html at master · amoldalwai/FlappyBird · GitHub;,79
-141,254,3626566,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,80
-142,255,3626577,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,80
-143,260,3626621,"revisit: GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",revisit," GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",81
-144,261,3626627,visit: FlappyBird/nightbackground.html at master · amoldalwai/FlappyBird · GitHub;,visit, FlappyBird/nightbackground.html at master · amoldalwai/FlappyBird · GitHub;,81
-145,262,3626631,"revisit: GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",revisit," GitHub - amoldalwai/FlappyBird: A 2D Flappy bird remake  built using HTML, CSS &amp;  JS ,in which the player can control the movement of the flappy bird using right mouse click  to avoid incoming obstacle.;",81
-146,263,3626639,revisit: flappy-bird-game · GitHub Topics · GitHub;,revisit, flappy-bird-game · GitHub Topics · GitHub;,81
-147,264,3626643,visit: GitHub - Priyadarshan2000/FLAPPY-BIRD-GAME;,visit, GitHub - Priyadarshan2000/FLAPPY-BIRD-GAME;,81
-148,265,3626646,visit: FLAPPY-BIRD-GAME/index.html at main · Priyadarshan2000/FLAPPY-BIRD-GAME · GitHub;,visit, FLAPPY-BIRD-GAME/index.html at main · Priyadarshan2000/FLAPPY-BIRD-GAME · GitHub;,81
-149,266,3626694,visit: floppybird/main.css at gh-pages · nebez/floppybird · GitHub;,visit, floppybird/main.css at gh-pages · nebez/floppybird · GitHub;,81
-150,267,3626705,visit: GitHub - LeonMarqs/Flappy-bird-python: A basic Flappy Bird game made in Python;,visit, GitHub - LeonMarqs/Flappy-bird-python: A basic Flappy Bird game made in Python;,81
-151,268,3626712,visit: Flappy-bird-python/flappy.py at master · LeonMarqs/Flappy-bird-python · GitHub;,visit, Flappy-bird-python/flappy.py at master · LeonMarqs/Flappy-bird-python · GitHub;,81
-152,269,3626734,search: github flappy bird game css;,search, github flappy bird game css;,82
-153,270,3626738,"visit: GitHub - kubowania/flappy-bird: A game of Flappy Bird made in pure JavaScript, HTML and CSS;",visit," GitHub - kubowania/flappy-bird: A game of Flappy Bird made in pure JavaScript, HTML and CSS;",82
-154,271,3626741,visit: flappy-bird/style.css at master · kubowania/flappy-bird · GitHub;,visit, flappy-bird/style.css at master · kubowania/flappy-bird · GitHub;,82
-155,272,3626770,"revisit: GitHub - kubowania/flappy-bird: A game of Flappy Bird made in pure JavaScript, HTML and CSS;",revisit," GitHub - kubowania/flappy-bird: A game of Flappy Bird made in pure JavaScript, HTML and CSS;",82
-156,273,3626781,visit: flappybird-style-game · GitHub Topics · GitHub;,visit, flappybird-style-game · GitHub Topics · GitHub;,82
-157,274,3626785,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,83
-158,275,3626799,search: javascript for flappy vird;,search, javascript for flappy vird;,84
-159,276,3626801,revisit: Flappy Bird Game in JavaScript - GeeksforGeeks;,revisit, Flappy Bird Game in JavaScript - GeeksforGeeks;,85
-160,277,3626860,revisit: Flappy Bird Javascript;,revisit, Flappy Bird Javascript;,86
-161,278,3627371,visit: https://i.ibb.co/Q9yv5Jk/flappy-bird-set.png;,visit, https://i.ibb.co/Q9yv5Jk/flappy-bird-set.png;,86
-162,279,3627375,revisit: Flappy Bird Javascript;,revisit, Flappy Bird Javascript;,86
-163,291,3627782,revisit: http://localhost:8000/flappy_bear/;,revisit, http://localhost:8000/flappy_bear/;,87
+0,6,1680893887,visit: http://localhost:3006/;,visit, http://localhost:3006/;,0
+1,7,1680893929,visit: http://localhost:3006/profile;,visit, http://localhost:3006/profile;,0
+2,8,1680893943,visit: http://localhost:3000/job-listings/test;,visit, http://localhost:3000/job-listings/test;,0
+3,268,1680893962,search: bhr careers;,search, bhr careers;,1
+4,9,1680893966,visit: Careers - Behavioral Health Response;,visit, Careers - Behavioral Health Response;,1
+5,10,1680893970,visit: Job Opportunities - Behavioral Health Response;,visit, Job Opportunities - Behavioral Health Response;,1
+6,17,1680894329,revisit: Job Opportunities - Behavioral Health Response;,revisit, Job Opportunities - Behavioral Health Response;,1
+7,18,1680894478,search: mongo db login;,search, mongo db login;,2
+8,22,1680894507,visit: Cloud: MongoDB Cloud;,visit, Cloud: MongoDB Cloud;,2
+9,23,1680894540,revisit: Job Opportunities - Behavioral Health Response;,revisit, Job Opportunities - Behavioral Health Response;,3
+10,27,1680894761,revisit: Job Opportunities - Behavioral Health Response;,revisit, Job Opportunities - Behavioral Health Response;,3
+11,34,1680894899,revisit: Cloud: MongoDB Cloud;,revisit, Cloud: MongoDB Cloud;,4
+12,47,1680895120,visit: http://localhost:3000/job-listings/get_all_jobs;,visit, http://localhost:3000/job-listings/get_all_jobs;,4
+13,61,1680895427,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,5
+14,273,1680895493,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,5
+15,274,1680895505,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,5
+16,275,1680895515,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,5
+17,276,1680895582,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,5
+18,277,1680895605,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,5
+19,72,1680895681,search: how to display entire array of objects in react;,search, how to display entire array of objects in react;,6
+20,73,1680895689,visit: How to Render an Array of Objects in React? [in 3 easy steps] - GUVI Blogs;,visit, How to Render an Array of Objects in React? [in 3 easy steps] - GUVI Blogs;,6
+21,76,1680895837,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+22,278,1680896220,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+23,279,1680896242,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+24,280,1680896262,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+25,281,1680896269,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+26,282,1680896287,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+27,283,1680896295,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+28,284,1680896323,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+29,285,1680896408,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+30,286,1680896447,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+31,287,1680896465,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+32,288,1680896473,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+33,289,1680896486,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+34,290,1680896538,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+35,291,1680896557,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+36,292,1680896588,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+37,293,1680896595,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+38,294,1680896611,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+39,295,1680896627,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+40,296,1680896671,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+41,297,1680896679,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+42,298,1680896699,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+43,299,1680896709,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+44,300,1680896725,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+45,301,1680896755,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+46,302,1680896767,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+47,303,1680896780,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+48,304,1680896790,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+49,305,1680896814,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+50,306,1680896957,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+51,307,1680896992,revisit: http://localhost:3006/profile;,revisit, http://localhost:3006/profile;,7
+52,180,1680897278,visit: http://localhost:3000/job-listings/analyze_job;,visit, http://localhost:3000/job-listings/analyze_job;,7
+53,308,1680897324,revisit: http://localhost:3000/job-listings/analyze_job;,revisit, http://localhost:3000/job-listings/analyze_job;,7
+54,309,1680897357,revisit: http://localhost:3000/job-listings/analyze_job;,revisit, http://localhost:3000/job-listings/analyze_job;,7
+55,188,1680897402,revisit: http://localhost:3000/job-listings/analyze_job;,revisit, http://localhost:3000/job-listings/analyze_job;,7
+56,201,1680897852,revisit: Cloud: MongoDB Cloud;,revisit, Cloud: MongoDB Cloud;,8
+57,207,1680897976,revisit: Cloud: MongoDB Cloud;,revisit, Cloud: MongoDB Cloud;,8
+58,216,1680898222,search: error [err_http_headers_sent] cannot set headers after they are sent to the client;,search, error [err_http_headers_sent] cannot set headers after they are sent to the client;,9
+59,219,1680898226,visit: javascript - Error: Can't set headers after they are sent to the client - Stack Overflow;,visit, javascript - Error: Can't set headers after they are sent to the client - Stack Overflow;,9
+60,223,1680898328,revisit: Cloud: MongoDB Cloud;,revisit, Cloud: MongoDB Cloud;,10
+61,227,1680898467,search: mongoose findOne;,search, mongoose findOne;,11
+62,228,1680898472,visit: Mongoose | findOne() Function - GeeksforGeeks;,visit, Mongoose | findOne() Function - GeeksforGeeks;,11
+63,229,1680898567,search: mongoose save();,search, mongoose save();,12
+64,231,1680898571,visit: Mongoose v7.0.3: Documents;,visit, Mongoose v7.0.3: Documents;,12
+65,239,1680898758,revisit: Cloud: MongoDB Cloud;,revisit, Cloud: MongoDB Cloud;,13
+66,245,1680898874,revisit: Cloud: MongoDB Cloud;,revisit, Cloud: MongoDB Cloud;,13
+67,252,1680899236,search: how to iterate through array for each Node.js;,search, how to iterate through array for each Node.js;,14
+68,253,1680899239,visit: Node.js forEach() function - GeeksforGeeks;,visit, Node.js forEach() function - GeeksforGeeks;,14
+69,256,1680899280,visit: http://localhost:3000/job-listings/find_employees;,visit, http://localhost:3000/job-listings/find_employees;,14
+70,259,1680899393,revisit: Cloud: MongoDB Cloud;,revisit, Cloud: MongoDB Cloud;,15
+71,261,1680899510,search: node.js compare similarities of arrays;,search, node.js compare similarities of arrays;,16
+72,262,1680899514,visit: javascript - How to compare two arrays in node js? - Stack Overflow;,visit, javascript - How to compare two arrays in node js? - Stack Overflow;,16

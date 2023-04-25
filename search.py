@@ -230,7 +230,7 @@ def getClusters(df):
 
 
 # read in the search events data
-df = pd.read_csv('web/data/codeHistoryStudy/user6_searchEvts.csv')
+df = pd.read_csv('web/data/codeHistoryStudy/user5_searchEvts.csv')
 # df = pd.read_csv('web/data/searchEvts_gitMosaic.csv')
 
 # split the type: pagedesc into separate columns

@@ -3,7 +3,7 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-projectName = "user6"
+projectName = "user5"
 imageDir = "/images/" + projectName + "/"
 
 def get_search_overview_html(responseEntries):
@@ -158,12 +158,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/codeHistoryStudy/user6_searchCluster.csv')
+searchDF = pd.read_csv('web/data/codeHistoryStudy/user5_searchCluster.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeHistoryStudy/user6_codeCluster.csv')
+codeDF = pd.read_csv('web/data/codeHistoryStudy/user5_codeCluster.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type', 'filename'], axis=1, inplace=True)
 print(codeDF)
 
