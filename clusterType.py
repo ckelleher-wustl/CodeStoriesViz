@@ -72,7 +72,7 @@ def getCodeDiff(code0, code1):
 
 
 # open file in read mode
-with open('web/data/codeCluster.csv', 'r') as read_obj:
+with open('web/data/codeCluster_wordle.csv', 'r') as read_obj:
     # pass the file object to reader() to get the reader object
     csv_reader = reader(read_obj)
     # Iterate over each row in the csv using reader object

@@ -1,0 +1,48 @@
+Line,Changes,Text
+1,0,@use 'functions' as *;
+2,0,
+3,0,@keyframes flip-in {
+4,0,  from {
+5,0,    transform: rotateX(0deg);
+6,0,  }
+7,0,  to {
+8,0,    transform: rotateX(-90deg);
+9,0,  }
+10,0,}
+11,0,
+12,0,@keyframes flip-out {
+13,0,  from {
+14,0,    transform: rotateX(-90deg);
+15,0,  }
+16,0,  to {
+17,0,    transform: rotateX(0deg);
+18,0,  }
+19,0,}
+20,0,
+21,0,.flip-in {
+22,0,  animation: flip-in 250ms;
+23,0,  animation-fill-mode: forwards;
+24,0,}
+25,0,
+26,0,.flip-out {
+27,0,  animation: flip-out 250ms;
+28,0,  animation-fill-mode: forwards;
+29,0,}
+30,0,
+31,0,@keyframes jump {
+32,0,  0% {
+33,0,    transform: translateY(0);
+34,0,  }
+35,0,  50% {
+36,1,    transform: translateY(rem(-10));
+37,0,  }
+38,0,  100% {
+39,0,    transform: translateY(0);
+40,0,  }
+41,0,}
+42,0,
+43,0,.jump {
+44,0,  animation: jump 250ms;
+45,0,  animation-fill-mode: forwards;
+46,0,}
+47,0,

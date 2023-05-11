@@ -142,15 +142,59 @@ def get_code_entries(startTime, endTime):
         return summaryLine
 
 
+def generate_num_changes(startTime, endTime):
+    
+    entry_init = get_code_entries(startTime,endTime)[2] # getting last code_text entry out of all script.js file entries
+    
+    num_changes = [0 for i in range(len(entry_init.split("\n")))] 
+
+    all_lines = [0 for i in range(1)] 
+    changes_made = [0 for i in range(1)] 
+    all_last_entry = [0 for i in range(len(entry_init.split("\n")))] # array where each array value is each line of code from the last entry
+
+    for line in range(len(entry_init.split("\n"))):
+        line_init = entry_init.split("\n")[line]
+        all_last_entry[line] = entry_init.split("\n")[line]
+        for i in range(1):
+            entry_following = get_code_entries(startTime,endTime)[1]
+            all_seq = [0 for k in range(len(entry_following.splitlines()))] # initializing array of all sequence ratios 
+            for j in range(len(entry_following.splitlines())):
+                line_following = entry_following.split("\n")[j]
+                seq=difflib.SequenceMatcher(a = line_init.lower(), b = line_following.lower()) # comparing the particular line from the first entry of script.js to every line in a different entry of script.js using Sequence Matcher
+                curr_seq = seq.ratio() # getting the ratio of the . This is a value between 0.0 (no match at all) and 1.0 (identical match)
+                all_seq[j] = curr_seq   # putting the ratio into an array
+            matched_seqval = max(all_seq) # getting the maximum 
+            matched_line = all_seq.index(max(all_seq)) 
+            if matched_seqval < 0.70:
+                matched_line = -1
+            else:
+                if matched_seqval < 1.0:
+                    changes_made[i] = 1
+                else:
+                    changes_made[i] = 0
+            all_lines[i] = matched_line
+
+        for ele in range(0, len(changes_made)):
+            num_changes[line] = num_changes[line] + changes_made[ele] # adding up all the changes made 
+
+    df_scriptjs_lastentry = pd.DataFrame(list(zip(num_changes, all_last_entry)), columns=['Changes', 'Text'])
+    df_scriptjs_lastentry.index += 1
+    df_scriptjs_lastentry.index.name = 'Line'
+
+    # converting dataframe to csv file 
+    df_scriptjs_lastentry.to_csv('before_after_test1.csv')
+
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_IFStudio.csv')
+# searchDF = pd.read_csv('web/data/searchClusters_IFStudio.csv')
+searchDF = pd.read_csv('web/data/searchClusters_wordle.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_IFStudio.csv')
+# codeDF = pd.read_csv('web/data/codeCluster_IFStudio.csv')
+codeDF = pd.read_csv('web/data/codeCluster_wordle.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type'], axis=1, inplace=True)
 print(codeDF)
 
@@ -236,9 +280,12 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         codeClusterHtml +=  "</button>" + "\n"
         codeClusterHtml += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
         codeClusterHtml += "<p> code content will go here</p>\n"
+        
+        codeClusterHtml += "<div id='my_dataviz'></div>" + "\n"
+
 
         html += codeClusterHtml
-        
+      
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']} {codeSummary}")
         # print(codeClusterHtml)
 

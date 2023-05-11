@@ -1,0 +1,42 @@
+Line,Changes,Text
+1,0,console.log('script.js loaded’);
+2,0,
+3,0,"document.querySelector('#btnLoad').addEventListener('click', () => {"
+4,0,
+5,7,  if(document.querySelector('#dinoName') !== null) {
+6,7,    document.querySelector('#dinoName').remove();
+7,4,  }
+8,4,  if(document.querySelector('#dinoImage') !== null) {
+9,5,    document.querySelector('#dinoImage').remove();
+10,4,  }
+11,4,  getDinoName();
+12,18,  getDinoImage();
+13,4,});
+14,0,
+15,0,async function getDinoName() {
+16,0,  const response = await fetch('/dinoname');
+17,0,  const data = await response.json();
+18,0,  let dinoName = data[0].join(' ');
+19,2,  console.log(dinoName);
+20,0,
+21,6,  let dinoNameDiv = document.createElement('div');
+22,6,  dinoNameDiv.id = 'dinoName';
+23,7,  dinoNameDiv.textContent = dinoName;
+24,10,  document.querySelector('#dinoWrapper').appendChild(dinoNameDiv);
+25,0,}
+26,0,
+27,5,async function getDinoImage() {
+28,5,  const response = await fetch('/dinoimage');
+29,0,  const data = await response.json();
+30,6,  let dinoImage = data.value[Math.floor(Math.random() * data.value.length)];
+31,4,  let dinoImageUrl = dinoImage.thumbnailUrl;
+32,5,  let dinoAlt = dinoImage.name;
+33,7,  console.log(dinoImage);
+34,0,
+35,0,  let img = document.createElement('img');
+36,3,  img.id = 'dinoImage';
+37,0,  img.src = dinoImageUrl;
+38,1,  img.alt = dinoAlt;
+39,11,  document.querySelector('#dinoWrapper').appendChild(img);
+40,0,}
+41,0,

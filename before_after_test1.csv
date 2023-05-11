@@ -1,0 +1,117 @@
+Line,Changes,Text
+1,0,console.log('keypress');
+2,0,const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+3,0,let currentGuessCount = 1;
+4,0,let currentGuess = document.querySelector('#guess' + currentGuess);
+5,0,"const words = ['apple', 'baker', 'store', 'horse', 'speak', 'clone', 'bread'];"
+6,0,let solutionWord = '';
+7,0,
+8,0,const chooseWord = () => {
+9,0,  // choose random item from words array
+10,0,  let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+11,0,  let solutionWord = words[randomItem];
+12,0,};
+13,0,
+14,0,chooseWord();
+15,0,console.log('solution word = ' + solutionWord);
+16,0,
+17,0,"// detect keypress (letter, backspace, enter, other)"
+18,0,"document.addEventListener('keydown', (e) => {"
+19,0,  //console.log('keypress: ' + e.key);
+20,0,  let keypress = e.key;
+21,0,  if (
+22,0,    keypress.length == 1 &&
+23,0,    lettersPattern.test(e.key) &&
+24,0,    currentGuess.dataset.letters.length < 5
+25,0,  ) {
+26,0,    //console.log('is letter')
+27,0,    updateLetters(keypress);
+28,0,  } else if(e.key == 'Backspace' && currentGuess.dataset.letters != ''){
+29,0,    //console.log('is backspace');
+30,0,    deleteFromLetters();
+31,0,  } else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5) {
+32,0,    console.log('submit guess');
+33,0,    for (let i = 0; i < 5; i ++) {
+34,0,      revealTile(checkLetter(i));
+35,0,    }
+36,0,  }
+37,0,});
+38,0,
+39,1,"// Update ""letters"""
+40,1,const updateLetters = (letter) => {
+41,1,  let oldLetters = currentGuess.dataset.letters
+42,1,  let newLetters = oldLetters + letter;
+43,1,  let currentTile = newLetters.length;
+44,1,  currentGuess.dataset.letters = newLetters;
+45,1,  //console.log('currentTile = ' + currentTile);
+46,1,"  updateTiles(currentTile, letter);"
+47,1,};
+48,0,
+49,0,// Update tile markup
+50,0,"const updateTiles = (tileNumber, letter) => {"
+51,0,"  //console.log('updateTiles(' + tileNumber, letter + ')');"
+52,0,  let currentTile = document.querySelector('#guessTile' + tileNumber);
+53,0,  currentTile.innerText = letter;
+54,0,};
+55,0,
+56,1,// Backspace -- Delete last letter
+57,1,const deleteFromLetters = () => {
+58,1,  // remove last letter from data-letters
+59,1,  let oldLetters = document.querySelector('#currentGuess.dataset.letters');
+60,1,  console.log('oldLetters = ' + oldLetters);
+61,1,"  let newLetters = oldLetters.slice(0, -1);"
+62,1,  console.log('newLetters = ' + newLetters);
+63,1,  currentGuess.dataset.letters = newLetters;
+64,1,  deleteFromTiles(oldLetters.length + 1);
+65,1,};
+66,0,
+67,0,// Backspace -- Delete last tile markup
+68,0,const deleteFromTiles = () => {
+69,0,  //remove markup from last tile
+70,0,  //console.log('deleteFromTiles = ' + tileNumber);
+71,0,  document.querySelector('#guessTile' + tileNumber).innerText = '';
+72,0,};
+73,0,
+74,0,// Check letter to solution
+75,0,// parameter = letter position in word
+76,0,const checkLetter = (position) => {
+77,0,  //console.log('checkLetter');
+78,0,  let guessedLetter = curentGuess.dataset.letters.charAt(position);
+79,0,  let solutionLetter = solutionWord.charAt(position);
+80,0,"  //console.log(guessedLetter, solutionLetter);"
+81,0,
+82,0,"  // If letters match, return ""correct"""
+83,0,  if(guessedLetter == solutionLetter){
+84,0,    return 'correct';
+85,0,  }
+86,0,"  // If not a match, if letter exists in solution word, return ""present"""
+87,0,  else {
+88,0,    return checkLetterExists(guessedLetter) ? 'present' : 'absent';
+89,0,  }
+90,0,
+91,0,"  // If not a match, if letter doesn't exist in solution, return ""absent"""
+92,0,};
+93,0,
+94,0,const checkLetterExists = (letter) => {
+95,0,  return solutionWord.includes(letter);
+96,0,};
+97,0,
+98,0,const revealTile = (status) => {
+99,0,  switch(status){
+100,0,    case 'correct':
+101,0,
+102,0,    case 'present':
+103,0,
+104,0,    case 'absent':
+105,0,  }
+106,0,}
+107,0,
+108,0,/*
+109,1,- if keypress is a letter
+110,1,"  - update ""letters"" attribute"
+111,1,"    - update tile markup based on ""letters"" value"
+112,0,- if keypress is backspace
+113,0,  - delete last letter in “letters”
+114,0,"    - update tile markup based on ""letters"""
+115,0,*/
+116,0,
