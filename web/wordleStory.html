@@ -26,10 +26,10 @@
         <div style="margin-top: 15px; border-top: 1px;" ></div>
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
-            <div>Plan implementation strategy</div>
+            <div>Set up user interface components for the Wordle game board. </div>
         </fieldset>
 
-        <button type='button' class='collapsible active'>PLANNING: adding requirements in planning file</button>
+        <button type='button' class='collapsible active'>Plan out wordle UI and interaction requirements.</button>
         <div class='content' --start-code='' --end-code='# Functional Requirements
 
         ## Gameplay
@@ -68,7 +68,7 @@
         <p> code content will go here</p>
         </div>
         
-        <button type='button' class='collapsible active'>Change project fonts</button>
+        <button type='button' class='collapsible active'>Change default font from Arial to Open Sans.</button>
         <div class='content' --start-code='root {
         --font-body: Arial, sans-serif;
         }
@@ -78,7 +78,7 @@
         '>
         <p> code content will go here</p>
         </div>
-        <button type='button' class='collapsible active'>Adjust background color of game board;</button>
+        <button type='button' class='collapsible active'>Change background color of game board to match Wordle.</button>
         <div class='content' --start-code='html {
           font-size: 100%;
           font-family: var(--font-body);
@@ -116,7 +116,7 @@
         }'>
         <p> code content will go here</p>
         </div>
-        <button type='button' class='collapsible active'>Set game tile styling</button>
+        <button type='button' class='collapsible active'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
         <div class='content' --start-code='html {
           font-size: 100%;
           font-family: var(--font-body);
@@ -163,13 +163,13 @@
         <p> code content will go here</p>
         </div>
 
-        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <!-- <div style="margin-top: 15px; border-top: 1px;" ></div>
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
             <div>Adjust tile styles</div>
-        </fieldset>
+        </fieldset> -->
 
-        <button type='button' class='collapsible active'>Adjust width of guess tile;</button>
+        <button type='button' class='collapsible active'>Set the width for the tiles.</button>
         <div class='content' --start-code='@use "../util" as *;
         
         .guess {
@@ -195,7 +195,7 @@
         '>
         <p> code content will go here</p>
         </div>
-        <button type='button' class='collapsible active'>Adjust border styling for guess tile</button>
+        <button type='button' class='collapsible active'>Changed the border color to a darker shade of gray.</button>
         <div class='content' --start-code='@use "../util" as *;
         
         .guess {
@@ -235,10 +235,10 @@
         <div style="margin-top: 15px; border-top: 1px;" ></div>
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
-            <div>Detect and respond to keypress event</div>
+            <div>Adding an initial key listener to detect letters the user enters. </div>
         </fieldset>
 
-        <button type='button' class='collapsible active'>search: javascript es6 detect keypress</button>
+        <button type='button' class='collapsible active'>Searching for information about detecting keypresses in javascript.</button>
         <div class='content'>
         <div class='title'><span><a href='javascript:' onclick='seek(3282)'>javascript detect keypress</a></span></div><hr>
         <div class='webImageLongRow'>
@@ -251,7 +251,7 @@
         </div>
 
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: detect keypress;</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Adding a keydown listener that echoes input and detects if user pressed a letter key.</button>
         <div class='content' --start-code='// detect keypress (letter, backspace, other)
 
         // Update "letters"
@@ -305,10 +305,10 @@
         <div style="margin-top: 15px; border-top: 1px;" ></div>
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
-            <div>Set up index.html with game elements</div>
+            <div>Set up index.html to show the wordle game board.</div>
         </fieldset>
 
-        <button type='button' class='collapsible active'>INDEX.HTML: sets up index with sections for game and keyboard</button>
+        <button type='button' class='collapsible active'>INDEX.HTML: add outline of wordle index page with sections for game and keyboard</button>
         <div class='content' --start-code='' --end-code='<!DOCTYPE html>
             <html lang="en">
               <head>
@@ -338,7 +338,7 @@
         <p> code content will go here</p>
         </div>
 
-        <button type='button' class='collapsible active'>INDEX.HTML: Adds elements for guess tiles</button>
+        <button type='button' class='collapsible active'>INDEX.HTML: Add guess tiles into the game section.</button>
         <div class='content' --start-code='<!DOCTYPE html>
             <html lang="en">
               <head>
@@ -403,10 +403,10 @@
         <div style="margin-top: 15px; border-top: 1px;" ></div>
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
-            <div>Use RegExp to check if key pressed is a letter</div>
+            <div>Use regular expressions to determine whether a pressed key is a letter and, if so, save it. </div>
         </fieldset>
 
-        <button type='button' class='collapsible active'>search: regex is string a letter</button>
+        <button type='button' class='collapsible active'>Search for information on using regular expressions to detect whether a pressed key is a letter.</button>
         <div class='content'>
         <div class='title'><span><a href='javascript:' onclick='seek(3364)'>javscript window.event</a></span></div><hr>
         <div class='webImageLongRow'>
@@ -433,7 +433,7 @@
         </div>
         </div>
         
-        <button type='button' class='collapsible active'>search: flavio javascript test regex</button>
+        <button type='button' class='collapsible active'>Search for information on detecting letters and regex testers.</button>
         <div class='content'>
         <div class='title'><span><a href='javascript:' onclick='seek(3768)'>regex tester</a></span></div><hr>
         <div class='webImageLongRow'>
@@ -474,7 +474,7 @@
         </div>
         </div>
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: Adds RegExp to see if key pressed is a letter</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Add a regular expression for letters and test whether input key is a letter.</button>
         <div class='content' --start-code='console.log("keypress");
 
         // detect keypress (letter, backspace, other)
@@ -538,7 +538,7 @@
         </div>
 
 
-        <button type='button' class='collapsible active'>search: How to store data variable in HTML</button><div class='content'>
+        <button type='button' class='collapsible active'>Search for information on how to store data as an HTML attribute.</button><div class='content'>
         <div class='title'><span><a href='javascript:' onclick='seek(4620)'>data</a></span></div><hr>
         <div class='webImageLongRow'>
         </div>
@@ -562,8 +562,15 @@
                 <div class='sideBySideImage'> <table><tbody><tr><td><a href='https://flaviocopes.com/javascript-arrow-functions/' target='_blank' rel='noreferrer noopener'><img src='/images/wordle/screencapture-localhost-9000-2022-08-19-12_37_48.png' width='180' height='112'></a> </td></tr><tr><td bgColor='lightblue'>a tutorial to javascript arrow functions</td></tr></tbody></table></div>
         </div>
         </div>
+
+        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <fieldset class="goal" style="width: 100%;">
+            <legend>Sub-goal</legend>
+            <div>Show the appropriate entered letters on the Wordle game board.</div>
+        </fieldset>
+
         
-        <button type='button' class='collapsible active'>SCRIPT.JS: updates tiles with letter when key pressed is a letter</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Add and call an updateLetters function to handle entered letters. Right now, it just prints to the console.</button>
         <div class='content' --start-code='console.log("keypress");
         
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -646,13 +653,13 @@
         <p> code content will go here</p>
         </div>
        
-        <div style="margin-top: 15px; border-top: 1px;" ></div>
+        <!-- <div style="margin-top: 15px; border-top: 1px;" ></div>
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
             <div>Update HTML markup when letter is updated</div>
-        </fieldset>
+        </fieldset> -->
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: updates html markup when letter is updated</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Add updateTiles function to set the letter for the appropriate tile onscreen.</button>
         <div class='content' --start-code='console.log("keypress");
         
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -745,7 +752,7 @@
         </div>
 
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: handles backspace event</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Add deleteFromLetters and deleteTiles to handle cases where the user uses backspace.</button>
         <div class='content' --start-code='console.log("keypress");
 
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -860,10 +867,10 @@
         <div style="margin-top: 15px; border-top: 1px;" ></div>
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
-            <div>Select random word from array of potential words to be word for a game</div>
+            <div>Select a Wordle answer at random from a list of potential words.</div>
         </fieldset>
 
-        <button type='button' class='collapsible active'>SEARCH: shuffle javascript array</button>
+        <button type='button' class='collapsible active'>Search for how to shuffle an array of potential Wordle answers.</button>
         <div class='content'>
         <div class='title'><span><a href='javascript:' onclick='seek(6288)'>javascript set content of div</a></span></div><hr>
         <div class='webImageLongRow'>
@@ -900,7 +907,7 @@
         </div>
         </div>
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: add list of words and shuffle</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Randomly sort an array of words. </button>
         <div class='content' --start-code='console.log("keypress");
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
         let currentGuessCount = 1;
@@ -1051,7 +1058,7 @@
         <p> code content will go here</p>
         </div>
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: select first element from shuffled array</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Select the first word in the randomly shuffled array to be the current Wordle answer.</button>
         <div class='content' --start-code='console.log("keypress");
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
         let currentGuessCount = 1;
@@ -1207,7 +1214,7 @@
         </div>
 
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: changes random selection algorithm</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Instead of randomly shuffling, generate a random item index and use that to select the solution word.</button>
         <div class='content' --start-code='console.log("keypress");
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
         let currentGuessCount = 1;
@@ -1727,11 +1734,11 @@
 
         <fieldset class="goal" style="width: 100%;">
             <legend>Sub-goal</legend>
-            <div>Get color of tile to change during flip so that user doesn't see the color change</div>
+            <div>Animate the tile flipping over.</div>
           </fieldset>
 
 
-        <button type='button' class='collapsible active'>PLANNING: adds goals for desired functionality in planning document</button>
+        <button type='button' class='collapsible active'>PLANNING: Update goals for desired flipping functionality in planning document</button>
         <div class='content' --start-code='# Functional Requirements
         
         ## Gameplay
@@ -1860,7 +1867,7 @@
         '>
         <p> code content will go here</p>
         </div>
-        <button type='button' class='collapsible active'>search: css transform mirror</button><div class='content'>
+        <button type='button' class='collapsible active'>search: Look for how to animate flipping a css element.</button><div class='content'>
         <div class='title'><span><a href='javascript:' onclick='seek(11207)'>css flip</a></span></div><hr>
         <div class='webImageLongRow'>
                 <div class='sideBySideImage'> <table><tbody><tr><td><a href='https://codepen.io/edeesims/pen/wvpYWW' target='_blank' rel='noreferrer noopener'><img src='/images/wordle/screencapture-localhost-9000-2022-08-24-16_57_24.png' width='180' height='112'></a> </td></tr><tr><td>pure css flip card</td></tr></tbody></table></div>
@@ -1871,7 +1878,7 @@
         </div>
         </div>
         
-        <button type='button' class='collapsible active'>STYLE: Adds flip css classes</button>
+        <button type='button' class='collapsible active'>STYLE: Update CSS with flip-in and flip-out animations.</button>
         <div class='content' --start-code='@keyframes flip-in {
           from {
             transform: rotateX(0deg);
@@ -1916,7 +1923,7 @@
         }'>
         <p> code content will go here</p>
         </div>
-        <button type='button' class='collapsible active'>SCRIPT.JS: adds to tile classList in flipTile</button>
+        <button type='button' class='collapsible active'>SCRIPT.JS: Use the flip-in and flip-out CSS classes when flipping the tiles.</button>
         <div class='content' --start-code='console.log("keypress");
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
         let currentGuessCount = 1;
@@ -2175,7 +2182,7 @@
         </div>
 
 
-        <button type='button' class='collapsible active'>search: css animation end state</button><div class='content'>
+        <button type='button' class='collapsible active'>Search for information about the end state of a CSS animation.</button><div class='content'>
             <div class='title'><span><a href='javascript:' onclick='seek(12705)'>css animation end state</a></span></div><hr>
             <div class='webImageLongRow'>
                     <div class='sideBySideImage'> <table><tbody><tr><td><a href='https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css-animation' target='_blank' rel='noreferrer noopener'><img src='/images/wordle/screencapture-localhost-9000-2022-08-25-16_53_03.png' width='180' height='112'></a> </td></tr><tr><td>maintaining the final state at end of a css3 animation</td></tr></tbody></table></div>
@@ -2190,7 +2197,7 @@
           </fieldset>
 
 
-        <button type='button' class='collapsible active'>Add setTimeout function for delay</button>
+        <button type='button' class='collapsible active'>Add setTimeout function that sets flip-in class and then replaces it with flip-out after 500 msec.</button>
         <div class='content' --start-code='console.log("keypress");
         const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
         let currentGuessCount = 1;
@@ -2458,7 +2465,7 @@
 
 
 
-        <button type='button' class='collapsible active'>search: javascript es6 syntax settimeout</button>
+        <button type='button' class='collapsible active'>Search for syntax for javascript settimeout.</button>
         <div class='content'>
         <div class='title'><span><a href='javascript:' onclick='seek(12252)'>javascript delay</a></span></div><hr>
         <div class='webImageLongRow'>
