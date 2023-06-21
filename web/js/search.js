@@ -6,7 +6,7 @@ function searchCode() {
     if (searchTerm) {
 
         codeContent.each( function() {
-            console.log(typeof(this) + " " +  this.hasAttribute("--end-code"));
+            // console.log(typeof(this) + " " +  this.hasAttribute("--end-code"));
             
             if ( typeof(this) == "object" && this.hasAttribute("--end-code")) {
                 var endCode = this.getAttribute("--end-code");
@@ -47,7 +47,7 @@ function searchBetweenCode() {
 
                     var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:100});
                     var lines = diff.split("\n");
-                    console.log("diff is " + typeof(diff) + " " + lines.length);
+                    // console.log("diff is " + typeof(diff) + " " + lines.length);
 
                     var startLineIdx = 0;
                     var endLineIdx = 0;
@@ -64,9 +64,9 @@ function searchBetweenCode() {
 
                     var relevantChanges = false;
                     for (var change in changes) {
-                        console.log(change + ": " + changes[change] + typeof(changes[change]) + typeof(startLineIdx));
+                        // console.log(change + ": " + changes[change] + typeof(changes[change]) + typeof(startLineIdx));
                         if ((changes[change] > startLineIdx) && (changes[change] < endLineIdx)) {
-                            console.log(startLineIdx + " < " + changes[change] + " < " + endLineIdx + " " +  (changes[change] > startLineIdx) + " " + (changes[change] > endLineIdx));
+                            // console.log(startLineIdx + " < " + changes[change] + " < " + endLineIdx + " " +  (changes[change] > startLineIdx) + " " + (changes[change] > endLineIdx));
                             relevantChanges = true;
                         }
                     }
@@ -77,7 +77,7 @@ function searchBetweenCode() {
                         openContent(this, false);
                     }
 
-                    console.log("range is " + startLineIdx + " - " + endLineIdx + " " + changes);
+                    // console.log("range is " + startLineIdx + " - " + endLineIdx + " " + changes);
 
                 } else {
                     openContent(this, false);
