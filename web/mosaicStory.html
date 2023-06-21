@@ -16,6 +16,19 @@
     </head>
 
     <body>
+
+
+        <div>
+            <input type="text" id="searchTerms"></input>
+            <button onclick="searchCode()">Search</button>
+            </div>
+            <div>
+            <input type="text" id="searchStartLine"></input>
+            <input type="text" id="searchEndLine"></input>
+            <button onclick="searchBetweenCode()">Search Between</button>
+        </div>
+
+
       <fieldset class="goal" style="width: 100%;">
         <legend>Project Description</legend>
         <div>The goal of this project is to build a Photo Mosaic, where a folder of images is used to recreate a target image.</div>
@@ -16137,6 +16150,7 @@ img.save("mosaic_huge.jpg")'>
         <script type="text/javascript" src="js/youtube.js"></script>
         <script type="text/javascript" src="js/overview.js"></script>
         <script type="text/javascript" src="js/accordion.js"></script>
+        <script type="text/javascript" src="js/search.js"></script>
 
         <script>
             // includeHTML();
@@ -16180,6 +16194,37 @@ img.save("mosaic_huge.jpg")'>
                     content.querySelector("p").innerHTML = diffHtml;
                   }
                 });
+              }
+            }
+
+            function openContent(content, open) {
+              
+              var button =  content.previousElementSibling;
+              
+              if ((content.style.display === "block") && (!open)) {
+                content.style.display = "none";
+                // console.log("closed")
+              } else if (open) {
+                content.style.display = "block";
+                // console.log(content)
+          
+                var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:100});
+                console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
+          
+                var addition = "";
+                diff.split("\n").forEach(part => {
+                  if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
+                    addition = part
+                  }
+                  // console.log(part.length + " " + part)
+                })
+                // this.textContent = addition
+                var diffHtml = Diff2Html.html(diff, {
+                    drawFileList: false,
+                    //matching: 'words',
+                    outputFormat: 'side-by-side',
+                });
+                content.querySelector("p").innerHTML = diffHtml;
               }
             }
           </script>
