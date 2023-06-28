@@ -25,6 +25,47 @@ function searchCode() {
     searchBetweenCode();
 }
 
+function searchChangedCode() {
+
+    var searchTerm = $('#searchTerms').val();
+
+    var codeContent = $('.content');
+
+    // if we have valid value for search term
+    if (searchTerm) {
+
+        // grab the starting / ending code to see whether changes have been made
+        codeContent.each( function() {
+            
+            if ( typeof(this) == "object" && this.hasAttribute("--end-code") && this.hasAttribute("--start-code")) {
+                var startCode = this.getAttribute("--start-code");
+                var endCode = this.getAttribute("--end-code");
+
+                // create a diff between the starting and ending code.
+                var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:100});
+                var lines = diff.split("\n");
+                
+                // iterate throught the lines
+                var open = false;
+                for (var line in lines) {
+                    if (lines[line].includes(searchTerm)) {
+                        if (lines[line].startsWith('+') || lines[line].startsWith('-')) {
+                            open = true;
+                        } 
+                    }
+                }
+
+                if (open) {
+                    openContent(this, true);
+                } else {
+                    openContent(this, false);
+                }
+            }
+        });
+    }
+
+}
+
 function searchBetweenCode() {
     var startingCodeLine = $('#searchStartLine').val();
     var endingCodeLine = $('#searchEndLine').val();;

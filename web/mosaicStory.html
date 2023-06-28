@@ -20,7 +20,7 @@
 
         <div>
             <input type="text" id="searchTerms"></input>
-            <button onclick="searchCode()">Search</button>
+            <button onclick="searchChangedCode()">Search</button>
             </div>
             <div>
             <input type="text" id="searchStartLine"></input>
@@ -16176,7 +16176,7 @@ img.save("mosaic_huge.jpg")'>
                     console.log(content)
               
                     var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:100});
-                    console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
+                    // console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
               
                     var addition = "";
                     diff.split("\n").forEach(part => {
@@ -16209,7 +16209,7 @@ img.save("mosaic_huge.jpg")'>
                 // console.log(content)
           
                 var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:100});
-                console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
+                // console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
           
                 var addition = "";
                 diff.split("\n").forEach(part => {
