@@ -1,0 +1,61 @@
+goalType,clusterType,startTime,endTime,summary
+parent',code',345,779,Plan our wordle UI and interaction requirements
+parent',code',1173,1279,Change default font from Arial to Open Sans
+parent',code',1306,1385,Change background color of game board to match Wordle
+parent',code',1472,1595,"Style the game tiles with appropriate padding, alignment, and automatic upper casing."
+parent',code',1661,1836,Set the width for the tiles
+parent',code',2192,2211,Changed the border color to a darker shade of gray
+parent',code',2570,2637,Changed the border color back to the previous shade (CHECK)
+parent',code',3180,3264,Outline initial code via comments
+parent',search',3282,3317,Search: How to detect a keypress in javascript
+parent',search',3364,3432,search: javascript onkeypress (CHECK)
+parent',code',3504,3601,Adding a key listener (CHECK)
+parent',search',3623,3848,search: how to determine whether an entered character is a letter (CHECK)
+parent',code',3936,4357,Figure out whether or not an entered character is a letter
+parent',search',4077,4173,search: flavio javascript test regex; searching for specific resource
+parent',search',4620,4712,setting the data attribute of an html element with javascript (CHECK)
+parent',code',2070,4753,adding id to guess element
+parent',code',4927,5396,build update letters function
+parent',search',5007,5043,javascript arrow functions
+parent',code',5527,5840,cleaning up build update letters function
+parent',code',5962,6336,updating the tiles with the entered letters
+parent',search',6288,6312,search: how to change div content with javascript
+parent',code',6401,6439,changing font size and weight for the tiles
+parent',code',6531,7154,adding logic for deleting letters
+parent',code',7280,7464,Updating requirements
+parent',code',7509,7998,Search: how to select a random object from an array
+parent',code',7620,8542,Choosing a random correct answer for the puzzle
+parent',search',8062,8104,Search: how to run a function on page load
+parent',code',8577,8597,Update planning document
+parent',search',8861,8883,Search: Get character from string based on a position
+parent',search',9299,9310,Search: string includes substring
+parent',search',9915,9952,search: javascript switch;
+parent',code',8613,8675,Handing the user pressing enter
+parent',code',8823,9969,Adding feedback for the user guess
+parent',code',9998,10070,"Setting up colors that correspond to letters being correct, present, and absent "
+parent',code',10111,10682,Debugging and ultimately removing switch statement for tile status 
+parent',code',10805,10872,Update notes
+parent',search',11207,11904,search: flipping cards in css
+parent',code',11758,11816,Adding CSS classes for tile flipping
+parent',code',12083,12666,Implementing tile flipping in javascript
+parent',search',12252,12362,search: how to delay execution of a function in javascript
+parent',search',12705,12730,search: css animation end state;
+parent',code',12759,12777,add code to flip in and out
+parent',code',12786,12806,adjusting set timeout timing
+parent',code',12815,12827,adjusting timing in css
+parent',code',12932,12949,more timing adjustments in script
+parent',code',13087,13189,adding tile border colors to CSS
+parent',code',13231,13256,"removes ""has-letter"" state when user presses backspace"
+parent',code',13452,13488,filling out index with all of the tiles needed for the gameboard
+parent',code',13518,13627,update script based on index updates to the gameboard.
+parent',code',13686,13713,adjusting spacing at the bottom
+parent',code',13873,14142,detect whether or not the user has won
+parent',search',14312,15004,search: javascript promises
+parent',code',14880,15252,unsuccessful attempt to add promises to wait for when a guess is complete
+parent',code',15252,15684,cleaning and removing unnecessary print statements
+parent',code',15778,15884,final adjustments to the animations
+parent',code',16012,16056,adding jump animation for the win condition in CSS
+parent',code',16074,16286,attempting to add jump animation in the script
+parent',code',16440,16549,refining jump animation
+parent',code',16635,16647,refining jump animation in CSS
+parent',code',16779,17037,final clean up

@@ -158,12 +158,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/codeHistoryStudy/user5_searchCluster.csv')
+searchDF = pd.read_csv('web/data/searchClusters_wordle.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeHistoryStudy/user5_codeCluster.csv')
+codeDF = pd.read_csv('web/data/codeCluster_wordle.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type', 'filename'], axis=1, inplace=True)
 print(codeDF)
 
