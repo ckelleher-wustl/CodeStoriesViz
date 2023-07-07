@@ -190,11 +190,32 @@ for clusterIdx in clusterDF.index:
         html += "<button type='button' class='collapsible active'>" +  clusterDF['summary'][clusterIdx] + "</button>\n"
         html += newHtml + "\n"
 
-searchIdx = 0
-codeIdx = 0
-clusterCnt = 1
 
-print(f"HTML:\n{html}")
+    # extend this to handle goal starts and goal ends.
+    elif "goal_start" in clusterDF['clusterType'][clusterIdx]:
+        sectionTitle =  clusterDF['summary'][clusterIdx]
+        html += '<div style="margin-top: 15px; border-top: 1px;" ></div>\n'
+        html += '\t<fieldset class="goal" style="width: 100%;">\n'
+        html += '\t\t<legend>Sub-goal</legend>\n'
+        html += '\t\t<div>' + sectionTitle + '</div>\n'
+        html += '\t</fieldset>\n'
+
+    # this is an example of what I need this to output
+    # <div style="margin-top: 15px; border-top: 1px;" ></div>
+    #     <fieldset class="goal" style="width: 100%;">
+    #         <legend>Sub-goal</legend>
+    #         <div>Set up user interface components for the Wordle game board. </div>
+    #     </fieldset>
+
+    elif "goal_end" in clusterDF['clusterType'][clusterIdx]:
+         html += "</div>" # this closes the section opened by a goal start
+
+
+print(f"HTML:\n{len(html)}")
+
+text_file = open("web/clusters_WordleNew.html", "w")
+n = text_file.write(html)
+text_file.close()
 
 
 
