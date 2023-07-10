@@ -77,6 +77,43 @@
         });
       }
     }
+
+
+    function openChange(title, open) {
+              
+              var button =  $("button:contains('" + title + "')")
+              var content = button.next()
+
+              // console.log("button is " + button)
+              // console.log("content is " + content)
+              
+              if (!open) {
+                content.attr("style", "display:none")
+                // console.log("closed")
+              } else  {
+                content.attr("style", "display:block")
+                // console.log(content)
+          
+
+                var diff = Diff.createTwoFilesPatch("begin", "end", content.attr("--start-code"), content.attr("--end-code"),null,null,{context:100});
+                console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
+          
+                var addition = "";
+                diff.split("\n").forEach(part => {
+                  if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
+                    addition = part
+                  }
+                  // console.log(part.length + " " + part)
+                })
+                // this.textContent = addition
+                var diffHtml = Diff2Html.html(diff, {
+                    drawFileList: false,
+                    //matching: 'words',
+                    outputFormat: 'side-by-side',
+                });
+                $(content,$(this).find('p:first')).html(diffHtml);
+              }
+            }
   </script>
 </body>
 </html>

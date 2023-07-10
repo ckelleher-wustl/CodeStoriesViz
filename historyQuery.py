@@ -1,5 +1,6 @@
 import difflib
 import requests
+import pandas as pd
 
 codeString1 = """// Update \"letters\"
         const updateLetters = (letter) => {
@@ -96,21 +97,25 @@ def processLines():
     for codeState in codeStates:
         # print("\n\n")
         # break up a codeString into candidate lines
-        lines = codeState.splitlines()
-        for line in lines:
+        rawLines = codeState['code'].splitlines()
+        lines =[]
+        for rawline in rawLines:
             #  strip whitespace
-            candidateLine = line.strip()
+            lines.append(rawline.strip())
 
+        for candidateLine in lines:
+            
             #  if not in the seedLineDict, search for a parent seed
             if (not candidateLine in seedLineDict.keys()):
                 matches = getClosestMatches(candidateLine, seedLineDict)
-                if len(matches) > 0:
-                    # print(f"closestMatch {candidateLine} -> {matches[0]}")
+                if (len(matches) > 0) and (matches[0] not in lines):
+                    print(f"closestMatch {candidateLine} -> {matches[0]} present in current code? {matches[0] in lines}")
                     seedLineDict[candidateLine] = matches[0]
 
                     baseCodeLine = getOrigLine(candidateLine, seedLineDict)
                     lineHistoryDict[baseCodeLine].append(candidateLine)
                 else:
+                    print(f"no match found {candidateLine} ")
                     # add entry to all known lines and mark as a starting point
                     seedLineDict[candidateLine] = "base"
 
@@ -118,7 +123,7 @@ def processLines():
                     lineHistoryDict[candidateLine] = [candidateLine]
 
 
-
+# ok so what's happening here is that sometimes multiple lines are being mapped to the same version history which creates a problem.
 
 def createLineHistory():
     # loop through lineHistory keys as they represent the original lines of code.
@@ -128,7 +133,7 @@ def createLineHistory():
         periodIdx = 0
         for codeState in codeStates:
         
-            sourceLines = getLines(codeState) 
+            sourceLines = getLines(codeState['code'])
 
             #  if there isn't an entry for origLine yet, make one.
             if origLine not in versionIndexHistory.keys():
@@ -168,7 +173,7 @@ def getChangePeriodsForLines(origLines, versionIndexHistory):
     keyChanges = []
     for key in versionIndexHistory.keys():
         if (key in origLines):
-            # print(f"history: {key} \t\t\t==>> {versionIndexHistory[key]}")
+            print(f"history: {key} \t\t\t==>> {versionIndexHistory[key]}")
             keyHistory = versionIndexHistory[key]
             lastChange = -1
             period = 0
@@ -201,32 +206,67 @@ def getCodeLinesForPeriodDict(origLines, periodArray, versionIndexHistory, lineH
  
     return codeLinesForPeriodArray
 
-#####
-# I think the next goal here is to bring in the clusters, but that requires re-doing them first. And then importing and 
 
 #####
 # trying to get the actual data and fold it into the mix.
 entriesByFilename = get_code_entries() 
 
-fName = "index.html"
+# selectedCode= """<div id="guess1" class="guess" data-letters="">
+#         <div class="guess__tile" id="guessTile1"></div>
+#         <div class="guess__tile" id="guessTile2"></div>
+#         <div class="guess__tile" id="guessTile3"></div>
+#         <div class="guess__tile" id="guessTile4"></div>
+#         <div class="guess__tile" id="guessTile5"></div>
+#       </div>"""
+
+selectedCode = """.jump {
+  animation: jump 250ms;
+  animation-fill-mode: forwards;
+}"""
+
+
+# """.jump {
+#   animation: jump 250ms;
+#   animation-fill-mode: forwards;
+# }"""
+
+# read in the cluster info
+clusterDF = pd.read_csv('web/data/wordleStoryOverview.csv')
+clusterDF.set_axis(['goalType','clusterType','startTime','endTime','summary'], axis=1, inplace=True)
+
+clusterTimes = []
+clusterTimeToSummaryDict = {} # this holds the clusters when 
+for clusterIdx in clusterDF.index:
+    startTime = clusterDF['startTime'][clusterIdx]
+    endTime = clusterDF['endTime'][clusterIdx]
+    summary = clusterDF['summary'][clusterIdx]
+
+    if (startTime not in clusterTimes):
+        clusterTimes.append(startTime)
+    
+    if (endTime not in clusterTimes):
+        clusterTimes.append(endTime)
+
+    clusterTimeToSummaryDict[startTime] = summary
+    clusterTimeToSummaryDict[endTime] = summary
+# at this point clusterTimes represents the data that we want to actually consider. so now I need to filter the codeStates using this
+
+fName = "animations.scss"
 print(f"{fName} contains {len(entriesByFilename[fName])}")
 
 # build an array of the code
 codeStates = []
 for entry in entriesByFilename[fName]:
-    print(f"\t{entry['time']}")
-    codeStates.append(entry["code_text"])
+    entryTime = entry['time']
+    if entryTime in clusterTimes:
+        print(f"codestate {entryTime} {entry['code_text'][0:20]}")
+        codeStates.append({'time': entryTime, 'code': entry["code_text"]})
 
-selectedCode= """<div id="guess1" class="guess" data-letters="">
-        <div class="guess__tile" id="guessTile1"></div>
-        <div class="guess__tile" id="guessTile2"></div>
-        <div class="guess__tile" id="guessTile3"></div>
-        <div class="guess__tile" id="guessTile4"></div>
-        <div class="guess__tile" id="guessTile5"></div>
-      </div>"""
 
-# for fName in entriesByFilename:
-#     print(f"{fName} contains {len(entriesByFilename[fName])}")
+####
+# so now we have the cluster info, but I need to reconcile that with the history info.
+# I think that means two things. 1) I need to filter the code states using the cluster bounds so that we're not processing things that won't map to something meaningful.
+# 2) I can currently map back to the states that are relevant, so I then need to be able to take a "codestate" and map it to a particular cluster
 
 ######
 seedLineDict = {} # dictionary mapping from a candidateLine to it's original code line
@@ -251,11 +291,15 @@ selectedLines = getLines(selectedCode)
 
 origLines = []
 for line in selectedLines:
-    origLines.append(getOrigLine(line, seedLineDict))
+    if (len(line)>5):
+        origLines.append(getOrigLine(line, seedLineDict))
 
 print("\t\t")
 for line in origLines:
     print(f"origLine: {line}")
+    print(f"\tversionIndices: {versionIndexHistory[line]}" )
+    print(f"\tversionIndices: {lineHistoryDict[line]}" )
+
 
 
 
@@ -272,7 +316,7 @@ for period in codeLinesForPeriodDict:
     codeLines = codeLinesForPeriodDict[period]
     print("\n")
     for line in codeLines:
-        print(f"period {period}: {line}")
+        print(f"period {period}: @{codeStates[period]['time']} {clusterTimeToSummaryDict[codeStates[period]['time']]}:   {line}")
 
 
 print(f"\t\tKEYS: {codeLinesForPeriodDict.keys()}")
