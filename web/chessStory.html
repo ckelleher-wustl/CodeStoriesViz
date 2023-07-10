@@ -68,68 +68,122 @@
         ">
         <p> code content will go here</p>
         </div>
-        
-        <button type='button' class='collapsible active'>Searching for information about detecting keypresses in javascript.</button>
-        <div class='content'>
-        <div class='title'><span><a href='javascript:' onclick='seek(3282)'>javascript detect keypress</a></span></div><hr>
-        <div class='webImageLongRow'>
-                <div class='sideBySideImage'> <table><tbody><tr><td><a href='https://www.geeksforgeeks.org/how-to-detect-keypress-using-javascript/' target='_blank' rel='noreferrer noopener'><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_48_00.png' width='180' height='112'></a> </td></tr><tr><td>how to detect keypress using javascript?</td></tr></tbody></table></div>
-        </div>
-        <div class='title'><span><a href='javascript:' onclick='seek(3314)'>javascript es6 detect keypress</a></span></div><hr>
-        <div class='webImageLongRow'>
-                <div class='sideBySideImage'> <table><tbody><tr><td><a href='https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript' target='_blank' rel='noreferrer noopener'><img src='/images/wordle/screencapture-localhost-9000-2022-08-10-15_49_48.png' width='180' height='112'></a> </td></tr><tr><td>detecting arrow key presses in javascript</td></tr></tbody></table></div>
-        </div>
-        </div>
 
 
-        <button type='button' class='collapsible active'>SCRIPT.JS: Adding a keydown listener that echoes input and detects if user pressed a letter key.</button>
-        <div class='content' --start-code='// detect keypress (letter, backspace, other)
+        <button type='button' class='collapsible active'>Continuously check to see if data has been recieved by the API</button>
+        <div class='content' --start-code="const fetch = require('node-fetch')
 
-        // Update "letters"
+        const BASE_URL = 'https://lichess.org';
         
-        // Update tile markup
+        async function listenChallenges() {
+           const response = await fetch(`${BASE_URL}/api/stream/event
+           // response.bo
+        }
         
-        // Delete last letter
+        function init() {
+           listenChallenges();
+        }
         
-        /*
-        - if keypress is a letter
-          - update "letters" attribute
-            - update tile markup based on "letters" value
-        - if keypress is backspace
-          - delete last letter in “letters”
-            - update tile markup based on "letters"
-        */' --end-code='console.log("keypress");
-                
-        // detect keypress (letter, backspace, other)
-        document.addEventListener("keydown", (e) => {
-          console.log("keypress: " + e.key);
+        init();
+        " --end-code="const BASE_URL = 'https://lichess.org’;
+
+        async function listenChallenges() {
+           const response = await fetch('${BASE_URL}/api/stream/event', {
+              headers: {
+                 Authorization: 'Bearer ${BOT_TOKEN}',
+              },
+           });
+        const reader = response.body.getReader();
+        while (true) {
+           const { value, done } = await reader.read();
+           if (done) break;
+           console.log( 'Received', value);
+           }
+        }
         
-          // If a letters
-          // /[a-z]/.test("a");
-          let keypress = e.key;
-          if (keypress.length == 1) {
-            let isLetter = lettersPattern.test(e.key);
-            console.log(isLetter)
-          }
+        function init(){
+           listenChallenges();
+        }
+      ">
+        <p> code content will go here</p>
+        </div>
+
+        <button type='button' class='collapsible active'>Transition to using HTTP methods to get data</button>
+        <div class='content' --start-code="const fetch = require('node-fetch')
+
+        const BASE_URL = 'https://lichess.org';
         
-          // If backspace
+        async function listenChallenges() {
+           const response = await fetch(`${BASE_URL}/api/stream/event
+           // response.bo
+        }
+        
+        function init() {
+           listenChallenges();
+        }
+        
+        init();
+        " --end-code=" const req = https.request(options, (res) => {
+          console.log('statusCode:', res.statusCode);
+          console.log('headers:', res.headers);
+       
+          res.on('data', (data) => {
+             console.log(data);
+          });
         });
+       
+        req.on('error'), (e) => {
+          console.error(e);
+        });
+        // request.end();
+       }
+       
+       function init() {
+          listenChallenges();
+       }
+       ">
+        <p> code content will go here</p>
+        </div>
+
+        <button type='button' class='collapsible active'>Test by outputting recieved JSON object</button>
+        <div class='content' --start-code="const req = https.request(options, (res) => {
+          console.log('statusCode:', res.statusCode);
+          console.log('headers:', res.headers);
+       
+          res.on('data', (data) => {
+            console.log(data);
+         });
+        });
+       
+        req.on('error'), (e) => {
+          console.error(e);
+        });
+        // request.end();
+       }
+       
+       function init() {
+          listenChallenges();
+       " --end-code="const req = https.request(options, (res) => {
+          console.log('statusCode:', res.statusCode);
+          console.log('headers:', res.headers);
         
-        // Update "letters"
+            res.on('data', (data) => {
+              console.log(data.toString('utf8'));
+           });
+         });
         
-        // Update tile markup
+         request.on('error'), (e) => {
+           console.error(e);
+         });
+         request.end();
+        }
         
-        // Delete last letter
+        function init() {
+           listenChallenges();
+        }
         
-        /*
-        - if keypress is a letter
-          - update "letters" attribute
-            - update tile markup based on "letters" value
-        - if keypress is backspace
-          - delete last letter in “letters”
-            - update tile markup based on "letters"
-        */
-        '>
+        function init() {
+       ">
         <p> code content will go here</p>
         </div>
 
