@@ -2,47 +2,8 @@ import difflib
 import requests
 import pandas as pd
 
-codeString1 = """// Update \"letters\"
-        const updateLetters = (letter) => {
-          console.log(
-            \"updateLetters = \" + letters,
-            \"\\ncurrentGuess = \" + currentGuess,
-            \"\\ncurrentLetters = \" + currentLetters
-          );
-          currentLetters = currentLetters + letter;
-          console.log(\"updated currentLetters = \" + currentLetters);
-        }"""
-
-codeString2 = """// Update \"letters\"
-        const updateLetters1 = (letter) => {
-          let oldLetters = currentGuess.dataset.letters
-          let newLetters = oldLetters + letter;
-          let currentTile = newLetters.length;
-          currentGuess.dataset.letters = newLetters;
-          console.log(\"currentTile = \" + currentTile);
-          updateTiles(currentTile, letter);
-        };"""
-
-codeString3 = """// Update \"letters\"
-        const updateLetters2 = (letter) => {
-          let oldLetters = currentGuess.dataset.letters
-          let newLetters = oldLetters + letter;
-          let currentTile = newLetters.length;
-          currentGuess.dataset.letters = newLetters;
-          //console.log("currentTile = " + currentTile);
-          updateTiles(currentTile, letter);
-        };"""
-
-# alternative of fetching the code from the database.
 
 API_url = 'http://localhost:3000/getCodeText'
-
-
-# inCluster = False
-# clusterStartTime = 0
-
-# lineHistory = {}
-
 
 def get_code_entries():
     
@@ -87,10 +48,15 @@ def getClosestMatches(targetString, matchDict):
 # figure out what the starting seed for this line of code should be
 def getOrigLine(targetString, seedLineDict):
     parentLine = targetString
+
+    print(f"Looking for {targetString} -> (parent) {parentLine}")
     while (seedLineDict[parentLine] != "base"):
         parentLine = seedLineDict[parentLine]
-
-    return parentLine
+        
+    if seedLineDict[parentLine] == "base":
+        return parentLine
+    else:
+        return "NOT FOUND"
 
 # iterate through code lines to create the seedLineDict and the lineHistoryDict
 def processLines():
@@ -109,13 +75,14 @@ def processLines():
             if (not candidateLine in seedLineDict.keys()):
                 matches = getClosestMatches(candidateLine, seedLineDict)
                 if (len(matches) > 0) and (matches[0] not in lines):
-                    print(f"closestMatch {candidateLine} -> {matches[0]} present in current code? {matches[0] in lines}")
+                    # print(f"closestMatch {candidateLine} -> {matches[0]} present in current code? {matches[0] in lines}")
                     seedLineDict[candidateLine] = matches[0]
 
                     baseCodeLine = getOrigLine(candidateLine, seedLineDict)
                     lineHistoryDict[baseCodeLine].append(candidateLine)
+
                 else:
-                    print(f"no match found {candidateLine} ")
+                    # print(f"no match found {candidateLine} ")
                     # add entry to all known lines and mark as a starting point
                     seedLineDict[candidateLine] = "base"
 
@@ -207,108 +174,104 @@ def getCodeLinesForPeriodDict(origLines, periodArray, versionIndexHistory, lineH
     return codeLinesForPeriodArray
 
 
-#####
-# trying to get the actual data and fold it into the mix.
-entriesByFilename = get_code_entries() 
+def initializeClusters(clusterFile):
+    # read in the cluster info
+    clusterDF = pd.read_csv(clusterFile)
+    clusterDF.set_axis(['goalType','clusterType','startTime','endTime','summary'], axis=1, inplace=True)
 
-# selectedCode= """<div id="guess1" class="guess" data-letters="">
-#         <div class="guess__tile" id="guessTile1"></div>
-#         <div class="guess__tile" id="guessTile2"></div>
-#         <div class="guess__tile" id="guessTile3"></div>
-#         <div class="guess__tile" id="guessTile4"></div>
-#         <div class="guess__tile" id="guessTile5"></div>
-#       </div>"""
+    clusterTimes = []
+    clusterTimeToSummaryDict = {} # this holds the clusters when 
+    for clusterIdx in clusterDF.index:
+        startTime = clusterDF['startTime'][clusterIdx]
+        endTime = clusterDF['endTime'][clusterIdx]
+        summary = clusterDF['summary'][clusterIdx]
 
-selectedCode = """.jump {
-  animation: jump 250ms;
-  animation-fill-mode: forwards;
-}"""
+        if (startTime not in clusterTimes):
+            clusterTimes.append(startTime)
+        
+        if (endTime not in clusterTimes):
+            clusterTimes.append(endTime)
+
+        clusterTimeToSummaryDict[startTime] = summary
+        clusterTimeToSummaryDict[endTime] = summary
+
+    return clusterTimeToSummaryDict, clusterTimes
+
+def getCodeByCluster(fileName, clusterTimes):
+    entriesByFilename = get_code_entries() 
+
+    fName = fileName
+    print(f"{fName} contains {len(entriesByFilename[fName])}")
+
+    # build an array of the code
+    codeStates = []
+    for entry in entriesByFilename[fName]:
+        entryTime = entry['time']
+        if entryTime in clusterTimes:
+            print(f"codestate {entryTime} {entry['code_text'][0:20]}")
+            codeStates.append({'time': entryTime, 'code': entry["code_text"]})
+
+    #  add the final state of the file
+    l = len(entriesByFilename[fName])
+    codeStates.append({'time': entriesByFilename[fName][l-1]["time"], 'code': entriesByFilename[fName][l-1]["code_text"]})
+    return codeStates
+
+def getOrigLinesForSelected(selectedCode):
+    selectedLines = getLines(selectedCode)
+
+    origLines = []
+    for line in selectedLines:
+        if (len(line)>5):
+            origLine = getOrigLine(line, seedLineDict)
+            if origLine == "NOT FOUND":
+                matches = getClosestMatches(line, seedLineDict)
+                if (len(matches) > 0):
+                    print(f"closestMatch {line} -> {matches[0]} ")
+                    # seedLineDict[candidateLine] = matches[0]
+            else:    
+                origLines.append(getOrigLine(line, seedLineDict))
+
+    return origLines
 
 
-# """.jump {
-#   animation: jump 250ms;
-#   animation-fill-mode: forwards;
-# }"""
-
-# read in the cluster info
-clusterDF = pd.read_csv('web/data/wordleStoryOverview.csv')
-clusterDF.set_axis(['goalType','clusterType','startTime','endTime','summary'], axis=1, inplace=True)
-
-clusterTimes = []
-clusterTimeToSummaryDict = {} # this holds the clusters when 
-for clusterIdx in clusterDF.index:
-    startTime = clusterDF['startTime'][clusterIdx]
-    endTime = clusterDF['endTime'][clusterIdx]
-    summary = clusterDF['summary'][clusterIdx]
-
-    if (startTime not in clusterTimes):
-        clusterTimes.append(startTime)
-    
-    if (endTime not in clusterTimes):
-        clusterTimes.append(endTime)
-
-    clusterTimeToSummaryDict[startTime] = summary
-    clusterTimeToSummaryDict[endTime] = summary
-# at this point clusterTimes represents the data that we want to actually consider. so now I need to filter the codeStates using this
-
-fName = "animations.scss"
-print(f"{fName} contains {len(entriesByFilename[fName])}")
-
-# build an array of the code
-codeStates = []
-for entry in entriesByFilename[fName]:
-    entryTime = entry['time']
-    if entryTime in clusterTimes:
-        print(f"codestate {entryTime} {entry['code_text'][0:20]}")
-        codeStates.append({'time': entryTime, 'code': entry["code_text"]})
+# NOTE: a lot of these don't seem to match the final state of the code.
+# this is the code that we want to find the history for
+selectedCode = """
+    console.log('keypress');
+    const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+    let currentGuessCount = 1;
+    let currentGuess = document.querySelector('#guess' + currentGuess);
+    const words = ['apple', 'baker', 'store', 'horse', 'speak', 'clone', 'bread'];
+    let solutionWord = '';"""
 
 
-####
-# so now we have the cluster info, but I need to reconcile that with the history info.
-# I think that means two things. 1) I need to filter the code states using the cluster bounds so that we're not processing things that won't map to something meaningful.
-# 2) I can currently map back to the states that are relevant, so I then need to be able to take a "codestate" and map it to a particular cluster
 
-######
 seedLineDict = {} # dictionary mapping from a candidateLine to it's original code line
 lineHistoryDict = {} # dictionary from an original code line to its list of subsequent versions
 versionIndexHistory = {} # dictionary mapping orig code line to an array of its states by time period
-# -1 means not present, otherwise the value is an index into the lineHistory
+                         # -1 means not present, otherwise the value is an index into the lineHistory
 
-# this is the set of code states we're working with right now.
-# codeStates = [codeString1, codeString2, codeString3]
+#####
+# Initialize all the data structures we need
+#####
+
+# this maps cluster times to titles and provides a list of clustertimes used in filtering
+clusterTimeToSummaryDict, clusterTimes = initializeClusters('web/data/wordleStoryOverview.csv')
+codeStates = getCodeByCluster("script.js", clusterTimes)
 
 processLines()
 createLineHistory()
 
+### 
+# This is where the processing of an actual instance of code starts
+#
 
-# # find the original lines that correspond to a set of "ending lines"
-# selectedCode = """let currentTile = newLetters.length;
-#           currentGuess.dataset.letters = newLetters;
-#           //console.log("currentTile = " + currentTile);
-#           updateTiles(currentTile, letter);
-#         };"""
-selectedLines = getLines(selectedCode)
+origLines = getOrigLinesForSelected(selectedCode) # get the original lines for the code of interest
+keyChanges = getChangePeriodsForLines(origLines, versionIndexHistory) # figure out which periods are relevant for this selection
 
-origLines = []
-for line in selectedLines:
-    if (len(line)>5):
-        origLines.append(getOrigLine(line, seedLineDict))
-
-print("\t\t")
-for line in origLines:
-    print(f"origLine: {line}")
-    print(f"\tversionIndices: {versionIndexHistory[line]}" )
-    print(f"\tversionIndices: {lineHistoryDict[line]}" )
-
-
-
-
-# figure out which periods are relevant for this selection
-keyChanges = getChangePeriodsForLines(origLines, versionIndexHistory)
-
-print("\t\t")
-for changeIdx in keyChanges:
-    print(f"changes in period: {changeIdx}")
+# print("\t\t")
+# for changeIdx in keyChanges:
+#     print(f"changes in period: {changeIdx}")
 
 # reconstruct the code from relevant periods
 codeLinesForPeriodDict = getCodeLinesForPeriodDict(origLines, keyChanges,versionIndexHistory, lineHistoryDict)
@@ -319,8 +282,11 @@ for period in codeLinesForPeriodDict:
         print(f"period {period}: @{codeStates[period]['time']} {clusterTimeToSummaryDict[codeStates[period]['time']]}:   {line}")
 
 
-print(f"\t\tKEYS: {codeLinesForPeriodDict.keys()}")
-print(f"\t\tKEYCHANGES: {keyChanges}")
+# print(f"\t\tKEYS: {codeLinesForPeriodDict.keys()}")
+# print(f"\t\tKEYCHANGES: {keyChanges}")
 
+
+# todo: make a list of the activity periods relevant for a selected code segment.
+# todo: maybe turn this into a class structure so that the initialization can happen somewhere that makes sense.
 
 

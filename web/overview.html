@@ -15,19 +15,37 @@
   <script src="//unpkg.com/string-similarity/umd/string-similarity.min.js"></script>
   <!-- <script type = "module" src="/public/javascripts/diff_from_full.js"></script>   -->
 
-  <p>Collapsible Set:</p>
+  <button onclick="openTab('history')">History</button>
+  <button onclick="openTab('code')">Code</button>
 
-  <div include-html="clusters_WordleNew.html"></div>
+  <div id="history" class="tab">
+    <h2>History Tab</h2>
+      <div include-html="clusters_WordleNew.html"></div>
 
-  <button type="button" class="collapsible">THE END</button>
-  <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <button type="button" class="collapsible">THE END</button>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
   </div>
+
+  <div id="code" class="tab">
+    <h2>script.js</h2>
+    <div include-html="code_WordleNew.html"></div>
+    <!-- Add content for the code tab here -->
+    <p>This is where I can put the code content.</p>
+  </div>
+
+
+
+
+  
 
 
   <script type="text/javascript" src="js/youtube.js"></script>
   <script type="text/javascript" src="js/accordion.js"></script>
   <script type="text/javascript" src="js/includehtml.js"></script>
+  <script type="text/javascript" src="js/tab.js"></script>
+
 
   <script>
     includeHTML();
@@ -79,9 +97,32 @@
     }
 
 
+  function initHistory() {
+
+    var histElems = document.getElementsByClassName("history");
+    var i;
+
+    console.log("adding listeners....")
+    for (i = 0; i < histElems.length; i++) {
+      console.log("adding listener to " + histElems[i]);
+      histElems[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        console.log("clicking on a history element..." + this.textContent);
+
+        openTab("history");
+        openChange(this.textContent, true);      
+      });
+    }
+  }
+
+
     function openChange(title, open) {
+
+              var history = $(".history")
+
+              // $(content,$(this).find('p:first')).html(diffHtml);
               
-              var button =  $("button:contains('" + title + "')")
+              var button =  $("button.collapsible:contains('" + title + "')")
               var content = button.next()
 
               // console.log("button is " + button)
@@ -112,7 +153,16 @@
                     outputFormat: 'side-by-side',
                 });
                 $(content,$(this).find('p:first')).html(diffHtml);
-              }
+
+                // try to scroll this content pane so that it's visible.
+
+                var offset = content.offset().top - $(window).scrollTop();
+
+                if(offset > window.innerHeight){
+                    // Not in view so scroll to it
+                    $('html,body').animate({scrollTop: offset}, 1000);
+                }  
+                      }
             }
   </script>
 </body>
