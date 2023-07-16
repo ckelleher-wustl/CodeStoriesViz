@@ -26,42 +26,52 @@ groups = separate_lines(filename)
 historyFromCode = historyQuery.HistoryFromCode()
 historyFromCode.initializeHistory('web/data/wordleStoryOverview.csv',"script.js")
 
+html = ""
+
 for group in groups:
-    print("<pre class='code'>")
+    html += "<div class='horizContainer'>\n"
+
+    html += "\t<div class='leftContainer'>\n"
+    html += "\t\t<pre class='code'>\n"
     for line in group:
-        print(f"{line[0:len(line)-1]}")
-    print("</pre>")
+        html += line
+    html += "\t\t</pre>\n"
+    html += "\t</div>\n"
 
-    # print(group)
+
+    html += "\t<div class='rightContainer'>\n"
     activities = historyFromCode.getActivitiesForCode(group)
+    prevLines = []
     for activity in activities:
-        print(f"<button type='button' class='history active'>{activity}</button>")
+        html += "\t\t<div class='tooltip-container'>\n"
+        html += "\t\t\t<button type='button' class='history active tooltip-trigger'>" + activity + "</button>\n"
 
-    print("\n\n")
+        periodLines = historyFromCode.getSharedLines(group, activity)
+        periodString = ""
+        for line in periodLines:
+            if (line in prevLines): # if this the same as prev activity, just show in black
+                periodString += line + "\n"
+            else: # if it's different than last activity, then highlight
+                periodString += "<span style='background-color:yellow'>" + line + "</span>\n"
+
+        html += "\t\t\t<div class='tooltip'>\n"
+        html += "\t\t\t\t<div class='history-header'>" + activity + "</div>\n"
+        html += "\t\t\t\t<pre class='code'>" + periodString + "</pre></div>\n" # tooltip end div
+        html += "\t\t</div>\n" # end tooltip-container div
+
+        # save these lines for next time
+        prevLines = periodLines
 
 
-# # NOTE: a lot of these don't seem to match the final state of the code.
-# # this is the code that we want to find the history for
-# selectedCode = """
-#     console.log('keypress');
-#     const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
-#     let currentGuessCount = 1;
-#     let currentGuess = document.querySelector('#guess' + currentGuess);
-#     const words = ['apple', 'baker', 'store', 'horse', 'speak', 'clone', 'bread'];
-#     let solutionWord = '';"""
+    html += "\t</div>\n" # end right container
+    html += "</div>\n" # end horiz container
 
+    html += "\n\n"
 
+print(html)
 
-# activities = historyFromCode.getActivitiesForCode(selectedCode)
+text_file = open("web/code_WordleNew.html", "w")
+n = text_file.write(html)
+text_file.close()
 
-
-# <button type='button' class='history active'>Adding a key listener (CHECK)</button>
-# <button type='button' class='history active'>Figure out whether or not an entered character is a letter</button>
-# <button type='button' class='history active'>build update letters function</button>
-# <button type='button' class='history active'>Choosing a random correct answer for the puzzle</button>
-# <button type='button' class='history active'>update script based on index updates to the gameboard.</button>
-# for activity in activities:
-#     print(f"<button type='button' class='history active'>{activity}</button")
-
-# print("made everything without crashing.")
     

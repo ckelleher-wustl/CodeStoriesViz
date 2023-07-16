@@ -14,6 +14,8 @@ class HistoryFromCode:
 
         self.codeStates = [] # the array of code states we need to consider for this history
         self.clusterTimeToSummaryDict = {} # dictionary mapping cluster times to the summary description of the activity during that period
+        self.clusterSummaryToTimeDict = {}
+        self.clusterTimeToPeriodDict = {} # dictionary mapping the cluster summary to the time
 
     def get_code_entries(self):
         
@@ -104,6 +106,8 @@ class HistoryFromCode:
         # loop through lineHistory keys as they represent the original lines of code.
         for origLine in self.lineHistoryDict.keys():
             lineVersions = self.lineHistoryDict[origLine]
+
+            # self.c
             
             periodIdx = 0
             for codeState in self.codeStates:
@@ -165,16 +169,22 @@ class HistoryFromCode:
 
 
     def getCodeLinesForPeriod(self, origLines, period):
+        # print(f"PERIOD IS {period}")
         codeLinesForPeriod = []
         for origLine in origLines:
             lineHistoryIdx = self.versionIndexHistory[origLine][period]
-            line = self.lineHistoryDict[origLine][lineHistoryIdx]
-            codeLinesForPeriod.append(line)
+            # print(f"getting {origLine} version {period} index {lineHistoryIdx}")
+            if lineHistoryIdx >= 0:
+                line = self.lineHistoryDict[origLine][lineHistoryIdx]
+            # else:
+            #     line = "- " + origLine
+                codeLinesForPeriod.append(line)
 
         return codeLinesForPeriod
 
     def getCodeLinesForPeriodDict(self, origLines, periodArray):
         codeLinesForPeriodArray = {}
+        # print(f"PERIODARRAY IS {periodArray}")
         for period in periodArray:
             linesForPeriod = self.getCodeLinesForPeriod(origLines, period)
             codeLinesForPeriodArray[period] = linesForPeriod
@@ -188,7 +198,9 @@ class HistoryFromCode:
         clusterDF.set_axis(['goalType','clusterType','startTime','endTime','summary'], axis=1, inplace=True)
 
         clusterTimes = []
-        self.clusterTimeToSummaryDict = {} # this holds the clusters when 
+        self.clusterTimeToSummaryDict = {}  
+        # self.clusterSummaryToTimeDict = {} 
+        
         for clusterIdx in clusterDF.index:
             startTime = clusterDF['startTime'][clusterIdx]
             endTime = clusterDF['endTime'][clusterIdx]
@@ -202,6 +214,8 @@ class HistoryFromCode:
 
             self.clusterTimeToSummaryDict[startTime] = summary
             self.clusterTimeToSummaryDict[endTime] = summary
+
+            # self.clusterSummaryToPeriod[summary] = clusterIdx
 
         return self.clusterTimeToSummaryDict, clusterTimes
 
@@ -271,6 +285,74 @@ class HistoryFromCode:
 
         return activities
 
+    def getSharedLines(self, selectedLines, activityTitle):
+        # get the lines for the selected code we want to match
+        cleanedLines = []
+        for line in selectedLines:
+            cleanedLines.append(line.strip())
+
+        # figure out what time period the title correlates to (this should get the later timestamp)
+        # periodIdx = self.clusterSummaryToPeriod[activityTitle]
+
+        idx = 0
+        periodForActivity = -1
+        timeForActivity = -1
+        for state in self.codeStates:
+            time = state["time"]
+            title = self.clusterTimeToSummaryDict[time]
+            # print(f"{idx}: {time} {title}")
+            if (title == activityTitle):
+                periodForActivity = idx
+                timeForActivity = time
+            idx += 1
+
+        # print(f"FOUND {periodForActivity} {timeForActivity}")
+
+
+        # get the state of the lines in the selected
+        origLines = self.getOrigLinesForSelected(selectedLines)
+        periodLines = self.getCodeLinesForPeriod(origLines, periodForActivity)
+
+        return periodLines
+        # print(self.clusterTimeToSummaryDict)
+
+
+
+# # we're submitting prev activityTitle so that we can highlight the ones that are new/changed from last activity
+#     def getSharedLines2(self, selectedLines, currActivityTitle, prevActivityTitle):
+#         # get the lines for the selected code we want to match
+#         cleanedLines = []
+#         for line in selectedLines:
+#             cleanedLines.append(line.strip())
+
+#         # figure out what time period the title correlates to (this should get the later timestamp)
+#         idx = 0
+#         currActivityPeriod = -1
+#         prevActivityPeriod = -1
+
+#         for state in self.codeStates:
+#             time = state["time"]
+#             title = self.clusterTimeToSummaryDict[time]
+#             if (title == currActivityTitle):
+#                 currActivityPeriod = idx
+#             elif (title == prevActivityTitle):
+#                 prevActivityPeriod = idx
+#             idx += 1
+
+#         # get the state of the lines in the selected
+#         origLines = self.getOrigLinesForSelected(selectedLines)
+#         currLines = self.getCodeLinesForPeriod(origLines, currActivityPeriod)
+#         prevLines = self.getCodeLinesForPeriod(origLines, prevActivityPeriod)
+
+
+#         return currLines #hmm. what wants to happen is that we actually want to call this twice. and then use the results in the formatting piece.
+#         # print(self.clusterTimeToSummaryDict)
+
+
+
+
+        
+
 
 
 
@@ -285,12 +367,3 @@ selectedCode = """
     let solutionWord = '';"""
 
 
-# historyFromCode = HistoryFromCode()
-# historyFromCode.initializeHistory('web/data/wordleStoryOverview.csv',"script.js")
-
-# activities = historyFromCode.getActivitiesForCode(selectedCode)
-
-# for activity in activities:
-#     print(f"activity: {activity}")
-
-# print("made everything without crashing.")

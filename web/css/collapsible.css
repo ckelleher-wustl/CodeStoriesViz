@@ -46,7 +46,63 @@
     font-size: 15px;
     margin-left: 20px;
   }
+
+  .history-header {
+    background-color: #777;
+    color: white;
+    padding: 4px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+  }
   
   .active, .history:hover {
     background-color: #555;
+  }
+
+  .horizContainer {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 10px; /* Adjust the gap as per your preference */
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  
+  .leftContainer {
+    background-color: lightblue;
+  }
+  
+  .rightContainer {
+    background-color: lightblue;
+  }
+
+
+  .tooltip-container {
+    position: relative;
+    display: inline-block;
+    width: 100%
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: blue;
+    text-align: left;
+    border-radius: 4px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-40%);
+    transition: visibility 0.3s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .tooltip-trigger:hover + .tooltip {
+    visibility: visible;
   }
