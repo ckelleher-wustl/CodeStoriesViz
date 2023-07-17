@@ -13,9 +13,12 @@ class HistoryFromCode:
                          # -1 means not present, otherwise the value is an index into the lineHistory
 
         self.codeStates = [] # the array of code states we need to consider for this history
+
         self.clusterTimeToSummaryDict = {} # dictionary mapping cluster times to the summary description of the activity during that period
         self.clusterSummaryToTimeDict = {}
         self.clusterTimeToPeriodDict = {} # dictionary mapping the cluster summary to the time
+
+        self.clusterSummaryToSubgoalDict = {} # dictionary mapping the activity/cluster summary to the subgoal name
 
     def get_code_entries(self):
         
@@ -201,21 +204,30 @@ class HistoryFromCode:
         self.clusterTimeToSummaryDict = {}  
         # self.clusterSummaryToTimeDict = {} 
         
+        subGoal = ""
         for clusterIdx in clusterDF.index:
             startTime = clusterDF['startTime'][clusterIdx]
             endTime = clusterDF['endTime'][clusterIdx]
             summary = clusterDF['summary'][clusterIdx]
+            goalType = clusterDF['goalType'][clusterIdx] 
 
-            if (startTime not in clusterTimes):
-                clusterTimes.append(startTime)
-            
-            if (endTime not in clusterTimes):
-                clusterTimes.append(endTime)
+            if (goalType == "parent'"):
 
-            self.clusterTimeToSummaryDict[startTime] = summary
-            self.clusterTimeToSummaryDict[endTime] = summary
+                if (startTime not in clusterTimes):
+                    clusterTimes.append(startTime)
+                
+                if (endTime not in clusterTimes):
+                    clusterTimes.append(endTime)
 
-            # self.clusterSummaryToPeriod[summary] = clusterIdx
+                self.clusterTimeToSummaryDict[startTime] = summary
+                self.clusterTimeToSummaryDict[endTime] = summary
+
+                self.clusterSummaryToSubgoalDict[summary] = subGoal
+            elif (goalType == "goal_start"):
+                subGoal = summary
+                # print(f"cluster type: {goalType} - {summary}")
+
+        # print(f"activityToSubgoal -> {self.clusterSummaryToSubgoalDict}")
 
         return self.clusterTimeToSummaryDict, clusterTimes
 
@@ -284,6 +296,20 @@ class HistoryFromCode:
                 activities.append(activity)
 
         return activities
+    
+    def getSubgoalActivityGroups(self, activities):
+        subgoalGroups = {}
+
+        for activity in activities:
+            subgoal = self.clusterSummaryToSubgoalDict[activity]
+
+            if (subgoal in subgoalGroups.keys()):
+                subgoalGroups[subgoal].append(activity)
+            else:
+                subgoalGroups[subgoal] = [activity]
+
+        return subgoalGroups
+
 
     def getSharedLines(self, selectedLines, activityTitle):
         # get the lines for the selected code we want to match
@@ -315,55 +341,3 @@ class HistoryFromCode:
 
         return periodLines
         # print(self.clusterTimeToSummaryDict)
-
-
-
-# # we're submitting prev activityTitle so that we can highlight the ones that are new/changed from last activity
-#     def getSharedLines2(self, selectedLines, currActivityTitle, prevActivityTitle):
-#         # get the lines for the selected code we want to match
-#         cleanedLines = []
-#         for line in selectedLines:
-#             cleanedLines.append(line.strip())
-
-#         # figure out what time period the title correlates to (this should get the later timestamp)
-#         idx = 0
-#         currActivityPeriod = -1
-#         prevActivityPeriod = -1
-
-#         for state in self.codeStates:
-#             time = state["time"]
-#             title = self.clusterTimeToSummaryDict[time]
-#             if (title == currActivityTitle):
-#                 currActivityPeriod = idx
-#             elif (title == prevActivityTitle):
-#                 prevActivityPeriod = idx
-#             idx += 1
-
-#         # get the state of the lines in the selected
-#         origLines = self.getOrigLinesForSelected(selectedLines)
-#         currLines = self.getCodeLinesForPeriod(origLines, currActivityPeriod)
-#         prevLines = self.getCodeLinesForPeriod(origLines, prevActivityPeriod)
-
-
-#         return currLines #hmm. what wants to happen is that we actually want to call this twice. and then use the results in the formatting piece.
-#         # print(self.clusterTimeToSummaryDict)
-
-
-
-
-        
-
-
-
-
-# NOTE: a lot of these don't seem to match the final state of the code.
-# this is the code that we want to find the history for
-selectedCode = """
-    console.log('keypress');
-    const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
-    let currentGuessCount = 1;
-    let currentGuess = document.querySelector('#guess' + currentGuess);
-    const words = ['apple', 'baker', 'store', 'horse', 'speak', 'clone', 'bread'];
-    let solutionWord = '';"""
-
-

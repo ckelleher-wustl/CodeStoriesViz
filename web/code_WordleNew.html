@@ -10,6 +10,7 @@ let solutionWord = '';
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding a key listener (CHECK)</button>
 			<div class='tooltip'>
@@ -17,55 +18,60 @@ let solutionWord = '';
 				<pre class='code'><span style='background-color:yellow'>console.log('keypress');</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Use regular expressions to determine whether a pressed key is a letter and save it.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Figure out whether or not an entered character is a letter</button>
 			<div class='tooltip'>
 				<div class='history-header'>Figure out whether or not an entered character is a letter</div>
-				<pre class='code'>console.log('keypress');
+				<pre class='code'><span style='background-color:yellow'>console.log('keypress');</span>
 <span style='background-color:yellow'>const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>build update letters function</button>
 			<div class='tooltip'>
 				<div class='history-header'>build update letters function</div>
-				<pre class='code'>console.log('keypress');
-const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+				<pre class='code'><span style='background-color:yellow'>console.log('keypress');</span>
+<span style='background-color:yellow'>const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;</span>
 <span style='background-color:yellow'>let currentGuessCount = 1;</span>
 <span style='background-color:yellow'>let currentGuess = document.querySelector('#guess' + currentGuess);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
 			<div class='tooltip'>
 				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
-				<pre class='code'>console.log('keypress');
-const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
-let currentGuessCount = 1;
-let currentGuess = document.querySelector('#guess' + currentGuess);
+				<pre class='code'><span style='background-color:yellow'>console.log('keypress');</span>
+<span style='background-color:yellow'>const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;</span>
+<span style='background-color:yellow'>let currentGuessCount = 1;</span>
+<span style='background-color:yellow'>let currentGuess = document.querySelector('#guess' + currentGuess);</span>
 <span style='background-color:yellow'>const words = ['apple', 'baker', 'store', 'horse', 'speak', 'clone', 'bread'];</span>
 <span style='background-color:yellow'>let solutionWord = '';</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Clean up
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
 			<div class='tooltip'>
 				<div class='history-header'>update script based on index updates to the gameboard.</div>
-				<pre class='code'>console.log('keypress');
+				<pre class='code'><span style='background-color:yellow'>console.log('keypress');</span>
 <span style='background-color:yellow'>const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;</span>
-let currentGuessCount = 1;
-let currentGuess = document.querySelector('#guess' + currentGuess);
-const words = ['apple', 'baker', 'store', 'horse', 'speak', 'clone', 'bread'];
-let solutionWord = '';
+<span style='background-color:yellow'>let currentGuessCount = 1;</span>
+<span style='background-color:yellow'>let currentGuess = document.querySelector('#guess' + currentGuess);</span>
+<span style='background-color:yellow'>const words = ['apple', 'baker', 'store', 'horse', 'speak', 'clone', 'bread'];</span>
+<span style='background-color:yellow'>let solutionWord = '';</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -80,6 +86,7 @@ const chooseWord = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
 			<div class='tooltip'>
@@ -90,13 +97,14 @@ const chooseWord = () => {
 <span style='background-color:yellow'>let solutionWord = words[randomItem];</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -108,6 +116,7 @@ console.log('solution word = ' + solutionWord);
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
 			<div class='tooltip'>
@@ -116,13 +125,14 @@ console.log('solution word = ' + solutionWord);
 <span style='background-color:yellow'>console.log('solution word = ' + solutionWord);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -150,6 +160,7 @@ document.addEventListener('keydown', (e) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
 			<div class='tooltip'>
@@ -165,11 +176,12 @@ document.addEventListener('keydown', (e) => {
 <span style='background-color:yellow'>document.addEventListener('keydown', () => {</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Use regular expressions to determine whether a pressed key is a letter and save it.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Figure out whether or not an entered character is a letter</button>
 			<div class='tooltip'>
 				<div class='history-header'>Figure out whether or not an entered character is a letter</div>
-				<pre class='code'>// detect keypress (letter, backspace, other)
+				<pre class='code'><span style='background-color:yellow'>// detect keypress (letter, backspace, other)</span>
 <span style='background-color:yellow'>document.addEventListener('keydown', (e) => {</span>
 <span style='background-color:yellow'>console.log('keypress: ' + e.key);</span>
 <span style='background-color:yellow'>let keypress = e.key;</span>
@@ -177,14 +189,15 @@ document.addEventListener('keydown', (e) => {
 <span style='background-color:yellow'>console.log(isLetter)</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>build update letters function</button>
 			<div class='tooltip'>
 				<div class='history-header'>build update letters function</div>
-				<pre class='code'>// detect keypress (letter, backspace, other)
-document.addEventListener('keydown', (e) => {
-console.log('keypress: ' + e.key);
-let keypress = e.key;
+				<pre class='code'><span style='background-color:yellow'>// detect keypress (letter, backspace, other)</span>
+<span style='background-color:yellow'>document.addEventListener('keydown', (e) => {</span>
+<span style='background-color:yellow'>console.log('keypress: ' + e.key);</span>
+<span style='background-color:yellow'>let keypress = e.key;</span>
 <span style='background-color:yellow'>console.log('is letter')</span>
 <span style='background-color:yellow'>updateLetters(keypress);</span>
 </pre></div>
@@ -216,44 +229,46 @@ updateLetters(keypress);
 <span style='background-color:yellow'>deleteFromLetters();</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
 			<div class='tooltip'>
 				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
-				<pre class='code'>// detect keypress (letter, backspace, other)
-document.addEventListener('keydown', (e) => {
-console.log('keypress: ' + e.key);
-let keypress = e.key;
+				<pre class='code'><span style='background-color:yellow'>// detect keypress (letter, backspace, other)</span>
+<span style='background-color:yellow'>document.addEventListener('keydown', (e) => {</span>
+<span style='background-color:yellow'>console.log('keypress: ' + e.key);</span>
+<span style='background-color:yellow'>let keypress = e.key;</span>
 <span style='background-color:yellow'>if (</span>
 <span style='background-color:yellow'>keypress.length == 1 &&</span>
 <span style='background-color:yellow'>lettersPattern.test(e.key) &&</span>
 <span style='background-color:yellow'>currentGuess.dataset.letters.length < 5</span>
 <span style='background-color:yellow'>) {</span>
-//console.log('is letter')
-updateLetters(keypress);
-} else if(e.key == 'Backspace' && currentGuess.dataset.letters != ''){
-console.log('is backspace');
-deleteFromLetters();
+<span style='background-color:yellow'>//console.log('is letter')</span>
+<span style='background-color:yellow'>updateLetters(keypress);</span>
+<span style='background-color:yellow'>} else if(e.key == 'Backspace' && currentGuess.dataset.letters != ''){</span>
+<span style='background-color:yellow'>console.log('is backspace');</span>
+<span style='background-color:yellow'>deleteFromLetters();</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
 			<div class='tooltip'>
 				<div class='history-header'>Handing the user pressing enter</div>
 				<pre class='code'><span style='background-color:yellow'>// detect keypress (letter, backspace, enter, other)</span>
-document.addEventListener('keydown', (e) => {
-console.log('keypress: ' + e.key);
-let keypress = e.key;
-if (
-keypress.length == 1 &&
-lettersPattern.test(e.key) &&
-currentGuess.dataset.letters.length < 5
-) {
-//console.log('is letter')
-updateLetters(keypress);
-} else if(e.key == 'Backspace' && currentGuess.dataset.letters != ''){
-console.log('is backspace');
-deleteFromLetters();
+<span style='background-color:yellow'>document.addEventListener('keydown', (e) => {</span>
+<span style='background-color:yellow'>console.log('keypress: ' + e.key);</span>
+<span style='background-color:yellow'>let keypress = e.key;</span>
+<span style='background-color:yellow'>if (</span>
+<span style='background-color:yellow'>keypress.length == 1 &&</span>
+<span style='background-color:yellow'>lettersPattern.test(e.key) &&</span>
+<span style='background-color:yellow'>currentGuess.dataset.letters.length < 5</span>
+<span style='background-color:yellow'>) {</span>
+<span style='background-color:yellow'>//console.log('is letter')</span>
+<span style='background-color:yellow'>updateLetters(keypress);</span>
+<span style='background-color:yellow'>} else if(e.key == 'Backspace' && currentGuess.dataset.letters != ''){</span>
+<span style='background-color:yellow'>console.log('is backspace');</span>
+<span style='background-color:yellow'>deleteFromLetters();</span>
 <span style='background-color:yellow'>} else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5) {</span>
 </pre></div>
 		</div>
@@ -278,25 +293,26 @@ deleteFromLetters();
 } else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5) {
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>cleaning and removing unnecessary print statements</button>
 			<div class='tooltip'>
 				<div class='history-header'>cleaning and removing unnecessary print statements</div>
-				<pre class='code'>// detect keypress (letter, backspace, enter, other)
-document.addEventListener('keydown', (e) => {
-//console.log('keypress: ' + e.key);
-let keypress = e.key;
-if (
-keypress.length == 1 &&
-lettersPattern.test(e.key) &&
-currentGuess.dataset.letters.length < 5
-) {
-//console.log('is letter')
-updateLetters(keypress);
-} else if(e.key == 'Backspace' && currentGuess.dataset.letters != ''){
-//console.log('is backspace');
-deleteFromLetters();
-} else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5) {
+				<pre class='code'><span style='background-color:yellow'>// detect keypress (letter, backspace, enter, other)</span>
+<span style='background-color:yellow'>document.addEventListener('keydown', (e) => {</span>
+<span style='background-color:yellow'>//console.log('keypress: ' + e.key);</span>
+<span style='background-color:yellow'>let keypress = e.key;</span>
+<span style='background-color:yellow'>if (</span>
+<span style='background-color:yellow'>keypress.length == 1 &&</span>
+<span style='background-color:yellow'>lettersPattern.test(e.key) &&</span>
+<span style='background-color:yellow'>currentGuess.dataset.letters.length < 5</span>
+<span style='background-color:yellow'>) {</span>
+<span style='background-color:yellow'>//console.log('is letter')</span>
+<span style='background-color:yellow'>updateLetters(keypress);</span>
+<span style='background-color:yellow'>} else if(e.key == 'Backspace' && currentGuess.dataset.letters != ''){</span>
+<span style='background-color:yellow'>//console.log('is backspace');</span>
+<span style='background-color:yellow'>deleteFromLetters();</span>
+<span style='background-color:yellow'>} else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5) {</span>
 <span style='background-color:yellow'>submitGuess();</span>
 </pre></div>
 		</div>
@@ -306,7 +322,7 @@ deleteFromLetters();
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -325,12 +341,14 @@ const submitGuess = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
 			<div class='tooltip'>
 				<div class='history-header'>Outline initial code via comments</div>
 				<pre class='code'></pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
 			<div class='tooltip'>
@@ -356,13 +374,14 @@ for (let i = 0; i < 5; i ++) {
 <span style='background-color:yellow'>revealTile(i, checkLetter(i));</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Animate the tile flipping over.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
 			<div class='tooltip'>
 				<div class='history-header'>Implementing tile flipping in javascript</div>
-				<pre class='code'>console.log('submit guess');
-for (let i = 0; i < 5; i ++) {
-revealTile(i, checkLetter(i));
+				<pre class='code'><span style='background-color:yellow'>console.log('submit guess');</span>
+<span style='background-color:yellow'>for (let i = 0; i < 5; i ++) {</span>
+<span style='background-color:yellow'>revealTile(i, checkLetter(i));</span>
 <span style='background-color:yellow'>}, 500);</span>
 </pre></div>
 		</div>
@@ -385,27 +404,29 @@ for (let i = 0; i < 5; i ++) {
 revealTile(i, checkLetter(i));
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Clean up
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
 			<div class='tooltip'>
 				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
-				<pre class='code'>console.log('submit guess');
-for (let i = 0; i < 5; i ++) {
+				<pre class='code'><span style='background-color:yellow'>console.log('submit guess');</span>
+<span style='background-color:yellow'>for (let i = 0; i < 5; i ++) {</span>
 <span style='background-color:yellow'>setTimeOut(() => {</span>
-revealTile(i, checkLetter(i));
+<span style='background-color:yellow'>revealTile(i, checkLetter(i));</span>
 <span style='background-color:yellow'>}, i * 200);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>unsuccessful attempt to add promises to wait for when a guess is complete</button>
 			<div class='tooltip'>
 				<div class='history-header'>unsuccessful attempt to add promises to wait for when a guess is complete</div>
 				<pre class='code'><span style='background-color:yellow'>const submitGuess = () => {</span>
-console.log('submit guess');
-for (let i = 0; i < 5; i ++) {
-setTimeOut(() => {
-revealTile(i, checkLetter(i));
-}, i * 200);
+<span style='background-color:yellow'>console.log('submit guess');</span>
+<span style='background-color:yellow'>for (let i = 0; i < 5; i ++) {</span>
+<span style='background-color:yellow'>setTimeOut(() => {</span>
+<span style='background-color:yellow'>revealTile(i, checkLetter(i));</span>
+<span style='background-color:yellow'>}, i * 200);</span>
 </pre></div>
 		</div>
 		<div class='tooltip-container'>
@@ -428,7 +449,7 @@ revealTile(i, checkLetter(i));
 				<pre class='code'><span style='background-color:yellow'>}, 1 * 200);</span>
 </pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -446,6 +467,7 @@ const checkIfGuessComplete = (i) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Use regular expressions to determine whether a pressed key is a letter and save it.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Figure out whether or not an entered character is a letter</button>
 			<div class='tooltip'>
@@ -453,13 +475,14 @@ const checkIfGuessComplete = (i) => {
 				<pre class='code'><span style='background-color:yellow'>}</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
 			<div class='tooltip'>
 				<div class='history-header'>detect whether or not the user has won</div>
 				<pre class='code'><span style='background-color:yellow'>checkWin();</span>
 <span style='background-color:yellow'>} else {</span>
-}
+<span style='background-color:yellow'>}</span>
 </pre></div>
 		</div>
 		<div class='tooltip-container'>
@@ -494,7 +517,7 @@ const checkIfGuessComplete = (i) => {
 }
 </pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -516,6 +539,7 @@ const jumpTiles = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>build update letters function</button>
 			<div class='tooltip'>
@@ -536,6 +560,7 @@ const jumpTiles = () => {
 				<div class='history-header'>updating the tiles with the entered letters</div>
 				<pre class='code'></pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Animate the tile flipping over.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
 			<div class='tooltip'>
@@ -559,11 +584,12 @@ const jumpTiles = () => {
 				<pre class='code'>setTimeout(() => {
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Clean up
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
 			<div class='tooltip'>
 				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
-				<pre class='code'>setTimeout(() => {
+				<pre class='code'><span style='background-color:yellow'>setTimeout(() => {</span>
 <span style='background-color:yellow'>}, i * 200);</span>
 </pre></div>
 		</div>
@@ -577,6 +603,7 @@ const jumpTiles = () => {
 }, i * 200);
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>attempting to add jump animation in the script</button>
 			<div class='tooltip'>
@@ -585,12 +612,12 @@ const jumpTiles = () => {
 <span style='background-color:yellow'>console.log('jumpTiles');</span>
 <span style='background-color:yellow'>console.log(currentGuessCount);</span>
 <span style='background-color:yellow'>for (let i = 0; i < 5; i++) {</span>
-setTimeout(() => {
-let currentTile = document.querySelector(
+<span style='background-color:yellow'>setTimeout(() => {</span>
+<span style='background-color:yellow'>let currentTile = document.querySelector(</span>
 <span style='background-color:yellow'>'#guess' +currentGuessCount + 'Tile' + i</span>
-);
+<span style='background-color:yellow'>);</span>
 <span style='background-color:yellow'>currentTile.classList.add('jump');</span>
-}, i * 200);
+<span style='background-color:yellow'>}, i * 200);</span>
 </pre></div>
 		</div>
 		<div class='tooltip-container'>
@@ -625,7 +652,7 @@ let currentTile = document.querySelector(
 <span style='background-color:yellow'>}, 1 * 200);</span>
 </pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -648,6 +675,7 @@ const checkWin = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
 			<div class='tooltip'>
@@ -701,7 +729,7 @@ console.log('not a win, increment guess count to ' + currentGuessCount);
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -720,6 +748,7 @@ const updateLetters = (letter) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
 			<div class='tooltip'>
@@ -727,11 +756,12 @@ const updateLetters = (letter) => {
 				<pre class='code'><span style='background-color:yellow'>// Update "letters"</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>build update letters function</button>
 			<div class='tooltip'>
 				<div class='history-header'>build update letters function</div>
-				<pre class='code'>// Update "letters"
+				<pre class='code'><span style='background-color:yellow'>// Update "letters"</span>
 <span style='background-color:yellow'>const updateLetters = (letter) => {</span>
 <span style='background-color:yellow'>let currentLetters = currentGuess.dataset.letters;</span>
 </pre></div>
@@ -758,27 +788,29 @@ const updateLetters = (letter) => {
 <span style='background-color:yellow'>updateTiles(currentTile, letter);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
 				<div class='history-header'>Adding feedback for the user guess</div>
-				<pre class='code'>// Update "letters"
-const updateLetters = (letter) => {
-let oldLetters = currentGuess.dataset.letters
-let newLetters = oldLetters + letter;
-let currentTile = newLetters.length;
-currentGuess.dataset.letters = newLetters;
+				<pre class='code'><span style='background-color:yellow'>// Update "letters"</span>
+<span style='background-color:yellow'>const updateLetters = (letter) => {</span>
+<span style='background-color:yellow'>let oldLetters = currentGuess.dataset.letters</span>
+<span style='background-color:yellow'>let newLetters = oldLetters + letter;</span>
+<span style='background-color:yellow'>let currentTile = newLetters.length;</span>
+<span style='background-color:yellow'>currentGuess.dataset.letters = newLetters;</span>
 <span style='background-color:yellow'>//console.log('currentTile = ' + currentTile);</span>
-updateTiles(currentTile, letter);
+<span style='background-color:yellow'>updateTiles(currentTile, letter);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -797,6 +829,7 @@ const updateTiles = (tileNumber, letter) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
 			<div class='tooltip'>
@@ -804,34 +837,37 @@ const updateTiles = (tileNumber, letter) => {
 				<pre class='code'><span style='background-color:yellow'>// Update tile markup</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>updating the tiles with the entered letters</button>
 			<div class='tooltip'>
 				<div class='history-header'>updating the tiles with the entered letters</div>
-				<pre class='code'>// Update tile markup
+				<pre class='code'><span style='background-color:yellow'>// Update tile markup</span>
 <span style='background-color:yellow'>const updateTiles = (tileNumber, letter) => {</span>
 <span style='background-color:yellow'>console.log('updateTiles(' + tileNumber, letter + ')');</span>
 <span style='background-color:yellow'>currentTile.innerText = letter;</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
 				<div class='history-header'>Adding feedback for the user guess</div>
-				<pre class='code'>// Update tile markup
-const updateTiles = (tileNumber, letter) => {
+				<pre class='code'><span style='background-color:yellow'>// Update tile markup</span>
+<span style='background-color:yellow'>const updateTiles = (tileNumber, letter) => {</span>
 <span style='background-color:yellow'>//console.log('updateTiles(' + tileNumber, letter + ')');</span>
-currentTile.innerText = letter;
+<span style='background-color:yellow'>currentTile.innerText = letter;</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Clean up
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
 			<div class='tooltip'>
 				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
-				<pre class='code'>// Update tile markup
-const updateTiles = (tileNumber, letter) => {
-//console.log('updateTiles(' + tileNumber, letter + ')');
-currentTile.innerText = letter;
+				<pre class='code'><span style='background-color:yellow'>// Update tile markup</span>
+<span style='background-color:yellow'>const updateTiles = (tileNumber, letter) => {</span>
+<span style='background-color:yellow'>//console.log('updateTiles(' + tileNumber, letter + ')');</span>
+<span style='background-color:yellow'>currentTile.innerText = letter;</span>
 <span style='background-color:yellow'>currentTile.classList.add('has-letter');</span>
 </pre></div>
 		</div>
@@ -848,14 +884,15 @@ currentTile.innerText = letter;
 currentTile.classList.add('has-letter');
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
-				<pre class='code'>let currentTile = document.querySelector(
+				<pre class='code'><span style='background-color:yellow'>let currentTile = document.querySelector(</span>
 </pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -875,6 +912,7 @@ const deleteFromLetters = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>updating the tiles with the entered letters</button>
 			<div class='tooltip'>
@@ -897,13 +935,14 @@ currentGuess.dataset.letters = newLetters;
 <span style='background-color:yellow'>deleteFromTiles(oldLetters.length + 1);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -923,6 +962,7 @@ const deleteFromTiles = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>adding logic for deleting letters</button>
 			<div class='tooltip'>
@@ -933,24 +973,26 @@ const deleteFromTiles = () => {
 <span style='background-color:yellow'>console.log('deleteFromTiles = ' + tileNumber);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
 				<div class='history-header'>Adding feedback for the user guess</div>
-				<pre class='code'>// Backspace -- Delete last tile markup
-const deleteFromTiles = () => {
-//remove markup from last tile
+				<pre class='code'><span style='background-color:yellow'>// Backspace -- Delete last tile markup</span>
+<span style='background-color:yellow'>const deleteFromTiles = () => {</span>
+<span style='background-color:yellow'>//remove markup from last tile</span>
 <span style='background-color:yellow'>//console.log('deleteFromTiles = ' + tileNumber);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Clean up
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
 			<div class='tooltip'>
 				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
-				<pre class='code'>// Backspace -- Delete last tile markup
-const deleteFromTiles = () => {
-//remove markup from last tile
-//console.log('deleteFromTiles = ' + tileNumber);
+				<pre class='code'><span style='background-color:yellow'>// Backspace -- Delete last tile markup</span>
+<span style='background-color:yellow'>const deleteFromTiles = () => {</span>
+<span style='background-color:yellow'>//remove markup from last tile</span>
+<span style='background-color:yellow'>//console.log('deleteFromTiles = ' + tileNumber);</span>
 <span style='background-color:yellow'>currentTile.innerText = '';</span>
 <span style='background-color:yellow'>curentTile.classList.remove('has-letter');</span>
 </pre></div>
@@ -969,14 +1011,15 @@ currentTile.innerText = '';
 curentTile.classList.remove('has-letter');
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
-				<pre class='code'>let currentTile = document.querySelector(
+				<pre class='code'><span style='background-color:yellow'>let currentTile = document.querySelector(</span>
 </pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -993,6 +1036,7 @@ const checkLetter = (position) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
@@ -1006,13 +1050,14 @@ const checkLetter = (position) => {
 <span style='background-color:yellow'>//console.log(guessedLetter, solutionLetter);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -1030,6 +1075,7 @@ const checkLetter = (position) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
@@ -1042,13 +1088,14 @@ const checkLetter = (position) => {
 <span style='background-color:yellow'>return checkLetterExists(guessedLetter) ? 'present' : 'absent';</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -1060,6 +1107,7 @@ const checkLetter = (position) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
@@ -1067,13 +1115,14 @@ const checkLetter = (position) => {
 				<pre class='code'><span style='background-color:yellow'>// If not a match, if letter doesn't exist in solution, return "absent"</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -1086,6 +1135,7 @@ const checkLetterExists = (letter) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
@@ -1094,13 +1144,14 @@ const checkLetterExists = (letter) => {
 <span style='background-color:yellow'>return solutionWord.includes(letter);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -1116,6 +1167,7 @@ const revealTile = (i, state) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
 			<div class='tooltip'>
@@ -1132,24 +1184,26 @@ const revealTile = (i, state) => {
 <span style='background-color:yellow'>let tileNum = i + 1;</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Animate the tile flipping over.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
 			<div class='tooltip'>
 				<div class='history-header'>Implementing tile flipping in javascript</div>
 				<pre class='code'><span style='background-color:yellow'>const revealTile = (i, state) => {</span>
 <span style='background-color:yellow'>console.log('revealTile = ' + i, state);</span>
-let tileNum = i + 1;
+<span style='background-color:yellow'>let tileNum = i + 1;</span>
 <span style='background-color:yellow'>flipTile(tileNum, state);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>cleaning and removing unnecessary print statements</button>
 			<div class='tooltip'>
 				<div class='history-header'>cleaning and removing unnecessary print statements</div>
-				<pre class='code'>const revealTile = (i, state) => {
+				<pre class='code'><span style='background-color:yellow'>const revealTile = (i, state) => {</span>
 <span style='background-color:yellow'>//console.log('revealTile = ' + i, state);</span>
-let tileNum = i + 1;
-flipTile(tileNum, state);
+<span style='background-color:yellow'>let tileNum = i + 1;</span>
+<span style='background-color:yellow'>flipTile(tileNum, state);</span>
 <span style='background-color:yellow'>checkIfGuessComplete(i);</span>
 </pre></div>
 		</div>
@@ -1159,7 +1213,7 @@ flipTile(tileNum, state);
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -1185,6 +1239,7 @@ const flipTile = (tileNum, state) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Debugging and ultimately removing switch statement for tile status </button>
 			<div class='tooltip'>
@@ -1193,6 +1248,7 @@ const flipTile = (tileNum, state) => {
 <span style='background-color:yellow'>tile.classList.add('‘absent');</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Animate the tile flipping over.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
 			<div class='tooltip'>
@@ -1235,21 +1291,22 @@ tile.classList.add('flip-out');
 <span style='background-color:yellow'>}, 250);</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Clean up
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
 			<div class='tooltip'>
 				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
-				<pre class='code'>const flipTile = (tileNum, state) => {
-//  tile.classList.add('present');
-setTimeout(() => {
-//  tile.classList.add('‘absent');
-}, 250);
-setTimeout(() => {
-tile.classList.remove('flip-in');
-tile.classList.add('flip-out');
-}, 250);
+				<pre class='code'><span style='background-color:yellow'>const flipTile = (tileNum, state) => {</span>
+<span style='background-color:yellow'>//  tile.classList.add('present');</span>
+<span style='background-color:yellow'>setTimeout(() => {</span>
+<span style='background-color:yellow'>//  tile.classList.add('‘absent');</span>
+<span style='background-color:yellow'>}, 250);</span>
+<span style='background-color:yellow'>setTimeout(() => {</span>
+<span style='background-color:yellow'>tile.classList.remove('flip-in');</span>
+<span style='background-color:yellow'>tile.classList.add('flip-out');</span>
+<span style='background-color:yellow'>}, 250);</span>
 <span style='background-color:yellow'>setTimeOut(() => {</span>
-}, 250);
+<span style='background-color:yellow'>}, 250);</span>
 </pre></div>
 		</div>
 		<div class='tooltip-container'>
@@ -1271,23 +1328,24 @@ setTimeOut(() => {
 }, 250);
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>unsuccessful attempt to add promises to wait for when a guess is complete</button>
 			<div class='tooltip'>
 				<div class='history-header'>unsuccessful attempt to add promises to wait for when a guess is complete</div>
-				<pre class='code'>const flipTile = (tileNum, state) => {
-let tile = document.querySelector(
-'#guess' + currentGuessCount + 'Tile' + tileNumber
+				<pre class='code'><span style='background-color:yellow'>const flipTile = (tileNum, state) => {</span>
+<span style='background-color:yellow'>let tile = document.querySelector(</span>
+<span style='background-color:yellow'>'#guess' + currentGuessCount + 'Tile' + tileNumber</span>
 <span style='background-color:yellow'>tile.classList.add('flip-in');</span>
-setTimeout(() => {
+<span style='background-color:yellow'>setTimeout(() => {</span>
 <span style='background-color:yellow'>tile.classList.add(state);</span>
-}, 250);
-setTimeout(() => {
-tile.classList.remove('flip-in');
-tile.classList.add('flip-out');
-}, 250);
-setTimeOut(() => {
-}, 250);
+<span style='background-color:yellow'>}, 250);</span>
+<span style='background-color:yellow'>setTimeout(() => {</span>
+<span style='background-color:yellow'>tile.classList.remove('flip-in');</span>
+<span style='background-color:yellow'>tile.classList.add('flip-out');</span>
+<span style='background-color:yellow'>}, 250);</span>
+<span style='background-color:yellow'>setTimeOut(() => {</span>
+<span style='background-color:yellow'>}, 250);</span>
 </pre></div>
 		</div>
 		<div class='tooltip-container'>
@@ -1318,7 +1376,7 @@ setTimeOut(() => {
 setTimeout(() => {
 </pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 
@@ -1334,6 +1392,7 @@ setTimeout(() => {
 */		</pre>
 	</div>
 	<div class='rightContainer'>
+	<div class='subgoal-group'>Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
 			<div class='tooltip'>
@@ -1345,13 +1404,14 @@ setTimeout(() => {
 <span style='background-color:yellow'>- update tile markup based on "letters"</span>
 </pre></div>
 		</div>
+</div>	<div class='subgoal-group'>Add a win condition
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'></pre></div>
 		</div>
-	</div>
+</div>	</div>
 </div>
 
 

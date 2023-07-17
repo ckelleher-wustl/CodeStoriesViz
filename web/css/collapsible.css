@@ -80,10 +80,19 @@
   }
 
 
-  .tooltip-container {
+  .subgoal-group {
+    background-color: aliceblue;
+    font-size: smaller;
     position: relative;
     display: inline-block;
     width: 100%
+  }
+
+  .tooltip-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 6px;
   }
   
   .tooltip {
