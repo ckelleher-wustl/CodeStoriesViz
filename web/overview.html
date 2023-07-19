@@ -82,7 +82,7 @@
 
             if (content.hasAttribute("--start-code")) {
       
-              var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:100});
+              var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:10});
               console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
         
               var addition = "";

@@ -160,7 +160,7 @@ def get_code_entries(startTime, endTime):
 # import the search and code clusters
 
 clusterDF = pd.read_csv('web/data/wordleStoryOverview.csv')
-clusterDF.set_axis(['goalType','clusterType','startTime','endTime','summary'], axis=1, inplace=True)
+clusterDF.set_axis(['goalType','clusterType','startTime','endTime','fileName','summary'], axis=1, inplace=True)
 print(clusterDF)
 html = ""
 
@@ -176,7 +176,7 @@ for clusterIdx in clusterDF.index:
         startingCode = startingCode.replace('\'', '"')
         endingCode = endingCode.replace('\'', '"')
 
-        html += "<button type='button' class='collapsible active'>" + clusterDF['summary'][clusterIdx] + "</button>\n"
+        html += "<button type='button' class='collapsible active'>" + clusterDF['fileName'][clusterIdx] + ": " + clusterDF['summary'][clusterIdx] + "</button>\n"
         html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
         html += "<p> code content will go here</p>\n"
         html += "</div>" # this is the end of the nested div.
