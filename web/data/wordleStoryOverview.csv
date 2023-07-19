@@ -1,79 +1,79 @@
-goalType,clusterType,startTime,endTime,summary
-goal_start,goal_start,0,0,Set up user interface components for the Wordle game board.
-parent',code',345,779,Plan our wordle UI and interaction requirements
-parent',code',1173,1279,Change default font from Arial to Open Sans
-parent',code',1306,1385,Change background color of game board to match Wordle
-parent',code',1472,1595,"Style the game tiles with appropriate padding, alignment, and automatic upper casing."
-parent',code',1661,1836,Set the width for the tiles
-parent',code',2192,2211,Changed the border color to a darker shade of gray
-parent',code',2570,2637,Changed the border color back to the previous shade (CHECK)
-goal_end,goal_end,0,0,end of set up user interface
-goal_start,goal_start,0,0,Adding an initial key listener to detect letters the user enters.
-parent',code',3180,3264,Outline initial code via comments
-parent',search',3282,3317,Search: How to detect a keypress in javascript
-parent',search',3364,3432,search: javascript onkeypress (CHECK)
-parent',code',3504,3601,Adding a key listener (CHECK)
-goal_end,goal_end,0,0,end of initial key listener
-goal_start,goal_start,0,0,Use regular expressions to determine whether a pressed key is a letter and save it.
-parent',search',3623,3848,search: how to determine whether an entered character is a letter (CHECK)
-parent',code',3936,4357,Figure out whether or not an entered character is a letter
-parent',search',4077,4173,search: flavio javascript test regex; searching for specific resource
-goal_end,goal_end,0,0,end of user regular expressions
-goal_start,goal_start,0,0,Show the appropriate entered letters on the Wordle game board.
-parent',search',4620,4712,search: setting the data attribute of an html element with javascript (CHECK)
-parent',code',2070,4753,adding id to guess element
-parent',code',4927,5396,build update letters function
-parent',search',5007,5043,search: javascript arrow functions
-parent',code',5527,5840,cleaning up build update letters function
-parent',code',5962,6336,updating the tiles with the entered letters
-parent',search',6288,6312,search: how to change div content with javascript
-parent',code',6401,6439,changing font size and weight for the tiles
-parent',code',6531,7154,adding logic for deleting letters
-goal_end,goal_end,0,0,end of show entered letters
-goal_start,goal_start,0,0,Select a Wordle answer at random from a list of potential words.
-parent',code',7280,7464,Updating requirements
-parent',code',7509,7998,Search: how to select a random object from an array
-parent',code',7620,8542,Choosing a random correct answer for the puzzle
-parent',search',8062,8104,Search: how to run a function on page load
-goal_end,goal_end,0,0,end of selecting a wordle answer
-goal_start,goal_start,0,0,Change color of tile based on whether it is correct or present in solution word
-parent',code',8577,8597,Update planning document
-parent',search',8861,8883,Search: Get character from string based on a position
-parent',search',9299,9310,Search: string includes substring
-parent',search',9915,9952,search: javascript switch;
-parent',code',8613,8675,Handing the user pressing enter
-parent',code',8823,9969,Adding feedback for the user guess
-parent',code',9998,10070,"Setting up colors that correspond to letters being correct, present, and absent "
-parent',code',10111,10682,Debugging and ultimately removing switch statement for tile status 
-goal_end,goal_end,0,0,end of change tile color
-goal_start,goal_start,0,0,Animate the tile flipping over.
-parent',code',10805,10872,Update notes
-parent',search',11207,11904,search: flipping cards in css
-parent',code',11758,11816,Adding CSS classes for tile flipping
-parent',code',12083,12666,Implementing tile flipping in javascript
-parent',search',12252,12362,search: how to delay execution of a function in javascript
-parent',search',12705,12730,search: css animation end state;
-parent',code',12759,12777,add code to flip in and out
-parent',code',12786,12806,adjusting set timeout timing
-parent',code',12815,12827,adjusting timing in css
-parent',code',12932,12949,more timing adjustments in script
-parent',code',13087,13189,adding tile border colors to CSS
-goal_end,goal_end,0,0,end of animate tile flipping
-goal_start,goal_start,0,0,Clean up
-parent',code',13231,13256,"removes ""has-letter"" state when user presses backspace"
-parent',code',13452,13488,filling out index with all of the tiles needed for the gameboard
-parent',code',13518,13627,update script based on index updates to the gameboard.
-parent',code',13686,13713,adjusting spacing at the bottom
-goal_end,goal_end,0,0,end of clean up
-goal_start,goal_start,0,0,Add a win condition
-parent',code',13873,14142,detect whether or not the user has won
-parent',search',14312,15004,search: javascript promises
-parent',code',14880,15252,unsuccessful attempt to add promises to wait for when a guess is complete
-parent',code',15252,15684,cleaning and removing unnecessary print statements
-parent',code',15778,15884,final adjustments to the animations
-parent',code',16012,16056,adding jump animation for the win condition in CSS
-parent',code',16074,16286,attempting to add jump animation in the script
-parent',code',16440,16549,refining jump animation
-parent',code',16635,16647,refining jump animation in CSS
-parent',code',16779,17037,final clean up
-goal_end,goal_end,0,0,end of win condition
+goalType,clusterType,startTime,endTime,fileName,summary
+goal_start,goal_start,0,0,None,Set up user interface components for the Wordle game board.
+parent',code',345,779,notes.md,Plan our wordle UI and interaction requirements
+parent',code',1173,1279,fonts.scss,Change default font from Arial to Open Sans
+parent',code',1306,1385,boilerplate.scss,Change background color of game board to match Wordle
+parent',code',1472,1595,boilerplate.scss,"Style the game tiles with appropriate padding, alignment, and automatic upper casing."
+parent',code',1661,1836,boilerplate.scss,Set the width for the tiles
+parent',code',2192,2211,guess.scss,Changed the border color to a darker shade of gray
+parent',code',2570,2637,guess.scss,Changed the border color back to the previous shade (CHECK)
+goal_end,goal_end,0,0,None,end of set up user interface
+goal_start,goal_start,0,0,None,Adding an initial key listener to detect letters the user enters.
+parent',code',3180,3264,script.js,Outline initial code via comments
+parent',search',3282,3317,None,Search: How to detect a keypress in javascript
+parent',search',3364,3432,None,search: javascript onkeypress (CHECK)
+parent',code',3504,3601,script.js,Adding a key listener (CHECK)
+goal_end,goal_end,0,0,None,end of initial key listener
+goal_start,goal_start,0,0,None,"Use regular expressions to determine whether a pressed key is a letter and, if so, save it."
+parent',search',3623,3848,None,search: how to determine whether an entered character is a letter (CHECK)
+parent',code',3936,4357,script.js,Figure out whether or not an entered character is a letter
+parent',search',4077,4173,None,search: flavio javascript test regex; searching for specific resource
+goal_end,goal_end,0,0,None,end of user regular expressions
+goal_start,goal_start,0,0,None,Show the appropriate entered letters on the Wordle game board.
+parent',search',4620,4712,None,search: setting the data attribute of an html element with javascript (CHECK)
+parent',code',2070,4753,index.html,adding id to guess element
+parent',code',4927,5396,script.js,build update letters function
+parent',search',5007,5043,None,search: javascript arrow functions
+parent',code',5527,5840,script.js,cleaning up build update letters function
+parent',code',5962,6336,script.js,updating the tiles with the entered letters
+parent',search',6288,6312,None,search: how to change div content with javascript
+parent',code',6401,6439,guess.scss,changing font size and weight for the tiles
+parent',code',6531,7154,script.js,adding logic for deleting letters
+goal_end,goal_end,0,0,None,end of show entered letters
+goal_start,goal_start,0,0,None,Select a Wordle answer at random from a list of potential words.
+parent',code',7280,7464,notes.md,Updating requirements
+parent',search',7509,7998,None,Search: how to select a random object from an array
+parent',code',7620,8542,script.js,Choosing a random correct answer for the puzzle
+parent',search',8062,8104,None,Search: how to run a function on page load
+goal_end,goal_end,0,0,None,end of selecting a wordle answer
+goal_start,goal_start,0,0,None,Change color of tile based on whether it is correct or present in solution word
+parent',code',8577,8597,notes.md,Update planning document
+parent',search',8861,8883,None,Search: Get character from string based on a position
+parent',search',9299,9310,None,Search: string includes substring
+parent',search',9915,9952,None,search: javascript switch;
+parent',code',8613,8675,script.js,Handing the user pressing enter
+parent',code',8823,9969,script.js,Adding feedback for the user guess
+parent',code',9998,10070,guess.scss,"Setting up colors that correspond to letters being correct, present, and absent "
+parent',code',10111,10682,script.js,Debugging and ultimately removing switch statement for tile status 
+goal_end,goal_end,0,0,None,end of change tile color
+goal_start,goal_start,0,0,,Animate the tile flipping over.
+parent',code',10805,10872,notes.md,Update notes
+parent',search',11207,11904,None,search: flipping cards in css
+parent',code',11758,11816,animations.scss,Adding CSS classes for tile flipping
+parent',code',12083,12666,script.js,Implementing tile flipping in javascript
+parent',search',12252,12362,None,search: how to delay execution of a function in javascript
+parent',search',12705,12730,None,search: css animation end state;
+parent',code',12759,12777,animations.scss,add code to flip in and out
+parent',code',12786,12806,script.js,adjusting set timeout timing
+parent',code',12815,12827,animations.scss,adjusting timing in css
+parent',code',12932,12949,script.js,more timing adjustments in script
+parent',code',13087,13189,guess.scss,adding tile border colors to CSS
+goal_end,goal_end,0,0,None,end of animate tile flipping
+goal_start,goal_start,0,0,None,Clean up
+parent',code',13231,13256,script.js,"removes ""has-letter"" state when user presses backspace"
+parent',code',13452,13488,index.html,filling out index with all of the tiles needed for the gameboard
+parent',code',13518,13627,script.js,update script based on index updates to the gameboard.
+parent',code',13686,13713,guess.scss,adjusting spacing at the bottom
+goal_end,goal_end,0,0,None,end of clean up
+goal_start,goal_start,0,0,None,Add a win condition
+parent',code',13873,14142,script.js,detect whether or not the user has won
+parent',search',14312,15004,None,search: javascript promises
+parent',code',14880,15252,script.js,unsuccessful attempt to add promises to wait for when a guess is complete
+parent',code',15252,15684,script.js,cleaning and removing unnecessary print statements
+parent',code',15778,15884,script.js,final adjustments to the animations
+parent',code',16012,16056,animations.scss,adding jump animation for the win condition in CSS
+parent',code',16074,16286,script.js,attempting to add jump animation in the script
+parent',code',16440,16549,script.js,refining jump animation
+parent',code',16635,16647,animations.scss,refining jump animation in CSS
+parent',code',16779,17037,script.js,final clean up
+goal_end,goal_end,0,0,None,end of win condition

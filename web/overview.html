@@ -18,6 +18,7 @@
 
   <button onclick="openTab('history')">History</button>
   <button onclick="openTab('code')">Code</button>
+  <button onclick="openTab('test')">Test</button>
 
   <div id="history" class="tab">
     <h2>History Tab</h2>
@@ -32,6 +33,13 @@
   <div id="code" class="tab">
     <h2>script.js</h2>
     <div include-html="code_WordleNew.html"></div>
+    <!-- Add content for the code tab here -->
+  </div>
+
+
+  <div id="test" class="tab">
+    <h2>testing code</h2>
+    <div include-html="test.html"></div>
     <!-- Add content for the code tab here -->
   </div>
 
@@ -117,54 +125,56 @@
   }
 
 
-    function openChange(title, open) {
+  function openChange(title, open) {
 
-              var history = $(".history")
+    var history = $(".history")
 
-              // $(content,$(this).find('p:first')).html(diffHtml);
-              
-              var button =  $("button.collapsible:contains('" + title + "')")
-              var content = button.next()
+    // $(content,$(this).find('p:first')).html(diffHtml);
+    
+    var button =  $("button.collapsible:contains('" + title + "')")
+    var content = button.next()
 
-              // console.log("button is " + button)
-              // console.log("content is " + content)
-              
-              if (!open) {
-                content.attr("style", "display:none")
-                // console.log("closed")
-              } else  {
-                content.attr("style", "display:block")
-                // console.log(content)
-          
+    // console.log("button is " + button)
+    // console.log("content is " + content)
+    
+    if (!open) {
+      content.attr("style", "display:none")
+      // console.log("closed")
+    } else  {
+      content.attr("style", "display:block")
+      // console.log(content)
 
-                var diff = Diff.createTwoFilesPatch("begin", "end", content.attr("--start-code"), content.attr("--end-code"),null,null,{context:100});
-                console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
-          
-                var addition = "";
-                diff.split("\n").forEach(part => {
-                  if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
-                    addition = part
-                  }
-                  // console.log(part.length + " " + part)
-                })
-                // this.textContent = addition
-                var diffHtml = Diff2Html.html(diff, {
-                    drawFileList: false,
-                    //matching: 'words',
-                    outputFormat: 'side-by-side',
-                });
-                $(content,$(this).find('p:first')).html(diffHtml);
 
-                // try to scroll this content pane so that it's visible.
+      var diff = Diff.createTwoFilesPatch("begin", "end", content.attr("--start-code"), content.attr("--end-code"),null,null,{context:100});
+      console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
 
-                var offset = content.offset().top - $(window).scrollTop();
+      var addition = "";
+      diff.split("\n").forEach(part => {
+        if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
+          addition = part
+        }
+        // console.log(part.length + " " + part)
+      })
+      // this.textContent = addition
+      var diffHtml = Diff2Html.html(diff, {
+          drawFileList: false,
+          //matching: 'words',
+          outputFormat: 'side-by-side',
+      });
+      $(content,$(this).find('p:first')).html(diffHtml);
 
-                if(offset > window.innerHeight){
-                    // Not in view so scroll to it
-                    $('html,body').animate({scrollTop: offset}, 1000);
-                }  
-                      }
+      // try to scroll this content pane so that it's visible.
+
+      var offset = content.offset().top - $(window).scrollTop();
+
+      if(offset > window.innerHeight){
+          // Not in view so scroll to it
+          $('html,body').animate({scrollTop: offset}, 1000);
+      }  
             }
+  }
+
+
   </script>
 </body>
 </html>

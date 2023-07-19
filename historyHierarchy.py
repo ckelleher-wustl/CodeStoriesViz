@@ -325,7 +325,7 @@ else:
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
         clusterCnt += 1
 
-print(f"HTML: \n{html}")
+# print(f"HTML: \n{html}")
 
 # type = df.iloc[i]["type"]
 

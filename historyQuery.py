@@ -19,6 +19,7 @@ class HistoryFromCode:
         self.clusterTimeToPeriodDict = {} # dictionary mapping the cluster summary to the time
 
         self.clusterSummaryToSubgoalDict = {} # dictionary mapping the activity/cluster summary to the subgoal name
+        self.subGoalToFileNamesDict = {} # dictionary mapping subgoals to the files edited during those subgoals
 
     def get_code_entries(self):
         
@@ -64,6 +65,13 @@ class HistoryFromCode:
     def getOrigLine(self, targetString, seedLineDict):
         parentLine = targetString
 
+        if (parentLine not in seedLineDict.keys()):
+            print(f"Key not found: {parentLine}")
+            for key in seedLineDict.keys():
+                print(f"\t{key}: {self.lineHistoryDict[key]}")
+
+    
+
         # print(f"Looking for {targetString} -> (parent) {parentLine}")
         while (seedLineDict[parentLine] != "base"):
             parentLine = seedLineDict[parentLine]
@@ -82,6 +90,7 @@ class HistoryFromCode:
             lines =[]
             for rawline in rawLines:
                 #  strip whitespace
+                rawline = rawline.replace('“','"').replace('”','"')
                 lines.append(rawline.strip())
 
             for candidateLine in lines:
@@ -196,9 +205,9 @@ class HistoryFromCode:
 
 
     def initializeClusters(self, clusterFile):
-        # read in the cluster info
+        # read in the cluster info goalType,clusterType,startTime,endTime,fileName,summary
         clusterDF = pd.read_csv(clusterFile)
-        clusterDF.set_axis(['goalType','clusterType','startTime','endTime','summary'], axis=1, inplace=True)
+        clusterDF.set_axis(['goalType','clusterType','startTime','endTime','fileName','summary'], axis=1, inplace=True)
 
         clusterTimes = []
         self.clusterTimeToSummaryDict = {}  
@@ -210,6 +219,8 @@ class HistoryFromCode:
             endTime = clusterDF['endTime'][clusterIdx]
             summary = clusterDF['summary'][clusterIdx]
             goalType = clusterDF['goalType'][clusterIdx] 
+            clusterType = clusterDF['clusterType'][clusterIdx]
+            fileName = clusterDF['fileName'][clusterIdx]
 
             if (goalType == "parent'"):
 
@@ -223,11 +234,16 @@ class HistoryFromCode:
                 self.clusterTimeToSummaryDict[endTime] = summary
 
                 self.clusterSummaryToSubgoalDict[summary] = subGoal
+
+                if ('code' in clusterType) and (fileName not in self.subGoalToFileNamesDict[subGoal]):
+                    self.subGoalToFileNamesDict[subGoal].append(fileName)
+
             elif (goalType == "goal_start"):
                 subGoal = summary
+                self.subGoalToFileNamesDict[subGoal] = []
                 # print(f"cluster type: {goalType} - {summary}")
 
-        # print(f"activityToSubgoal -> {self.clusterSummaryToSubgoalDict}")
+        # print(f"subGoalToFileNamesDict -> {self.subGoalToFileNamesDict}")
 
         return self.clusterTimeToSummaryDict, clusterTimes
 
@@ -285,15 +301,19 @@ class HistoryFromCode:
         activities = []
 
         origLines = self.getOrigLinesForSelected(selectedCode) # get the original lines for the code of interest
+        # print(f"\norigLines {origLines}")
         keyChanges = self.getChangePeriodsForLines(origLines) # figure out which periods are relevant for this selection
+        # print(f"\nkeychanges {keyChanges}")
 
         # reconstruct the code from relevant periods
         codeLinesForPeriodDict = self.getCodeLinesForPeriodDict(origLines, keyChanges)
+        # print(f"\ncodeLinesForPeriodDict {codeLinesForPeriodDict}")
         for period in codeLinesForPeriodDict:
 
-            activity = self.clusterTimeToSummaryDict[self.codeStates[period]['time']]
-            if (activity not in activities):
-                activities.append(activity)
+            if (self.codeStates[period]['time'] in self.clusterTimeToSummaryDict.keys()):
+                activity = self.clusterTimeToSummaryDict[self.codeStates[period]['time']]
+                if (activity not in activities):
+                    activities.append(activity)
 
         return activities
     
@@ -322,14 +342,13 @@ class HistoryFromCode:
 
         idx = 0
         periodForActivity = -1
-        timeForActivity = -1
+        # timeForActivity = -1
         for state in self.codeStates:
             time = state["time"]
-            title = self.clusterTimeToSummaryDict[time]
-            # print(f"{idx}: {time} {title}")
-            if (title == activityTitle):
-                periodForActivity = idx
-                timeForActivity = time
+            if (time in self.clusterTimeToSummaryDict.keys()):
+                title = self.clusterTimeToSummaryDict[time]
+                if (title == activityTitle):
+                    periodForActivity = idx
             idx += 1
 
         # print(f"FOUND {periodForActivity} {timeForActivity}")
@@ -341,3 +360,6 @@ class HistoryFromCode:
 
         return periodLines
         # print(self.clusterTimeToSummaryDict)
+
+    def getFileNamesForSubGoal(self, subgoal):
+        return self.subGoalToFileNamesDict[subgoal]

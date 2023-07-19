@@ -1,0 +1,290 @@
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+# Functional Requirements
+## Gameplay
+6 tries to guess a 5-letter word
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group'>Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Plan our wordle UI and interaction requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
+				<pre class='code'><span style='background-color:yellow'># Functional Requirements</span>
+<span style='background-color:yellow'>## Gameplay</span>
+<span style='background-color:yellow'>6 tries to guess a 5-letter word</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+### Pick a solution word
+x Store solution words in array
+x When game is loaded, choose random item from array
+x Set solution to that word
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Update planning document</button>
+			<div class='tooltip'>
+				<div class='history-header'>Update planning document</div>
+				<pre class='code'><span style='background-color:yellow'>### Pick a solution word</span>
+<span style='background-color:yellow'>x Store solution words in array</span>
+<span style='background-color:yellow'>x When game is loaded, choose random item from array</span>
+<span style='background-color:yellow'>x Set solution to that word</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+### Making a guess
+Detect keypresses
+x if keypress is a letter
+x update "letters" attribute
+x update tile markup based on "letters" value
+x if keypress is backspace
+x delete last letter in "letters"
+x update tile markup based on "letters"
+x Don't run update functions if "letters" length = 4;
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group'>Select a Wordle answer at random from a list of potential words.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Updating requirements</div>
+				<pre class='code'><span style='background-color:yellow'>### Making a guess</span>
+<span style='background-color:yellow'>Detect keypresses</span>
+<span style='background-color:yellow'>x if keypress is a letter</span>
+<span style='background-color:yellow'>x update "letters" attribute</span>
+<span style='background-color:yellow'>x update tile markup based on "letters" value</span>
+<span style='background-color:yellow'>x if keypress is backspace</span>
+<span style='background-color:yellow'>x update tile markup based on "letters"</span>
+<span style='background-color:yellow'>x Don't run update functions if "letters" length = 4;</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+### Submit guess
+x Pressing Enter will submit guess
+x compare each letter with the corresponding letter in solution word
+x update the state/color of the letter
+- If all letters are "correct" / green, game is won
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group'>Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Plan our wordle UI and interaction requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
+				<pre class='code'><span style='background-color:yellow'>Enter will submit guess</span>
+</pre></div>
+		</div>
+</div><div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group'>Select a Wordle answer at random from a list of potential words.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Updating requirements</div>
+				<pre class='code'><span style='background-color:yellow'>### Submit guess</span>
+<span style='background-color:yellow'>Pressing Enter will submit guess</span>
+<span style='background-color:yellow'>- compare each letter with the corresponding letter in solution word</span>
+<span style='background-color:yellow'>- update the state/color of the letter</span>
+</pre></div>
+		</div>
+</div><div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group'>Change color of tile based on whether it is correct or present in solution word
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Update planning document</button>
+			<div class='tooltip'>
+				<div class='history-header'>Update planning document</div>
+				<pre class='code'><span style='background-color:yellow'>### Submit guess</span>
+<span style='background-color:yellow'>- Pressing Enter will submit guess</span>
+<span style='background-color:yellow'>- compare each letter with the corresponding letter in solution word</span>
+<span style='background-color:yellow'>- update the state/color of the letter</span>
+</pre></div>
+		</div>
+</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group'>Animate the tile flipping over.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Update notes</button>
+			<div class='tooltip'>
+				<div class='history-header'>Update notes</div>
+				<pre class='code'><span style='background-color:yellow'>### Submit guess</span>
+<span style='background-color:yellow'>x Pressing Enter will submit guess</span>
+<span style='background-color:yellow'>- compare each letter with the corresponding letter in solution word</span>
+<span style='background-color:yellow'>- update the state/color of the letter</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+Guesses must be a real word, "in word list"
+Guess colors (data-state):
+- gray: "absent," letter not in word
+- yellow: "present," letter in word, but in wrong position
+- green: "correct," letter in word and in right position
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group'>Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Plan our wordle UI and interaction requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
+				<pre class='code'><span style='background-color:yellow'>Guess colors (data-state):</span>
+<span style='background-color:yellow'>- yellow: "present," letter in word, but in wrong position</span>
+<span style='background-color:yellow'>- green: "correct," letter in word and in right position</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+Hard Mode: present or correct letters must be used in subsequent guesses
+Guesses are saved in Local Storage
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group'>Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Plan our wordle UI and interaction requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
+				<pre class='code'><span style='background-color:yellow'>Hard Mode: present or correct letters must be used in subsequent guesses</span>
+</pre></div>
+		</div>
+</div><div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group'>Select a Wordle answer at random from a list of potential words.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Updating requirements</div>
+				<pre class='code'><span style='background-color:yellow'>Hard Mode: present or correct letters must be used in subsequent guesses</span>
+<span style='background-color:yellow'>Guesses are saved in Local Storage</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+## Design
+Tiles 5x6
+Virtual keyboard
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group'>Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Plan our wordle UI and interaction requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
+				<pre class='code'><span style='background-color:yellow'>## Design</span>
+<span style='background-color:yellow'>Tiles 5x6</span>
+<span style='background-color:yellow'>Virtual keyboard</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+## Interactions
+When typing a letter:
+- border of the tile changes to light gray
+- blinking in animation with letter
+- backspace will remove letter, border changes back to dark gray
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group'>Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Plan our wordle UI and interaction requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
+				<pre class='code'><span style='background-color:yellow'>## Interactions</span>
+<span style='background-color:yellow'>When typing a letter:</span>
+<span style='background-color:yellow'>- border of the tile changes to light gray</span>
+<span style='background-color:yellow'>- blinking in animation with letter</span>
+<span style='background-color:yellow'>- backspace will remove letter, border changes back to dark gray</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer'>
+		<pre class='code'>
+When submitting guess:
+- Tiles will flip up and background color will change based on guess
+- Slight delay between each tile flipping
+- Background color changes when tile is flat, i.e. can't see it
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group'>Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Plan our wordle UI and interaction requirements</button>
+			<div class='tooltip'>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
+				<pre class='code'><span style='background-color:yellow'>When submitting guess:</span>
+<span style='background-color:yellow'>- Tiles will flip up and background color will change based on guess</span>
+</pre></div>
+		</div>
+</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group'>Animate the tile flipping over.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Update notes</button>
+			<div class='tooltip'>
+				<div class='history-header'>Update notes</div>
+				<pre class='code'><span style='background-color:yellow'>When submitting guess:</span>
+<span style='background-color:yellow'>- Tiles will flip up and background color will change based on guess</span>
+<span style='background-color:yellow'>- Slight delay between each tile flipping</span>
+<span style='background-color:yellow'>- Background color changes when tile is flat, i.e. can't see it</span>
+</pre></div>
+		</div>
+</div>	</div>
+</div>
+
+

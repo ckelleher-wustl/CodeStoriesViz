@@ -95,6 +95,12 @@
     margin-bottom: 6px;
   }
   
+  .files-container {
+    margin: 0px;
+    text-align: right;
+    font-size: xx-small;
+  }
+
   .tooltip {
     visibility: hidden;
     background-color: rgba(0, 0, 0, 0.8);
