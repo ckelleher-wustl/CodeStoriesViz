@@ -19,7 +19,7 @@ def separate_lines(filename):
 
     return groups
 
-filename = "guess.scss"
+filename = "boilerplate.scss"
 filepath = 'web/storystudy/wordleCode/' + filename
 groups = separate_lines(filepath)
 
