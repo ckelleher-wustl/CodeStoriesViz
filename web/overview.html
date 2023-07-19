@@ -22,7 +22,7 @@
 
   <div id="history" class="tab">
     <h2>History Tab</h2>
-      <div include-html="clusters_WordleNew.html"></div>
+      <div class="tabContent" id="historyTab" include-html="clusters_WordleNew.html"></div>
 
       <button type="button" class="collapsible">THE END</button>
       <div class="content">
@@ -32,14 +32,14 @@
 
   <div id="code" class="tab">
     <h2>script.js</h2>
-    <div include-html="code_WordleNew.html"></div>
+    <div class="tabContent"  id="codeTab" include-html="code_WordleNew.html"></div>
     <!-- Add content for the code tab here -->
   </div>
 
 
-  <div id="test" class="tab">
+  <div id="test" class="tab" >
     <h2>testing code</h2>
-    <div include-html="test.html"></div>
+    <div class="tabContent" id="testTab" include-html="test.html"></div>
     <!-- Add content for the code tab here -->
   </div>
 
@@ -54,11 +54,14 @@
     
     // currently trying to figure out how to not have to call the inits anymore.
     $(document).ready(function(){
-      includeHTML();
-      console.log("calling inits...")
-      openTab('history');
-      initCollapsibles();
-      initHistory();
+      var htmlToLoad = $(".tabContent")
+      console.log(htmlToLoad)
+      htmlToLoad.each(function( index ) {
+        var url =  $( this ).attr("include-html") ;
+        console.log("load url..." + url)
+        loadContent(url, $(this))
+      });
+      // openTab('history');
     });
 
     function initCollapsibles() {
@@ -66,7 +69,7 @@
       var coll = document.getElementsByClassName("collapsible");
       var i;
       
-      console.log("adding listeners....")
+      console.log("INITCOLLAPSIBLES: adding listeners....")
       for (i = 0; i < coll.length; i++) {
         console.log("adding listener to " + coll[i]);
         coll[i].addEventListener("click", function() {
@@ -77,20 +80,20 @@
             // console.log("closed")
           } else {
             content.style.display = "block";
-            console.log(content)
+            // console.log(content)
             // console.log("opened " + content.getAttribute("--start-code") + " to " + content.getAttribute("--end-code"))
 
             if (content.hasAttribute("--start-code")) {
       
               var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:10});
-              console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
+              // console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
         
               var addition = "";
               diff.split("\n").forEach(part => {
                 if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
                   addition = part
                 }
-                console.log(part.length + " " + part)
+                // console.log(part.length + " " + part)
               })
               // this.textContent = addition
               var diffHtml = Diff2Html.html(diff, {
@@ -108,52 +111,63 @@
 
   function initHistory() {
 
-    var histElems = document.getElementsByClassName("history");
+    // var histElems = document.getElementsByClassName("history");
+    var histElems = $(".history");
     var i;
 
-    console.log("adding listeners....")
-    for (i = 0; i < histElems.length; i++) {
-      console.log("adding listener to " + histElems[i]);
-      histElems[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        console.log("clicking on a history element..." + this.textContent);
-
+    console.log("adding listener to " + histElems[i]);
+    histElems.on("click", (event) => {
+        console.log("click on view history event ");
+        console.log(event.target.textContent);
         openTab("history");
-        openChange(this.textContent, true);      
+        openChange(event.target.textContent, true); 
       });
-    }
+
+      
+      
+      
+    //   histElems[i].addEventListener("click", function() {
+    //     this.classList.toggle("active");
+    //     // console.log("clicking on a history element..." + this.textContent);
+
+    //     openTab("history");
+    //     openChange(this.textContent, true);      
+    //   });
+    // }
+    
+    
+    // for (i = 0; i < histElems.length; i++) {
+    //   // console.log("adding listener to " + histElems[i]);
+    //   histElems[i].addEventListener("click", function() {
+    //     this.classList.toggle("active");
+    //     // console.log("clicking on a history element..." + this.textContent);
+
+    //     openTab("history");
+    //     openChange(this.textContent, true);      
+    //   });
+    // }
   }
 
 
   function openChange(title, open) {
 
-    var history = $(".history")
-
-    // $(content,$(this).find('p:first')).html(diffHtml);
+    var history = $(".history");
     
-    var button =  $("button.collapsible:contains('" + title + "')")
-    var content = button.next()
-
-    // console.log("button is " + button)
-    // console.log("content is " + content)
+    var button =  $("button.collapsible:contains('" + title + "')");
+    var content = button.next();
     
     if (!open) {
-      content.attr("style", "display:none")
-      // console.log("closed")
+      content.attr("style", "display:none");
     } else  {
-      content.attr("style", "display:block")
-      // console.log(content)
-
+      content.attr("style", "display:block");
 
       var diff = Diff.createTwoFilesPatch("begin", "end", content.attr("--start-code"), content.attr("--end-code"),null,null,{context:100});
-      console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
 
       var addition = "";
       diff.split("\n").forEach(part => {
         if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
           addition = part
         }
-        // console.log(part.length + " " + part)
       })
       // this.textContent = addition
       var diffHtml = Diff2Html.html(diff, {
@@ -164,14 +178,13 @@
       $(content,$(this).find('p:first')).html(diffHtml);
 
       // try to scroll this content pane so that it's visible.
-
       var offset = content.offset().top - $(window).scrollTop();
 
       if(offset > window.innerHeight){
           // Not in view so scroll to it
           $('html,body').animate({scrollTop: offset}, 1000);
       }  
-            }
+    }
   }
 
 
