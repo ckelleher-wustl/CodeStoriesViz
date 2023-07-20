@@ -29,33 +29,61 @@ function openTab(tabName) {
       if (link) {
           const url = link.getAttribute("data-url");
           var contentContainer = $("#contentContainer");
-          console.log("click on link " + url);
-          console.log(contentContainer);
-          loadContent(url, contentContainer);
+          loadContent(url, contentContainer, null, null);
       }
   });
 
   }
 }
 
-function loadContent(url, container) {
+function openCodeFile(url, regionID) {
+  openTab("test")
+  var contentContainer = $("#contentContainer");
+  loadContent(url, contentContainer, scrollToRegion, regionID); 
+}
+
+function scrollToRegion(regionID) {
+  var regionDiv = $("#" + regionID);
+  // console.log(regionDiv.parent());
+
+  var offset = regionDiv.offset().top - $(window).scrollTop();
+
+  if(offset > window.innerHeight){
+      // Not in view so scroll to it
+      $('html,body').animate({scrollTop: offset}, 1000);
+  } 
+  
+  // experiment with adding a pulsing border to bring user's attention to the relevant region
+  regionDiv.parent().addClass("fade-in-out-border");
+
+  // Remove the animation class after the animation finishes
+  regionDiv.parent().on("animationend", function() {
+    $(this).removeClass("fade-in-out-border");
+  });
+
+
+}
+
+function loadContent(url, container, callback, arg) {
   console.log("trying to load " + url + "into " + container.attr("id"))
 
-  fetch(url)
+  const ms = Date.now();
+
+  fetch(url + "?dummy="+ms)
     .then((response) => response.text())
     .then((html) => {
-      
-      console.log("loading " + container.attr("id"));
+
+      container.html( html );
       if (container.attr("id") == "historyTab"){
-        container.html( html );
         initCollapsibles();
         
       } else if (container.attr("id") == "contentContainer") {
-        console.log( html.substring(0, 300))
-        container.html(html);
         initHistory();
-      } else {
-        container.html( html );
+      }
+
+      if (callback!= null) {
+        console.log("calling callback function");
+        callback(arg);
       }
     })
     .catch((error) => {

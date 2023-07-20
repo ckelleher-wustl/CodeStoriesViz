@@ -307,7 +307,7 @@ class HistoryFromCode:
 
         # reconstruct the code from relevant periods
         codeLinesForPeriodDict = self.getCodeLinesForPeriodDict(origLines, keyChanges)
-        # print(f"\ncodeLinesForPeriodDict {codeLinesForPeriodDict}")
+        print(f"\ncodeLinesForPeriodDict {codeLinesForPeriodDict}")
         for period in codeLinesForPeriodDict:
 
             if (self.codeStates[period]['time'] in self.clusterTimeToSummaryDict.keys()):

@@ -59,7 +59,7 @@
       htmlToLoad.each(function( index ) {
         var url =  $( this ).attr("include-html") ;
         console.log("load url..." + url)
-        loadContent(url, $(this))
+        loadContent(url, $(this), null, null)
       });
       // openTab('history');
     });
@@ -110,42 +110,15 @@
 
 
   function initHistory() {
-
-    // var histElems = document.getElementsByClassName("history");
     var histElems = $(".history");
     var i;
 
     console.log("adding listener to " + histElems[i]);
     histElems.on("click", (event) => {
-        console.log("click on view history event ");
-        console.log(event.target.textContent);
         openTab("history");
         openChange(event.target.textContent, true); 
       });
 
-      
-      
-      
-    //   histElems[i].addEventListener("click", function() {
-    //     this.classList.toggle("active");
-    //     // console.log("clicking on a history element..." + this.textContent);
-
-    //     openTab("history");
-    //     openChange(this.textContent, true);      
-    //   });
-    // }
-    
-    
-    // for (i = 0; i < histElems.length; i++) {
-    //   // console.log("adding listener to " + histElems[i]);
-    //   histElems[i].addEventListener("click", function() {
-    //     this.classList.toggle("active");
-    //     // console.log("clicking on a history element..." + this.textContent);
-
-    //     openTab("history");
-    //     openChange(this.textContent, true);      
-    //   });
-    // }
   }
 
 

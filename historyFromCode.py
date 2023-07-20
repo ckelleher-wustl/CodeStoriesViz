@@ -28,11 +28,34 @@ historyFromCode = historyQuery.HistoryFromCode()
 historyFromCode.initializeHistory('web/data/wordleStoryOverview.csv',filename)
 
 html = ""
+groupActivities = {}
+regionIdx = 0
 
 for group in groups:
+
+
+    activities = historyFromCode.getActivitiesForCode(group)
+    subGoalDict = historyFromCode.getSubgoalActivityGroups(activities)
+
+    # trying to build a library of groupActivities to groups identified by unique groupLines.
+    idLine = ""
+    for groupLine in group:
+        groupLine = groupLine.replace("'", "").replace('"', "")
+        if (len(groupLine) > 5) and (groupLine not in groupActivities.keys()):
+            idLine = groupLine
+            break
+
+    if (idLine == ""):
+        print(f"could not find an idLine for group {group[0]}")
+    else:
+        groupActivities[idLine] = activities
+
+    # end of groupActivities -> groupLines experiment
+
+
     html += "<div class='horizContainer'>\n"
 
-    html += "\t<div class='leftContainer'>\n"
+    html += "\t<div class='leftContainer' id='region" + str(regionIdx) + "' line='" + idLine[0:len(idLine)-1] + "'>\n"
     html += "\t\t<pre class='code'>\n"
     for line in group:
         if (filename.endswith(".html")):
@@ -44,8 +67,7 @@ for group in groups:
 
 
     html += "\t<div class='rightContainer'>\n"
-    activities = historyFromCode.getActivitiesForCode(group)
-    subGoalDict = historyFromCode.getSubgoalActivityGroups(activities)
+    
 
     for subgoal in subGoalDict.keys():
         subGoalFiles = historyFromCode.getFileNamesForSubGoal(subgoal)
@@ -86,6 +108,8 @@ for group in groups:
             # save these lines for next time
             prevLines = periodLines
         html += "</div>"
+    
+    regionIdx += 1
 
 
     html += "\t</div>\n" # end right container
@@ -94,6 +118,10 @@ for group in groups:
     html += "\n\n"
 
 # print(html)
+for groupId in groupActivities.keys():
+    print(f"{groupId[0:len(groupId)-1]}")
+    for activity in groupActivities[groupId]:
+        print(f"\t{activity}")
 
 text_file = open("web/code_Wordle_" + filename + ".html", "w")
 n = text_file.write(html)

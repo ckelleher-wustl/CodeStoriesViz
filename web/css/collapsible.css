@@ -121,3 +121,16 @@
   .tooltip-trigger:hover + .tooltip {
     visibility: visible;
   }
+
+  .fade-in-out-border {
+    animation: fadeInOutBorder 2s ease-in-out 2;
+  }
+  
+  @keyframes fadeInOutBorder {
+    0%, 100% {
+      border: 2px solid transparent;
+    }
+    50% {
+      border: 2px solid navy;
+    }
+  }
