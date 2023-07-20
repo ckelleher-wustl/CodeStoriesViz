@@ -123,14 +123,14 @@
   }
 
   .fade-in-out-border {
-    animation: fadeInOutBorder 2s ease-in-out 2;
+    animation: fadeInOutBorder 2s ease-in-out 3;
   }
   
   @keyframes fadeInOutBorder {
     0%, 100% {
-      border: 2px solid transparent;
+      border: 5px solid transparent;
     }
     50% {
-      border: 2px solid navy;
+      border: 5px solid red;
     }
   }

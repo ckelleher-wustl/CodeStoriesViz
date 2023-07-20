@@ -156,6 +156,26 @@ def get_code_entries(startTime, endTime):
         return summaryLine
 
 
+activityData = {}
+def loadActivityDataFrames():
+    filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv']
+
+    for file in filenames:
+        print(file)
+
+        df = pd.read_csv(r'web/data/storyStudy/' + file)
+        print(df)
+        print("\n")
+
+        activityData[file] = df
+
+def getRegionsForActivities(filename, activity):
+    df = activityData[filename]
+    
+    results = df.loc[df["activity"] == activity]
+    return results
+
+
 
 # import the search and code clusters
 
@@ -211,11 +231,22 @@ for clusterIdx in clusterDF.index:
          html += "</div>" # this closes the section opened by a goal start
 
 
-print(f"HTML:\n{len(html)}")
+# print(f"HTML:\n{len(html)}")
 
-text_file = open("web/clusters_WordleNew.html", "w")
-n = text_file.write(html)
-text_file.close()
+# text_file = open("web/clusters_WordleNew.html", "w")
+# n = text_file.write(html)
+# text_file.close()
+
+
+# HERE
+# this should be abstracted into a method that takes a filename and an activity name and returns the results.
+# to do that, I first need to generate the csvs for the other code files.
+
+loadActivityDataFrames()
+activityTarget = "Change background color of game board to match Wordle"
+results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
+
+print(f"\n{results}")
 
 
 

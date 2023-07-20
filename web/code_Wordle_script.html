@@ -1,6 +1,5 @@
-<p> This is script.js [other files go here]</p>
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region0' line='console.log(keypress);'>
 		<pre class='code'>
 console.log('keypress');
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -83,7 +82,7 @@ let solutionWord = '';
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region1' line='const chooseWord = () => {'>
 		<pre class='code'>
 const chooseWord = () => {
   // choose random item from words array
@@ -118,7 +117,7 @@ const chooseWord = () => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region2' line='chooseWord();'>
 		<pre class='code'>
 chooseWord();
 console.log('solution word = ' + solutionWord);
@@ -148,7 +147,7 @@ console.log('solution word = ' + solutionWord);
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region3' line='// detect keypress (letter, backspace, enter, other)'>
 		<pre class='code'>
 // detect keypress (letter, backspace, enter, other)
 document.addEventListener('keydown', (e) => {
@@ -344,7 +343,7 @@ deleteFromLetters();
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region4' line='const submitGuess = () => {'>
 		<pre class='code'>
 const submitGuess = () => {
   //console.log('submit guess');
@@ -476,7 +475,7 @@ revealTile(i, checkLetter(i));
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region5' line='const checkIfGuessComplete = (i) => {'>
 		<pre class='code'>
 const checkIfGuessComplete = (i) => {
     if (i == 4){
@@ -546,7 +545,7 @@ const checkIfGuessComplete = (i) => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region6' line='const jumpTiles = () => {'>
 		<pre class='code'>
 const jumpTiles = () => {
   console.log('jumpTiles');
@@ -674,9 +673,9 @@ currentTile.classList.add('jump');
 for (let i = 0; i < 5; i++) {
 setTimeout(() => {
 let currentTile = document.querySelector(
-<span style='background-color:yellow'>ï¿½#guess' + currentGuessCount + ï¿½Tileï¿½ + (i + 1)</span>
+<span style='background-color:yellow'>‘#guess' + currentGuessCount + ‘Tile’ + (i + 1)</span>
 );
-<span style='background-color:yellow'>currentTile.classList.add(ï¿½jump');</span>
+<span style='background-color:yellow'>currentTile.classList.add(‘jump');</span>
 <span style='background-color:yellow'>}, 1 * 200);</span>
 </pre></div>
 		</div>
@@ -685,7 +684,7 @@ let currentTile = document.querySelector(
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region7' line='const checkWin = () => {'>
 		<pre class='code'>
 const checkWin = () => {
   console.log('check win');
@@ -763,7 +762,7 @@ console.log('not a win, increment guess count to ' + currentGuessCount);
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region8' line='// Update letters'>
 		<pre class='code'>
 // Update "letters"
 const updateLetters = (letter) => {
@@ -848,7 +847,7 @@ const updateLetters = (letter) => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region9' line='// Update tile markup'>
 		<pre class='code'>
 // Update tile markup
 const updateTiles = (tileNumber, letter) => {
@@ -935,7 +934,7 @@ currentTile.classList.add('has-letter');
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region10' line='// Backspace -- Delete last letter'>
 		<pre class='code'>
 // Backspace -- Delete last letter
 const deleteFromLetters = () => {
@@ -987,7 +986,7 @@ currentGuess.dataset.letters = newLetters;
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region11' line='// Backspace -- Delete last tile markup'>
 		<pre class='code'>
 // Backspace -- Delete last tile markup
 const deleteFromTiles = () => {
@@ -1068,7 +1067,7 @@ curentTile.classList.remove('has-letter');
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region12' line='// Check letter to solution'>
 		<pre class='code'>
 // Check letter to solution
 // parameter = letter position in word
@@ -1108,7 +1107,7 @@ const checkLetter = (position) => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region13' line='  // If letters match, return correct'>
 		<pre class='code'>
   // If letters match, return "correct"
   if(guessedLetter == solutionLetter){
@@ -1148,7 +1147,7 @@ const checkLetter = (position) => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region14' line='  // If not a match, if letter doesnt exist in solution, return absent'>
 		<pre class='code'>
   // If not a match, if letter doesn't exist in solution, return "absent"
 };
@@ -1177,7 +1176,7 @@ const checkLetter = (position) => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region15' line='const checkLetterExists = (letter) => {'>
 		<pre class='code'>
 const checkLetterExists = (letter) => {
   return solutionWord.includes(letter);
@@ -1208,7 +1207,7 @@ const checkLetterExists = (letter) => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region16' line='const revealTile = (i, state) => {'>
 		<pre class='code'>
 const revealTile = (i, state) => {
   //console.log('revealTile = ' + i, state);
@@ -1273,7 +1272,7 @@ const revealTile = (i, state) => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region17' line='const flipTile = (tileNum, state) => {'>
 		<pre class='code'>
 const flipTile = (tileNum, state) => {
   let tile = document.querySelector(
@@ -1301,7 +1300,7 @@ const flipTile = (tileNum, state) => {
 			<div class='tooltip'>
 				<div class='history-header'>Debugging and ultimately removing switch statement for tile status </div>
 				<pre class='code'><span style='background-color:yellow'>tile.classList.add('present');</span>
-<span style='background-color:yellow'>tile.classList.add('ï¿½absent');</span>
+<span style='background-color:yellow'>tile.classList.add('‘absent');</span>
 </pre></div>
 		</div>
 </div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
@@ -1313,7 +1312,7 @@ const flipTile = (tileNum, state) => {
 				<pre class='code'><span style='background-color:yellow'>const flipTile = (tileNum, state) => {</span>
 <span style='background-color:yellow'>//  tile.classList.add('present');</span>
 <span style='background-color:yellow'>setTimeout(() => {</span>
-<span style='background-color:yellow'>//  tile.classList.add('ï¿½absent');</span>
+<span style='background-color:yellow'>//  tile.classList.add('‘absent');</span>
 <span style='background-color:yellow'>setTimeout(() => {</span>
 <span style='background-color:yellow'>tile.classList.remove('flip-in');</span>
 <span style='background-color:yellow'>tile.classList.add('flip-out');</span>
@@ -1326,7 +1325,7 @@ const flipTile = (tileNum, state) => {
 				<pre class='code'>const flipTile = (tileNum, state) => {
 //  tile.classList.add('present');
 setTimeout(() => {
-//  tile.classList.add('ï¿½absent');
+//  tile.classList.add('‘absent');
 setTimeout(() => {
 tile.classList.remove('flip-in');
 tile.classList.add('flip-out');
@@ -1339,7 +1338,7 @@ tile.classList.add('flip-out');
 				<pre class='code'>const flipTile = (tileNum, state) => {
 //  tile.classList.add('present');
 setTimeout(() => {
-//  tile.classList.add('ï¿½absent');
+//  tile.classList.add('‘absent');
 <span style='background-color:yellow'>}, 250);</span>
 setTimeout(() => {
 tile.classList.remove('flip-in');
@@ -1357,7 +1356,7 @@ tile.classList.add('flip-out');
 				<pre class='code'><span style='background-color:yellow'>const flipTile = (tileNum, state) => {</span>
 <span style='background-color:yellow'>//  tile.classList.add('present');</span>
 <span style='background-color:yellow'>setTimeout(() => {</span>
-<span style='background-color:yellow'>//  tile.classList.add('ï¿½absent');</span>
+<span style='background-color:yellow'>//  tile.classList.add('‘absent');</span>
 <span style='background-color:yellow'>}, 250);</span>
 <span style='background-color:yellow'>setTimeout(() => {</span>
 <span style='background-color:yellow'>tile.classList.remove('flip-in');</span>
@@ -1376,7 +1375,7 @@ tile.classList.add('flip-out');
 <span style='background-color:yellow'>'#guess' + currentGuessCount + 'Tile' + tileNumber</span>
 //  tile.classList.add('present');
 setTimeout(() => {
-//  tile.classList.add('ï¿½absent');
+//  tile.classList.add('‘absent');
 }, 250);
 setTimeout(() => {
 tile.classList.remove('flip-in');
@@ -1440,7 +1439,7 @@ setTimeout(() => {
 
 
 <div class='horizContainer'>
-	<div class='leftContainer'>
+	<div class='leftContainer' id='region18' line='- if keypress is a letter'>
 		<pre class='code'>
 /*
 - if keypress is a letter

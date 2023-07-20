@@ -1,4 +1,5 @@
 import historyQuery
+import csv
 
 def separate_lines(filename):
     groups = []
@@ -19,7 +20,7 @@ def separate_lines(filename):
 
     return groups
 
-filename = "boilerplate.scss"
+filename = "script.js"
 filepath = 'web/storystudy/wordleCode/' + filename
 groups = separate_lines(filepath)
 
@@ -117,11 +118,26 @@ for group in groups:
 
     html += "\n\n"
 
-# print(html)
-for groupId in groupActivities.keys():
-    print(f"{groupId[0:len(groupId)-1]}")
-    for activity in groupActivities[groupId]:
-        print(f"\t{activity}")
+# recording CSV of activity info for use in the history view.
+
+header = ["activity", "lineID", "regionID"]
+with open('web/data/storyStudy/' + filename + '.csv', 'w+', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(header)
+
+    regionIdx = 0
+    for groupId in groupActivities.keys():
+        regionID = "region" + str(regionIdx) 
+        lineID = groupId[0:len(groupId)-1]
+        
+        for activity in groupActivities[groupId]:
+            data = [activity, lineID, regionID]
+            print(f"\t{data}")
+            writer.writerow(data)
+
+        regionIdx += 1
+        
+f.close()
 
 text_file = open("web/code_Wordle_" + filename + ".html", "w")
 n = text_file.write(html)
