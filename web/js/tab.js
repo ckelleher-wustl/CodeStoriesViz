@@ -44,16 +44,17 @@ function openCodeFile(url, regionID) {
 
 function scrollToRegion(regionID) {
   var regionDiv = $("#" + regionID);
-  // console.log(regionDiv.parent());
+  if (!regionDiv.length) return; // If the element doesn't exist, exit the function
 
-  var offset = regionDiv.offset().top - $(window).scrollTop();
+  const offsetTop = regionDiv.offset().top;
+  const screenHeight = $(window).height();
+  const scrollToY = offsetTop - (screenHeight / 2) + (regionDiv.outerHeight() / 2);
 
-  if(offset > window.innerHeight){
-      // Not in view so scroll to it
-      $('html,body').animate({scrollTop: offset}, 1000);
-  } 
+  $("html, body").animate({
+    scrollTop: scrollToY
+  }, 800); // You can adjust the duration (in milliseconds) for the scrolling animation
   
-  // experiment with adding a pulsing border to bring user's attention to the relevant region
+  // pulsing border to bring user's attention to the relevant region
   regionDiv.parent().addClass("fade-in-out-border");
 
   // Remove the animation class after the animation finishes
