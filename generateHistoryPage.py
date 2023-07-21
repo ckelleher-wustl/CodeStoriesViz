@@ -158,7 +158,7 @@ def get_code_entries(startTime, endTime):
 
 activityData = {}
 def loadActivityDataFrames():
-    filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv']
+    filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
 
     for file in filenames:
         print(file)
@@ -184,6 +184,8 @@ clusterDF.set_axis(['goalType','clusterType','startTime','endTime','fileName','s
 print(clusterDF)
 html = ""
 
+loadActivityDataFrames()
+
 for clusterIdx in clusterDF.index:
     print(f"{clusterDF['clusterType'][clusterIdx]}: {clusterDF['summary'][clusterIdx]}")
     if "code" in clusterDF['clusterType'][clusterIdx]:
@@ -198,6 +200,27 @@ for clusterIdx in clusterDF.index:
 
         html += "<button type='button' class='collapsible active'>" + clusterDF['fileName'][clusterIdx] + ": " + clusterDF['summary'][clusterIdx] + "</button>\n"
         html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
+
+        # I want something like this here.
+        # <ul>
+        #   <li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region1')">html {</li>
+        #   <li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region2')">*::before,</li>
+        #   <li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region3')">body {</li>
+        # </ul>
+        # activityTarget = "Change background color of game board to match Wordle"
+        # results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
+        results = getRegionsForActivities(clusterDF['fileName'][clusterIdx] + ".csv", clusterDF['summary'][clusterIdx])
+
+        html += "<ul>\n"
+        for index, row in results.iterrows():
+            lineID = row['lineID']
+            regionID = row['regionID']
+            # print(f"Line ID: {lineID}, Region ID: {regionID}")
+            file = clusterDF['fileName'][clusterIdx].split(".")[0]
+            html +=  "<li onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+        html += "</ul>\n"
+
+
         html += "<p> code content will go here</p>\n"
         html += "</div>" # this is the end of the nested div.
     
@@ -233,20 +256,23 @@ for clusterIdx in clusterDF.index:
 
 # print(f"HTML:\n{len(html)}")
 
-# text_file = open("web/clusters_WordleNew.html", "w")
-# n = text_file.write(html)
-# text_file.close()
+text_file = open("web/clusters_WordleNew.html", "w")
+n = text_file.write(html)
+text_file.close()
 
 
 # HERE
 # this should be abstracted into a method that takes a filename and an activity name and returns the results.
 # to do that, I first need to generate the csvs for the other code files.
 
-loadActivityDataFrames()
+
 activityTarget = "Change background color of game board to match Wordle"
 results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
 
-print(f"\n{results}")
+# for index, row in results.iterrows():
+#     lineID = row['lineID']
+#     regionID = row['regionID']
+#     print(f"Line ID: {lineID}, Region ID: {regionID}")
 
 
 

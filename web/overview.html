@@ -77,28 +77,21 @@
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
             content.style.display = "none";
-            // console.log("closed")
           } else {
             content.style.display = "block";
-            // console.log(content)
-            // console.log("opened " + content.getAttribute("--start-code") + " to " + content.getAttribute("--end-code"))
 
             if (content.hasAttribute("--start-code")) {
       
               var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:10});
-              // console.log("diff is " + typeof(diff) + " " + (diff.split("\n").length))
         
               var addition = "";
               diff.split("\n").forEach(part => {
                 if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
                   addition = part
                 }
-                // console.log(part.length + " " + part)
               })
-              // this.textContent = addition
               var diffHtml = Diff2Html.html(diff, {
                   drawFileList: false,
-                  //matching: 'words',
                   outputFormat: 'side-by-side',
               });
               content.querySelector("p").innerHTML = diffHtml;

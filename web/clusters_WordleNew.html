@@ -51,6 +51,15 @@ When submitting guess:
 
 - Tiles will flip up and background color will change based on guess
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region0')"># Functional Requirements</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region3')">### Submit guess</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region4')">Guesses must be a real word, in word list</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region5')">Hard Mode: present or correct letters must be used in subsequent guesses</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region6')">## Design</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region7')">## Interactions</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region8')">When submitting guess:</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>fonts.scss: Change default font from Arial to Open Sans</button>
 <div class='content' --start-code='root {
@@ -60,6 +69,9 @@ When submitting guess:
 --font-body: ‘Open Sans", Arial, sans-serif;
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_fonts.html', 'region0')">root {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>boilerplate.scss: Change background color of game board to match Wordle</button>
 <div class='content' --start-code='html {
@@ -97,6 +109,11 @@ body {
   background-color: hsl(240, 3%, 7%);
   color: hsl(0, 0%, 108%);
 }'>
+<ul>
+<li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region1')">html {</li>
+<li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region2')">*::before,</li>
+<li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region3')">body {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>boilerplate.scss: Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
 <div class='content' --start-code='html {
@@ -143,6 +160,10 @@ body {
   font-size: rem(36);
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region0')">@use ../util as *;</li>
+<li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region3')">body {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>boilerplate.scss: Set the width for the tiles</button>
 <div class='content' --start-code='@use "../util’ as *;
@@ -185,6 +206,9 @@ body {
   font-weight: 600;
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_boilerplate.html', 'region3')">body {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>guess.scss: Changed the border color to a darker shade of gray</button>
 <div class='content' --start-code='@use "../util" as *;
@@ -224,6 +248,11 @@ body {
   }
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region0')">@use ../util as *;</li>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region1')">.guess {</li>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region2')">  &__tile {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>guess.scss: Changed the border color back to the previous shade (CHECK)</button>
 <div class='content' --start-code='@use "../util" as *;
@@ -259,6 +288,9 @@ body {
   }
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region2')">  &__tile {</li>
+</ul>
 <p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
 	<fieldset class="goal" style="width: 100%;">
@@ -295,6 +327,13 @@ const test = () => {
   - delete last letter in “letters”
     - update tile markup based on "letters"
 */'>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region9')">// Update tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region18')">- if keypress is a letter</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>Search: How to detect a keypress in javascript</button>
 <div class='content'>
@@ -368,6 +407,10 @@ document.addEventListener("keydown", () => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region0')">console.log(keypress);</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+</ul>
 <p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
 	<fieldset class="goal" style="width: 100%;">
@@ -467,6 +510,11 @@ document.addEventListener("keydown", (e) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region0')">console.log(keypress);</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region5')">const checkIfGuessComplete = (i) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>search: flavio javascript test regex; searching for specific resource</button>
 <div class='content'>
@@ -582,6 +630,16 @@ document.addEventListener("keydown", (e) => {
   </body>
 </html>
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region0')"><!DOCTYPE html></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region1')">    <h1>Wordle Clone</h1></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region2')">      <div id=guess2 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region3')">      <div id=guess3 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region4')">      <div id=guess4 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region5')">      <div id=guess5 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region6')">      <div id=guess6 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region7')">  </body></li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: build update letters function</button>
 <div class='content' --start-code='console.log("keypress");
@@ -663,6 +721,12 @@ const updateLetters = (letter) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region0')">console.log(keypress);</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>search: javascript arrow functions</button>
 <div class='content'>
@@ -760,6 +824,11 @@ const updateTiles = () => {}
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: updating the tiles with the entered letters</button>
 <div class='content' --start-code='console.log("keypress");
@@ -850,6 +919,12 @@ const updateTiles = (tileNumber, letter) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region9')">// Update tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region10')">// Backspace -- Delete last letter</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>search: how to change div content with javascript</button>
 <div class='content'>
@@ -901,6 +976,9 @@ const updateTiles = (tileNumber, letter) => {
   }
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region2')">  &__tile {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: adding logic for deleting letters</button>
 <div class='content' --start-code='console.log("keypress");
@@ -1015,6 +1093,11 @@ const deleteFromTiles = () => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region10')">// Backspace -- Delete last letter</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region11')">// Backspace -- Delete last tile markup</li>
+</ul>
 <p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
 	<fieldset class="goal" style="width: 100%;">
@@ -1125,6 +1208,11 @@ When submitting guess:
 
 - Tiles will flip up and background color will change based on guess
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region2')">### Making a guess</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region3')">### Submit guess</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region5')">Hard Mode: present or correct letters must be used in subsequent guesses</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>Search: how to select a random object from an array</button>
 <div class='content'>
@@ -1297,6 +1385,12 @@ const deleteFromTiles = () => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region0')">console.log(keypress);</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region1')">const chooseWord = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region2')">chooseWord();</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>Search: how to run a function on page load</button>
 <div class='content'>
@@ -1443,6 +1537,10 @@ When submitting guess:
 
 - Tiles will flip up and background color will change based on guess
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region1')">### Pick a solution word</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region3')">### Submit guess</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>Search: Get character from string based on a position</button>
 <div class='content'>
@@ -1632,6 +1730,10 @@ const deleteFromTiles = () => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: Adding feedback for the user guess</button>
 <div class='content' --start-code='console.log("keypress");
@@ -1834,6 +1936,18 @@ const revealTile = (status) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region9')">// Update tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region11')">// Backspace -- Delete last tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region12')">// Check letter to solution</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region13')">  // If letters match, return correct</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region14')">  // If not a match, if letter doesnt exist in solution, return absent</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region15')">const checkLetterExists = (letter) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region16')">const revealTile = (i, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>guess.scss: Setting up colors that correspond to letters being correct, present, and absent </button>
 <div class='content' --start-code='@use "../util" as *;
@@ -1899,6 +2013,11 @@ const revealTile = (status) => {
   }
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region4')">  .correct {</li>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region5')">  .present {</li>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region6')">  .absent {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: Debugging and ultimately removing switch statement for tile status </button>
 <div class='content' --start-code='console.log("keypress");
@@ -2135,6 +2254,11 @@ const revealTile = (i, status) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region16')">const revealTile = (i, state) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
 	<fieldset class="goal" style="width: 100%;">
@@ -2268,6 +2392,10 @@ When submitting guess:
 - Slight delay between each tile flipping
 - Background color changes when tile is flat, i.e. can"t see it
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region3')">### Submit guess</li>
+<li onclick="openCodeFile('code_Wordle_notes.html', 'region8')">When submitting guess:</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>search: flipping cards in css</button>
 <div class='content'>
@@ -2332,6 +2460,12 @@ When submitting guess:
 .flip-out {
   animation: flip-out 500ms;
 }'>
+<ul>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region1')">@keyframes flip-in {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region2')">@keyframes flip-out {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region3')">.flip-in {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region4')">.flip-out {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: Implementing tile flipping in javascript</button>
 <div class='content' --start-code='console.log("keypress");
@@ -2593,6 +2727,12 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region16')">const revealTile = (i, state) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>search: how to delay execution of a function in javascript</button>
 <div class='content'>
@@ -2677,6 +2817,11 @@ const flipTile = (tileNum, state) => {
   animation-fill-mode: forwards;
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region3')">.flip-in {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region4')">.flip-out {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region6')">.jump {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: adjusting set timeout timing</button>
 <div class='content' --start-code='console.log("keypress");
@@ -2944,6 +3089,11 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>animations.scss: adjusting timing in css</button>
 <div class='content' --start-code='@keyframes flip-in {
@@ -3001,6 +3151,10 @@ const flipTile = (tileNum, state) => {
   animation-fill-mode: forwards;
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region3')">.flip-in {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region4')">.flip-out {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: more timing adjustments in script</button>
 <div class='content' --start-code='console.log("keypress");
@@ -3268,6 +3422,11 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>guess.scss: adding tile border colors to CSS</button>
 <div class='content' --start-code='@use "../util" as *;
@@ -3343,6 +3502,12 @@ const flipTile = (tileNum, state) => {
   }
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region3')">  .has-letter {</li>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region4')">  .correct {</li>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region5')">  .present {</li>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region6')">  .absent {</li>
+</ul>
 <p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
 	<fieldset class="goal" style="width: 100%;">
@@ -3623,6 +3788,13 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region9')">// Update tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region11')">// Backspace -- Delete last tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>index.html: filling out index with all of the tiles needed for the gameboard</button>
 <div class='content' --start-code='<!DOCTYPE html>
@@ -3732,6 +3904,14 @@ const flipTile = (tileNum, state) => {
   </body>
 </html>
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region1')">    <h1>Wordle Clone</h1></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region2')">      <div id=guess2 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region3')">      <div id=guess3 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region4')">      <div id=guess4 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region5')">      <div id=guess5 class=guess data-letters=></li>
+<li onclick="openCodeFile('code_Wordle_index.html', 'region6')">      <div id=guess6 class=guess data-letters=></li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: update script based on index updates to the gameboard.</button>
 <div class='content' --start-code='console.log("keypress");
@@ -4015,6 +4195,13 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region0')">console.log(keypress);</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region9')">// Update tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region11')">// Backspace -- Delete last tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>guess.scss: adjusting spacing at the bottom</button>
 <div class='content' --start-code='@use "../util" as *;
@@ -4096,6 +4283,9 @@ const flipTile = (tileNum, state) => {
   }
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_guess.html', 'region1')">.guess {</li>
+</ul>
 <p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
 	<fieldset class="goal" style="width: 100%;">
@@ -4408,6 +4598,10 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region5')">const checkIfGuessComplete = (i) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region7')">const checkWin = () => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>search: javascript promises</button>
 <div class='content'>
@@ -4786,6 +4980,11 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region5')">const checkIfGuessComplete = (i) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: cleaning and removing unnecessary print statements</button>
 <div class='content' --start-code='console.log("keypress");
@@ -5124,6 +5323,13 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region5')">const checkIfGuessComplete = (i) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region7')">const checkWin = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region16')">const revealTile = (i, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: final adjustments to the animations</button>
 <div class='content' --start-code='console.log("keypress");
@@ -5453,6 +5659,9 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>animations.scss: adding jump animation for the win condition in CSS</button>
 <div class='content' --start-code='@use "../util" as *;
@@ -5531,6 +5740,12 @@ const flipTile = (tileNum, state) => {
   animation-fill-mode: forwards;
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region3')">.flip-in {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region4')">.flip-out {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region5')">@keyframes jump {</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region6')">.jump {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: attempting to add jump animation in the script</button>
 <div class='content' --start-code='console.log("keypress");
@@ -5875,6 +6090,10 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region7')">const checkWin = () => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: refining jump animation</button>
 <div class='content' --start-code='console.log("keypress");
@@ -6233,6 +6452,9 @@ const flipTile = (tileNum, state) => {
     - update tile markup based on "letters"
 */
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>animations.scss: refining jump animation in CSS</button>
 <div class='content' --start-code='@use "functions" as *;
@@ -6328,6 +6550,10 @@ const flipTile = (tileNum, state) => {
   animation-fill-mode: forwards;
 }
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region0')">@use functions as *;</li>
+<li onclick="openCodeFile('code_Wordle_animations.html', 'region5')">@keyframes jump {</li>
+</ul>
 <p> code content will go here</p>
 </div><button type='button' class='collapsible active'>script.js: final clean up</button>
 <div class='content' --start-code='console.log("keypress");
@@ -6536,5 +6762,26 @@ let currentTile = document.querySelector(
 currentTile.classList.add(‘jump");
 }, 1 * 200);
 '>
+<ul>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region0')">console.log(keypress);</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region1')">const chooseWord = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region2')">chooseWord();</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region5')">const checkIfGuessComplete = (i) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region7')">const checkWin = () => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region9')">// Update tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region10')">// Backspace -- Delete last letter</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region11')">// Backspace -- Delete last tile markup</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region12')">// Check letter to solution</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region13')">  // If letters match, return correct</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region14')">  // If not a match, if letter doesnt exist in solution, return absent</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region15')">const checkLetterExists = (letter) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region16')">const revealTile = (i, state) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
+<li onclick="openCodeFile('code_Wordle_script.html', 'region18')">- if keypress is a letter</li>
+</ul>
 <p> code content will go here</p>
 </div></div>
