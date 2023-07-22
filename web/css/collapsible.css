@@ -82,6 +82,7 @@
 
   .subgoal-group {
     background-color: aliceblue;
+    cursor: pointer;
     font-size: smaller;
     position: relative;
     display: inline-block;

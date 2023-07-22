@@ -214,6 +214,9 @@ for clusterIdx in clusterDF.index:
         html += "<ul>\n"
         for index, row in results.iterrows():
             lineID = row['lineID']
+
+            if (clusterDF['fileName'][clusterIdx].endswith("html")):
+                lineID = lineID.replace("<", "&lt").replace(">", "&gt")
             regionID = row['regionID']
             # print(f"Line ID: {lineID}, Region ID: {regionID}")
             file = clusterDF['fileName'][clusterIdx].split(".")[0]
@@ -238,7 +241,7 @@ for clusterIdx in clusterDF.index:
     elif "goal_start" in clusterDF['clusterType'][clusterIdx]:
         sectionTitle =  clusterDF['summary'][clusterIdx]
         html += '<div style="margin-top: 15px; border-top: 1px;" ></div>\n'
-        html += '\t<fieldset class="goal" style="width: 100%;">\n'
+        html += '\t<fieldset class="goal" style="width: 100%;" id="subgoal' + str(clusterIdx) + '">\n'
         html += '\t\t<legend>Sub-goal</legend>\n'
         html += '\t\t<div>' + sectionTitle + '</div>\n'
         html += '\t</fieldset>\n'

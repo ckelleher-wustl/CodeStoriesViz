@@ -20,7 +20,7 @@ def separate_lines(filename):
 
     return groups
 
-filename = "fonts.scss"
+filename = "notes.md"
 filepath = 'web/storystudy/wordleCode/' + filename
 groups = separate_lines(filepath)
 
@@ -76,7 +76,9 @@ for group in groups:
         for file in subGoalFiles:
             html += file + " " 
         html += "</div>\n"
-        html += "\t<div class='subgoal-group'>" + subgoal + "\n"
+        # <li onclick="openCodeFile('code_Wordle_notes.html', 'region0')"># Functional Requirements</li>z
+        # \t<div class='subgoal-group' onclick="openSubgoal('subgoal text')>subgoal text\n
+        html += "\t<div class='subgoal-group' onclick=\"openSubgoal('" + subgoal + "')\">" + subgoal + "\n"
 
 
         activityList = subGoalDict[subgoal]

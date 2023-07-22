@@ -37,32 +37,54 @@ function openTab(tabName) {
 }
 
 function openCodeFile(url, regionID) {
-  openTab("test")
+  openTab("test");
   var contentContainer = $("#contentContainer");
   loadContent(url, contentContainer, scrollToRegion, regionID); 
 }
 
-function scrollToRegion(regionID) {
-  var regionDiv = $("#" + regionID);
-  if (!regionDiv.length) return; // If the element doesn't exist, exit the function
+function openSubgoal(subgoalText) {
+  openTab("history");
+  const subgoal = $("fieldset:contains('" + subgoalText + "')");
+  console.log("subgoal: " + subgoalText);
+  console.log(subgoal);
 
-  const offsetTop = regionDiv.offset().top;
+  subgoalID = subgoal.attr("id");
+  scrollToSubgoal(subgoalID);
+}
+
+function scrollToID(elementID) {
+  // this assumes that the element is already on the screen, though it may be scrolled out of sight.
+  var element = $("#" + elementID);
+  if (!element.length) return; // If the element doesn't exist, exit the function
+
+  const offsetTop = element.offset().top;
   const screenHeight = $(window).height();
-  const scrollToY = offsetTop - (screenHeight / 2) + (regionDiv.outerHeight() / 2);
+  const scrollToY = offsetTop - (screenHeight / 2) + (element.outerHeight() / 2);
 
   $("html, body").animate({
     scrollTop: scrollToY
   }, 800); // You can adjust the duration (in milliseconds) for the scrolling animation
-  
-  // pulsing border to bring user's attention to the relevant region
-  regionDiv.parent().addClass("fade-in-out-border");
+}
+
+function highlightElement(element) {
+  element.addClass("fade-in-out-border");
 
   // Remove the animation class after the animation finishes
-  regionDiv.parent().on("animationend", function() {
+  element.on("animationend", function() {
     $(this).removeClass("fade-in-out-border");
   });
+}
 
+function scrollToRegion(regionID) {
+  scrollToID(regionID);
+  var regionDiv = $("#" + regionID);
+  highlightElement(regionDiv.parent());
+}
 
+function scrollToSubgoal(subgoalID) {
+  scrollToID(subgoalID);
+  var subgoalElement = $("#" + subgoalID);
+  highlightElement(subgoalElement);
 }
 
 function loadContent(url, container, callback, arg) {
