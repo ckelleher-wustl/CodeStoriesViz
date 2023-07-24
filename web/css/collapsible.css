@@ -89,6 +89,11 @@
     width: 100%
   }
 
+  .highlight {
+    background-color: #fce4ca;
+    font-weight: bold;
+  }
+
   .tooltip-container {
     position: relative;
     display: inline-block;

@@ -75,18 +75,6 @@ function highlightElement(element) {
   });
 }
 
-function scrollToRegion(regionID) {
-  scrollToID(regionID);
-  var regionDiv = $("#" + regionID);
-  highlightElement(regionDiv.parent());
-}
-
-function scrollToSubgoal(subgoalID) {
-  scrollToID(subgoalID);
-  var subgoalElement = $("#" + subgoalID);
-  highlightElement(subgoalElement);
-}
-
 function loadContent(url, container, callback, arg) {
   console.log("trying to load " + url + "into " + container.attr("id"))
 
@@ -112,4 +100,36 @@ function loadContent(url, container, callback, arg) {
     .catch((error) => {
       console.error("Error fetching content:", error);
     });
+}
+
+function scrollToRegion(regionID) {
+  scrollToID(regionID);
+  var regionDiv = $("#" + regionID);
+  highlightElement(regionDiv.parent());
+}
+
+function scrollToSubgoal(subgoalID) {
+  scrollToID(subgoalID);
+  var subgoalElement = $("#" + subgoalID);
+  highlightElement(subgoalElement);
+}
+
+function hoverEnterSubgoal(subgoal) {
+  var goalText = subgoal.textContent.split("\n")[0]
+
+
+  const subgoalElements = $('.subgoal-group:contains("' + goalText + '")');
+  subgoalElements.each( function() {
+    $(this).addClass("highlight");
+  })
+
+}
+
+function hoverLeaveSubgoal(subgoal) {
+  var goalText = subgoal.textContent.split("\n")[0]
+
+  const subgoalElements = $('.subgoal-group:contains("' + goalText + '")');
+  subgoalElements.each( function() {
+    $(this).removeClass("highlight");
+  })
 }

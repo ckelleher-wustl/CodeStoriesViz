@@ -78,7 +78,7 @@ for group in groups:
         html += "</div>\n"
         # <li onclick="openCodeFile('code_Wordle_notes.html', 'region0')"># Functional Requirements</li>z
         # \t<div class='subgoal-group' onclick="openSubgoal('subgoal text')>subgoal text\n
-        html += "\t<div class='subgoal-group' onclick=\"openSubgoal('" + subgoal + "')\">" + subgoal + "\n"
+        html += "\t<div class='subgoal-group' onmouseover=\"hoverEnterSubgoal(this)\" onmouseout=\"hoverLeaveSubgoal(this)\"  onclick=\"openSubgoal('" + subgoal + "')\">" + subgoal + "\n"
 
 
         activityList = subGoalDict[subgoal]
