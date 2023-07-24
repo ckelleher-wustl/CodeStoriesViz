@@ -1,6 +1,4 @@
 var initTest = false;
-// var linkList = document.getElementById("linkList");
-// var contentContainer = document.getElementById("contentContainer");
 
 var linkList = $("#linkList");
 var contentContainer = $("#contentContainer");
@@ -18,7 +16,7 @@ function openTab(tabName) {
     // initCollapsibles();
   }
 
-  if (tabName == "test") {
+  if (tabName == "code") {
     linkList = $("#linkList");
     contentContainer = $("#contentContainer");
 
@@ -37,7 +35,7 @@ function openTab(tabName) {
 }
 
 function openCodeFile(url, regionID) {
-  openTab("test");
+  openTab("code");
   var contentContainer = $("#contentContainer");
   loadContent(url, contentContainer, scrollToRegion, regionID); 
 }

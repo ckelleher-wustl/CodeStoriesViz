@@ -16,9 +16,10 @@
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <!-- <script type = "module" src="/public/javascripts/diff_from_full.js"></script>   -->
 
-  <button onclick="openTab('history')">History</button>
-  <button onclick="openTab('code')">Code</button>
-  <button onclick="openTab('test')">Test</button>
+  <div class="sticky-div">
+    <button onclick="openTab('history')">History</button>
+    <button onclick="openTab('code')">Code</button>
+  </div>
 
   <div id="history" class="tab">
     <h2>History Tab</h2>
@@ -32,17 +33,9 @@
 
   <div id="code" class="tab">
     <h2>script.js</h2>
-    <div class="tabContent"  id="codeTab" include-html="code_WordleNew.html"></div>
+    <div class="tabContent"  id="codeTab" include-html="test.html"></div>
     <!-- Add content for the code tab here -->
   </div>
-
-
-  <div id="test" class="tab" >
-    <h2>testing code</h2>
-    <div class="tabContent" id="testTab" include-html="test.html"></div>
-    <!-- Add content for the code tab here -->
-  </div>
-
 
   <script type="text/javascript" src="js/youtube.js"></script>
   <script type="text/javascript" src="js/accordion.js"></script>
