@@ -118,8 +118,6 @@ class HistoryFromCode:
         # loop through lineHistory keys as they represent the original lines of code.
         for origLine in self.lineHistoryDict.keys():
             lineVersions = self.lineHistoryDict[origLine]
-
-            # self.c
             
             periodIdx = 0
             for codeState in self.codeStates:
@@ -185,7 +183,7 @@ class HistoryFromCode:
         codeLinesForPeriod = []
         for origLine in origLines:
             lineHistoryIdx = self.versionIndexHistory[origLine][period]
-            # print(f"getting {origLine} version {period} index {lineHistoryIdx}")
+            # print(f"getting {origLine} version {period} index {lineHistoryIdx} adding {lineHistoryIdx >= 0}")
             if lineHistoryIdx >= 0:
                 line = self.lineHistoryDict[origLine][lineHistoryIdx]
             # else:
@@ -272,8 +270,8 @@ class HistoryFromCode:
 
         origLines = []
         for line in selectedLines:
-            if (len(line)>5):
-                line = line.strip()
+            line = line.strip()
+            if (len(line)>8):
                 origLine = self.getOrigLine(line, self.seedLineDict)
                 if origLine == "NOT FOUND":
                     matches = self.getClosestMatches(line, self.seedLineDict)
@@ -356,6 +354,7 @@ class HistoryFromCode:
 
         # get the state of the lines in the selected
         origLines = self.getOrigLinesForSelected(selectedLines)
+        # print(f"shared orig lines {origLines}")
         periodLines = self.getCodeLinesForPeriod(origLines, periodForActivity)
 
         return periodLines

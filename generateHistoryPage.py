@@ -3,7 +3,7 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-projectName = "user5"
+projectName = "wordle"
 imageDir = "/images/" + projectName + "/"
 
 def get_search_overview_html(responseEntries):
