@@ -20,7 +20,7 @@ def separate_lines(filename):
 
     return groups
 
-filename = "notes.md"
+filename = "script.js"
 filepath = 'web/storystudy/wordleCode/' + filename
 groups = separate_lines(filepath)
 

@@ -189,11 +189,15 @@ loadActivityDataFrames()
 for clusterIdx in clusterDF.index:
     print(f"{clusterDF['clusterType'][clusterIdx]}: {clusterDF['summary'][clusterIdx]}")
     if "code" in clusterDF['clusterType'][clusterIdx]:
-        print("\twrite code cluster")
+        print(f"\twrite code cluster {clusterDF.iloc[clusterIdx]['startTime']} - {clusterDF.iloc[clusterIdx]['endTime']}" )
 
         startTime = clusterDF.iloc[clusterIdx]['startTime']
         endTime = clusterDF.iloc[clusterIdx]['endTime']        
         [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
+
+        # get the initial version of things to show up in some reasonable way.
+        if (int(startTime) == 0):
+            startingCode = ""
 
         startingCode = startingCode.replace('\'', '"')
         endingCode = endingCode.replace('\'', '"')

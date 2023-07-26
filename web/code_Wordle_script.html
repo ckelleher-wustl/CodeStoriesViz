@@ -11,32 +11,30 @@ let solutionWord = '';
 	</div>
 	<div class='rightContainer'>
 <div class='files-container'>script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Adding an initial key listener to detect letters the user enters.')">Adding an initial key listener to detect letters the user enters.
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding a key listener (CHECK)</button>
-			<div class='tooltip'>
-				<div class='history-header'>Adding a key listener (CHECK)</div>
-				<pre class='code'><span style='background-color:yellow'>console.log('keypress');</span>
-</pre>
-</div>
-		</div>
-</div><div class='files-container'>script.js </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use regular expressions to determine whether a pressed key is a letter and, if so, save it.')">Use regular expressions to determine whether a pressed key is a letter and, if so, save it.
 		<div class='tooltip-container'>
 			<button type='button' class='history active tooltip-trigger'>Figure out whether or not an entered character is a letter</button>
 			<div class='tooltip'>
 				<div class='history-header'>Figure out whether or not an entered character is a letter</div>
-				<pre class='code'>console.log('keypress');
-<span style='background-color:yellow'>const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;</span>
+				<pre class='code'><span style='background-color:yellow'>console.log('keypress');</span>
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>index.html script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>build update letters function</button>
+			<button type='button' class='history active tooltip-trigger'>build and call update letters function to track user guess</button>
 			<div class='tooltip'>
-				<div class='history-header'>build update letters function</div>
+				<div class='history-header'>build and call update letters function to track user guess</div>
+				<pre class='code'>console.log('keypress');
+<span style='background-color:yellow'>const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;</span>
+</pre>
+</div>
+		</div>
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>removing printing from update letters function</button>
+			<div class='tooltip'>
+				<div class='history-header'>removing printing from update letters function</div>
 				<pre class='code'>console.log('keypress');
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 <span style='background-color:yellow'>let currentGuessCount = 1;</span>
@@ -44,12 +42,12 @@ const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+</div><div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
+			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
 			<div class='tooltip'>
-				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
+				<div class='history-header'>Handing the user pressing enter</div>
 				<pre class='code'>console.log('keypress');
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -59,12 +57,12 @@ let currentGuess = document.querySelector('#guess' + currentGuess);
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js index.html guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Clean up')">Clean up
+</div><div class='files-container'>script.js animations.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
+			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
 			<div class='tooltip'>
-				<div class='history-header'>update script based on index updates to the gameboard.</div>
+				<div class='history-header'>detect whether or not the user has won</div>
 				<pre class='code'>console.log('keypress');
 <span style='background-color:yellow'>const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;</span>
 let currentGuessCount = 1;
@@ -74,8 +72,6 @@ let solutionWord = '';
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -91,12 +87,12 @@ const chooseWord = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
+			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
 			<div class='tooltip'>
-				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
+				<div class='history-header'>Handing the user pressing enter</div>
 				<pre class='code'><span style='background-color:yellow'>const chooseWord = () => {</span>
 <span style='background-color:yellow'>// choose random item from words array</span>
 <span style='background-color:yellow'>let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;</span>
@@ -104,8 +100,6 @@ const chooseWord = () => {
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -118,19 +112,17 @@ console.log('solution word = ' + solutionWord);
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
+			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
 			<div class='tooltip'>
-				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
+				<div class='history-header'>Handing the user pressing enter</div>
 				<pre class='code'><span style='background-color:yellow'>chooseWord();</span>
 <span style='background-color:yellow'>console.log('solution word = ' + solutionWord);</span>
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -162,19 +154,10 @@ document.addEventListener('keydown', (e) => {
 <div class='files-container'>script.js </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Adding an initial key listener to detect letters the user enters.')">Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
+			<button type='button' class='history active tooltip-trigger'>Adding a key listener </button>
 			<div class='tooltip'>
-				<div class='history-header'>Outline initial code via comments</div>
+				<div class='history-header'>Adding a key listener </div>
 				<pre class='code'><span style='background-color:yellow'>// detect keypress (letter, backspace, other)</span>
-</pre>
-</div>
-		</div>
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding a key listener (CHECK)</button>
-			<div class='tooltip'>
-				<div class='history-header'>Adding a key listener (CHECK)</div>
-				<pre class='code'>// detect keypress (letter, backspace, other)
-<span style='background-color:yellow'>document.addEventListener('keydown', () => {</span>
 </pre>
 </div>
 		</div>
@@ -185,6 +168,17 @@ document.addEventListener('keydown', (e) => {
 			<div class='tooltip'>
 				<div class='history-header'>Figure out whether or not an entered character is a letter</div>
 				<pre class='code'>// detect keypress (letter, backspace, other)
+<span style='background-color:yellow'>document.addEventListener('keydown', () => {</span>
+</pre>
+</div>
+		</div>
+</div><div class='files-container'>index.html script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>build and call update letters function to track user guess</button>
+			<div class='tooltip'>
+				<div class='history-header'>build and call update letters function to track user guess</div>
+				<pre class='code'>// detect keypress (letter, backspace, other)
 <span style='background-color:yellow'>document.addEventListener('keydown', (e) => {</span>
 <span style='background-color:yellow'>console.log('keypress: ' + e.key);</span>
 <span style='background-color:yellow'>let keypress = e.key;</span>
@@ -193,12 +187,10 @@ document.addEventListener('keydown', (e) => {
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>index.html script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>build update letters function</button>
+			<button type='button' class='history active tooltip-trigger'>removing printing from update letters function</button>
 			<div class='tooltip'>
-				<div class='history-header'>build update letters function</div>
+				<div class='history-header'>removing printing from update letters function</div>
 				<pre class='code'>// detect keypress (letter, backspace, other)
 document.addEventListener('keydown', (e) => {
 console.log('keypress: ' + e.key);
@@ -209,9 +201,9 @@ let keypress = e.key;
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning up build update letters function</button>
+			<button type='button' class='history active tooltip-trigger'>updating the tiles in index with the entered letters</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning up build update letters function</div>
+				<div class='history-header'>updating the tiles in index with the entered letters</div>
 				<pre class='code'>// detect keypress (letter, backspace, other)
 document.addEventListener('keydown', (e) => {
 console.log('keypress: ' + e.key);
@@ -221,10 +213,12 @@ updateLetters(keypress);
 </pre>
 </div>
 		</div>
+</div><div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>adding logic for deleting letters</button>
+			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
 			<div class='tooltip'>
-				<div class='history-header'>adding logic for deleting letters</div>
+				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
 				<pre class='code'>// detect keypress (letter, backspace, other)
 document.addEventListener('keydown', (e) => {
 console.log('keypress: ' + e.key);
@@ -237,12 +231,12 @@ updateLetters(keypress);
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+</div><div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
+			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
 			<div class='tooltip'>
-				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
+				<div class='history-header'>Handing the user pressing enter</div>
 				<pre class='code'>// detect keypress (letter, backspace, other)
 document.addEventListener('keydown', (e) => {
 console.log('keypress: ' + e.key);
@@ -258,12 +252,10 @@ deleteFromLetters();
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>notes.md script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
+			<button type='button' class='history active tooltip-trigger'>Checking the user's guess</button>
 			<div class='tooltip'>
-				<div class='history-header'>Handing the user pressing enter</div>
+				<div class='history-header'>Checking the user's guess</div>
 				<pre class='code'><span style='background-color:yellow'>// detect keypress (letter, backspace, enter, other)</span>
 document.addEventListener('keydown', (e) => {
 console.log('keypress: ' + e.key);
@@ -281,9 +273,9 @@ deleteFromLetters();
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'>// detect keypress (letter, backspace, enter, other)
 document.addEventListener('keydown', (e) => {
 <span style='background-color:yellow'>//console.log('keypress: ' + e.key);</span>
@@ -303,9 +295,9 @@ deleteFromLetters();
 </div><div class='files-container'>script.js animations.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning and removing unnecessary print statements</button>
+			<button type='button' class='history active tooltip-trigger'>check how many guesses user has made, remove unnecessary print statements</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning and removing unnecessary print statements</div>
+				<div class='history-header'>check how many guesses user has made, remove unnecessary print statements</div>
 				<pre class='code'>// detect keypress (letter, backspace, enter, other)
 document.addEventListener('keydown', (e) => {
 //console.log('keypress: ' + e.key);
@@ -342,59 +334,46 @@ const submitGuess = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Adding an initial key listener to detect letters the user enters.')">Adding an initial key listener to detect letters the user enters.
-</div><div class='files-container'>notes.md script.js guess.scss </div>
+<div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Handing the user pressing enter</button>
+			<button type='button' class='history active tooltip-trigger'>Checking the user's guess</button>
 			<div class='tooltip'>
-				<div class='history-header'>Handing the user pressing enter</div>
+				<div class='history-header'>Checking the user's guess</div>
 				<pre class='code'><span style='background-color:yellow'>console.log('submit guess');</span>
 </pre>
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'>console.log('submit guess');
 <span style='background-color:yellow'>for (let i = 0; i < 5; i ++) {</span>
 <span style='background-color:yellow'>revealTile(checkLetter(i));</span>
 </pre>
 </div>
 		</div>
+</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Debugging and ultimately removing switch statement for tile status </button>
+			<button type='button' class='history active tooltip-trigger'>Adding the tile flipping animation</button>
 			<div class='tooltip'>
-				<div class='history-header'>Debugging and ultimately removing switch statement for tile status </div>
+				<div class='history-header'>Adding the tile flipping animation</div>
 				<pre class='code'>console.log('submit guess');
 for (let i = 0; i < 5; i ++) {
 <span style='background-color:yellow'>revealTile(i, checkLetter(i));</span>
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
+			<button type='button' class='history active tooltip-trigger'>make flip animations a little faster</button>
 			<div class='tooltip'>
-				<div class='history-header'>Implementing tile flipping in javascript</div>
+				<div class='history-header'>make flip animations a little faster</div>
 				<pre class='code'>console.log('submit guess');
 for (let i = 0; i < 5; i ++) {
 revealTile(i, checkLetter(i));
 <span style='background-color:yellow'>}, 500);</span>
-</pre>
-</div>
-		</div>
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>adjusting set timeout timing</button>
-			<div class='tooltip'>
-				<div class='history-header'>adjusting set timeout timing</div>
-				<pre class='code'>console.log('submit guess');
-for (let i = 0; i < 5; i ++) {
-revealTile(i, checkLetter(i));
-<span style='background-color:yellow'>}, 200);</span>
 </pre>
 </div>
 		</div>
@@ -405,49 +384,62 @@ revealTile(i, checkLetter(i));
 				<pre class='code'>console.log('submit guess');
 for (let i = 0; i < 5; i ++) {
 revealTile(i, checkLetter(i));
+<span style='background-color:yellow'>}, 200);</span>
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>script.js index.html guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Clean up')">Clean up
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
+			<button type='button' class='history active tooltip-trigger'>show letters as users add and delete, reveal answer when user hits enter</button>
 			<div class='tooltip'>
-				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
+				<div class='history-header'>show letters as users add and delete, reveal answer when user hits enter</div>
+				<pre class='code'>console.log('submit guess');
+for (let i = 0; i < 5; i ++) {
+revealTile(i, checkLetter(i));
+<span style='background-color:yellow'>}, 250);</span>
+</pre>
+</div>
+		</div>
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
+			<div class='tooltip'>
+				<div class='history-header'>update script based on index updates to the gameboard.</div>
 				<pre class='code'>console.log('submit guess');
 for (let i = 0; i < 5; i ++) {
 <span style='background-color:yellow'>setTimeOut(() => {</span>
 revealTile(i, checkLetter(i));
-<span style='background-color:yellow'>}, i * 200);</span>
+}, 250);
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>script.js animations.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>unsuccessful attempt to add promises to wait for when a guess is complete</button>
+			<button type='button' class='history active tooltip-trigger'>check how many guesses user has made, remove unnecessary print statements</button>
 			<div class='tooltip'>
-				<div class='history-header'>unsuccessful attempt to add promises to wait for when a guess is complete</div>
+				<div class='history-header'>check how many guesses user has made, remove unnecessary print statements</div>
 				<pre class='code'><span style='background-color:yellow'>const submitGuess = () => {</span>
 console.log('submit guess');
 for (let i = 0; i < 5; i ++) {
+<span style='background-color:yellow'>console.log('currentGuessCount = ' + currentGuessCount + ' loop ' + i);</span>
 setTimeOut(() => {
 revealTile(i, checkLetter(i));
-}, i * 200);
+}, 250);
 </pre>
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning and removing unnecessary print statements</button>
+			<button type='button' class='history active tooltip-trigger'>final adjustments to the animations</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning and removing unnecessary print statements</div>
+				<div class='history-header'>final adjustments to the animations</div>
 				<pre class='code'>const submitGuess = () => {
 <span style='background-color:yellow'>//console.log('submit guess');</span>
 for (let i = 0; i < 5; i ++) {
 <span style='background-color:yellow'>//console.log('currentGuessCount = ' + currentGuessCount + ' loop ' + i);</span>
 setTimeOut(() => {
 revealTile(i, checkLetter(i));
-}, i * 200);
+}, 250);
 </pre>
 </div>
 		</div>
@@ -455,7 +447,12 @@ revealTile(i, checkLetter(i));
 			<button type='button' class='history active tooltip-trigger'>final clean up</button>
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
-				<pre class='code'><span style='background-color:yellow'>}, 1 * 200);</span>
+				<pre class='code'>const submitGuess = () => {
+<span style='background-color:yellow'>console.log('submit guess');</span>
+for (let i = 0; i < 5; i ++) {
+setTimeOut(() => {
+revealTile(i, checkLetter(i));
+<span style='background-color:yellow'>}, 500);</span>
 </pre>
 </div>
 		</div>
@@ -480,25 +477,25 @@ const checkIfGuessComplete = (i) => {
 <div class='files-container'>script.js animations.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
+			<button type='button' class='history active tooltip-trigger'>move logic for submitting a guess to submitGuess</button>
 			<div class='tooltip'>
-				<div class='history-header'>detect whether or not the user has won</div>
+				<div class='history-header'>move logic for submitting a guess to submitGuess</div>
 				<pre class='code'><span style='background-color:yellow'>checkWin();</span>
 </pre>
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>unsuccessful attempt to add promises to wait for when a guess is complete</button>
+			<button type='button' class='history active tooltip-trigger'>check how many guesses user has made, remove unnecessary print statements</button>
 			<div class='tooltip'>
-				<div class='history-header'>unsuccessful attempt to add promises to wait for when a guess is complete</div>
-				<pre class='code'><span style='background-color:yellow'>const checkIfGuessComplete = () => {</span>
+				<div class='history-header'>check how many guesses user has made, remove unnecessary print statements</div>
+				<pre class='code'><span style='background-color:yellow'>// const checkIfGuessComplete = () => {</span>
 </pre>
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning and removing unnecessary print statements</button>
+			<button type='button' class='history active tooltip-trigger'>final adjustments to the animations</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning and removing unnecessary print statements</div>
+				<div class='history-header'>final adjustments to the animations</div>
 				<pre class='code'><span style='background-color:yellow'>const checkIfGuessComplete = (i) => {</span>
 <span style='background-color:yellow'>if (i == 4){</span>
 <span style='background-color:yellow'>//console.log('guess complete, check win');</span>
@@ -512,8 +509,8 @@ const checkIfGuessComplete = (i) => {
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'>const checkIfGuessComplete = (i) => {
-<span style='background-color:yellow'>if (i == 4) {</span>
-<span style='background-color:yellow'>checkWin(); T</span>
+if (i == 4){
+checkWin();
 </pre>
 </div>
 		</div>
@@ -542,9 +539,9 @@ const jumpTiles = () => {
 <div class='files-container'>index.html script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning up build update letters function</button>
+			<button type='button' class='history active tooltip-trigger'>updating the tiles in index with the entered letters</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning up build update letters function</div>
+				<div class='history-header'>updating the tiles in index with the entered letters</div>
 				<pre class='code'><span style='background-color:yellow'>const updateTiles = () => {}</span>
 </pre>
 </div>
@@ -552,20 +549,11 @@ const jumpTiles = () => {
 </div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
+			<button type='button' class='history active tooltip-trigger'>make flip animations a little faster</button>
 			<div class='tooltip'>
-				<div class='history-header'>Implementing tile flipping in javascript</div>
+				<div class='history-header'>make flip animations a little faster</div>
 				<pre class='code'><span style='background-color:yellow'>setTimeout(() => {</span>
 <span style='background-color:yellow'>}, 500);</span>
-</pre>
-</div>
-		</div>
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>adjusting set timeout timing</button>
-			<div class='tooltip'>
-				<div class='history-header'>adjusting set timeout timing</div>
-				<pre class='code'>setTimeout(() => {
-<span style='background-color:yellow'>}, 200);</span>
 </pre>
 </div>
 		</div>
@@ -574,36 +562,37 @@ const jumpTiles = () => {
 			<div class='tooltip'>
 				<div class='history-header'>more timing adjustments in script</div>
 				<pre class='code'>setTimeout(() => {
+<span style='background-color:yellow'>}, 200);</span>
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>script.js index.html guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Clean up')">Clean up
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
+			<button type='button' class='history active tooltip-trigger'>show letters as users add and delete, reveal answer when user hits enter</button>
 			<div class='tooltip'>
-				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
+				<div class='history-header'>show letters as users add and delete, reveal answer when user hits enter</div>
 				<pre class='code'>setTimeout(() => {
-<span style='background-color:yellow'>}, i * 200);</span>
-</pre>
-</div>
-		</div>
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
-			<div class='tooltip'>
-				<div class='history-header'>update script based on index updates to the gameboard.</div>
-				<pre class='code'>setTimeout(() => {
-<span style='background-color:yellow'>let currentTile = document.querySelector(</span>
-}, i * 200);
+<span style='background-color:yellow'>}, 250);</span>
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>script.js animations.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>attempting to add jump animation in the script</button>
+			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
 			<div class='tooltip'>
-				<div class='history-header'>attempting to add jump animation in the script</div>
+				<div class='history-header'>detect whether or not the user has won</div>
+				<pre class='code'>setTimeout(() => {
+<span style='background-color:yellow'>let currentTile = document.querySelector(</span>
+}, 250);
+</pre>
+</div>
+		</div>
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>tiles jump a little more</button>
+			<div class='tooltip'>
+				<div class='history-header'>tiles jump a little more</div>
 				<pre class='code'><span style='background-color:yellow'>const jumpTiles = () => {</span>
 <span style='background-color:yellow'>console.log('jumpTiles');</span>
 <span style='background-color:yellow'>console.log(currentGuessCount);</span>
@@ -612,23 +601,7 @@ setTimeout(() => {
 let currentTile = document.querySelector(
 <span style='background-color:yellow'>'#guess' +currentGuessCount + 'Tile' + i</span>
 <span style='background-color:yellow'>currentTile.classList.add('jump');</span>
-}, i * 200);
-</pre>
-</div>
-		</div>
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>refining jump animation</button>
-			<div class='tooltip'>
-				<div class='history-header'>refining jump animation</div>
-				<pre class='code'>const jumpTiles = () => {
-console.log('jumpTiles');
-console.log(currentGuessCount);
-for (let i = 0; i < 5; i++) {
-setTimeout(() => {
-let currentTile = document.querySelector(
-<span style='background-color:yellow'>'#guess' +currentGuessCount + 'Tile' + (i + 1)</span>
-currentTile.classList.add('jump');
-}, i * 200);
+}, 250);
 </pre>
 </div>
 		</div>
@@ -637,14 +610,14 @@ currentTile.classList.add('jump');
 			<div class='tooltip'>
 				<div class='history-header'>final clean up</div>
 				<pre class='code'>const jumpTiles = () => {
-<span style='background-color:yellow'>.log('jumpTiles');</span>
-<span style='background-color:yellow'>// .log(currentGuessCount);</span>
+console.log('jumpTiles');
+console.log(currentGuessCount);
 for (let i = 0; i < 5; i++) {
 setTimeout(() => {
 let currentTile = document.querySelector(
-<span style='background-color:yellow'>‘#guess' + currentGuessCount + ‘Tile’ + (i + 1)</span>
-<span style='background-color:yellow'>currentTile.classList.add(‘jump');</span>
-<span style='background-color:yellow'>}, 1 * 200);</span>
+<span style='background-color:yellow'>'#guess' +currentGuessCount + 'Tile' + (i + 1)</span>
+currentTile.classList.add('jump');
+<span style='background-color:yellow'>}, 500);</span>
 </pre>
 </div>
 		</div>
@@ -674,9 +647,9 @@ const checkWin = () => {
 <div class='files-container'>script.js animations.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
+			<button type='button' class='history active tooltip-trigger'>move logic for submitting a guess to submitGuess</button>
 			<div class='tooltip'>
-				<div class='history-header'>detect whether or not the user has won</div>
+				<div class='history-header'>move logic for submitting a guess to submitGuess</div>
 				<pre class='code'><span style='background-color:yellow'>const checkWin = () => {</span>
 <span style='background-color:yellow'>console.log('check win');</span>
 <span style='background-color:yellow'>if (solutionWord == currentGuess.dataset.letters){</span>
@@ -687,9 +660,23 @@ const checkWin = () => {
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning and removing unnecessary print statements</button>
+			<button type='button' class='history active tooltip-trigger'>check how many guesses user has made, remove unnecessary print statements</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning and removing unnecessary print statements</div>
+				<div class='history-header'>check how many guesses user has made, remove unnecessary print statements</div>
+				<pre class='code'>const checkWin = () => {
+console.log('check win');
+if (solutionWord == currentGuess.dataset.letters){
+console.log('game is won!');
+// Not won
+currentGuessCount = currentGuessCount + 1;
+<span style='background-color:yellow'>console.log('not a win, increment guess count');</span>
+</pre>
+</div>
+		</div>
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>final adjustments to the animations</button>
+			<div class='tooltip'>
+				<div class='history-header'>final adjustments to the animations</div>
 				<pre class='code'>const checkWin = () => {
 console.log('check win');
 if (solutionWord == currentGuess.dataset.letters){
@@ -702,9 +689,9 @@ currentGuessCount = currentGuessCount + 1;
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>attempting to add jump animation in the script</button>
+			<button type='button' class='history active tooltip-trigger'>tiles jump a little more</button>
 			<div class='tooltip'>
-				<div class='history-header'>attempting to add jump animation in the script</div>
+				<div class='history-header'>tiles jump a little more</div>
 				<pre class='code'>const checkWin = () => {
 console.log('check win');
 if (solutionWord == currentGuess.dataset.letters){
@@ -739,9 +726,9 @@ const updateLetters = (letter) => {
 <div class='files-container'>script.js </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Adding an initial key listener to detect letters the user enters.')">Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
+			<button type='button' class='history active tooltip-trigger'>Adding a key listener </button>
 			<div class='tooltip'>
-				<div class='history-header'>Outline initial code via comments</div>
+				<div class='history-header'>Adding a key listener </div>
 				<pre class='code'><span style='background-color:yellow'>// Update "letters"</span>
 </pre>
 </div>
@@ -749,9 +736,9 @@ const updateLetters = (letter) => {
 </div><div class='files-container'>index.html script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>build update letters function</button>
+			<button type='button' class='history active tooltip-trigger'>removing printing from update letters function</button>
 			<div class='tooltip'>
-				<div class='history-header'>build update letters function</div>
+				<div class='history-header'>removing printing from update letters function</div>
 				<pre class='code'>// Update "letters"
 <span style='background-color:yellow'>const updateLetters = (letter) => {</span>
 <span style='background-color:yellow'>let currentLetters = currentGuess.dataset.letters;</span>
@@ -759,18 +746,18 @@ const updateLetters = (letter) => {
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning up build update letters function</button>
+			<button type='button' class='history active tooltip-trigger'>updating the tiles in index with the entered letters</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning up build update letters function</div>
+				<div class='history-header'>updating the tiles in index with the entered letters</div>
 				<pre class='code'>// Update "letters"
 const updateLetters = (letter) => {
 </pre>
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>updating the tiles with the entered letters</button>
+			<button type='button' class='history active tooltip-trigger'>adding logic for deleting letters</button>
 			<div class='tooltip'>
-				<div class='history-header'>updating the tiles with the entered letters</div>
+				<div class='history-header'>adding logic for deleting letters</div>
 				<pre class='code'>// Update "letters"
 const updateLetters = (letter) => {
 <span style='background-color:yellow'>let oldLetters = currentGuess.dataset.letters</span>
@@ -785,9 +772,9 @@ const updateLetters = (letter) => {
 </div><div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'>// Update "letters"
 const updateLetters = (letter) => {
 let oldLetters = currentGuess.dataset.letters
@@ -799,8 +786,6 @@ updateTiles(currentTile, letter);
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -823,9 +808,9 @@ const updateTiles = (tileNumber, letter) => {
 <div class='files-container'>script.js </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Adding an initial key listener to detect letters the user enters.')">Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
+			<button type='button' class='history active tooltip-trigger'>Adding a key listener </button>
 			<div class='tooltip'>
-				<div class='history-header'>Outline initial code via comments</div>
+				<div class='history-header'>Adding a key listener </div>
 				<pre class='code'><span style='background-color:yellow'>// Update tile markup</span>
 </pre>
 </div>
@@ -833,9 +818,9 @@ const updateTiles = (tileNumber, letter) => {
 </div><div class='files-container'>index.html script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>updating the tiles with the entered letters</button>
+			<button type='button' class='history active tooltip-trigger'>adding logic for deleting letters</button>
 			<div class='tooltip'>
-				<div class='history-header'>updating the tiles with the entered letters</div>
+				<div class='history-header'>adding logic for deleting letters</div>
 				<pre class='code'>// Update tile markup
 <span style='background-color:yellow'>const updateTiles = (tileNumber, letter) => {</span>
 <span style='background-color:yellow'>console.log('updateTiles(' + tileNumber, letter + ')');</span>
@@ -846,9 +831,9 @@ const updateTiles = (tileNumber, letter) => {
 </div><div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'>// Update tile markup
 const updateTiles = (tileNumber, letter) => {
 <span style='background-color:yellow'>//console.log('updateTiles(' + tileNumber, letter + ')');</span>
@@ -859,9 +844,9 @@ currentTile.innerText = letter;
 </div><div class='files-container'>script.js index.html guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Clean up')">Clean up
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
+			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
 			<div class='tooltip'>
-				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
+				<div class='history-header'>update script based on index updates to the gameboard.</div>
 				<pre class='code'>// Update tile markup
 const updateTiles = (tileNumber, letter) => {
 //console.log('updateTiles(' + tileNumber, letter + ')');
@@ -870,10 +855,12 @@ currentTile.innerText = letter;
 </pre>
 </div>
 		</div>
+</div><div class='files-container'>script.js animations.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
+			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
 			<div class='tooltip'>
-				<div class='history-header'>update script based on index updates to the gameboard.</div>
+				<div class='history-header'>detect whether or not the user has won</div>
 				<pre class='code'>// Update tile markup
 const updateTiles = (tileNumber, letter) => {
 //console.log('updateTiles(' + tileNumber, letter + ')');
@@ -881,16 +868,6 @@ const updateTiles = (tileNumber, letter) => {
 <span style='background-color:yellow'>'#guess' + currentGuessCount + 'Tile' + tileNumber</span>
 currentTile.innerText = letter;
 currentTile.classList.add('has-letter');
-</pre>
-</div>
-		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>final clean up</button>
-			<div class='tooltip'>
-				<div class='history-header'>final clean up</div>
-				<pre class='code'>let currentTile = document.querySelector(
 </pre>
 </div>
 		</div>
@@ -917,17 +894,19 @@ const deleteFromLetters = () => {
 <div class='files-container'>index.html script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>updating the tiles with the entered letters</button>
+			<button type='button' class='history active tooltip-trigger'>adding logic for deleting letters</button>
 			<div class='tooltip'>
-				<div class='history-header'>updating the tiles with the entered letters</div>
+				<div class='history-header'>adding logic for deleting letters</div>
 				<pre class='code'><span style='background-color:yellow'>currentGuess.dataset.letters = newLetters;</span>
 </pre>
 </div>
 		</div>
+</div><div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>adding logic for deleting letters</button>
+			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
 			<div class='tooltip'>
-				<div class='history-header'>adding logic for deleting letters</div>
+				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
 				<pre class='code'><span style='background-color:yellow'>// Backspace -- Delete last letter</span>
 <span style='background-color:yellow'>const deleteFromLetters = () => {</span>
 <span style='background-color:yellow'>// remove last letter from data-letters</span>
@@ -940,8 +919,6 @@ currentGuess.dataset.letters = newLetters;
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -962,12 +939,12 @@ const deleteFromTiles = () => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>index.html script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
+<div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>adding logic for deleting letters</button>
+			<button type='button' class='history active tooltip-trigger'>Choosing a random correct answer for the puzzle</button>
 			<div class='tooltip'>
-				<div class='history-header'>adding logic for deleting letters</div>
+				<div class='history-header'>Choosing a random correct answer for the puzzle</div>
 				<pre class='code'><span style='background-color:yellow'>// Backspace -- Delete last tile markup</span>
 <span style='background-color:yellow'>const deleteFromTiles = () => {</span>
 <span style='background-color:yellow'>//remove markup from last tile</span>
@@ -978,9 +955,9 @@ const deleteFromTiles = () => {
 </div><div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'>// Backspace -- Delete last tile markup
 const deleteFromTiles = () => {
 //remove markup from last tile
@@ -991,9 +968,9 @@ const deleteFromTiles = () => {
 </div><div class='files-container'>script.js index.html guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Clean up')">Clean up
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
+			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
 			<div class='tooltip'>
-				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
+				<div class='history-header'>update script based on index updates to the gameboard.</div>
 				<pre class='code'>// Backspace -- Delete last tile markup
 const deleteFromTiles = () => {
 //remove markup from last tile
@@ -1003,10 +980,12 @@ const deleteFromTiles = () => {
 </pre>
 </div>
 		</div>
+</div><div class='files-container'>script.js animations.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
+			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
 			<div class='tooltip'>
-				<div class='history-header'>update script based on index updates to the gameboard.</div>
+				<div class='history-header'>detect whether or not the user has won</div>
 				<pre class='code'>// Backspace -- Delete last tile markup
 const deleteFromTiles = () => {
 //remove markup from last tile
@@ -1015,16 +994,6 @@ const deleteFromTiles = () => {
 <span style='background-color:yellow'>'#guess' + currentGuessCount + 'Tile' + tileNumber</span>
 currentTile.innerText = '';
 curentTile.classList.remove('has-letter');
-</pre>
-</div>
-		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>final clean up</button>
-			<div class='tooltip'>
-				<div class='history-header'>final clean up</div>
-				<pre class='code'>let currentTile = document.querySelector(
 </pre>
 </div>
 		</div>
@@ -1048,9 +1017,9 @@ const checkLetter = (position) => {
 <div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'><span style='background-color:yellow'>// Check letter to solution</span>
 <span style='background-color:yellow'>// parameter = letter position in word</span>
 <span style='background-color:yellow'>const checkLetter = (position) => {</span>
@@ -1061,8 +1030,6 @@ const checkLetter = (position) => {
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -1084,9 +1051,9 @@ const checkLetter = (position) => {
 <div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'><span style='background-color:yellow'>// If letters match, return "correct"</span>
 <span style='background-color:yellow'>if(guessedLetter == solutionLetter){</span>
 <span style='background-color:yellow'>return 'correct';</span>
@@ -1095,8 +1062,6 @@ const checkLetter = (position) => {
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -1112,15 +1077,13 @@ const checkLetter = (position) => {
 <div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'><span style='background-color:yellow'>// If not a match, if letter doesn't exist in solution, return "absent"</span>
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -1137,16 +1100,14 @@ const checkLetterExists = (letter) => {
 <div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'><span style='background-color:yellow'>const checkLetterExists = (letter) => {</span>
 <span style='background-color:yellow'>return solutionWord.includes(letter);</span>
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
@@ -1166,29 +1127,29 @@ const revealTile = (i, state) => {
 <div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Adding feedback for the user guess</button>
+			<button type='button' class='history active tooltip-trigger'>Showing user feedback on their guess </button>
 			<div class='tooltip'>
-				<div class='history-header'>Adding feedback for the user guess</div>
+				<div class='history-header'>Showing user feedback on their guess </div>
 				<pre class='code'><span style='background-color:yellow'>const revealTile = (status) => {</span>
-</pre>
-</div>
-		</div>
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Debugging and ultimately removing switch statement for tile status </button>
-			<div class='tooltip'>
-				<div class='history-header'>Debugging and ultimately removing switch statement for tile status </div>
-				<pre class='code'><span style='background-color:yellow'>const revealTile = (i, status) => {</span>
-<span style='background-color:yellow'>console.log('revealTile = ' + i, status);</span>
-<span style='background-color:yellow'>let tileNum = i + 1;</span>
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
+			<button type='button' class='history active tooltip-trigger'>Adding the tile flipping animation</button>
 			<div class='tooltip'>
-				<div class='history-header'>Implementing tile flipping in javascript</div>
+				<div class='history-header'>Adding the tile flipping animation</div>
+				<pre class='code'><span style='background-color:yellow'>const revealTile = (i, status) => {</span>
+<span style='background-color:yellow'>console.log('revealTile = ' + i, status);</span>
+<span style='background-color:yellow'>let tileNum = i + 1;</span>
+</pre>
+</div>
+		</div>
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>make flip animations a little faster</button>
+			<div class='tooltip'>
+				<div class='history-header'>make flip animations a little faster</div>
 				<pre class='code'><span style='background-color:yellow'>const revealTile = (i, state) => {</span>
 <span style='background-color:yellow'>console.log('revealTile = ' + i, state);</span>
 let tileNum = i + 1;
@@ -1199,9 +1160,9 @@ let tileNum = i + 1;
 </div><div class='files-container'>script.js animations.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>cleaning and removing unnecessary print statements</button>
+			<button type='button' class='history active tooltip-trigger'>final adjustments to the animations</button>
 			<div class='tooltip'>
-				<div class='history-header'>cleaning and removing unnecessary print statements</div>
+				<div class='history-header'>final adjustments to the animations</div>
 				<pre class='code'>const revealTile = (i, state) => {
 <span style='background-color:yellow'>//console.log('revealTile = ' + i, state);</span>
 let tileNum = i + 1;
@@ -1236,23 +1197,21 @@ const flipTile = (tileNum, state) => {
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
+<div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Debugging and ultimately removing switch statement for tile status </button>
+			<button type='button' class='history active tooltip-trigger'>Adding the tile flipping animation</button>
 			<div class='tooltip'>
-				<div class='history-header'>Debugging and ultimately removing switch statement for tile status </div>
+				<div class='history-header'>Adding the tile flipping animation</div>
 				<pre class='code'><span style='background-color:yellow'>tile.classList.add('present');</span>
 <span style='background-color:yellow'>tile.classList.add('‘absent');</span>
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Implementing tile flipping in javascript</button>
+			<button type='button' class='history active tooltip-trigger'>make flip animations a little faster</button>
 			<div class='tooltip'>
-				<div class='history-header'>Implementing tile flipping in javascript</div>
+				<div class='history-header'>make flip animations a little faster</div>
 				<pre class='code'><span style='background-color:yellow'>const flipTile = (tileNum, state) => {</span>
 <span style='background-color:yellow'>//  tile.classList.add('present');</span>
 <span style='background-color:yellow'>setTimeout(() => {</span>
@@ -1266,9 +1225,9 @@ const flipTile = (tileNum, state) => {
 </div><div class='files-container'>script.js index.html guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Clean up')">Clean up
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>removes "has-letter" state when user presses backspace</button>
+			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
 			<div class='tooltip'>
-				<div class='history-header'>removes "has-letter" state when user presses backspace</div>
+				<div class='history-header'>update script based on index updates to the gameboard.</div>
 				<pre class='code'>const flipTile = (tileNum, state) => {
 //  tile.classList.add('present');
 setTimeout(() => {
@@ -1280,10 +1239,12 @@ tile.classList.add('flip-out');
 </pre>
 </div>
 		</div>
+</div><div class='files-container'>script.js animations.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>update script based on index updates to the gameboard.</button>
+			<button type='button' class='history active tooltip-trigger'>detect whether or not the user has won</button>
 			<div class='tooltip'>
-				<div class='history-header'>update script based on index updates to the gameboard.</div>
+				<div class='history-header'>detect whether or not the user has won</div>
 				<pre class='code'>const flipTile = (tileNum, state) => {
 <span style='background-color:yellow'>let tile = document.querySelector(</span>
 <span style='background-color:yellow'>'#guess' + currentGuessCount + 'Tile' + tileNumber</span>
@@ -1297,12 +1258,10 @@ setTimeOut(() => {
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>unsuccessful attempt to add promises to wait for when a guess is complete</button>
+			<button type='button' class='history active tooltip-trigger'>check how many guesses user has made, remove unnecessary print statements</button>
 			<div class='tooltip'>
-				<div class='history-header'>unsuccessful attempt to add promises to wait for when a guess is complete</div>
+				<div class='history-header'>check how many guesses user has made, remove unnecessary print statements</div>
 				<pre class='code'>const flipTile = (tileNum, state) => {
 let tile = document.querySelector(
 '#guess' + currentGuessCount + 'Tile' + tileNumber
@@ -1317,9 +1276,9 @@ setTimeOut(() => {
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>final adjustments to the animations</button>
+			<button type='button' class='history active tooltip-trigger'>attempting to add jump animation in the script</button>
 			<div class='tooltip'>
-				<div class='history-header'>final adjustments to the animations</div>
+				<div class='history-header'>attempting to add jump animation in the script</div>
 				<pre class='code'>const flipTile = (tileNum, state) => {
 let tile = document.querySelector(
 '#guess' + currentGuessCount + 'Tile' + tileNumber
@@ -1331,15 +1290,6 @@ tile.classList.remove('flip-in');
 tile.classList.add('flip-out');
 setTimeOut(() => {
 <span style='background-color:yellow'>tile.classList.remove('flip-out');</span>
-</pre>
-</div>
-		</div>
-		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>final clean up</button>
-			<div class='tooltip'>
-				<div class='history-header'>final clean up</div>
-				<pre class='code'>setTimeout(() => {
-setTimeout(() => {
 </pre>
 </div>
 		</div>
@@ -1362,9 +1312,9 @@ setTimeout(() => {
 <div class='files-container'>script.js </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Adding an initial key listener to detect letters the user enters.')">Adding an initial key listener to detect letters the user enters.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Outline initial code via comments</button>
+			<button type='button' class='history active tooltip-trigger'>Adding a key listener </button>
 			<div class='tooltip'>
-				<div class='history-header'>Outline initial code via comments</div>
+				<div class='history-header'>Adding a key listener </div>
 				<pre class='code'><span style='background-color:yellow'>- if keypress is a letter</span>
 <span style='background-color:yellow'>- update "letters" attribute</span>
 <span style='background-color:yellow'>- update tile markup based on "letters" value</span>
@@ -1373,8 +1323,6 @@ setTimeout(() => {
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>script.js animations.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Add a win condition')">Add a win condition
 </div>	</div>
 </div>
 
