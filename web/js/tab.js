@@ -12,10 +12,6 @@ function openTab(tabName) {
   }
   $("#"+tabName).attr("style", "display:block")
 
-  if (tabName == "history") {
-    // initCollapsibles();
-  }
-
   if (tabName == "code") {
     linkList = $("#linkList");
     contentContainer = $("#contentContainer");
@@ -91,7 +87,6 @@ function loadContent(url, container, callback, arg) {
       }
 
       if (callback!= null) {
-        console.log("calling callback function");
         callback(arg);
       }
     })
@@ -114,7 +109,6 @@ function scrollToSubgoal(subgoalID) {
 
 function hoverEnterSubgoal(subgoal) {
   var goalText = subgoal.textContent.split("\n")[0]
-
 
   const subgoalElements = $('.subgoal-group:contains("' + goalText + '")');
   subgoalElements.each( function() {

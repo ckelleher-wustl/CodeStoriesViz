@@ -51,10 +51,8 @@
       console.log(htmlToLoad)
       htmlToLoad.each(function( index ) {
         var url =  $( this ).attr("include-html") ;
-        console.log("load url..." + url)
         loadContent(url, $(this), null, null)
       });
-      // openTab('history');
     });
 
     function initCollapsibles() {
@@ -109,9 +107,7 @@
 
 
   function openChange(title, open) {
-
     var history = $(".history");
-    
     var button =  $("button.collapsible:contains('" + title + "')");
     var content = button.next();
     
@@ -121,7 +117,6 @@
       content.attr("style", "display:block");
 
       var diff = Diff.createTwoFilesPatch("begin", "end", content.attr("--start-code"), content.attr("--end-code"),null,null,{context:100});
-
       var addition = "";
       diff.split("\n").forEach(part => {
         if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
@@ -134,7 +129,7 @@
           //matching: 'words',
           outputFormat: 'side-by-side',
       });
-      $(content,$(this).find('p:first')).html(diffHtml);
+      $(content).find('p:first').html(diffHtml);
 
       // try to scroll this content pane so that it's visible.
       var offset = content.offset().top - $(window).scrollTop();
@@ -145,7 +140,6 @@
       }  
     }
   }
-
 
   </script>
 </body>
