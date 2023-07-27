@@ -2,14 +2,14 @@ goalType,clusterType,startTime,endTime,fileName,summary
 goal_start,goal_start,0,0,None,Set up user interface components for the Wordle game board.
 parent',code',0,779,notes.md,Plan our wordle UI and interaction requirements
 parent',code',1173,1279,fonts.scss,Change default font from Arial to Open Sans
-parent',code',0,1385,boilerplate.scss,Change background color of game board to match Wordle
+parent',code',1,1385,boilerplate.scss,Change background color of game board to match Wordle
 parent',code',1385,1595,boilerplate.scss,"Style the game tiles with appropriate padding, alignment, and automatic upper casing."
 parent',code',1595,1836,boilerplate.scss,Set the width for the tiles
-parent',code',0,2211,guess.scss,Initial set up of grid for guesses
+parent',code',2,2211,guess.scss,Initial set up of grid for guesses
 parent',code',2211,2637,guess.scss,Filling in size and border info for a tile
 goal_end,goal_end,0,0,None,end of set up user interface
 goal_start,goal_start,0,0,None,Adding an initial key listener to detect letters the user enters.
-parent',code',0,3264,script.js,Outline initial code via comments
+parent',code',3,3264,script.js,Outline initial code via comments
 parent',search',3282,3317,None,Search: How to detect a keypress in javascript
 parent',search',3364,3432,None,search: javascript onkeypressd
 parent',code',3264,3601,script.js,Adding a key listener 
@@ -21,7 +21,7 @@ parent',search',4077,4173,None,search: flavio javascript test regex; searching f
 goal_end,goal_end,0,0,None,end of user regular expressions
 goal_start,goal_start,0,0,None,Show the appropriate entered letters on the Wordle game board.
 parent',search',4620,4712,None,search: setting the data attribute of an html element with javascript (CHECK)
-parent',code',0,4753,index.html,setting up the initial game board
+parent',code',4,4753,index.html,setting up the initial game board
 parent',code',4357,5396,script.js,build and call update letters function to track user guess
 parent',search',5007,5043,None,search: javascript arrow functions
 parent',code',5396,5840,script.js,removing printing from update letters function
@@ -49,7 +49,7 @@ goal_end,goal_end,0,0,None,end of change tile color
 goal_start,goal_start,0,0,,Animate the tile flipping over.
 parent',code',8597,10872,notes.md,Update notes
 parent',search',11207,11904,None,search: flipping cards in css
-parent',code',0,11816,animations.scss,Adding CSS classes for tile flipping
+parent',code',5,11816,animations.scss,Adding CSS classes for tile flipping
 parent',code',10682,12666,script.js,Adding the tile flipping animation
 parent',search',12252,12362,None,search: how to delay execution of a function in javascript
 parent',search',12705,12730,None,search: css animation end state;

@@ -20,7 +20,7 @@ def separate_lines(filename):
 
     return groups
 
-filename = "script.js"
+filename = "boilerplate.scss"
 filepath = 'web/storystudy/wordleCode/' + filename
 groups = separate_lines(filepath)
 

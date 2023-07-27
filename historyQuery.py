@@ -222,13 +222,13 @@ class HistoryFromCode:
 
             if (goalType == "parent'"):
 
-                if (startTime not in clusterTimes):
-                    clusterTimes.append(startTime)
+                # if (startTime not in clusterTimes):
+                #     clusterTimes.append(startTime)
                 
                 if (endTime not in clusterTimes):
                     clusterTimes.append(endTime)
 
-                self.clusterTimeToSummaryDict[startTime] = summary
+                # self.clusterTimeToSummaryDict[startTime] = summary
                 self.clusterTimeToSummaryDict[endTime] = summary
 
                 self.clusterSummaryToSubgoalDict[summary] = subGoal
@@ -241,6 +241,9 @@ class HistoryFromCode:
                 self.subGoalToFileNamesDict[subGoal] = []
                 # print(f"cluster type: {goalType} - {summary}")
 
+        # print(f"clusterTimeToSummaryDict -> ")
+        # for time in self.clusterTimeToSummaryDict:
+        #     print(f"\t{time} -> {self.clusterTimeToSummaryDict[time]}")
         # print(f"subGoalToFileNamesDict -> {self.subGoalToFileNamesDict}")
 
         return self.clusterTimeToSummaryDict, clusterTimes
@@ -258,10 +261,12 @@ class HistoryFromCode:
             if entryTime in clusterTimes:
                 # print(f"codestate {entryTime} {entry['code_text'][0:20]}")
                 self.codeStates.append({'time': entryTime, 'code': entry["code_text"]})
+                # print(f"\tcodeStates: {entryTime} -> {entry['code_text'][0:20]}")
 
         #  add the final state of the file
         l = len(entriesByFilename[fName])
         self.codeStates.append({'time': entriesByFilename[fName][l-1]["time"], 'code': entriesByFilename[fName][l-1]["code_text"]})
+        # print(f"\tcodeStates: {entriesByFilename[fName][l-1]['time']} -> {entriesByFilename[fName][l-1]['code_text'][0:20]}")
         return self.codeStates
 
     def getOrigLinesForSelected(self, selectedCode):
@@ -305,7 +310,7 @@ class HistoryFromCode:
 
         # reconstruct the code from relevant periods
         codeLinesForPeriodDict = self.getCodeLinesForPeriodDict(origLines, keyChanges)
-        print(f"\ncodeLinesForPeriodDict {codeLinesForPeriodDict}")
+        # print(f"\ncodeLinesForPeriodDict {codeLinesForPeriodDict}")
         for period in codeLinesForPeriodDict:
 
             if (self.codeStates[period]['time'] in self.clusterTimeToSummaryDict.keys()):

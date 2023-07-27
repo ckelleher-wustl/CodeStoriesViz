@@ -173,6 +173,7 @@ def getRegionsForActivities(filename, activity):
     df = activityData[filename]
     
     results = df.loc[df["activity"] == activity]
+    print(f"Regions + {results}")
     return results
 
 

@@ -1,0 +1,261 @@
+<div class='horizContainer'>
+	<div class='leftContainer' id='region0' line='@use ../util as *;'>
+		<pre class='code'>
+@use '../util' as *;
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Initial set up of grid for guesses</button>
+			<div class='tooltip'>
+				<div class='history-header'>Initial set up of grid for guesses</div>
+				<pre class='code'><span style='background-color:yellow'>@use '../util' as *;</span>
+</pre>
+</div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region1' line='.guess {'>
+		<pre class='code'>
+.guess {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: rem(3);
+  width: rem(300);
+  margin-bottom: rem(10);
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Initial set up of grid for guesses</button>
+			<div class='tooltip'>
+				<div class='history-header'>Initial set up of grid for guesses</div>
+				<pre class='code'><span style='background-color:yellow'>display: grid;</span>
+<span style='background-color:yellow'>grid-template-columns: repeat(5, 1fr);</span>
+<span style='background-color:yellow'>gap: rem(3);</span>
+<span style='background-color:yellow'>width: rem(300);</span>
+</pre>
+</div>
+		</div>
+</div><div class='files-container'>script.js index.html guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Clean up')">Clean up
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>adjusting spacing at the bottom</button>
+			<div class='tooltip'>
+				<div class='history-header'>adjusting spacing at the bottom</div>
+				<pre class='code'>display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: rem(3);
+width: rem(300);
+<span style='background-color:yellow'>margin-bottom: rem(10);</span>
+</pre>
+</div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region2' line='  &__tile {'>
+		<pre class='code'>
+  &__tile {
+    border: rem(2) solid hsl(0, 0%, 26%);
+    width: rem(52);
+    height: rem(52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: rem(32);
+    font-weight: 600;
+  }
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Initial set up of grid for guesses</button>
+			<div class='tooltip'>
+				<div class='history-header'>Initial set up of grid for guesses</div>
+				<pre class='code'><span style='background-color:yellow'>&__tile {</span>
+<span style='background-color:yellow'>border: rem(2) solid hsl(0, 0%, 46%);</span>
+</pre>
+</div>
+		</div>
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Filling in size and border info for a tile</button>
+			<div class='tooltip'>
+				<div class='history-header'>Filling in size and border info for a tile</div>
+				<pre class='code'>&__tile {
+<span style='background-color:yellow'>border: rem(2) solid hsl(0, 0%, 26%);</span>
+<span style='background-color:yellow'>width: rem(52);</span>
+<span style='background-color:yellow'>height: rem(52);</span>
+<span style='background-color:yellow'>display: flex;</span>
+<span style='background-color:yellow'>place-items: center;</span>
+</pre>
+</div>
+		</div>
+</div><div class='files-container'>index.html script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Show the appropriate entered letters on the Wordle game board.')">Show the appropriate entered letters on the Wordle game board.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>changing tile font size, weight, and centering tiles</button>
+			<div class='tooltip'>
+				<div class='history-header'>changing tile font size, weight, and centering tiles</div>
+				<pre class='code'>&__tile {
+border: rem(2) solid hsl(0, 0%, 26%);
+width: rem(52);
+height: rem(52);
+display: flex;
+<span style='background-color:yellow'>justify-content: center;</span>
+<span style='background-color:yellow'>align-items: center;</span>
+<span style='background-color:yellow'>font-size: rem(32);</span>
+<span style='background-color:yellow'>font-weight: 600;</span>
+</pre>
+</div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region3' line='  .has-letter {'>
+		<pre class='code'>
+  .has-letter {
+    border-color: hsl(0, 0%, 40%);
+  }
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>adding tile border colors to CSS</button>
+			<div class='tooltip'>
+				<div class='history-header'>adding tile border colors to CSS</div>
+				<pre class='code'><span style='background-color:yellow'>.has-letter {</span>
+<span style='background-color:yellow'>border-color: hsl(0, 0%, 40%);</span>
+</pre>
+</div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region4' line='  .correct {'>
+		<pre class='code'>
+  .correct {
+    .background-color : hsl(120, 100%, 28%);
+    .border-color : hsl(120, 100%, 28%);
+  }
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Setting up colors that correspond to letters being correct, present, and absent </button>
+			<div class='tooltip'>
+				<div class='history-header'>Setting up colors that correspond to letters being correct, present, and absent </div>
+				<pre class='code'><span style='background-color:yellow'>.correct {</span>
+<span style='background-color:yellow'>.background-color : hsl(120, 100%, 28%);</span>
+</pre>
+</div>
+		</div>
+</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>adding tile border colors to CSS</button>
+			<div class='tooltip'>
+				<div class='history-header'>adding tile border colors to CSS</div>
+				<pre class='code'>.correct {
+.background-color : hsl(120, 100%, 28%);
+<span style='background-color:yellow'>.border-color : hsl(120, 100%, 28%);</span>
+</pre>
+</div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region5' line='  .present {'>
+		<pre class='code'>
+  .present {
+    .background-color : hsl(49, 69%, 47%);
+    .border-color : hsl(49, 69%, 47%);
+  }
+		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Setting up colors that correspond to letters being correct, present, and absent </button>
+			<div class='tooltip'>
+				<div class='history-header'>Setting up colors that correspond to letters being correct, present, and absent </div>
+				<pre class='code'><span style='background-color:yellow'>.present {</span>
+<span style='background-color:yellow'>.background-color : hsl(49, 51%, 47%);</span>
+</pre>
+</div>
+		</div>
+</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>adding tile border colors to CSS</button>
+			<div class='tooltip'>
+				<div class='history-header'>adding tile border colors to CSS</div>
+				<pre class='code'>.present {
+<span style='background-color:yellow'>.background-color : hsl(49, 69%, 47%);</span>
+<span style='background-color:yellow'>.border-color : hsl(49, 69%, 47%);</span>
+</pre>
+</div>
+		</div>
+</div>	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region6' line='  .absent {'>
+		<pre class='code'>
+  .absent {
+    .background-color : hsl(0, 0%, 35%);
+    .border-color : hsl(0, 0%, 35%);
+  }
+}		</pre>
+	</div>
+	<div class='rightContainer'>
+<div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>Setting up colors that correspond to letters being correct, present, and absent </button>
+			<div class='tooltip'>
+				<div class='history-header'>Setting up colors that correspond to letters being correct, present, and absent </div>
+				<pre class='code'><span style='background-color:yellow'>.absent {</span>
+<span style='background-color:yellow'>.background-color : hsl(0, 0%, 35%);</span>
+</pre>
+</div>
+		</div>
+</div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger'>adding tile border colors to CSS</button>
+			<div class='tooltip'>
+				<div class='history-header'>adding tile border colors to CSS</div>
+				<pre class='code'>.absent {
+.background-color : hsl(0, 0%, 35%);
+<span style='background-color:yellow'>.border-color : hsl(0, 0%, 35%);</span>
+</pre>
+</div>
+		</div>
+</div>	</div>
+</div>
+
+
