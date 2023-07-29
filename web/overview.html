@@ -8,12 +8,14 @@
 </head>
 <body>
   <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="node_modules/diff/dist/diff.js"></script>
 
   <link rel="stylesheet" type="text/css" href="node_modules/diff2html/bundles/css/diff2html.min.css"/>
   <script src="node_modules/diff2html/bundles/js/diff2html.min.js"></script>
   <script src="//unpkg.com/string-similarity/umd/string-similarity.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- <script type = "module" src="/public/javascripts/diff_from_full.js"></script>   -->
 
   <div class="sticky-div">
@@ -41,6 +43,7 @@
   <script type="text/javascript" src="js/accordion.js"></script>
   <script type="text/javascript" src="js/includehtml.js"></script>
   <script type="text/javascript" src="js/tab.js"></script>
+  <script type="text/javascript" src="js/code_region_map.js"></script>
 
 
   <script>
@@ -54,6 +57,19 @@
         loadContent(url, $(this), null, null)
       });
     });
+
+    function generateRegionLinks(file, regions) {
+
+      var html = "";
+      for (var regionID in regions) {
+        var lineID = regions[regionID];
+        lineID = lineID.replaceAll("<", "&lt").replaceAll(">", "&gt");
+        console.log(regionID + " " + lineID);
+        html += "<li onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+      }
+      // console.log(html);
+      return html;
+    }
 
     function initCollapsibles() {
 
@@ -75,16 +91,40 @@
       
               var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:10});
         
-              var addition = "";
+              var additions = [];
               diff.split("\n").forEach(part => {
-                if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
-                  addition = part
+                if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 8) ) {
+                  additions.push(part.substring(1).trim());
                 }
               })
               var diffHtml = Diff2Html.html(diff, {
                   drawFileList: false,
                   outputFormat: 'side-by-side',
               });
+
+              // these are the lines of code - we need to figure out what regions they represent
+              //  so it seems we need a record of the filename in here somewhere.
+              // console.log("addition is " + additions);
+              regions={};
+              var filename = content.getAttribute("--filename");
+
+              for (var line in additions) {
+                var regionInfo = getRegionForLine( filename, additions[line] );
+                if (regionInfo) {
+                  regions[regionInfo["regionID"]] = regionInfo["lineID"];
+                }
+              }
+              console.log("regions: ");
+              console.log(regions);
+              var listHtml = generateRegionLinks(filename, regions);
+
+              // this doesn't seem like it's always replacing the list contents. hmm.
+              content.querySelector("ul").html = listHtml;
+
+
+              // this is the end of my random experimental section
+
+
               content.querySelector("p").innerHTML = diffHtml;
             }
           }

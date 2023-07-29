@@ -20,7 +20,7 @@ def separate_lines(filename):
 
     return groups
 
-filename = "boilerplate.scss"
+filename = "script.js"
 filepath = 'web/storystudy/wordleCode/' + filename
 groups = separate_lines(filepath)
 
@@ -30,8 +30,47 @@ historyFromCode.initializeHistory('web/data/wordleStoryOverview.csv',filename)
 
 html = ""
 groupActivities = {}
-regionIdx = 0
 
+
+
+def buildLineRegionHistory():
+
+    regionIdx = 0
+    regionLines = []
+
+    header = ["line", "lineID", "regionID"]
+    with open('web/data/storyStudy/' + filename + 'LineMap.csv', 'w+', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+
+        for group in groups:
+            print(f"{group}")
+            idLine = ""
+            for groupLine in group:
+                groupLine = groupLine.strip()
+                groupLine = groupLine.replace("'", "").replace('"', "")
+                if (len(groupLine) > 8) and (groupLine not in regionLines):
+                    idLine = groupLine
+                    break
+
+
+            for line in group:
+                line = line.strip()
+                origLine = historyFromCode.getOrigLine(line, historyFromCode.seedLineDict)
+                
+                lineVersions = historyFromCode.lineHistoryDict[origLine]
+                for vsn in lineVersions:
+                    if (len(vsn) > 8):
+                        print(f"\t{vsn}: {idLine} {'region' + str(regionIdx)}")
+                        data = [vsn, idLine, 'region' + str(regionIdx)]
+                        # print(f"\t{data}")
+                        writer.writerow(data)
+
+            regionIdx += 1
+    
+    f.close()
+
+regionIdx = 0
 for group in groups:
 
     activities = historyFromCode.getActivitiesForCode(group)
@@ -154,4 +193,6 @@ text_file = open("web/code_Wordle_" + filename + ".html", "w")
 n = text_file.write(html)
 text_file.close()
 
+
+buildLineRegionHistory()
     

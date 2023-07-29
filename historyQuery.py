@@ -68,7 +68,7 @@ class HistoryFromCode:
         if (parentLine not in seedLineDict.keys()):
             print(f"Key not found: {parentLine}")
             for key in seedLineDict.keys():
-                print(f"\t{key}: {self.lineHistoryDict[key]}")
+                print(f"\t{key}: {seedLineDict[key]}")
 
     
 

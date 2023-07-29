@@ -157,6 +157,7 @@ def get_code_entries(startTime, endTime):
 
 
 activityData = {}
+# lineRegionMap = {}
 def loadActivityDataFrames():
     filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
 
@@ -164,17 +165,19 @@ def loadActivityDataFrames():
         print(file)
 
         df = pd.read_csv(r'web/data/storyStudy/' + file)
-        print(df)
-        print("\n")
-
+        print(f"{file} {df.shape}")
+        
         activityData[file] = df
+
 
 def getRegionsForActivities(filename, activity):
     df = activityData[filename]
     
     results = df.loc[df["activity"] == activity]
-    print(f"Regions + {results}")
+    # print(f"Regions + {results}")
     return results
+
+
 
 
 
@@ -188,9 +191,9 @@ html = ""
 loadActivityDataFrames()
 
 for clusterIdx in clusterDF.index:
-    print(f"{clusterDF['clusterType'][clusterIdx]}: {clusterDF['summary'][clusterIdx]}")
+    # print(f"{clusterDF['clusterType'][clusterIdx]}: {clusterDF['summary'][clusterIdx]}")
     if "code" in clusterDF['clusterType'][clusterIdx]:
-        print(f"\twrite code cluster {clusterDF.iloc[clusterIdx]['startTime']} - {clusterDF.iloc[clusterIdx]['endTime']}" )
+        # print(f"\twrite code cluster {clusterDF.iloc[clusterIdx]['startTime']} - {clusterDF.iloc[clusterIdx]['endTime']}" )
 
         startTime = clusterDF.iloc[clusterIdx]['startTime']
         endTime = clusterDF.iloc[clusterIdx]['endTime']        
@@ -204,7 +207,7 @@ for clusterIdx in clusterDF.index:
         endingCode = endingCode.replace('\'', '"')
 
         html += "<button type='button' class='collapsible active'>" + clusterDF['fileName'][clusterIdx] + ": " + clusterDF['summary'][clusterIdx] + "</button>\n"
-        html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "'>\n"
+        html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "' --filename='" + clusterDF['fileName'][clusterIdx] + "'>\n"
 
         # I want something like this here.
         # <ul>
