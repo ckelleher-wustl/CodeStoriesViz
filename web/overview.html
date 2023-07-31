@@ -24,13 +24,13 @@
   </div>
 
   <div id="history" class="tab">
-    <h2>History Tab</h2>
-      <div class="tabContent" id="historyTab" include-html="clusters_WordleNew.html"></div>
+    <div class="history-spacer"></div>
+    <div class="tabContent" id="historyTab" include-html="clusters_WordleNew.html"></div>
 
-      <button type="button" class="collapsible">THE END</button>
-      <div class="content">
-        <p>This is the end of the recorded code history.</p>
-      </div>
+    <button type="button" class="collapsible">THE END</button>
+    <div class="content">
+      <p>This is the end of the recorded code history.</p>
+    </div>
   </div>
 
   <div id="code" class="tab">
@@ -65,7 +65,7 @@
         var lineID = regions[regionID];
         lineID = lineID.replaceAll("<", "&lt").replaceAll(">", "&gt");
         console.log(regionID + " " + lineID);
-        html += "<li onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+        html += "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
       }
       // console.log(html);
       return html;
@@ -89,7 +89,7 @@
 
             if (content.hasAttribute("--start-code")) {
       
-              var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),null,null,{context:10});
+              var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),content.getAttribute("--filename"),content.getAttribute("--filename"),{context:10});
         
               var additions = [];
               diff.split("\n").forEach(part => {
@@ -119,7 +119,10 @@
               var listHtml = generateRegionLinks(filename, regions);
 
               // this doesn't seem like it's always replacing the list contents. hmm.
-              content.querySelector("ul").html = listHtml;
+              // console.log("setting ul contents to " + listHtml);
+              // console.log(content);
+              // content.querySelector("ul").html = listHtml;
+              $(content).find("ul").html(listHtml);
 
 
               // this is the end of my random experimental section
@@ -156,7 +159,7 @@
     } else  {
       content.attr("style", "display:block");
 
-      var diff = Diff.createTwoFilesPatch("begin", "end", content.attr("--start-code"), content.attr("--end-code"),null,null,{context:100});
+      var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),content.getAttribute("--filename"),content.getAttribute("--filename"),{context:10});
       var addition = "";
       diff.split("\n").forEach(part => {
         if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {

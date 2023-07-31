@@ -18,7 +18,27 @@ def separate_lines(filename):
         if current_group:
             groups.append(current_group)
 
+    # identify lines that are repeated and therefore shouldn't be used to identify region
+    seenLines = []
+    repeatedLines = []
+    for group in groups:
+        for line in group:
+            line = line.strip()
+            if (line in seenLines) and (line not in repeatedLines):
+                repeatedLines.append(line)
+            else:
+                seenLines.append(line)
+
+    print(f"\nrepeated lines {repeatedLines}\n\n")
+
+    # now remove the lines from groups that shouldn't be used to identify region
+    for group in groups:
+        for line in repeatedLines:
+            if (line in group):
+                group.remove(line)
+
     return groups
+
 
 filename = "script.js"
 filepath = 'web/storystudy/wordleCode/' + filename

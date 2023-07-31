@@ -219,6 +219,7 @@ for clusterIdx in clusterDF.index:
         # results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
         results = getRegionsForActivities(clusterDF['fileName'][clusterIdx] + ".csv", clusterDF['summary'][clusterIdx])
 
+        html+= "See related sections in code:"
         html += "<ul>\n"
         for index, row in results.iterrows():
             lineID = row['lineID']
@@ -228,7 +229,7 @@ for clusterIdx in clusterDF.index:
             regionID = row['regionID']
             # print(f"Line ID: {lineID}, Region ID: {regionID}")
             file = clusterDF['fileName'][clusterIdx].split(".")[0]
-            html +=  "<li onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+            html +=  "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
         html += "</ul>\n"
 
 
