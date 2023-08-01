@@ -35,6 +35,7 @@ function searchChangedCode() {
     if (searchTerm) {
 
         // grab the starting / ending code to see whether changes have been made
+        var firstResult = null;
         codeContent.each( function() {
             
             if ( typeof(this) == "object" && this.hasAttribute("--end-code") && this.hasAttribute("--start-code")) {
@@ -42,7 +43,7 @@ function searchChangedCode() {
                 var endCode = this.getAttribute("--end-code");
 
                 // create a diff between the starting and ending code.
-                var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:100});
+                var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:10});
                 var lines = diff.split("\n");
                 
                 // iterate throught the lines
@@ -56,11 +57,27 @@ function searchChangedCode() {
                 }
 
                 if (open) {
-                    openContent(this, true);
+                    // openContent(this, true);
+                    // $( "#foo" )[ 0 ];
+                    // openChange($(this)[0], true);
+                    highlightChange(this, true);
+                    if (!firstResult) {
+                        firstResult = this;
+                    }
                 } else {
-                    openContent(this, false);
+                    // openChange($(this)[0], false);
+                    highlightChange(this, false);
                 }
             }
+        });
+
+        console.log("firstResult " );
+        console.log(firstResult + " " + $(firstResult).prev());
+        scrollToElement($(firstResult).prev());
+    } else {
+        var codeContent = $('.content');
+        codeContent.each( function() {
+            highlightChange(this, false);
         });
     }
 

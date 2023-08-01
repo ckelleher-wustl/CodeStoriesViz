@@ -3,7 +3,7 @@
 		<legend>Sub-goal</legend>
 		<div>Set up user interface components for the Wordle game board.</div>
 	</fieldset>
-<button type='button' class='collapsible active'>notes.md: Plan our wordle UI and interaction requirements</button>
+<button type='button' class='collapsible'>notes.md: Plan our wordle UI and interaction requirements</button>
 <div class='content' --start-code='' --end-code='# Functional Requirements
 
 ## Gameplay
@@ -49,7 +49,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_notes.html', 'region8')">When submitting guess:</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>fonts.scss: Change default font from Arial to Open Sans</button>
+</div><button type='button' class='collapsible'>fonts.scss: Change default font from Arial to Open Sans</button>
 <div class='content' --start-code='root {
 --font-body: Arial, sans-serif;
 }
@@ -61,7 +61,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_fonts.html', 'region0')">root {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>boilerplate.scss: Change background color of game board to match Wordle</button>
+</div><button type='button' class='collapsible'>boilerplate.scss: Change background color of game board to match Wordle</button>
 <div class='content' --start-code='// 640px, 1150px, 1400px
 
  $breakpoints-up: (
@@ -103,7 +103,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_boilerplate.html', 'region3')">  margin: 0;</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>boilerplate.scss: Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
+</div><button type='button' class='collapsible'>boilerplate.scss: Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
 <div class='content' --start-code='html {
   font-size: 100%;
   font-family: var(--font-body);
@@ -153,7 +153,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_boilerplate.html', 'region3')">  margin: 0;</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>boilerplate.scss: Set the width for the tiles</button>
+</div><button type='button' class='collapsible'>boilerplate.scss: Set the width for the tiles</button>
 <div class='content' --start-code='@use "../util" as *;
 
 html {
@@ -208,7 +208,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_boilerplate.html', 'region3')">  margin: 0;</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>guess.scss: Initial set up of grid for guesses</button>
+</div><button type='button' class='collapsible'>guess.scss: Initial set up of grid for guesses</button>
 <div class='content' --start-code='// 640px, 1150px, 1400px
 
  $breakpoints-up: (
@@ -244,7 +244,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_guess.html', 'region2')">  &__tile {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>guess.scss: Filling in size and border info for a tile</button>
+</div><button type='button' class='collapsible'>guess.scss: Filling in size and border info for a tile</button>
 <div class='content' --start-code='@use "../util" as *;
 
 .guess {
@@ -283,7 +283,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Adding an initial key listener to detect letters the user enters.</div>
 	</fieldset>
-<button type='button' class='collapsible active'>script.js: Outline initial code via comments</button>
+<button type='button' class='collapsible'>script.js: Outline initial code via comments</button>
 <div class='content' --start-code='// 640px, 1150px, 1400px
 
  $breakpoints-up: (
@@ -323,7 +323,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region18')">- if keypress is a letter</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>Search: How to detect a keypress in javascript</button>
+</div><button type='button' class='collapsible'>Search: How to detect a keypress in javascript</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=3282&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript detect keypress</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -335,7 +335,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>search: javascript onkeypressd</button>
+<button type='button' class='collapsible'>search: javascript onkeypressd</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=3364&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javscript window.event</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -349,7 +349,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>script.js: Adding a key listener </button>
+<button type='button' class='collapsible'>script.js: Adding a key listener </button>
 <div class='content' --start-code='// detect keypress (letter, backspace, other)
 
 // Update "letters"
@@ -401,7 +401,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Use regular expressions to determine whether a pressed key is a letter and, if so, save it.</div>
 	</fieldset>
-<button type='button' class='collapsible active'>search: how to determine whether an entered character is a letter (CHECK)</button>
+<button type='button' class='collapsible'>search: how to determine whether an entered character is a letter (CHECK)</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=3623&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript keydown detect if letter</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -430,7 +430,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>script.js: Figure out whether or not an entered character is a letter</button>
+<button type='button' class='collapsible'>script.js: Figure out whether or not an entered character is a letter</button>
 <div class='content' --start-code='console.log("keypress");
 
 // detect keypress (letter, backspace, other)
@@ -495,7 +495,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>search: flavio javascript test regex; searching for specific resource</button>
+</div><button type='button' class='collapsible'>search: flavio javascript test regex; searching for specific resource</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=4077&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>regex contains letters</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -523,7 +523,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Show the appropriate entered letters on the Wordle game board.</div>
 	</fieldset>
-<button type='button' class='collapsible active'>search: setting the data attribute of an html element with javascript (CHECK)</button>
+<button type='button' class='collapsible'>search: setting the data attribute of an html element with javascript (CHECK)</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=4620&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>data</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -543,7 +543,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>index.html: setting up the initial game board</button>
+<button type='button' class='collapsible'>index.html: setting up the initial game board</button>
 <div class='content' --start-code='// 640px, 1150px, 1400px
 
  $breakpoints-up: (
@@ -599,7 +599,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_index.html', 'region6')">      &ltdiv id=guess6 class=guess data-letters=&gt</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: build and call update letters function to track user guess</button>
+</div><button type='button' class='collapsible'>script.js: build and call update letters function to track user guess</button>
 <div class='content' --start-code='console.log("keypress");
 
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -684,7 +684,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>search: javascript arrow functions</button>
+</div><button type='button' class='collapsible'>search: javascript arrow functions</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=5007&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>function</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -693,7 +693,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>script.js: removing printing from update letters function</button>
+<button type='button' class='collapsible'>script.js: removing printing from update letters function</button>
 <div class='content' --start-code='console.log("keypress");
 
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -783,7 +783,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region8')">// Update letters</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: updating the tiles in index with the entered letters</button>
+</div><button type='button' class='collapsible'>script.js: updating the tiles in index with the entered letters</button>
 <div class='content' --start-code='console.log("keypress");
 
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -878,7 +878,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region10')">// Backspace -- Delete last letter</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>search: how to change div content with javascript</button>
+</div><button type='button' class='collapsible'>search: how to change div content with javascript</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=6288&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript set content of div</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -890,7 +890,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>guess.scss: changing tile font size, weight, and centering tiles</button>
+<button type='button' class='collapsible'>guess.scss: changing tile font size, weight, and centering tiles</button>
 <div class='content' --start-code='@use "../util" as *;
 
 .guess {
@@ -931,7 +931,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_guess.html', 'region2')">  &__tile {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: adding logic for deleting letters</button>
+</div><button type='button' class='collapsible'>script.js: adding logic for deleting letters</button>
 <div class='content' --start-code='console.log("keypress");
 
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -1054,7 +1054,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Select a Wordle answer at random from a list of potential words.</div>
 	</fieldset>
-<button type='button' class='collapsible active'>notes.md: Updating requirements</button>
+<button type='button' class='collapsible'>notes.md: Updating requirements</button>
 <div class='content' --start-code='# Functional Requirements
 
 ## Gameplay
@@ -1150,7 +1150,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_notes.html', 'region5')">Hard Mode: present or correct letters must be used in subsequent guesses</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>Search: how to select a random object from an array</button>
+</div><button type='button' class='collapsible'>Search: how to select a random object from an array</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=7509&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript, array</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -1175,7 +1175,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>script.js: Choosing a random correct answer for the puzzle</button>
+<button type='button' class='collapsible'>script.js: Choosing a random correct answer for the puzzle</button>
 <div class='content' --start-code='console.log("keypress");
 
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
@@ -1322,7 +1322,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region3')">// detect keypress (letter, backspace, enter, other)</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>Search: how to run a function on page load</button>
+</div><button type='button' class='collapsible'>Search: how to run a function on page load</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=8062&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>run function on page load</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -1346,7 +1346,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Change color of tile based on whether it is correct or present in solution word</div>
 	</fieldset>
-<button type='button' class='collapsible active'>notes.md: Update planning document</button>
+<button type='button' class='collapsible'>notes.md: Update planning document</button>
 <div class='content' --start-code='# Functional Requirements
 
 ## Gameplay
@@ -1466,7 +1466,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_notes.html', 'region3')">### Submit guess</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>Search: Get character from string based on a position</button>
+</div><button type='button' class='collapsible'>Search: Get character from string based on a position</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=8861&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript get character from string based on position</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -1478,7 +1478,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>Search: string includes substring</button>
+<button type='button' class='collapsible'>Search: string includes substring</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=9299&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript string contains</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -1487,7 +1487,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>search: javascript switch;</button>
+<button type='button' class='collapsible'>search: javascript switch;</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=9915&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript switch</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -1498,7 +1498,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>script.js: Handing the user pressing enter</button>
+<button type='button' class='collapsible'>script.js: Handing the user pressing enter</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -1659,7 +1659,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region4')">const submitGuess = () => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: Checking the user's guess</button>
+</div><button type='button' class='collapsible'>script.js: Checking the user's guess</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -1867,7 +1867,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region16')">const revealTile = (i, state) => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>guess.scss: Setting up colors that correspond to letters being correct, present, and absent </button>
+</div><button type='button' class='collapsible'>guess.scss: Setting up colors that correspond to letters being correct, present, and absent </button>
 <div class='content' --start-code='@use "../util" as *;
 
 .guess {
@@ -1925,7 +1925,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_guess.html', 'region6')">  .absent {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: Showing user feedback on their guess </button>
+</div><button type='button' class='collapsible'>script.js: Showing user feedback on their guess </button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -2171,7 +2171,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Animate the tile flipping over.</div>
 	</fieldset>
-<button type='button' class='collapsible active'>notes.md: Update notes</button>
+<button type='button' class='collapsible'>notes.md: Update notes</button>
 <div class='content' --start-code='# Functional Requirements
 
 ## Gameplay
@@ -2300,7 +2300,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_notes.html', 'region8')">When submitting guess:</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>search: flipping cards in css</button>
+</div><button type='button' class='collapsible'>search: flipping cards in css</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=11207&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>css flip</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -2320,7 +2320,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>animations.scss: Adding CSS classes for tile flipping</button>
+<button type='button' class='collapsible'>animations.scss: Adding CSS classes for tile flipping</button>
 <div class='content' --start-code='// 640px, 1150px, 1400px
 
  $breakpoints-up: (
@@ -2369,7 +2369,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_animations.html', 'region4')">.flip-out {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: Adding the tile flipping animation</button>
+</div><button type='button' class='collapsible'>script.js: Adding the tile flipping animation</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -2628,7 +2628,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>search: how to delay execution of a function in javascript</button>
+</div><button type='button' class='collapsible'>search: how to delay execution of a function in javascript</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=12252&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript delay</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -2646,7 +2646,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>search: css animation end state;</button>
+<button type='button' class='collapsible'>search: css animation end state;</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=12705&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>css animation end state</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -2655,7 +2655,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>animations.scss: set animations to keep final states rather than reverting back to starting states</button>
+<button type='button' class='collapsible'>animations.scss: set animations to keep final states rather than reverting back to starting states</button>
 <div class='content' --start-code='@keyframes flip-in {
   from {
     transform: rotateX(0deg);
@@ -2714,7 +2714,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_animations.html', 'region6')">  animation: jump 250ms;</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: make flip animations a little faster</button>
+</div><button type='button' class='collapsible'>script.js: make flip animations a little faster</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -2985,7 +2985,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>animations.scss: adjusting timing in css</button>
+</div><button type='button' class='collapsible'>animations.scss: adjusting timing in css</button>
 <div class='content' --start-code='@keyframes flip-in {
   from {
     transform: rotateX(0deg);
@@ -3046,7 +3046,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_animations.html', 'region4')">.flip-out {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: more timing adjustments in script</button>
+</div><button type='button' class='collapsible'>script.js: more timing adjustments in script</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -3317,7 +3317,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>guess.scss: adding tile border colors to CSS</button>
+</div><button type='button' class='collapsible'>guess.scss: adding tile border colors to CSS</button>
 <div class='content' --start-code='@use "../util" as *;
 
 .guess {
@@ -3400,7 +3400,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Clean up</div>
 	</fieldset>
-<button type='button' class='collapsible active'>script.js: show letters as users add and delete, reveal answer when user hits enter</button>
+<button type='button' class='collapsible'>script.js: show letters as users add and delete, reveal answer when user hits enter</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -3678,7 +3678,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>index.html: filling out index with all of the tiles needed for the gameboard</button>
+</div><button type='button' class='collapsible'>index.html: filling out index with all of the tiles needed for the gameboard</button>
 <div class='content' --start-code='<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -3788,7 +3788,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_index.html', 'region6')">      &ltdiv id=guess6 class=guess data-letters=&gt</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: update script based on index updates to the gameboard.</button>
+</div><button type='button' class='collapsible'>script.js: update script based on index updates to the gameboard.</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-zA-Z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -4078,7 +4078,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>guess.scss: adjusting spacing at the bottom</button>
+</div><button type='button' class='collapsible'>guess.scss: adjusting spacing at the bottom</button>
 <div class='content' --start-code='@use "../util" as *;
 
 .guess {
@@ -4166,7 +4166,7 @@ See related sections in code:<ul>
 		<legend>Sub-goal</legend>
 		<div>Add a win condition</div>
 	</fieldset>
-<button type='button' class='collapsible active'>script.js: detect whether or not the user has won</button>
+<button type='button' class='collapsible'>script.js: detect whether or not the user has won</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -4472,7 +4472,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region7')">const checkWin = () => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>search: javascript promises</button>
+</div><button type='button' class='collapsible'>search: javascript promises</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.youtube.com/watch?t=14312&v=PNGgQzw6PQg' target='_blank' rel='noreferrer noopener'>javascript promises</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -4507,7 +4507,7 @@ See related sections in code:<ul>
 </div>
 </div>
 
-<button type='button' class='collapsible active'>script.js: move logic for submitting a guess to submitGuess</button>
+<button type='button' class='collapsible'>script.js: move logic for submitting a guess to submitGuess</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -4847,7 +4847,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: check how many guesses user has made, remove unnecessary print statements</button>
+</div><button type='button' class='collapsible'>script.js: check how many guesses user has made, remove unnecessary print statements</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -5191,7 +5191,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region16')">const revealTile = (i, state) => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: final adjustments to the animations</button>
+</div><button type='button' class='collapsible'>script.js: final adjustments to the animations</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -5522,7 +5522,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region17')">const flipTile = (tileNum, state) => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>animations.scss: adding jump animation for the win condition in CSS</button>
+</div><button type='button' class='collapsible'>animations.scss: adding jump animation for the win condition in CSS</button>
 <div class='content' --start-code='@keyframes flip-in {
   from {
     transform: rotateX(0deg);
@@ -5604,7 +5604,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_animations.html', 'region6')">  animation: jump 250ms;</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: attempting to add jump animation in the script</button>
+</div><button type='button' class='collapsible'>script.js: attempting to add jump animation in the script</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -5951,7 +5951,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region7')">const checkWin = () => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: tiles jump a little more</button>
+</div><button type='button' class='collapsible'>script.js: tiles jump a little more</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;
@@ -6311,7 +6311,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_script.html', 'region6')">const jumpTiles = () => {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>animations.scss: refining jump animation in CSS</button>
+</div><button type='button' class='collapsible'>animations.scss: refining jump animation in CSS</button>
 <div class='content' --start-code='@use "../util" as *;
 
 @keyframes flip-in {
@@ -6410,7 +6410,7 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Wordle_animations.html', 'region5')">@keyframes jump {</li>
 </ul>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible active'>script.js: final clean up</button>
+</div><button type='button' class='collapsible'>script.js: final clean up</button>
 <div class='content' --start-code='console.log("keypress");
 const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
 let currentGuessCount = 1;

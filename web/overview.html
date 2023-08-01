@@ -21,6 +21,10 @@
   <div class="sticky-div">
     <button onclick="openTab('history')">History</button>
     <button onclick="openTab('code')">Code</button>
+    <div>
+      <input type="text" id="searchTerms"></input>
+      <button onclick="searchChangedCode()">Search</button>
+    </div>
   </div>
 
   <div id="history" class="tab">
@@ -34,7 +38,7 @@
   </div>
 
   <div id="code" class="tab">
-    <h2>script.js</h2>
+    <div class="code-spacer"></div>
     <div class="tabContent"  id="codeTab" include-html="test.html"></div>
     <!-- Add content for the code tab here -->
   </div>
@@ -44,6 +48,7 @@
   <script type="text/javascript" src="js/includehtml.js"></script>
   <script type="text/javascript" src="js/tab.js"></script>
   <script type="text/javascript" src="js/code_region_map.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
 
 
   <script>
@@ -76,11 +81,11 @@
       var coll = document.getElementsByClassName("collapsible");
       var i;
       
-      console.log("INITCOLLAPSIBLES: adding listeners....")
+      // console.log("INITCOLLAPSIBLES: adding listeners....")
       for (i = 0; i < coll.length; i++) {
-        console.log("adding listener to " + coll[i]);
+        // console.log("adding listener to " + coll[i]);
         coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
+          // this.classList.toggle("active");
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
             content.style.display = "none";
@@ -103,8 +108,6 @@
               });
 
               // these are the lines of code - we need to figure out what regions they represent
-              //  so it seems we need a record of the filename in here somewhere.
-              // console.log("addition is " + additions);
               regions={};
               var filename = content.getAttribute("--filename");
 
@@ -118,15 +121,7 @@
               console.log(regions);
               var listHtml = generateRegionLinks(filename, regions);
 
-              // this doesn't seem like it's always replacing the list contents. hmm.
-              // console.log("setting ul contents to " + listHtml);
-              // console.log(content);
-              // content.querySelector("ul").html = listHtml;
               $(content).find("ul").html(listHtml);
-
-
-              // this is the end of my random experimental section
-
 
               content.querySelector("p").innerHTML = diffHtml;
             }
@@ -143,23 +138,55 @@
     console.log("adding listener to " + histElems[i]);
     histElems.on("click", (event) => {
         openTab("history");
-        openChange(event.target.textContent, true); 
+        openChangeWithTitle(event.target.textContent, true); 
       });
 
   }
 
+  function highlightChange(content, open) {
+    if (!(content  instanceof jQuery)) {
+      content = $(content);
+    }
 
-  function openChange(title, open) {
+    var button = content.prev();
+    console.log("button is");
+    console.log(button);
+
+    if (open) {
+      button.addClass("result");
+    } else {
+      button.removeClass("result");
+    }
+  }
+
+  function openChangeWithTitle(title, open) {
     var history = $(".history");
     var button =  $("button.collapsible:contains('" + title + "')");
     var content = button.next();
-    
+    openChange($(content), open); 
+  }
+
+
+  function openChange(content, open) {
+
+    if (!(content  instanceof jQuery)) {
+      content = $(content);
+    }
+
     if (!open) {
       content.attr("style", "display:none");
     } else  {
       content.attr("style", "display:block");
 
-      var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),content.getAttribute("--filename"),content.getAttribute("--filename"),{context:10});
+      var startCode = content.attr("--start-code");
+      var endCode = content.attr("--end-code");
+      var fileName = content.attr("--filename");
+
+      console.log("Start " + startCode);
+      console.log("End " + endCode);
+      console.log("filename " + fileName);
+
+      var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode,fileName,fileName,{context:10});
       var addition = "";
       diff.split("\n").forEach(part => {
         if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {

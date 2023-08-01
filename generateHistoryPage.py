@@ -206,7 +206,7 @@ for clusterIdx in clusterDF.index:
         startingCode = startingCode.replace('\'', '"')
         endingCode = endingCode.replace('\'', '"')
 
-        html += "<button type='button' class='collapsible active'>" + clusterDF['fileName'][clusterIdx] + ": " + clusterDF['summary'][clusterIdx] + "</button>\n"
+        html += "<button type='button' class='collapsible'>" + clusterDF['fileName'][clusterIdx] + ": " + clusterDF['summary'][clusterIdx] + "</button>\n"
         html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "' --filename='" + clusterDF['fileName'][clusterIdx] + "'>\n"
 
         # I want something like this here.
@@ -242,7 +242,7 @@ for clusterIdx in clusterDF.index:
         endTime = clusterDF.iloc[clusterIdx]['endTime']
         [searchSummary, newHtml] = get_search_entries(startTime, endTime)
 
-        html += "<button type='button' class='collapsible active'>" +  clusterDF['summary'][clusterIdx] + "</button>\n"
+        html += "<button type='button' class='collapsible'>" +  clusterDF['summary'][clusterIdx] + "</button>\n"
         html += newHtml + "\n"
 
 
