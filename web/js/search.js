@@ -3,6 +3,7 @@ function searchCode() {
     var searchTerm = $('#searchTerms').val();
     var codeContent = $('.content');
 
+
     if (searchTerm) {
 
         codeContent.each( function() {
@@ -28,8 +29,10 @@ function searchCode() {
 function searchChangedCode() {
 
     var searchTerm = $('#searchTerms').val();
-
     var codeContent = $('.content');
+    var button = codeContent.prev();
+
+    // console.log(button);
 
     // if we have valid value for search term
     if (searchTerm) {
@@ -65,10 +68,28 @@ function searchChangedCode() {
                     // openChange($(this)[0], false);
                     highlightChange(this, false);
                 }
+            } else {
+                //  if it's a change without code changes or a search then we want to unhighlight.
+                highlightChange(this, false);
             }
         });
 
+        button.each( function () {
+            var buttonText = $(this).html();
+            // console.log(searchTerm + " in " + buttonText + " " +  buttonText.includes(searchTerm));
+
+            if (buttonText.includes(searchTerm)) {
+                // console.log(searchTerm + " in " + buttonText);
+                highlightChange($(this).next(), true);
+                if(!firstResult) {
+                    firstResult = this;
+                }
+            }
+        })
+
         scrollToElement($(firstResult).prev());
+
+
     } else {
         var codeContent = $('.content');
         codeContent.each( function() {

@@ -90,13 +90,9 @@
             openChange(content, false);
           } else {
             openChange(content, true);
-
              // look for searches
              highlightCode(content);
-
           }
-
-         
         });
       }
     }
@@ -128,6 +124,14 @@
     }
   }
 
+  function closeAll() {
+    var codeContent = $('.content');
+
+    codeContent.each( function () {
+      openChange(this, false);
+    });
+  }
+
   function openChangeWithTitle(title, open) {
     var history = $(".history");
     var button =  $("button.collapsible:contains('" + title + "')");
@@ -148,7 +152,7 @@
       content.attr("style", "display:block");
 
       // if this is a code content panel, we need to update the display
-      if (content.attr("--start-code")) {
+      if (content.attr("--filename")) {
 
         var startCode = content.attr("--start-code");
         var endCode = content.attr("--end-code");

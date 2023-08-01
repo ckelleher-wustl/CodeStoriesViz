@@ -47,19 +47,21 @@ function openSubgoal(subgoalText) {
 }
 
 function scrollToElement(element) {
-  if (!(element  instanceof jQuery)) {
-    element = $(element);
+  if (element) {
+    if (!(element  instanceof jQuery)) {
+      element = $(element);
+    }
+    
+    const offsetTop = element.offset().top;
+    const screenHeight = $(window).height();
+    const scrollToY = offsetTop - (screenHeight / 2) + (element.outerHeight() / 2);
+
+    // console.log("scrollToY" + offsetTop + " " + screenHeight + " " + scrollToY);
+
+    $("html, body").animate({
+      scrollTop: scrollToY
+    }, 800); // You can adjust the duration (in milliseconds) for the scrolling animation
   }
-  
-  const offsetTop = element.offset().top;
-  const screenHeight = $(window).height();
-  const scrollToY = offsetTop - (screenHeight / 2) + (element.outerHeight() / 2);
-
-  // console.log("scrollToY" + offsetTop + " " + screenHeight + " " + scrollToY);
-
-  $("html, body").animate({
-    scrollTop: scrollToY
-  }, 800); // You can adjust the duration (in milliseconds) for the scrolling animation
 }
 
 function scrollToID(elementID) {
