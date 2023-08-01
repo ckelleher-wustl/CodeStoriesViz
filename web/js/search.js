@@ -57,9 +57,6 @@ function searchChangedCode() {
                 }
 
                 if (open) {
-                    // openContent(this, true);
-                    // $( "#foo" )[ 0 ];
-                    // openChange($(this)[0], true);
                     highlightChange(this, true);
                     if (!firstResult) {
                         firstResult = this;
@@ -71,8 +68,6 @@ function searchChangedCode() {
             }
         });
 
-        console.log("firstResult " );
-        console.log(firstResult + " " + $(firstResult).prev());
         scrollToElement($(firstResult).prev());
     } else {
         var codeContent = $('.content');
@@ -143,5 +138,32 @@ function searchBetweenCode() {
             } 
 
         });
+    }
+}
+
+function highlightCode(content) {
+
+    if (!(content  instanceof jQuery)) {
+        content = $(content);
+    }
+
+    var searchTerm = $('#searchTerms').val();
+    
+    //  if we have a current search term, highlight code matching it
+    if (searchTerm) {
+
+        const lines = $("span:contains('" + searchTerm + "')");
+
+        // console.log("Matching lines ");
+        // console.log(lines);
+
+        lines.each(function() {
+            var line = $(this).html(); 
+            line = line.replaceAll(searchTerm, "<span class='highlight'>" + searchTerm + "</span>");
+            $(this).html(line);
+        });
+
+
+
     }
 }

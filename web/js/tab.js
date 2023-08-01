@@ -50,15 +50,12 @@ function scrollToElement(element) {
   if (!(element  instanceof jQuery)) {
     element = $(element);
   }
-
-  console.log(element);
-  console.log(element.offset());
   
   const offsetTop = element.offset().top;
   const screenHeight = $(window).height();
   const scrollToY = offsetTop - (screenHeight / 2) + (element.outerHeight() / 2);
 
-  console.log("scrollToY" + offsetTop + " " + screenHeight + " " + scrollToY);
+  // console.log("scrollToY" + offsetTop + " " + screenHeight + " " + scrollToY);
 
   $("html, body").animate({
     scrollTop: scrollToY
@@ -72,14 +69,6 @@ function scrollToID(elementID) {
   if (!element.length) return; // If the element doesn't exist, exit the function
 
   scrollToElement(element);
-
-  // const offsetTop = element.offset().top;
-  // const screenHeight = $(window).height();
-  // const scrollToY = offsetTop - (screenHeight / 2) + (element.outerHeight() / 2);
-
-  // $("html, body").animate({
-  //   scrollTop: scrollToY
-  // }, 800); // You can adjust the duration (in milliseconds) for the scrolling animation
 }
 
 function highlightElement(element) {

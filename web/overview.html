@@ -21,10 +21,12 @@
   <div class="sticky-div">
     <button onclick="openTab('history')">History</button>
     <button onclick="openTab('code')">Code</button>
-    <div>
+  </div>
+
+  <div class="sticky2-div">
       <input type="text" id="searchTerms"></input>
       <button onclick="searchChangedCode()">Search</button>
-    </div>
+      <button onclick="closeAll()">Close All</button>
   </div>
 
   <div id="history" class="tab">
@@ -69,10 +71,9 @@
       for (var regionID in regions) {
         var lineID = regions[regionID];
         lineID = lineID.replaceAll("<", "&lt").replaceAll(">", "&gt");
-        console.log(regionID + " " + lineID);
+        // console.log(regionID + " " + lineID);
         html += "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
       }
-      // console.log(html);
       return html;
     }
 
@@ -81,51 +82,21 @@
       var coll = document.getElementsByClassName("collapsible");
       var i;
       
-      // console.log("INITCOLLAPSIBLES: adding listeners....")
+      // add the event listeners for the collapsibles.
       for (i = 0; i < coll.length; i++) {
-        // console.log("adding listener to " + coll[i]);
         coll[i].addEventListener("click", function() {
-          // this.classList.toggle("active");
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
-            content.style.display = "none";
+            openChange(content, false);
           } else {
-            content.style.display = "block";
+            openChange(content, true);
 
-            if (content.hasAttribute("--start-code")) {
-      
-              var diff = Diff.createTwoFilesPatch("begin", "end", content.getAttribute("--start-code"), content.getAttribute("--end-code"),content.getAttribute("--filename"),content.getAttribute("--filename"),{context:10});
-        
-              var additions = [];
-              diff.split("\n").forEach(part => {
-                if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 8) ) {
-                  additions.push(part.substring(1).trim());
-                }
-              })
-              var diffHtml = Diff2Html.html(diff, {
-                  drawFileList: false,
-                  outputFormat: 'side-by-side',
-              });
+             // look for searches
+             highlightCode(content);
 
-              // these are the lines of code - we need to figure out what regions they represent
-              regions={};
-              var filename = content.getAttribute("--filename");
-
-              for (var line in additions) {
-                var regionInfo = getRegionForLine( filename, additions[line] );
-                if (regionInfo) {
-                  regions[regionInfo["regionID"]] = regionInfo["lineID"];
-                }
-              }
-              console.log("regions: ");
-              console.log(regions);
-              var listHtml = generateRegionLinks(filename, regions);
-
-              $(content).find("ul").html(listHtml);
-
-              content.querySelector("p").innerHTML = diffHtml;
-            }
           }
+
+         
         });
       }
     }
@@ -149,9 +120,7 @@
     }
 
     var button = content.prev();
-    console.log("button is");
-    console.log(button);
-
+    
     if (open) {
       button.addClass("result");
     } else {
@@ -178,36 +147,44 @@
     } else  {
       content.attr("style", "display:block");
 
-      var startCode = content.attr("--start-code");
-      var endCode = content.attr("--end-code");
-      var fileName = content.attr("--filename");
+      // if this is a code content panel, we need to update the display
+      if (content.attr("--start-code")) {
 
-      console.log("Start " + startCode);
-      console.log("End " + endCode);
-      console.log("filename " + fileName);
+        var startCode = content.attr("--start-code");
+        var endCode = content.attr("--end-code");
+        var fileName = content.attr("--filename");
 
-      var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode,fileName,fileName,{context:10});
-      var addition = "";
-      diff.split("\n").forEach(part => {
-        if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 3) && (addition == "")) {
-          addition = part
+        var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode,fileName,fileName,{context:10});
+
+
+        var additions = [];
+        diff.split("\n").forEach(part => {
+          if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 8) ) {
+            additions.push(part.substring(1).trim());
+          }
+        })
+
+        var diffHtml = Diff2Html.html(diff, {
+            drawFileList: false,
+            //matching: 'words',
+            outputFormat: 'side-by-side',
+        });
+        $(content).find('p:first').html(diffHtml);
+
+        regions={};
+
+        for (var line in additions) {
+          var regionInfo = getRegionForLine( fileName, additions[line] );
+          if (regionInfo) {
+            regions[regionInfo["regionID"]] = regionInfo["lineID"];
+          }
         }
-      })
-      // this.textContent = addition
-      var diffHtml = Diff2Html.html(diff, {
-          drawFileList: false,
-          //matching: 'words',
-          outputFormat: 'side-by-side',
-      });
-      $(content).find('p:first').html(diffHtml);
 
-      // try to scroll this content pane so that it's visible.
-      var offset = content.offset().top - $(window).scrollTop();
+        var listHtml = generateRegionLinks(fileName, regions);
 
-      if(offset > window.innerHeight){
-          // Not in view so scroll to it
-          $('html,body').animate({scrollTop: offset}, 1000);
-      }  
+        $(content).find("ul").html(listHtml);
+      }
+ 
     }
   }
 
