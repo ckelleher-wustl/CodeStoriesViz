@@ -23,7 +23,8 @@ function openTab(tabName) {
       if (link) {
           const url = link.getAttribute("data-url");
           var contentContainer = $("#contentContainer");
-          loadContent(url, contentContainer, null, null);
+          console.log("open tab")
+          loadContent(url, contentContainer, highlightFinalCode, null);
       }
   });
 
@@ -100,7 +101,12 @@ function loadContent(url, container, callback, arg) {
       }
 
       if (callback!=null) {
-        callback(arg);
+        if (arg != null) {
+          callback(arg);
+        } else {
+          console.log("calling callback ")
+          callback();
+        }
       }
     })
     .catch((error) => {

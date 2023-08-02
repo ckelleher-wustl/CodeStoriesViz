@@ -1,4 +1,4 @@
-.collapsible {
+  .collapsible {
     background-color: #777;
     color: white;
     cursor: pointer;
@@ -197,6 +197,11 @@
 
 
   /* tab items for use in code view */
+  li {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+
   .tab-list {
     list-style-type: none;
     margin: 0;
@@ -207,8 +212,6 @@
   
   .tab-item {
     padding: 10px 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
     cursor: pointer;
     margin-right: 2px;
   }

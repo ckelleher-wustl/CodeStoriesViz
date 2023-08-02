@@ -24,21 +24,23 @@ def generatePage():
         fileRoot = filename.split('.')[0]
         data_url = "code_Wordle_" + fileRoot + ".html"
 
-        html += "\t\t<li class='tab-item'><a href='#' data-url='" + data_url + "' code='" + codeMap[filename] + "'>" + filename + "</a></li>\n"
+        html += "\t\t<li class='tab-item' code='" + codeMap[filename] + "'><a href='#' data-url='" + data_url + "'>" + filename + "</a></li>\n"
 
     html += "\t</ul>\n"
     html += "\t<input type='text' id='codeSearchTerms'></input>\n"
-    html += "\t<button onclick='searchChangedCode()'>Search</button>\n"
+    html += "\t<button onclick='searchFinalCode()'>Search</button>\n"
     html += "</div>"
 
     html += "<div id='contentContainer'>\n"
     html += "\t<!-- Content will be dynamically loaded here -->\n"
     html += "</div>"
-
     
-    print("\n\n")
-    print(html)
+    return html
 
 
 loadCode()
-generatePage()
+html = generatePage()
+
+text_file = open("web/test.html", "w")
+n = text_file.write(html)
+text_file.close()

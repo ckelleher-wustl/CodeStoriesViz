@@ -26,6 +26,46 @@ function searchCode() {
     searchBetweenCode();
 }
 
+function searchFinalCode() {
+    var searchTerm = $('#codeSearchTerms').val();
+    console.log("searching final code for " + searchTerm);
+
+    $('.tab-item').each( function() {
+        var filename = this.textContent;
+        var code = this.getAttribute("code");
+
+        if ((searchTerm) && code.includes(searchTerm)) {
+            console.log(searchTerm + "found in " + filename + ": " + code.substring(0, 15));
+            $(this).addClass("highlight");
+        } else {
+            $(this).removeClass("highlight");
+        }
+    })
+
+    highlightFinalCode(); 
+}
+
+function highlightFinalCode() {
+    // console.log("highlightFinalCode");
+  
+    var searchTerm = $('#codeSearchTerms').val();
+    // get all of the code elements
+    $('.code').each(function () {
+        var code = this.innerHTML;
+        // remove any previously highlighted code 
+        code = code.replaceAll('<span class="highlight">', ""); 
+        code = code.replaceAll("</span>", "");
+
+        if ((searchTerm) && code.includes(searchTerm)) {
+            // console.log("RELEVANT " + code);
+            code = code.replaceAll(searchTerm, "<span class='highlight'>" + searchTerm + "</span>");
+        }
+
+        this.innerHTML = code;
+        // console.log(code);
+    })
+  }
+
 function searchChangedCode() {
 
     var searchTerm = $('#searchTerms').val();
@@ -183,8 +223,5 @@ function highlightCode(content) {
             line = line.replaceAll(searchTerm, "<span class='highlight'>" + searchTerm + "</span>");
             $(this).html(line);
         });
-
-
-
     }
 }
