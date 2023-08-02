@@ -55,15 +55,17 @@
 
   <script>
     
-    // currently trying to figure out how to not have to call the inits anymore.
+    // this loads the history and code views
     $(document).ready(function(){
       var htmlToLoad = $(".tabContent")
       console.log(htmlToLoad)
       htmlToLoad.each(function( index ) {
         var url =  $( this ).attr("include-html") ;
-        loadContent(url, $(this), null, null)
+        // loadContent(url, $(this), setCodeFile, null)
+        loadContent(url, $(this), null, null);
       });
     });
+
 
     function generateRegionLinks(file, regions) {
 
@@ -102,7 +104,7 @@
     var histElems = $(".history");
     var i;
 
-    console.log("adding listener to " + histElems[i]);
+    // console.log("adding listener to " + histElems[i]);
     histElems.on("click", (event) => {
         openTab("history");
         openChangeWithTitle(event.target.textContent, true); 

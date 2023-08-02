@@ -1,15 +1,436 @@
-<div class="sticky2-div">
-<ul id="linkList" class="tab-list" >
-    <li class="tab-item"><a href="#" data-url="code_Wordle_script.html">script.js</a></li>
-    <li class="tab-item"><a href="#" data-url="code_Wordle_animations.html">animations.scss</a></li>
-    <li class="tab-item"><a href="#" data-url="code_Wordle_index.html">index.html</a></li>
-    <li class="tab-item"><a href="#" data-url="code_Wordle_guess.html">guess.scss</a></li>
-    <li class="tab-item"><a href="#" data-url="code_Wordle_boilerplate.html">boilerplate.scss</a></li>
-    <li class="tab-item"><a href="#" data-url="code_Wordle_notes.html">notes.md</a></li>
-    <!-- Add more links as needed -->
-</ul>
+<!-- <div class="sticky2-div">
+    <ul id="linkList" class="tab-list" >
+        <li class="tab-item"><a href="#" data-url="code_Wordle_script.html">script.js</a></li>
+        <li class="tab-item"><a href="#" data-url="code_Wordle_animations.html">animations.scss</a></li>
+        <li class="tab-item"><a href="#" data-url="code_Wordle_index.html">index.html</a></li>
+        <li class="tab-item"><a href="#" data-url="code_Wordle_guess.html">guess.scss</a></li>
+        <li class="tab-item"><a href="#" data-url="code_Wordle_boilerplate.html">boilerplate.scss</a></li>
+        <li class="tab-item"><a href="#" data-url="code_Wordle_notes.html">notes.md</a></li>
+        
+    </ul>
+    <input type="text" id="codeSearchTerms"></input>
+    <button onclick="searchChangedCode()">Search</button>
 </div>
 
 <div id="contentContainer">
-<!-- Content will be dynamically loaded here -->
+
+</div> -->
+
+
+<div class='sticky2-div'>
+    <ul id='linkList' class='tab-list'>
+            <li class='tab-item'><a href='#' data-url='code_Wordle_script.html' code='console.log("keypress");
+const LettersPattern = /[a-z]/ // /^[A-Za-z][A-Za-z0-9]*$/;
+let currentGuessCount = 1;
+let currentGuess = document.querySelector("#guess" + currentGuess);
+const words = ["apple", "baker", "store", "horse", "speak", "clone", "bread"];
+let solutionWord = "";
+
+const chooseWord = () => {
+// choose random item from words array
+let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
+let solutionWord = words[randomItem];
+};
+
+chooseWord();
+console.log("solution word = " + solutionWord);
+
+// detect keypress (letter, backspace, enter, other)
+document.addEventListener("keydown", (e) => {
+//console.log("keypress: " + e.key);
+let keypress = e.key;
+if (
+keypress.length == 1 &&
+lettersPattern.test(e.key) &&
+currentGuess.dataset.letters.length < 5
+) {
+//console.log("is letter")
+updateLetters(keypress);
+} else if(e.key == "Backspace" && currentGuess.dataset.letters != ""){
+//console.log("is backspace");
+deleteFromLetters();
+} else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
+submitGuess();
+}
+});
+
+const submitGuess = () => {
+//console.log("submit guess");
+for (let i = 0; i < 5; i ++) {
+//console.log("currentGuessCount = " + currentGuessCount + " loop " + i);
+setTimeOut(() => {
+  revealTile(i, checkLetter(i));
+}, i * 200);
+}
+};
+
+const checkIfGuessComplete = (i) => {
+if (i == 4){
+  //console.log("guess complete, check win");
+  checkWin();
+} else {
+  //console.log("guess not complete");
+}
+}
+
+const jumpTiles = () => {
+console.log("jumpTiles");
+console.log(currentGuessCount);
+for (let i = 0; i < 5; i++) {
+setTimeout(() => {
+   let currentTile = document.querySelector(
+     "#guess" +currentGuessCount + "Tile" + (i + 1)
+   );
+   currentTile.classList.add("jump");
+}, i * 200);
+}
+}
+
+const checkWin = () => {
+console.log("check win");
+if (solutionWord == currentGuess.dataset.letters){
+// Win
+console.log("game is won!");
+jumpTiles();
+} else {
+// Not won
+currentGuessCount = currentGuessCount + 1;
+currentGuess = document.querySelector("#guess" + currentGuessCount);
+console.log("not a win, increment guess count to " + currentGuessCount);
+}
+};
+
+// Update "letters"
+const updateLetters = (letter) => {
+let oldLetters = currentGuess.dataset.letters
+let newLetters = oldLetters + letter;
+let currentTile = newLetters.length;
+currentGuess.dataset.letters = newLetters;
+//console.log("currentTile = " + currentTile);
+updateTiles(currentTile, letter);
+};
+
+// Update tile markup
+const updateTiles = (tileNumber, letter) => {
+//console.log("updateTiles(" + tileNumber, letter + ")");
+let currentTile = document.querySelector(
+"#guess" + currentGuessCount + "Tile" + tileNumber
+);
+currentTile.innerText = letter;
+currentTile.classList.add("has-letter");
+};
+
+// Backspace -- Delete last letter
+const deleteFromLetters = () => {
+// remove last letter from data-letters
+let oldLetters = document.querySelector("#currentGuess.dataset.letters");
+console.log("oldLetters = " + oldLetters);
+let newLetters = oldLetters.slice(0, -1);
+console.log("newLetters = " + newLetters);
+currentGuess.dataset.letters = newLetters;
+deleteFromTiles(oldLetters.length + 1);
+};
+
+// Backspace -- Delete last tile markup
+const deleteFromTiles = () => {
+//remove markup from last tile
+//console.log("deleteFromTiles = " + tileNumber);
+let currentTile = document.querySelector(
+"#guess" + currentGuessCount + "Tile" + tileNumber
+);
+currentTile.innerText = "";
+curentTile.classList.remove("has-letter");
+};
+
+// Check letter to solution
+// parameter = letter position in word
+const checkLetter = (position) => {
+//console.log("checkLetter");
+let guessedLetter = curentGuess.dataset.letters.charAt(position);
+let solutionLetter = solutionWord.charAt(position);
+//console.log(guessedLetter, solutionLetter);
+
+// If letters match, return "correct"
+if(guessedLetter == solutionLetter){
+return "correct";
+}
+// If not a match, if letter exists in solution word, return "present"
+else {
+return checkLetterExists(guessedLetter) ? "present" : "absent";
+}
+
+// If not a match, if letter doesn"t exist in solution, return "absent"
+};
+
+const checkLetterExists = (letter) => {
+return solutionWord.includes(letter);
+};
+
+const revealTile = (i, state) => {
+//console.log("revealTile = " + i, state);
+let tileNum = i + 1;
+flipTile(tileNum, state);
+checkIfGuessComplete(i);
+};
+
+const flipTile = (tileNum, state) => {
+let tile = document.querySelector(
+"#guess" + currentGuessCount + "Tile" + tileNumber
+);
+tile.classList.add("flip-in");
+setTimeout(() => {
+tile.classList.add(state);
+}, 250);
+setTimeout(() => {
+tile.classList.remove("flip-in");
+tile.classList.add("flip-out");
+}, 250);
+setTimeOut(() => {
+tile.classList.remove("flip-out");
+}, 250);
+};
+
+/*
+- if keypress is a letter
+- update "letters" attribute
+- update tile markup based on "letters" value
+- if keypress is backspace
+- update tile markup based on "letters"
+*/'>script.js</a></li>
+            <li class='tab-item'><a href='#' data-url='code_Wordle_animations.html' code='@use "functions" as *;
+
+@keyframes flip-in {
+from {
+transform: rotateX(0deg);
+}
+to {
+transform: rotateX(-90deg);
+}
+}
+
+@keyframes flip-out {
+from {
+transform: rotateX(-90deg);
+}
+to {
+transform: rotateX(0deg);
+}
+}
+
+.flip-in {
+animation: flip-in 250ms;
+animation-fill-mode: forwards;
+}
+
+.flip-out {
+animation: flip-out 250ms;
+animation-fill-mode: forwards;
+}
+
+@keyframes jump {
+0% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(rem(-10));
+}
+100% {
+transform: translateY(0);
+}
+}
+
+.jump {
+animation: jump 250ms;
+animation-fill-mode: forwards;
+}
+'>animations.scss</a></li>
+            <li class='tab-item'><a href='#' data-url='code_Wordle_index.html' code='<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="/dist/style.csvv" />
+<script defer src="/dist/script.js"></script>
+</head>
+<body>
+
+
+<h1>Wordle Clone</h1>
+<section class="game">
+  <div id="guess1" class="guess" data-letters="">
+    <div class="guess__tile" id="guess1Tile1"></div>
+    <div class="guess__tile" id="guess1Tile2"></div>
+    <div class="guess__tile" id="guess1Tile3"></div>
+    <div class="guess__tile" id="guess1Tile4"></div>
+    <div class="guess__tile" id="guess1Tile5"></div>
+  </div>
+
+  <div id="guess2" class="guess" data-letters="">
+    <div class="guess__tile" id="guess2Tile1"></div>
+    <div class="guess__tile" id="guess2Tile2"></div>
+    <div class="guess__tile" id="guess2Tile3"></div>
+    <div class="guess__tile" id="guess2Tile4"></div>
+    <div class="guess__tile" id="guess2Tile5"></div>
+  </div>
+
+  <div id="guess3" class="guess" data-letters="">
+    <div class="guess__tile" id="guess3Tile1"></div>
+    <div class="guess__tile" id="guess3Tile2"></div>
+    <div class="guess__tile" id="guess3Tile3"></div>
+    <div class="guess__tile" id="guess3Tile4"></div>
+    <div class="guess__tile" id="guess3Tile5"></div>
+  </div>
+
+  <div id="guess4" class="guess" data-letters="">
+    <div class="guess__tile" id="guess4Tile1"></div>
+    <div class="guess__tile" id="guess4Tile2"></div>
+    <div class="guess__tile" id="guess4Tile3"></div>
+    <div class="guess__tile" id="guess4Tile4"></div>
+    <div class="guess__tile" id="guess4Tile5"></div>
+  </div>
+
+  <div id="guess5" class="guess" data-letters="">
+    <div class="guess__tile" id="guess5Tile1"></div>
+    <div class="guess__tile" id="guess5Tile2"></div>
+    <div class="guess__tile" id="guess5Tile3"></div>
+    <div class="guess__tile" id="guess5Tile4"></div>
+    <div class="guess__tile" id="guess5Tile5"></div>
+  </div>
+
+  <div id="guess6" class="guess" data-letters="">
+    <div class="guess__tile" id="guess6Tile1"></div>
+    <div class="guess__tile" id="guess6Tile2"></div>
+    <div class="guess__tile" id="guess6Tile3"></div>
+    <div class="guess__tile" id="guess6Tile4"></div>
+    <div class="guess__tile" id="guess6Tile5"></div>
+  </div>
+</section>
+
+</body>
+</html>
+'>index.html</a></li>
+            <li class='tab-item'><a href='#' data-url='code_Wordle_guess.html' code='@use "../util" as *;
+
+.guess {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: rem(3);
+width: rem(300);
+margin-bottom: rem(10);
+
+&__tile {
+border: rem(2) solid hsl(0, 0%, 26%);
+width: rem(52);
+height: rem(52);
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: rem(32);
+font-weight: 600;
+}
+
+.has-letter {
+border-color: hsl(0, 0%, 40%);
+}
+
+.correct {
+.background-color : hsl(120, 100%, 28%);
+.border-color : hsl(120, 100%, 28%);
+}
+
+.present {
+.background-color : hsl(49, 69%, 47%);
+.border-color : hsl(49, 69%, 47%);
+}
+
+.absent {
+.background-color : hsl(0, 0%, 35%);
+.border-color : hsl(0, 0%, 35%);
+}
+}'>guess.scss</a></li>
+            <li class='tab-item'><a href='#' data-url='code_Wordle_boilerplate.html' code='@use "../util" as *;
+
+html {
+font-size: 100%;
+font-family: var(--font-body);
+box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+
+body {
+margin: 0;
+padding: 1rem 2rem;
+background-color: hsl(240, 3%, 7%);
+color: hsl(0, 0%, 100%);
+display: flex;
+justify-content: center;
+text-transform: uppercase;
+font-weight: 600;
+}'>boilerplate.scss</a></li>
+            <li class='tab-item'><a href='#' data-url='code_Wordle_notes.html' code='# Functional Requirements
+## Gameplay
+6 tries to guess a 5-letter word
+
+### Pick a solution word
+x Store solution words in array
+x When game is loaded, choose random item from array
+x Set solution to that word
+
+### Making a guess
+Detect keypresses
+x if keypress is a letter
+x update "letters" attribute
+x update tile markup based on "letters" value
+x if keypress is backspace
+x delete last letter in "letters"
+x update tile markup based on "letters"
+x Don"t run update functions if "letters" length = 4;
+
+### Submit guess
+x Pressing Enter will submit guess
+x compare each letter with the corresponding letter in solution word
+x update the state/color of the letter
+- If all letters are "correct" / green, game is won
+
+Guesses must be a real word, "in word list"
+Guess colors (data-state):
+- gray: "absent," letter not in word
+- yellow: "present," letter in word, but in wrong position
+- green: "correct," letter in word and in right position
+
+Hard Mode: present or correct letters must be used in subsequent guesses
+Guesses are saved in Local Storage
+
+## Design
+Tiles 5x6
+Virtual keyboard
+
+## Interactions
+When typing a letter:
+- border of the tile changes to light gray
+- blinking in animation with letter
+- backspace will remove letter, border changes back to dark gray
+
+When submitting guess:
+- Tiles will flip up and background color will change based on guess
+- Slight delay between each tile flipping
+- Background color changes when tile is flat, i.e. can"t see it
+'>notes.md</a></li>
+    </ul>
+    <input type='text' id='codeSearchTerms'></input>
+    <button onclick='searchChangedCode()'>Search</button>
+</div><div id='contentContainer'>
+    <!-- Content will be dynamically loaded here -->
 </div>

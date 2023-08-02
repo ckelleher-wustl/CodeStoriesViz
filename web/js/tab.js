@@ -95,17 +95,11 @@ function loadContent(url, container, callback, arg) {
       if (container.attr("id") == "historyTab"){
         initCollapsibles();
         loadCodeRegionMaps();
-        // var mapFilenames = ['script.jsLineMap.csv', 'animations.scssLineMap.csv', 'index.htmlLineMap.csv', 'guess.scssLineMap.csv', 'notes.mdLineMap.csv', 'boilerplate.scssLineMap.csv']
-        // for (var filename in mapFilenames) {
-        //   loadCodeRegionMaps(mapFilenames[filename]);
-        // }
-        // loadCodeRegionMaps('animations.scssLineMap.csv');
-        // loadCodeRegionMaps('script.jsLineMap.csv');
       } else if (container.attr("id") == "contentContainer") {
         initHistory();
       }
 
-      if (callback!= null) {
+      if (callback!=null) {
         callback(arg);
       }
     })
