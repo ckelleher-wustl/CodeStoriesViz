@@ -183,10 +183,13 @@ def getRegionsForActivities(filename, activity):
 
 # import the search and code clusters
 
-clusterDF = pd.read_csv('web/data/wordleStoryOverview.csv')
+clusterDF = pd.read_csv('web/data/mosaicStoryOverview.csv')
 clusterDF.set_axis(['goalType','clusterType','startTime','endTime','fileName','summary'], axis=1, inplace=True)
 print(clusterDF)
 html = ""
+
+# when setting up the initial file, it's helpful to turn this off.
+includeRegionLinks = False
 
 loadActivityDataFrames()
 
@@ -217,20 +220,24 @@ for clusterIdx in clusterDF.index:
         # </ul>
         # activityTarget = "Change background color of game board to match Wordle"
         # results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
-        results = getRegionsForActivities(clusterDF['fileName'][clusterIdx] + ".csv", clusterDF['summary'][clusterIdx])
 
-        html+= "See related sections in code:"
-        html += "<ul>\n"
-        for index, row in results.iterrows():
-            lineID = row['lineID']
+        if (includeRegionLinks):
+            print(f"adding region links {includeRegionLinks}")
+            results = getRegionsForActivities(clusterDF['fileName'][clusterIdx] + ".csv", clusterDF['summary'][clusterIdx])
 
-            if (clusterDF['fileName'][clusterIdx].endswith("html")):
-                lineID = lineID.replace("<", "&lt").replace(">", "&gt")
-            regionID = row['regionID']
-            # print(f"Line ID: {lineID}, Region ID: {regionID}")
-            file = clusterDF['fileName'][clusterIdx].split(".")[0]
-            html +=  "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
-        html += "</ul>\n"
+            html+= "See related sections in code:"
+            html += "<ul>\n"
+            for index, row in results.iterrows():
+                lineID = row['lineID']
+
+                if (clusterDF['fileName'][clusterIdx].endswith("html")):
+                    lineID = lineID.replace("<", "&lt").replace(">", "&gt")
+                regionID = row['regionID']
+                # print(f"Line ID: {lineID}, Region ID: {regionID}")
+                file = clusterDF['fileName'][clusterIdx].split(".")[0]
+                html +=  "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+            html += "</ul>\n"
+            
 
 
         html += "<p> code content will go here</p>\n"
@@ -268,7 +275,7 @@ for clusterIdx in clusterDF.index:
 
 # print(f"HTML:\n{len(html)}")
 
-text_file = open("web/clusters_WordleNew.html", "w")
+text_file = open("web/clusters_MosaicNew.html", "w")
 n = text_file.write(html)
 text_file.close()
 
@@ -278,8 +285,8 @@ text_file.close()
 # to do that, I first need to generate the csvs for the other code files.
 
 
-activityTarget = "Change background color of game board to match Wordle"
-results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
+# activityTarget = "Change background color of game board to match Wordle"
+# results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
 
 # for index, row in results.iterrows():
 #     lineID = row['lineID']

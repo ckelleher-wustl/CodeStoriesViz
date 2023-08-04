@@ -113,13 +113,9 @@ class CodeEntries:
                     # print(f"codeEntry['notes']_{codeEntry['notes']}")
         
                     filename = self.getFilename(codeEntry["notes"])
-                    # pastFilename = self.getFilename(pastEvent["notes"])
-                    # print( f"filenames past: {pastFilename} curr: {filename}")
 
-                    # webData should not be considered a code filename
-                    # and (filename == pastFilename)?
                     if ((filename != "webData") ):
-                        # print(f"sending {pastEvent['time']}-{codeEntry['time']}")
+                        # print(f"sending {pastEvent['time']}-{codeEntry['time']} {codeEntry['notes']}\n")
                         self.match_lines(self.getFilename(codeEntry["notes"]), pastEvent, codeEntry)
                 
                 pastEvent = codeEntry
@@ -131,6 +127,7 @@ class CodeEntries:
     def match_lines(self, filename, pastEvt, currEvt):
 
         debug = False
+        MAX_NEW_LINES = 3
 
         # break current and past code into lines
         pastLines = self.get_code_lines(pastEvt['code_text'])
@@ -159,12 +156,12 @@ class CodeEntries:
         newLines = []
         perfectMatches = []
 
-        
 
         # iterate through the current lines
         for currentLine in currentLines:
             currentLine = currentLine.strip() # remove whitespace before looking at line contents
             if len(currentLine) > 1:
+                # print(f"{currentLine} {pastLines}")
                 bestMatch = self.best_match(currentLine, pastLines)
                 if ( int(bestMatch['ratio']) >= 90 and int(bestMatch['ratio']) < 100 ):
                     partialMatches += 1
@@ -200,35 +197,45 @@ class CodeEntries:
                     print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: not in cluster {pastFilename} != {currFilename}")
 
 
-        # if (pastFilename == currFilename):
+    
             # continue existing clusters only....
             # no changes made, don't start a cluster, but continue if there's an existing one.
         if ( (partialMatches == 0) and (len(perfectMatches) > 0) and (len(newLines) == 0) and (len(currentLines) == len(pastLines) ) ):
+            if (debug):
+                print("\tcontinue cluster")
             if self.inCluster:
                 self.inCluster = True
 
 
         # start or continue clusters.
-        # at least one line has been edited
-        elif partialMatches > 0:
+        # at least one line has been edited, but nothing has been added/deleted
+        elif partialMatches > 0 and ( len(currentLines) == len(pastLines) ):
+            if (debug):
+                    print("\t>=1 line edited; start new cluster")
             if not self.inCluster:
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
 
         # at least one line has been added or deleted, but fewer than 4 new lines.
-        elif ( (len(perfectMatches) > 0) and ( len(currentLines) != len(pastLines) ) and (len(currentLines)- len(pastLines) <= 4) ):
+        elif ( (len(perfectMatches) > 0) and ( len(currentLines) != len(pastLines) ) and (len(currentLines)- len(pastLines) <= MAX_NEW_LINES) and (len(newLines) <= MAX_NEW_LINES) ):
+            if (debug):
+                    print("\t1-3 lines added/deleted; start new cluster")
             if not self.inCluster:
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
 
         # at least one line has been replaced, but code is the same length
         elif ( (partialMatches == 0) and (len(perfectMatches) > 0) and (len(newLines)> 0 and (len(currentLines) == len(pastLines)) ) ):
+            if (debug):
+                    print("\t>= 1 line replaced; start new cluster")
             if not self.inCluster:
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
 
         # only white space changes, no edits or additions/deletions
         elif ( (partialMatches == 0) and (len(perfectMatches) > 0) and (len(newLines) == 0) and(len(currentLines) != len(pastLines)) ):
+            if (debug):
+                    print("\twhitespace changes only; start new cluster")
             if not self.inCluster:
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
@@ -242,15 +249,15 @@ class CodeEntries:
                     print("\n")
 
             # if there's a big clump that's come in, then we should start another cluster immediately.
-            if (  (pastFilename == currFilename) and (len(perfectMatches) > 0) and (len(currentLines)- len(pastLines) >= 4) ):
+            if (  (pastFilename == currFilename) and (len(perfectMatches) > 0) and (len(currentLines)- len(pastLines) >= MAX_NEW_LINES) ):
                 # print(f"\t starting new cluster {pastEvt['time']}")
                 self.clusterStartTime = pastEvt['time']
                 self.inCluster = True
             else:
                  self.inCluster = False
 
-        if (debug):
-            print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: inCluster: {self.inCluster} {(partialMatches == 0) and (len(perfectMatches) > 0) and (len(newLines)> 0 and (len(currentLines) == len(pastLines)) )}")
+        # if (debug):
+        #     print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: inCluster: {self.inCluster} {(partialMatches == 0) and (len(perfectMatches) > 0) and (len(newLines)> 0 and (len(currentLines) == len(pastLines)) )}")
         
                 
 

@@ -1,0 +1,67 @@
+goalType,clusterType,startTime,endTime,fileName,summary
+goal_start,goal_start,0,0,None,Beginning of mosaic
+parent',code',0,8,main.py,+ import pandas'
+parent',search',3189,3224,none,search: testing web extension chrome;'
+parent',search',12421,12848,none,search: imageio ndimage;'
+parent',code',13017,14044,main.py,"- # target_photo = ""targe'"
+parent',search',13463,13470,none,search: husky clip art;'
+parent',search',13576,13579,none,search: house clipart jpg;'
+parent',search',13773,13814,none,search: python pil iterate over pixels;'
+parent',search',13819,16234,none,search: fastest way to calculate average color of image in python;'
+parent',code',14044,14359,main.py,- img = img.resize((basew'
+parent',code',14359,14575,main.py,+ import numpy as np'
+parent',code',14628,14750,main.py,- img = img.resize((1
+parent',code',15719,16085,main.py,+     if filename.endswit'
+parent',code',16085,16885,main.py,+ import pickle'
+parent',code',16885,17369,main.py,+ filename_map = {}'
+parent',search',16925,16944,none,search: python vector similarity;'
+parent',search',16957,17693,none,search: python kdtree example;'
+parent',code',17369,19248,main.py,+ from scipy.spatial impo'
+parent',search',18258,21606,none,search: pil image draft;'
+parent',code',19286,20651,main.py,+ def get_concat_h(im1
+parent',code',20651,20825,main.py,+ def get_all_images(phot'
+parent',code',20825,21712,main.py,-             img = Image'
+parent',search',21638,84715,none,revisit: Python PIL | Image.draft() method - GeeksforGeeks;'
+parent',code',21712,85623,main.py,"- target_photo = ""house.j'"
+parent',code',85623,86701,main.py,- def get_all_avg_pixels('
+parent',code',86701,87877,main.py,+ def get_file_avgPixelMa'
+parent',code',87990,90432,main.py,"- target_photo = ""target_'"
+parent',search',89217,89962,none,search: python find dominant color in image;'
+parent',search',90031,92379,none,search: kmeans pil image;'
+parent',code',90432,92427,main.py,"- target_photo = ""colorwh'"
+parent',code',92427,101084,main.py,"- target_photo = ""target_'"
+parent',search',96798,98091,none,search: python kmeans most dominant color;'
+parent',search',98310,98652,none,search: rgb 111  58  51;'
+parent',search',98654,98679,none,revisit: Dominant colors in an image using k-means clustering | by Shivam Thakkar | buZZrobot | Medium;'
+parent',search',98693,98837,none,search: python show color;'
+parent',search',98965,98983,none,search: rgb 105 112  7;'
+parent',search',98984,99908,none,search: kmeans number in cluster;'
+parent',search',99928,99935,none,revisit: Convert an image into jpg format using Pillow in Python - GeeksforGeeks;'
+parent',search',99962,100631,none,search: k means predict probability sklearn;'
+parent',code',101084,101835,main.py,+ import pandas as pd'
+parent',search',101233,106773,none,search: pandas column of tuples becomes string;'
+parent',code',101835,104191,main.py,+ def get_kmeans_datafram'
+parent',code',104191,106691,main.py,- img = Image.open(target'
+parent',code',106691,107456,main.py,+ def string_to_tuple(s):'
+parent',code',107456,107926,main.py,+         closest_files_d'
+parent',code',109768,110320,main.py,"+ img = Image.open(""targe'"
+parent',search',109814,109970,none,search: python jpg similarity;'
+parent',search',110058,125779,none,search: numpy initialize array of strings;'
+parent',code',110320,110665,main.py,"- img = Image.open(""targe'"
+parent',code',110665,111244,main.py,"- img2 = Image.open(""angi'"
+parent',code',111560,111960,main.py,"- img = Image.open(""Photo'"
+parent',code',125116,126290,main.py,+     '
+parent',code',126290,127690,main.py,-     filename_matrix = n'
+parent',code',127690,128384,main.py,+             valid_image'
+parent',code',128384,131008,main.py,+ def compare_image_dista'
+parent',code',131545,170143,main.py,-     img = scale_image_t'
+parent',code',170143,170832,main.py,+ def compare_image_to_im'
+parent',code',170832,171389,main.py,-     print(MSEs)'
+parent',code',171389,175165,main.py,-     arr_images = np.arr'
+parent',search',173124,182359,none,search: numpy matrix operations;'
+parent',code',176384,178261,main.py,"- target_photo = ""angie_f'"
+parent',code',184310,187626,main.py,- # import imageio.v3 as '
+parent',code',187626,189749,main.py,-      resized_image = im'
+parent',search',187835,187901,none,search: what does dpi mean printer;'
+parent',search',187938,187951,none,search: HP T830 dimensions;'
+goal_end,goal_end,0,0,None,end of set up user interface

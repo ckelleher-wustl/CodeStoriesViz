@@ -158,12 +158,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_wordle.csv')
+searchDF = pd.read_csv('web/data/searchClusters_gitMosaic.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_wordle.csv')
+codeDF = pd.read_csv('web/data/codeCluster_gitMosaic.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type', 'filename'], axis=1, inplace=True)
 print(codeDF)
 
@@ -197,7 +197,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
         html += "<button type='button' class='collapsible active'>" + searchSummary[0:end] + "</button>\n"
         html += newHtml + "\n"
 
-        print(f"'parent','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']},{searchSummary}")       
+        print(f"'parent','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']}, none, '{searchSummary}'")       
         # print(f"'parent','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']}") 
         # print(f"\nparent details: {searchDF.iloc[searchIdx]}\n")
 
@@ -229,7 +229,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
                 html += "</div>" # this is the end of the nested div.
 
                 # addedCode = true
-                print(f"'child','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
+                print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']}, {codeDF.iloc[codeIdx]['filename']},'{codeSummary}'")
                 # print(f"'child','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']}")
                 codeIdx += 1
         except:
@@ -271,7 +271,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
 
         html += codeClusterHtml
         
-        print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']} {codeSummary}")
+        print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']}, {codeDF.iloc[codeIdx]['filename']},'{codeSummary}'")
         # print(codeClusterHtml)
 
         addedSearch = false
@@ -294,7 +294,7 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
             html += "<button type='button' class='collapsible active'>" + searchSummary[0:end] + "</button>\n"
             html += newHtml + "</div>\n" # internal div needs to be closed.
             addedSearch = true
-            print(f"'child','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']},{searchSummary}")
+            print(f"'parent','search',{searchDF.iloc[searchIdx]['startTime']},{searchDF.iloc[searchIdx]['endTime']},none, '{searchSummary}'")
             searchIdx += 1
 
         if (addedSearch == true):
