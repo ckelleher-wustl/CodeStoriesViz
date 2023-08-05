@@ -86,7 +86,7 @@ function searchChangedCode() {
                 var endCode = this.getAttribute("--end-code");
 
                 // create a diff between the starting and ending code.
-                var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:10});
+                var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:10, ignoreWhitespace: true});
                 var lines = diff.split("\n");
                 
                 // iterate throught the lines
@@ -159,7 +159,7 @@ function searchBetweenCode() {
                 if (endCode.includes(startingCodeLine) && endCode.includes(endingCodeLine)) {
                     // openContent(this, true);
 
-                    var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:100});
+                    var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode ,null,null,{context:10, ignoreWhitespace:true});
                     var lines = diff.split("\n");
                     // console.log("diff is " + typeof(diff) + " " + lines.length);
 

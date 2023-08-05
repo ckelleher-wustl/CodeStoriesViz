@@ -1,21 +1,13 @@
 <div style="margin-top: 15px; border-top: 1px;" ></div>
 	<fieldset class="goal" style="width: 100%;" id="subgoal0">
 		<legend>Sub-goal</legend>
-		<div>Beginning of mosaic</div>
+		<div>Read in an example image using Python</div>
 	</fieldset>
-<button type='button' class='collapsible'>main.py: + import pandas'</button>
+<button type='button' class='collapsible'>main.py: import scipy and pandas</button>
 <div class='content' --start-code='' --end-code='import scipy
 import pandas' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>search: testing web extension chrome;'</button>
-<div class='content'>
-	<div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-n3_2023-02-15-12_11_47-need-manual.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='https://app.endtest.io/guides/docs/how-to-test-chrome-extensions/' target='_blank' rel='noreferrer noopener'>How to test Chrome Extensions Â· Endtest</a></td></tr></tbody></table></div>
-<div class='title'><span><a href='https://www.google.com/search?q=testing+web+extension+chrome&rlz=1C5CHFA_enUS863US865&sxsrf=AJOqlzUSNRWi4I_lL9pIS_hK_o40VxN3Cg%3A1676482857911&ei=KRntY-mSN_eiptQPo82H0A4&ved=0ahUKEwipy96piZj9AhV3kYkEHaPmAeoQ4dUDCBA&uact=5&oq=testing+web+extension+chrome&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAEyBQghEKsCOgoIABBHENYEELADOgcIABCwAxBDOg0IABDkAhDWBBCwAxgBOhIILhDHARDRAxDIAxCwAxBDGAI6FQguEMcBENEDENQCEMgDELADEEMYAjoECCMQJzoECAAQQzoOCC4QgAQQsQMQxwEQ0QM6EQguEIAEELEDEIMBEMcBENEDOgsIABCABBCxAxCDAToQCAAQgAQQFBCHAhCxAxCDAToSCAAQgAQQFBCHAhCxAxCDARAKOgcIABCABBAKOgoIABCABBCxAxAKOgUIABCRAjoHCAAQsQMQQzoGCAAQChBDOgoIABCxAxCDARBDOgkIABCxAxAKEEM6CwguEIAEELEDEIMBOggIABCABBCxAzoFCAAQgAQ6CAgAELEDEJECOgsILhCxAxCDARCRAjoOCC4QsQMQgwEQxwEQrwE6CwguEIAEEMcBEK8BOgoIABCABBAUEIcCOgUILhCABDoICAAQFhAeEAo6CQgAEBYQHhDxBDoGCAAQFhAeOgsIABAWEB4QDxDxBDoHCAAQDRCABDoFCAAQhgM6CwghEBYQHhDxBBAdOggIIRAWEB4QHUoECEEYAEoECEYYAVDVEVjoYmDFZGgGcAF4AIABb4gBtxSSAQQyNy40mAEAoAEByAETwAEB2gEGCAEQARgJ2gEGCAIQARgI&sclient=gws-wiz-serp' target='_blank' rel='noreferrer noopener'>testing web extension chrome</a></span></div><hr>
-<div class='webImageLongRow'>
-</div>
-</div>
-
-<button type='button' class='collapsible'>search: imageio ndimage;'</button>
+</div><button type='button' class='collapsible'>search: imageio ndimage;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=imageio+python&rlz=1C5CHFA_enUS863US865&oq=imageio+py&aqs=chrome.0.0i20i263i512j69i57j0i20i263i512j0i512l7.3097j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener'>imageio python</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -32,7 +24,7 @@ import pandas' --filename='main.py'>
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: - # target_photo = "targe'</button>
+<button type='button' class='collapsible'>main.py: Switch to PIL (Python Image Library) and read in an image</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 # target_photo = "target_photo.jpg"
@@ -78,6 +70,11 @@ print(img.shape)
 </div>
 </div>
 
+</div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal7">
+		<legend>Sub-goal</legend>
+		<div>Calculate average pixel of image</div>
+	</fieldset>
 <button type='button' class='collapsible'>search: python pil iterate over pixels;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=python+pil+iterate+over+pixels&rlz=1C5CHFA_enUS863US865&oq=python+pil+iterate&aqs=chrome.0.0i512j69i57j0i22i30i625j0i390l2.2481j0j9&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener'>python pil iterate over pixels</a></span></div><hr>
@@ -112,7 +109,7 @@ print(img.shape)
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: - img = img.resize((basew'</button>
+<button type='button' class='collapsible'>main.py: Resize image to 1X1 pixel to see "average" pixel</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -158,7 +155,7 @@ for x in range(width):
 
 img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + import numpy as np'</button>
+</div><button type='button' class='collapsible'>main.py: Calculate Average Pixel with Numpy average to compare runtime</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -218,7 +215,7 @@ print(np.mean(arr, axis=1))
 
 img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - img = img.resize((1</button>
+</div><button type='button' class='collapsible'>main.py: Calculate Average Pixel with Numpy average to compare runtime</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -234,19 +231,21 @@ img = Image.open(target_photo)
 wpercent = (basewidth / float(img.size[0]))
 hsize = int((float(img.size[1]) * float(wpercent)))
 #img = img.resize((basewidth, hsize), Image.ANTIALIAS)
-img = img.resize((1, 1), Image.ANTIALIAS)
+#img = img.resize((50, 50), Image.ANTIALIAS)
 
 image_matrix = img.load()
 width, height = img.size
 
-# arr = []
-# for x in range(width):
-#     for y in range(height):
-#         pixel = image_matrix[x,y]
-#         arr.append(list(pixel))
+arr = []
+for x in range(width):
+    for y in range(height):
+        pixel = image_matrix[x,y]
+        #print(pixel)
+        arr.append(list(pixel))
 
-# arr = np.array(arr)
-# print(np.mean(arr, axis=0))
+arr = np.array(arr)
+print(arr.shape)
+print(np.mean(arr, axis=1))
 
 
 img.save("resized_image.jpg")' --end-code='# import imageio.v3 as iio
@@ -282,7 +281,12 @@ print(np.mean(arr, axis=0))
 
 img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: +     if filename.endswit'</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal14">
+		<legend>Sub-goal</legend>
+		<div>Get AVG pixel for each JPG file in folder</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Loop through photos in directory, calculate average pixel of each</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -364,7 +368,7 @@ basewidth = 50
 
 # img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + import pickle'</button>
+</div><button type='button' class='collapsible'>main.py: Dump pre-calculated average pixels to disk to test usage speed</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -460,7 +464,7 @@ basewidth = 50
 
 # img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + filename_map = {}'</button>
+</div><button type='button' class='collapsible'>main.py: Map average pixel values back to their respective filenames</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -572,7 +576,12 @@ basewidth = 50
 
 # img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>search: python vector similarity;'</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal19">
+		<legend>Sub-goal</legend>
+		<div>For each pixel of target_photo, find photo with closest average pixel</div>
+	</fieldset>
+<button type='button' class='collapsible'>search: python vector similarity;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=python+pixel+similarity&rlz=1C5CHFA_enUS863US865&oq=python+pixel+similarity&aqs=chrome..69i57j0i22i30i625j0i390l4j69i60.2792j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener'>python pixel similarity</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -597,7 +606,7 @@ basewidth = 50
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: + from scipy.spatial impo'</button>
+<button type='button' class='collapsible'>main.py: Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -736,7 +745,12 @@ width, height = img.size
 img.save("recolored_image.jpg")
 #img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>search: pil image draft;'</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal24">
+		<legend>Sub-goal</legend>
+		<div>Improve time it takes to loop through all images and find closest photo</div>
+	</fieldset>
+<button type='button' class='collapsible'>search: pil image draft;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=RGB+(177%2C+182%2C+182)&rlz=1C5CHFA_enUS863US865&oq=RGB+(177%2C+182%2C+182)&aqs=chrome..69i57j0i546l3j0i30i546.2345j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener'>RGB (177, 182, 182)</a></span></div><hr>
 <div class='webImageLongRow'>
@@ -761,7 +775,7 @@ img.save("recolored_image.jpg")
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: + def get_concat_h(im1</button>
+<button type='button' class='collapsible'>main.py: Add functions to concat images horizontally and vertically</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -934,7 +948,7 @@ for y in range(height):
 img.save("recolored_image.jpg")
 #img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + def get_all_images(phot'</button>
+</div><button type='button' class='collapsible'>main.py: Create mapping from filename to image object so images aren't read in more than once</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -1137,7 +1151,7 @@ for y in range(height):
 img.save("recolored_image.jpg")
 #img.save("resized_image.jpg")' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: -             img = Image'</button>
+</div><button type='button' class='collapsible'>main.py: Saving and loading filename to image map to disk to improve runtime</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -1366,7 +1380,12 @@ img.save("recolored_image.jpg")
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: - target_photo = "house.j'</button>
+</div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal31">
+		<legend>Sub-goal</legend>
+		<div>Generating the first version of the mosaic and organize code</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Build mosaic by appending images for each pixel to a running image</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "house.jpeg"
@@ -1608,7 +1627,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - def get_all_avg_pixels('</button>
+</div><button type='button' class='collapsible'>main.py: Clean up code by putting it into functions</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "target_angie.jpg"
@@ -1865,7 +1884,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + def get_file_avgPixelMa'</button>
+</div><button type='button' class='collapsible'>main.py: Functionalize get_file_avgPixelMap() to make code neater</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "target_angie.jpg"
@@ -2128,7 +2147,12 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - target_photo = "target_'</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal36">
+		<legend>Sub-goal</legend>
+		<div>Now that something is working, investigate other ways of compiling mosaic to compare</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match </button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "target_angie.jpg"
@@ -2418,6 +2442,11 @@ closest_img_resized.save("closest_img_draft.jpg")
 </div>
 </div>
 
+</div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal40">
+		<legend>Sub-goal</legend>
+		<div>Use Kmeans to cluster pixels in an image into groups of colors</div>
+	</fieldset>
 <button type='button' class='collapsible'>search: kmeans pil image;'</button>
 <div class='content'>
 	<div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-n84_2023-02-16-12_19_09-need-manual.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='https://github.com/fengsp/color-thief-py' target='_blank' rel='noreferrer noopener'>GitHub - fengsp/color-thief-py: Grabs the dominant color or a representative color palette from an image. Uses Python and Pillow.</a></td></tr></tbody></table></div>
@@ -2437,7 +2466,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: - target_photo = "colorwh'</button>
+<button type='button' class='collapsible'>main.py: Print out pixel values for an image to investigate how to cluster the data using Kmeans</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "colorwheel.jpeg"
@@ -2722,7 +2751,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - target_photo = "target_'</button>
+</div><button type='button' class='collapsible'>main.py: Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "target_angie.jpg"
@@ -3099,6 +3128,11 @@ closest_img_resized.save("closest_img_draft.jpg")
 </div>
 </div>
 
+</div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal50">
+		<legend>Sub-goal</legend>
+		<div>Find the percent of an image's pixels that falls into a given cluster</div>
+	</fieldset>
 <button type='button' class='collapsible'>search: kmeans number in cluster;'</button>
 <div class='content'>
 	<div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/wordle/screencapture-n124_2023-02-16-14_48_22-need-manual.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='https://github.com/scikit-learn/scikit-learn/issues/23574' target='_blank' rel='noreferrer noopener'>Segmentation Fault in KMeans on OSX · Issue #23574 · scikit-learn/scikit-learn · GitHub</a></td></tr></tbody></table></div>
@@ -3135,7 +3169,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: + import pandas as pd'</button>
+<button type='button' class='collapsible'>main.py: Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -3480,7 +3514,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: + def get_kmeans_datafram'</button>
+<button type='button' class='collapsible'>main.py: Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -3820,7 +3854,12 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - img = Image.open(target'</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal58">
+		<legend>Sub-goal</legend>
+		<div>Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -4199,7 +4238,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + def string_to_tuple(s):'</button>
+</div><button type='button' class='collapsible'>main.py: Handle parsing what's loaded from CSV from string format to tuple</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -4619,7 +4658,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: +         closest_files_d'</button>
+</div><button type='button' class='collapsible'>main.py: Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -5051,7 +5090,12 @@ closest_img_resized.save("closest_img_draft.jpg")
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + img = Image.open("targe'</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal63">
+		<legend>Sub-goal</legend>
+		<div>Detect if two images are duplicates or near-identical</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Load Two images for similarity comparison</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -5531,7 +5575,7 @@ image_matrix2 = img2.load()
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: - img = Image.open("targe'</button>
+<button type='button' class='collapsible'>main.py: Calculate Mean Squared Error (MSE) between images to measure similarity</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -5989,7 +6033,7 @@ print(mse)
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - img2 = Image.open("angi'</button>
+</div><button type='button' class='collapsible'>main.py: Check if MSE is under a threshold to detect near-identical photos, print out histogram of all MSEs</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -6472,7 +6516,7 @@ plt.show()
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - img = Image.open("Photo'</button>
+</div><button type='button' class='collapsible'>main.py: Load in test photo to see how well it works</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -6974,7 +7018,12 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: +     '</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal71">
+		<legend>Sub-goal</legend>
+		<div>Make sure that duplicate or similar-looking photos aren't adjacent in mosaic</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Record which files have been added to mosaic in a matrix</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -7489,7 +7538,7 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: -     filename_matrix = n'</button>
+</div><button type='button' class='collapsible'>main.py: Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -8026,7 +8075,7 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: +             valid_image'</button>
+</div><button type='button' class='collapsible'>main.py: Reworking this logic to stop looping through the closest file candidates once a valid image has been found</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -8591,7 +8640,7 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + def compare_image_dista'</button>
+</div><button type='button' class='collapsible'>main.py: Add function for compare_image_distance()</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -9184,7 +9233,7 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: -     img = scale_image_t'</button>
+</div><button type='button' class='collapsible'>main.py: Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -9796,7 +9845,12 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: + def compare_image_to_im'</button>
+</div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal78">
+		<legend>Sub-goal</legend>
+		<div>Runtime improvements</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Vectorize: one images to many images similarity comparison</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -10424,7 +10478,7 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: -     print(MSEs)'</button>
+</div><button type='button' class='collapsible'>main.py: Debugging vectorization syntax in numpy</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -11078,7 +11132,7 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: -     arr_images = np.arr'</button>
+</div><button type='button' class='collapsible'>main.py: Rework debugging steps into function</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -11789,7 +11843,12 @@ for file in file_image_map.keys():
 </div>
 </div>
 
-<button type='button' class='collapsible'>main.py: - target_photo = "angie_f'</button>
+</div><div style="margin-top: 15px; border-top: 1px;" ></div>
+	<fieldset class="goal" style="width: 100%;" id="subgoal84">
+		<legend>Sub-goal</legend>
+		<div>Testing and Cleaning Code -- final touches</div>
+	</fieldset>
+<button type='button' class='collapsible'>main.py: Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -12492,7 +12551,7 @@ for file in file_image_map.keys():
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: - # import imageio.v3 as '</button>
+</div><button type='button' class='collapsible'>main.py: Add comments to functions</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
 target_photo = "angie_flower.jpeg"
@@ -13182,7 +13241,7 @@ img = make_mosaic_avg(target_photo, photos_dir, basewidth=60, pixelWidth=200)
 img.save("mosaic.jpg")
 ' --filename='main.py'>
 <p> code content will go here</p>
-</div><button type='button' class='collapsible'>main.py: -      resized_image = im'</button>
+</div><button type='button' class='collapsible'>main.py: Test how resizing photos impacts calculated MSE averages</button>
 <div class='content' --start-code='from PIL import Image
 import numpy as np
 import os

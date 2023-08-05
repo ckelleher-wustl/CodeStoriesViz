@@ -160,7 +160,7 @@
         var endCode = content.attr("--end-code");
         var fileName = content.attr("--filename");
 
-        var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode,fileName,fileName,{context:10});
+        var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode,fileName,fileName,{context:10, ignoreWhitespace:true});
 
 
         var additions = [];
