@@ -1,6 +1,9 @@
 codeFiles = ["script.js", "animations.scss", "index.html", "guess.scss", "boilerplate.scss", "notes.md"]
 pathToCode = "web/storystudy/wordleCode/"
 
+codeFiles = ["main.py"]
+pathToCode = "web/storystudy/mosaicCode/"
+
 codeMap = {}
 
 def loadCode():
@@ -41,6 +44,6 @@ def generatePage():
 loadCode()
 html = generatePage()
 
-text_file = open("web/test.html", "w")
+text_file = open("web/mosaicCode.html", "w")
 n = text_file.write(html)
 text_file.close()

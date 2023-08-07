@@ -40,13 +40,13 @@ def separate_lines(filename):
     return groups
 
 
-filename = "script.js"
-filepath = 'web/storystudy/wordleCode/' + filename
+filename = "main.py"
+filepath = 'web/storystudy/mosaicCode/' + filename
 groups = separate_lines(filepath)
 
 
 historyFromCode = historyQuery.HistoryFromCode()
-historyFromCode.initializeHistory('web/data/wordleStoryOverview.csv',filename)
+historyFromCode.initializeHistory('web/data/mosaicStoryOverview.csv',filename)
 
 html = ""
 groupActivities = {}

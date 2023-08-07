@@ -41,7 +41,7 @@
 
   <div id="code" class="tab">
     <div class="code-spacer"></div>
-    <div class="tabContent"  id="codeTab" include-html="test.html"></div>
+    <div class="tabContent"  id="codeTab" include-html="mosaicCode.html"></div>
     <!-- Add content for the code tab here -->
   </div>
 
@@ -74,7 +74,7 @@
         var lineID = regions[regionID];
         lineID = lineID.replaceAll("<", "&lt").replaceAll(">", "&gt");
         // console.log(regionID + " " + lineID);
-        html += "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+        html += "<li class='jumpToCode' onclick=\"openCodeFile('code_Mosaic_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
       }
       return html;
     }

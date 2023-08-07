@@ -22,7 +22,8 @@ function readCSVAsObject(csvFile) {
   }
 
 function loadCodeRegionMaps() {
-    var mapFilenames = ['script.jsLineMap.csv', 'animations.scssLineMap.csv', 'index.htmlLineMap.csv', 'guess.scssLineMap.csv', 'notes.mdLineMap.csv', 'boilerplate.scssLineMap.csv']
+    // var mapFilenames = ['script.jsLineMap.csv', 'animations.scssLineMap.csv', 'index.htmlLineMap.csv', 'guess.scssLineMap.csv', 'notes.mdLineMap.csv', 'boilerplate.scssLineMap.csv']
+    var mapFilenames = ['main.pyLineMap.csv']
     var path = 'data/storyStudy/' 
 
     for (idx in mapFilenames) {

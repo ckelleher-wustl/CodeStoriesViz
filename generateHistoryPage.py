@@ -3,8 +3,9 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-projectName = "wordle"
+projectName = "mosaic"
 imageDir = "/images/" + projectName + "/"
+regionPrefix = "code_Mosaic_"
 
 def get_search_overview_html(responseEntries):
 # <div class="content">
@@ -159,7 +160,8 @@ def get_code_entries(startTime, endTime):
 activityData = {}
 # lineRegionMap = {}
 def loadActivityDataFrames():
-    filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
+    # filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
+    filenames = ['main.py.csv']
 
     for file in filenames:
         print(file)
@@ -189,7 +191,7 @@ print(clusterDF)
 html = ""
 
 # when setting up the initial file, it's helpful to turn this off.
-includeRegionLinks = False
+includeRegionLinks = True
 
 loadActivityDataFrames()
 
@@ -235,7 +237,7 @@ for clusterIdx in clusterDF.index:
                 regionID = row['regionID']
                 # print(f"Line ID: {lineID}, Region ID: {regionID}")
                 file = clusterDF['fileName'][clusterIdx].split(".")[0]
-                html +=  "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+                html +=  "<li class='jumpToCode' onclick=\"openCodeFile('" + regionPrefix + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
             html += "</ul>\n"
             
 
