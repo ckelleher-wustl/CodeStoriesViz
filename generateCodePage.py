@@ -1,8 +1,10 @@
-codeFiles = ["script.js", "animations.scss", "index.html", "guess.scss", "boilerplate.scss", "notes.md"]
-pathToCode = "web/storystudy/wordleCode/"
+# codeFiles = ["script.js", "animations.scss", "index.html", "guess.scss", "boilerplate.scss", "notes.md"]
+# pathToCode = "web/storystudy/wordleCode/"
+# prefix = "code_Wordle_"
 
 codeFiles = ["main.py"]
 pathToCode = "web/storystudy/mosaicCode/"
+prefix = "code_Mosaic_"
 
 codeMap = {}
 
@@ -25,7 +27,7 @@ def generatePage():
 
     for filename in codeFiles:
         fileRoot = filename.split('.')[0]
-        data_url = "code_Wordle_" + fileRoot + ".html"
+        data_url = prefix + fileRoot + ".html"
 
         html += "\t\t<li class='tab-item' code='" + codeMap[filename] + "'><a href='#' data-url='" + data_url + "'>" + filename + "</a></li>\n"
 

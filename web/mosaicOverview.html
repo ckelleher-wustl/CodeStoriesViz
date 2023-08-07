@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/collapsible.css">
-<link rel="stylesheet" href="css/accordion.css">
-<link rel="stylesheet" href="css/diff.css">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="css/collapsible.css"/>
+<link rel="stylesheet" href="css/accordion.css"/>
+<link rel="stylesheet" href="css/diff.css"/>
 </head>
 <body>
   <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
@@ -19,8 +19,8 @@
   <!-- <script type = "module" src="/public/javascripts/diff_from_full.js"></script>   -->
 
   <div class="sticky-div">
-    <button onclick="openTab('history')">History</button>
-    <button onclick="openTab('code')">Code</button>
+    <button onclick="showView('history')">History</button>
+    <button onclick="showView('code')">Code</button>
   </div>
 
   <div class="sticky2-div">
@@ -51,6 +51,7 @@
   <script type="text/javascript" src="js/tab.js"></script>
   <script type="text/javascript" src="js/code_region_map.js"></script>
   <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript" src="js/logging.js"></script>
 
 
   <script>
@@ -89,8 +90,10 @@
         coll[i].addEventListener("click", function() {
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
+            logUserAction("history", "click close " + this.textContent);
             openChange(content, false);
           } else {
+            logUserAction("history", "click open " + this.textContent);
             openChange(content, true);
             // look for searches
             highlightCode(content);
@@ -132,6 +135,8 @@
     codeContent.each( function () {
       openChange(this, false);
     });
+
+    logUserAction("history", "close all activities")
   }
 
   function openChangeWithTitle(title, open) {
@@ -168,7 +173,7 @@
           if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 8) ) {
             additions.push(part.substring(1).trim());
           }
-        })
+        });
 
         var diffHtml = Diff2Html.html(diff, {
             drawFileList: false,

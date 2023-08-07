@@ -19,8 +19,8 @@
   <!-- <script type = "module" src="/public/javascripts/diff_from_full.js"></script>   -->
 
   <div class="sticky-div">
-    <button onclick="openTab('history')">History</button>
-    <button onclick="openTab('code')">Code</button>
+    <button onclick="showView('history')">History</button>
+    <button onclick="showView('code')">Code</button>
   </div>
 
   <div class="sticky2-div">
@@ -51,6 +51,7 @@
   <script type="text/javascript" src="js/tab.js"></script>
   <script type="text/javascript" src="js/code_region_map.js"></script>
   <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript" src="js/logging.js"></script>
 
 
   <script>
@@ -90,8 +91,10 @@
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
             openChange(content, false);
+            logUserAction("history", "click close " + this.textContent)
           } else {
             openChange(content, true);
+            logUserAction("history", "click open " + this.textContent)
             // look for searches
             highlightCode(content);
           }
@@ -132,6 +135,8 @@
     codeContent.each( function () {
       openChange(this, false);
     });
+
+    logUserAction("history", "close all activities")
   }
 
   function openChangeWithTitle(title, open) {
@@ -143,6 +148,7 @@
 
 
   function openChange(content, open) {
+
 
     if (!(content  instanceof jQuery)) {
       content = $(content);

@@ -3,6 +3,11 @@ var initTest = false;
 var linkList = $("#linkList");
 var contentContainer = $("#contentContainer");
 
+// this should only be called by the buttons for logging purposes.
+function showView(tabName) {
+  openTab(tabName);
+  logUserAction(tabName, "open view");
+}
 
 function openTab(tabName) {
   var i, tabContent;
@@ -26,8 +31,7 @@ function openTab(tabName) {
           console.log("open tab")
           loadContent(url, contentContainer, highlightFinalCode, null);
       }
-  });
-
+    });
   }
 }
 
@@ -35,6 +39,8 @@ function openCodeFile(url, regionID) {
   openTab("code");
   var contentContainer = $("#contentContainer");
   loadContent(url, contentContainer, scrollToRegion, regionID); 
+
+  logUserAction("history", "jump to code " + url + " " + regionID);
 }
 
 function openSubgoal(subgoalText) {
