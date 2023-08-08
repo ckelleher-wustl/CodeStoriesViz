@@ -14,7 +14,7 @@ import pandas as pd
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Read in an example image using Python')">Read in an example image using Python
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>import scipy and pandas</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'import scipy and pandas')">import scipy and pandas</button>
 			<div class='tooltip'>
 				<div class='history-header'>import scipy and pandas</div>
 				<pre class='code'><span style='background-color:yellow'>import pandas</span>
@@ -22,7 +22,7 @@ import pandas as pd
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Switch to PIL (Python Image Library) and read in an image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Switch to PIL (Python Image Library) and read in an image')">Switch to PIL (Python Image Library) and read in an image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Switch to PIL (Python Image Library) and read in an image</div>
 				<pre class='code'><span style='background-color:yellow'>from PIL import Image</span>
@@ -32,7 +32,7 @@ import pandas as pd
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Calculate average pixel of image')">Calculate average pixel of image
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Calculate Average Pixel with Numpy average to compare runtime</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Calculate Average Pixel with Numpy average to compare runtime')">Calculate Average Pixel with Numpy average to compare runtime</button>
 			<div class='tooltip'>
 				<div class='history-header'>Calculate Average Pixel with Numpy average to compare runtime</div>
 				<pre class='code'>from PIL import Image
@@ -43,7 +43,7 @@ import pandas as pd
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'>from PIL import Image
@@ -55,7 +55,7 @@ import numpy as np
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'>from PIL import Image
@@ -68,7 +68,7 @@ import os
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Now that something is working, investigate other ways of compiling mosaic to compare')">Now that something is working, investigate other ways of compiling mosaic to compare
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match </button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match ')">Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match </button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match </div>
 				<pre class='code'>from PIL import Image
@@ -82,7 +82,7 @@ from scipy.spatial import KDTree
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans to cluster pixels in an image into groups of colors')">Use Kmeans to cluster pixels in an image into groups of colors
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Print out pixel values for an image to investigate how to cluster the data using Kmeans</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Print out pixel values for an image to investigate how to cluster the data using Kmeans')">Print out pixel values for an image to investigate how to cluster the data using Kmeans</button>
 			<div class='tooltip'>
 				<div class='history-header'>Print out pixel values for an image to investigate how to cluster the data using Kmeans</div>
 				<pre class='code'>from PIL import Image
@@ -95,7 +95,7 @@ import random
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each')">Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</div>
 				<pre class='code'>from PIL import Image
@@ -110,7 +110,7 @@ import random
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Find the percent of an image\'s pixels that falls into a given cluster')">Find the percent of an image's pixels that falls into a given cluster
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters')">Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</div>
 				<pre class='code'>from PIL import Image
@@ -126,7 +126,7 @@ from sklearn.cluster import KMeans, OPTICS
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>from PIL import Image
@@ -160,7 +160,7 @@ def get_avg_pixel(img):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Read in an example image using Python')">Read in an example image using Python
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Switch to PIL (Python Image Library) and read in an image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Switch to PIL (Python Image Library) and read in an image')">Switch to PIL (Python Image Library) and read in an image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Switch to PIL (Python Image Library) and read in an image</div>
 				<pre class='code'><span style='background-color:yellow'>img = img.resize((basewidth, hsize), Image.ANTIALIAS)</span>
@@ -170,7 +170,7 @@ def get_avg_pixel(img):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Calculate average pixel of image')">Calculate average pixel of image
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Resize image to 1X1 pixel to see "average" pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Resize image to 1X1 pixel to see \'average\' pixel')">Resize image to 1X1 pixel to see "average" pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Resize image to 1X1 pixel to see "average" pixel</div>
 				<pre class='code'><span style='background-color:yellow'>#img = img.resize((basewidth, hsize), Image.ANTIALIAS)</span>
@@ -180,7 +180,7 @@ def get_avg_pixel(img):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'>def get_avg_pixel(img):</span>
@@ -193,7 +193,7 @@ def get_avg_pixel(img):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'>def get_avg_pixel(img):
@@ -206,7 +206,7 @@ return pixels[0,0]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_avg_pixel(img):
@@ -219,7 +219,7 @@ return pixels[0,0]
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'>def get_avg_pixel(img):
@@ -260,7 +260,7 @@ def get_file_avgPixelMap(file_image_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'>get_avg_pixel(img)</span>
@@ -268,7 +268,7 @@ def get_file_avgPixelMap(file_image_map):
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Dump pre-calculated average pixels to disk to test usage speed</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Dump pre-calculated average pixels to disk to test usage speed')">Dump pre-calculated average pixels to disk to test usage speed</button>
 			<div class='tooltip'>
 				<div class='history-header'>Dump pre-calculated average pixels to disk to test usage speed</div>
 				<pre class='code'><span style='background-color:yellow'>pixel = get_avg_pixel(img)</span>
@@ -278,7 +278,7 @@ def get_file_avgPixelMap(file_image_map):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Functionalize get_file_avgPixelMap() to make code neater</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Functionalize get_file_avgPixelMap() to make code neater')">Functionalize get_file_avgPixelMap() to make code neater</button>
 			<div class='tooltip'>
 				<div class='history-header'>Functionalize get_file_avgPixelMap() to make code neater</div>
 				<pre class='code'><span style='background-color:yellow'>def get_file_avgPixelMap(file_image_map):</span>
@@ -295,7 +295,7 @@ pixel = get_avg_pixel(img)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_file_avgPixelMap(file_image_map):
@@ -340,7 +340,7 @@ def get_file_image_map(photos_dir, width=50):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'>for filename in os.listdir(photos_dir):</span>
@@ -352,7 +352,7 @@ def get_file_image_map(photos_dir, width=50):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create mapping from filename to image object so images aren't read in more than once</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create mapping from filename to image object so images aren\'t read in more than once')">Create mapping from filename to image object so images aren't read in more than once</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create mapping from filename to image object so images aren't read in more than once</div>
 				<pre class='code'><span style='background-color:yellow'>file_image_map = {}</span>
@@ -365,7 +365,7 @@ img = Image.open(photos_dir+filename)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>def get_file_image_map(photos_dir):</span>
@@ -379,7 +379,7 @@ img = Image.open(photos_dir+filename)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>def get_file_image_map(photos_dir, width=50):</span>
@@ -398,7 +398,7 @@ img = Image.open(photos_dir+filename)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'>def get_file_image_map(photos_dir, width=50):
@@ -431,7 +431,7 @@ img.draft("RGB",(width,height))
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create mapping from filename to image object so images aren't read in more than once</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create mapping from filename to image object so images aren\'t read in more than once')">Create mapping from filename to image object so images aren't read in more than once</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create mapping from filename to image object so images aren't read in more than once</div>
 				<pre class='code'><span style='background-color:yellow'>file_image_map[filename] = img</span>
@@ -464,7 +464,7 @@ def get_concat_h(im1, im2):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add functions to concat images horizontally and vertically</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add functions to concat images horizontally and vertically')">Add functions to concat images horizontally and vertically</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add functions to concat images horizontally and vertically</div>
 				<pre class='code'><span style='background-color:yellow'>def get_concat_h(im1, im2):</span>
@@ -478,7 +478,7 @@ def get_concat_h(im1, im2):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_concat_h(im1, im2):
@@ -518,7 +518,7 @@ def get_concat_v(im1, im2):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add functions to concat images horizontally and vertically</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add functions to concat images horizontally and vertically')">Add functions to concat images horizontally and vertically</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add functions to concat images horizontally and vertically</div>
 				<pre class='code'><span style='background-color:yellow'>def get_concat_v(im1, im2):</span>
@@ -532,7 +532,7 @@ def get_concat_v(im1, im2):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_concat_v(im1, im2):
@@ -576,7 +576,7 @@ def get_pixel_files_map(pixel_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Map average pixel values back to their respective filenames</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Map average pixel values back to their respective filenames')">Map average pixel values back to their respective filenames</button>
 			<div class='tooltip'>
 				<div class='history-header'>Map average pixel values back to their respective filenames</div>
 				<pre class='code'><span style='background-color:yellow'>for filename in pixel_map.keys():</span>
@@ -589,7 +589,7 @@ def get_pixel_files_map(pixel_map):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'><span style='background-color:yellow'>#create map from pixel value to list of files with that avg pixel</span>
@@ -604,7 +604,7 @@ avg_pixel_value = pixel_map[filename]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>def get_pixel_files_map(pixel_map):</span>
@@ -622,7 +622,7 @@ avg_pixel_value = pixel_map[filename]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_pixel_files_map(pixel_map):
@@ -664,7 +664,7 @@ def get_all_avg_pixels_array(file_image_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'><span style='background-color:yellow'>all_pixels = []</span>
@@ -675,7 +675,7 @@ def get_all_avg_pixels_array(file_image_map):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>def get_all_avg_pixels_array(file_image_map):</span>
@@ -689,7 +689,7 @@ def get_all_avg_pixels_array(file_image_map):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_all_avg_pixels_array(file_image_map):
@@ -728,7 +728,7 @@ def scale_image_to_basewidth(img, basewidth=50):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Read in an example image using Python')">Read in an example image using Python
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Switch to PIL (Python Image Library) and read in an image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Switch to PIL (Python Image Library) and read in an image')">Switch to PIL (Python Image Library) and read in an image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Switch to PIL (Python Image Library) and read in an image</div>
 				<pre class='code'><span style='background-color:yellow'>wpercent = (basewidth / float(img.size[0]))</span>
@@ -739,7 +739,7 @@ def scale_image_to_basewidth(img, basewidth=50):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'># wpercent = (basewidth / float(img.size[0]))</span>
@@ -750,7 +750,7 @@ def scale_image_to_basewidth(img, basewidth=50):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'><span style='background-color:yellow'>wpercent = (basewidth / float(img.size[0]))</span>
@@ -761,7 +761,7 @@ def scale_image_to_basewidth(img, basewidth=50):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>def scale_image_to_basewidth(img, basewidth=50):</span>
@@ -774,7 +774,7 @@ hsize = int((float(img.size[1]) * float(wpercent)))
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def scale_image_to_basewidth(img, basewidth=50):
@@ -789,7 +789,7 @@ return img
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'>def scale_image_to_basewidth(img, basewidth=50):
@@ -820,7 +820,7 @@ def get_kmeans_dataframe_all_photos(file_image_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Find the percent of an image\'s pixels that falls into a given cluster')">Find the percent of an image's pixels that falls into a given cluster
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file')">Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</div>
 				<pre class='code'><span style='background-color:yellow'>def get_kmeans_dataframe_all_photos(file_image_map):</span>
@@ -830,7 +830,7 @@ def get_kmeans_dataframe_all_photos(file_image_map):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_kmeans_dataframe_all_photos(file_image_map):
@@ -863,7 +863,7 @@ def get_kmeans_dataframe_all_photos(file_image_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Functionalize get_file_avgPixelMap() to make code neater</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Functionalize get_file_avgPixelMap() to make code neater')">Functionalize get_file_avgPixelMap() to make code neater</button>
 			<div class='tooltip'>
 				<div class='history-header'>Functionalize get_file_avgPixelMap() to make code neater</div>
 				<pre class='code'><span style='background-color:yellow'>for file in file_image_map.keys():</span>
@@ -874,7 +874,7 @@ def get_kmeans_dataframe_all_photos(file_image_map):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Find the percent of an image\'s pixels that falls into a given cluster')">Find the percent of an image's pixels that falls into a given cluster
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters')">Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</div>
 				<pre class='code'><span style='background-color:yellow'>all_rows = []</span>
@@ -887,7 +887,7 @@ img = file_image_map[file]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>Parameters:</span>
@@ -919,7 +919,7 @@ img = file_image_map[file]
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans to cluster pixels in an image into groups of colors')">Use Kmeans to cluster pixels in an image into groups of colors
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Print out pixel values for an image to investigate how to cluster the data using Kmeans</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Print out pixel values for an image to investigate how to cluster the data using Kmeans')">Print out pixel values for an image to investigate how to cluster the data using Kmeans</button>
 			<div class='tooltip'>
 				<div class='history-header'>Print out pixel values for an image to investigate how to cluster the data using Kmeans</div>
 				<pre class='code'><span style='background-color:yellow'>pixels = img.getdata()</span>
@@ -927,7 +927,7 @@ img = file_image_map[file]
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each')">Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</div>
 				<pre class='code'><span style='background-color:yellow'>pixels = np.array(img.getdata())</span>
@@ -955,7 +955,7 @@ img = file_image_map[file]
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans to cluster pixels in an image into groups of colors')">Use Kmeans to cluster pixels in an image into groups of colors
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each')">Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</div>
 				<pre class='code'><span style='background-color:yellow'>predictions = kmeans.predict(pixels)</span>
@@ -968,7 +968,7 @@ img = file_image_map[file]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Find the percent of an image\'s pixels that falls into a given cluster')">Find the percent of an image's pixels that falls into a given cluster
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters')">Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create a pandas dataframe for one image that includes a list of all pixel colors and their respective clusters</div>
 				<pre class='code'>predictions = kmeans.predict(pixels)
@@ -981,7 +981,7 @@ for percent, centroid in zip(percentages, centroids):
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file')">Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</div>
 				<pre class='code'>predictions = kmeans.predict(pixels)
@@ -1016,7 +1016,7 @@ def string_to_tuple(s):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel')">Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Handle parsing what's loaded from CSV from string format to tuple</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Handle parsing what\'s loaded from CSV from string format to tuple')">Handle parsing what's loaded from CSV from string format to tuple</button>
 			<div class='tooltip'>
 				<div class='history-header'>Handle parsing what's loaded from CSV from string format to tuple</div>
 				<pre class='code'><span style='background-color:yellow'>def string_to_tuple(s):</span>
@@ -1029,7 +1029,7 @@ def string_to_tuple(s):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def string_to_tuple(s):
@@ -1067,7 +1067,7 @@ def compare_image_distance(img1, img2):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Calculate Mean Squared Error (MSE) between images to measure similarity</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Calculate Mean Squared Error (MSE) between images to measure similarity')">Calculate Mean Squared Error (MSE) between images to measure similarity</button>
 			<div class='tooltip'>
 				<div class='history-header'>Calculate Mean Squared Error (MSE) between images to measure similarity</div>
 				<pre class='code'><span style='background-color:yellow'>arr2 = np.array(img2)</span>
@@ -1078,7 +1078,7 @@ def compare_image_distance(img1, img2):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Make sure that duplicate or similar-looking photos aren\'t adjacent in mosaic')">Make sure that duplicate or similar-looking photos aren't adjacent in mosaic
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add function for compare_image_distance()</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add function for compare_image_distance()')">Add function for compare_image_distance()</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add function for compare_image_distance()</div>
 				<pre class='code'><span style='background-color:yellow'>def compare_image_distance(img1, img2):</span>
@@ -1092,7 +1092,7 @@ mse = ((arr-arr2)**2).mean().mean()
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def compare_image_distance(img1, img2):
@@ -1123,7 +1123,7 @@ def compare_image_to_images_distances(neighbor_image, window_imgs):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Runtime improvements')">Runtime improvements
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Vectorize: one images to many images similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Vectorize: one images to many images similarity comparison')">Vectorize: one images to many images similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Vectorize: one images to many images similarity comparison</div>
 				<pre class='code'><span style='background-color:yellow'>def compare_image_to_images_distances(neighbor_image, window_imgs):</span>
@@ -1133,7 +1133,7 @@ def compare_image_to_images_distances(neighbor_image, window_imgs):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def compare_image_to_images_distances(neighbor_image, window_imgs):
@@ -1164,7 +1164,7 @@ def compare_image_to_images_distances(neighbor_image, window_imgs):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Runtime improvements')">Runtime improvements
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Vectorize: one images to many images similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Vectorize: one images to many images similarity comparison')">Vectorize: one images to many images similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Vectorize: one images to many images similarity comparison</div>
 				<pre class='code'><span style='background-color:yellow'>arr_img = np.array(neighbor_image)</span>
@@ -1174,7 +1174,7 @@ def compare_image_to_images_distances(neighbor_image, window_imgs):
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Rework debugging steps into function</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Rework debugging steps into function')">Rework debugging steps into function</button>
 			<div class='tooltip'>
 				<div class='history-header'>Rework debugging steps into function</div>
 				<pre class='code'>arr_img = np.array(neighbor_image)
@@ -1187,7 +1187,7 @@ return MSEs
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>Parameters:</span>
@@ -1217,7 +1217,7 @@ def get_all_image_comparisons_matrix(file_image_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing running code with different parameters for image similarity threshold and number of neighbors retreived')">Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</div>
 				<pre class='code'><span style='background-color:yellow'>def get_all_image_comparisons_matrix(file_image_map):</span>
@@ -1225,7 +1225,7 @@ def get_all_image_comparisons_matrix(file_image_map):
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>def get_all_image_comparisons_matrix(file_image_map):
@@ -1251,7 +1251,7 @@ def get_all_image_comparisons_matrix(file_image_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>Parameters:</span>
@@ -1289,7 +1289,7 @@ def get_all_image_comparisons_matrix(file_image_map):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Functionalize get_file_avgPixelMap() to make code neater</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Functionalize get_file_avgPixelMap() to make code neater')">Functionalize get_file_avgPixelMap() to make code neater</button>
 			<div class='tooltip'>
 				<div class='history-header'>Functionalize get_file_avgPixelMap() to make code neater</div>
 				<pre class='code'><span style='background-color:yellow'>for file in file_image_map.keys():</span>
@@ -1300,7 +1300,7 @@ def get_all_image_comparisons_matrix(file_image_map):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing running code with different parameters for image similarity threshold and number of neighbors retreived')">Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</div>
 				<pre class='code'><span style='background-color:yellow'>file_index_map = {}</span>
@@ -1339,7 +1339,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load Two images for similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load Two images for similarity comparison')">Load Two images for similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load Two images for similarity comparison</div>
 				<pre class='code'><span style='background-color:yellow'>def make_mosaic_kmeans(target_photo, photos_dir="Photos/"):</span>
@@ -1349,7 +1349,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):</span>
@@ -1374,7 +1374,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>This approach was experimentally less succesful than the average pixel mapping algorithm, "make_mosaic_avg"</span>
@@ -1402,7 +1402,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>Parameters:</span>
@@ -1436,7 +1436,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create mapping from filename to image object so images aren't read in more than once</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create mapping from filename to image object so images aren\'t read in more than once')">Create mapping from filename to image object so images aren't read in more than once</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create mapping from filename to image object so images aren't read in more than once</div>
 				<pre class='code'><span style='background-color:yellow'>file_image_map = get_all_images(photos_dir)</span>
@@ -1446,7 +1446,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>file_image_map = get_file_image_map(photos_dir)</span>
@@ -1456,7 +1456,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Find the percent of an image\'s pixels that falls into a given cluster')">Find the percent of an image's pixels that falls into a given cluster
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file')">Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create pandas dataframe that includes pixels and their clusters for all images, and save to a csv file</div>
 				<pre class='code'>file_image_map = get_file_image_map(photos_dir)
@@ -1468,7 +1468,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel')">Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel')">Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</div>
 				<pre class='code'>file_image_map = get_file_image_map(photos_dir)
@@ -1480,7 +1480,7 @@ def make_mosaic_kmeans(target_photo, photos_dir="Photos/", first_run = False):
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Handle parsing what's loaded from CSV from string format to tuple</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Handle parsing what\'s loaded from CSV from string format to tuple')">Handle parsing what's loaded from CSV from string format to tuple</button>
 			<div class='tooltip'>
 				<div class='history-header'>Handle parsing what's loaded from CSV from string format to tuple</div>
 				<pre class='code'>file_image_map = get_file_image_map(photos_dir)
@@ -1495,7 +1495,7 @@ kmeans_dataframe = pd.read_csv("kmean_data_all_photos.csv")
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#get dictionary mapping each filename to its respective image</span>
@@ -1528,7 +1528,7 @@ kmeans_dataframe["centroid"] = kmeans_dataframe["centroid"].map(string_to_tuple)
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Read in an example image using Python')">Read in an example image using Python
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Switch to PIL (Python Image Library) and read in an image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Switch to PIL (Python Image Library) and read in an image')">Switch to PIL (Python Image Library) and read in an image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Switch to PIL (Python Image Library) and read in an image</div>
 				<pre class='code'><span style='background-color:yellow'>img = Image.open(target_photo)</span>
@@ -1538,7 +1538,7 @@ kmeans_dataframe["centroid"] = kmeans_dataframe["centroid"].map(string_to_tuple)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel')">Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel')">Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</div>
 				<pre class='code'><span style='background-color:yellow'>all_centroids = kmeans_dataframe['centroid'].values.astype(tuple)</span>
@@ -1548,7 +1548,7 @@ img = Image.open(target_photo)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Handle parsing what's loaded from CSV from string format to tuple</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Handle parsing what\'s loaded from CSV from string format to tuple')">Handle parsing what's loaded from CSV from string format to tuple</button>
 			<div class='tooltip'>
 				<div class='history-header'>Handle parsing what's loaded from CSV from string format to tuple</div>
 				<pre class='code'><span style='background-color:yellow'>all_centroids = kmeans_dataframe['centroid'].tolist()</span>
@@ -1560,7 +1560,7 @@ img = Image.open(target_photo)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#get list of all centroids</span>
@@ -1588,7 +1588,7 @@ img = Image.open(target_photo)
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Read in an example image using Python')">Read in an example image using Python
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Switch to PIL (Python Image Library) and read in an image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Switch to PIL (Python Image Library) and read in an image')">Switch to PIL (Python Image Library) and read in an image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Switch to PIL (Python Image Library) and read in an image</div>
 				<pre class='code'><span style='background-color:yellow'>image_matrix = img.load()</span>
@@ -1598,7 +1598,7 @@ img = Image.open(target_photo)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Calculate average pixel of image')">Calculate average pixel of image
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Resize image to 1X1 pixel to see "average" pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Resize image to 1X1 pixel to see \'average\' pixel')">Resize image to 1X1 pixel to see "average" pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Resize image to 1X1 pixel to see "average" pixel</div>
 				<pre class='code'>image_matrix = img.load()
@@ -1609,7 +1609,7 @@ img = Image.open(target_photo)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'># image_matrix = img.load()</span>
@@ -1620,7 +1620,7 @@ img = Image.open(target_photo)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'><span style='background-color:yellow'>image_matrix = img.load()</span>
@@ -1631,7 +1631,7 @@ img = Image.open(target_photo)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>img = scale_image_to_basewidth(img, basewidth=50)</span>
@@ -1659,7 +1659,7 @@ width, height = img.size
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Calculate average pixel of image')">Calculate average pixel of image
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Resize image to 1X1 pixel to see "average" pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Resize image to 1X1 pixel to see \'average\' pixel')">Resize image to 1X1 pixel to see "average" pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Resize image to 1X1 pixel to see "average" pixel</div>
 				<pre class='code'><span style='background-color:yellow'>for y in range(height):</span>
@@ -1671,7 +1671,7 @@ width, height = img.size
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'>#      for y in range(height):</span>
@@ -1683,7 +1683,7 @@ width, height = img.size
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'>#      for y in range(height):
@@ -1696,7 +1696,7 @@ width, height = img.size
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add functions to concat images horizontally and vertically</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add functions to concat images horizontally and vertically')">Add functions to concat images horizontally and vertically</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add functions to concat images horizontally and vertically</div>
 				<pre class='code'><span style='background-color:yellow'>for y in range(height):</span>
@@ -1709,7 +1709,7 @@ width, height = img.size
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Functionalize get_file_avgPixelMap() to make code neater</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Functionalize get_file_avgPixelMap() to make code neater')">Functionalize get_file_avgPixelMap() to make code neater</button>
 			<div class='tooltip'>
 				<div class='history-header'>Functionalize get_file_avgPixelMap() to make code neater</div>
 				<pre class='code'>for y in range(height):
@@ -1722,7 +1722,7 @@ pixel = image_matrix[x,y]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Now that something is working, investigate other ways of compiling mosaic to compare')">Now that something is working, investigate other ways of compiling mosaic to compare
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match </button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match ')">Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match </button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing the impact of pulling a random picture from the top-10 matches, instead of using the top match </div>
 				<pre class='code'>for y in range(height):
@@ -1735,7 +1735,7 @@ pixel = image_matrix[x,y]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#loop through each pixel of the target image</span>
@@ -1768,7 +1768,7 @@ nearest_neighbors = nearest_neighbors_tree.query(pixel, k = 10)
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'><span style='background-color:yellow'>#         neighbor_pixel = all_pixels[pixel_index]</span>
@@ -1778,7 +1778,7 @@ nearest_neighbors = nearest_neighbors_tree.query(pixel, k = 10)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add functions to concat images horizontally and vertically</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add functions to concat images horizontally and vertically')">Add functions to concat images horizontally and vertically</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add functions to concat images horizontally and vertically</div>
 				<pre class='code'><span style='background-color:yellow'>neighbor_pixel = all_pixels[pixel_index]</span>
@@ -1788,7 +1788,7 @@ nearest_neighbors = nearest_neighbors_tree.query(pixel, k = 10)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>neighbor_pixel = all_avg_pixels[pixel_index]</span>
@@ -1798,7 +1798,7 @@ nearest_neighbors = nearest_neighbors_tree.query(pixel, k = 10)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel')">Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel')">Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load pandas kmeans dataframe from CSV and create mosaic using images with similar centroids as a given target_pixel</div>
 				<pre class='code'>neighbor_pixel = all_avg_pixels[pixel_index]
@@ -1807,7 +1807,7 @@ nearest_neighbors = nearest_neighbors_tree.query(pixel, k = 10)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Handle parsing what's loaded from CSV from string format to tuple</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Handle parsing what\'s loaded from CSV from string format to tuple')">Handle parsing what's loaded from CSV from string format to tuple</button>
 			<div class='tooltip'>
 				<div class='history-header'>Handle parsing what's loaded from CSV from string format to tuple</div>
 				<pre class='code'><span style='background-color:yellow'>pixel_index = nearest_neighbors[1][0]#[random.randint(0, 9)]</span>
@@ -1817,7 +1817,7 @@ closest_files = kmeans_dataframe[kmeans_dataframe['centroid'] == neighbor_pixel]
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster')">Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</button>
 			<div class='tooltip'>
 				<div class='history-header'>Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</div>
 				<pre class='code'><span style='background-color:yellow'>closest_files_dfs = []</span>
@@ -1833,7 +1833,7 @@ neighbor_pixel = all_avg_pixels[pixel_index]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#generate subset of kmeans_dataframe that includes only the top-10 nearest neighbors</span>
@@ -1864,7 +1864,7 @@ closest_files_df = pd.concat(closest_files_dfs)
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Create mapping from filename to image object so images aren't read in more than once</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Create mapping from filename to image object so images aren\'t read in more than once')">Create mapping from filename to image object so images aren't read in more than once</button>
 			<div class='tooltip'>
 				<div class='history-header'>Create mapping from filename to image object so images aren't read in more than once</div>
 				<pre class='code'><span style='background-color:yellow'>closest_img = file_image_map[closest_file]</span>
@@ -1874,7 +1874,7 @@ closest_files_df = pd.concat(closest_files_dfs)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel')">Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster')">Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</button>
 			<div class='tooltip'>
 				<div class='history-header'>Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</div>
 				<pre class='code'><span style='background-color:yellow'>closest_file = closest_files_df.sort_values("percent",ascending=False)['filename'].values[0]</span>
@@ -1885,7 +1885,7 @@ closest_img = file_image_map[closest_file]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load Two images for similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load Two images for similarity comparison')">Load Two images for similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load Two images for similarity comparison</div>
 				<pre class='code'><span style='background-color:yellow'>closest_file = closest_files_df.sort_values("percent",ascending=False)['filename'].values[random.randint(0, 9)]</span>
@@ -1896,7 +1896,7 @@ closest_img = file_image_map[closest_file]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'># pick a random image of the top 10 centroid matches</span>
@@ -1931,7 +1931,7 @@ closest_img = file_image_map[closest_file]
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Build mosaic by appending images for each pixel to a running image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Build mosaic by appending images for each pixel to a running image')">Build mosaic by appending images for each pixel to a running image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Build mosaic by appending images for each pixel to a running image</div>
 				<pre class='code'><span style='background-color:yellow'>if x == 0:</span>
@@ -1944,7 +1944,7 @@ closest_img = file_image_map[closest_file]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load Two images for similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load Two images for similarity comparison')">Load Two images for similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load Two images for similarity comparison</div>
 				<pre class='code'>if x == 0:
@@ -1958,7 +1958,7 @@ column_image = get_concat_v(column_image, row_image)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Make sure that duplicate or similar-looking photos aren\'t adjacent in mosaic')">Make sure that duplicate or similar-looking photos aren't adjacent in mosaic
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar')">Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
 			<div class='tooltip'>
 				<div class='history-header'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</div>
 				<pre class='code'>if x == 0:
@@ -1974,7 +1974,7 @@ return column_image
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#add new image object running row image</span>
@@ -2020,7 +2020,7 @@ def make_mosaic_avg(target_photo, photos_dir="Photos/", basewidth=50, pixelWidth
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'><span style='background-color:yellow'>pixel_files_map = get_pixel_files_map(file_avgPixel_map)</span>
@@ -2029,7 +2029,7 @@ def make_mosaic_avg(target_photo, photos_dir="Photos/", basewidth=50, pixelWidth
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Functionalize get_file_avgPixelMap() to make code neater</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Functionalize get_file_avgPixelMap() to make code neater')">Functionalize get_file_avgPixelMap() to make code neater</button>
 			<div class='tooltip'>
 				<div class='history-header'>Functionalize get_file_avgPixelMap() to make code neater</div>
 				<pre class='code'><span style='background-color:yellow'>file_avgPixel_map = get_file_avgPixelMap(file_image_map)</span>
@@ -2042,7 +2042,7 @@ pixel_files_map = get_pixel_files_map(file_avgPixel_map)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load Two images for similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load Two images for similarity comparison')">Load Two images for similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load Two images for similarity comparison</div>
 				<pre class='code'><span style='background-color:yellow'>def make_mosaic_avg(target_photo, photos_dir="Photos/"):</span>
@@ -2056,7 +2056,7 @@ nearest_neighbors_tree = KDTree(all_avg_pixels)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Runtime improvements')">Runtime improvements
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Rework debugging steps into function</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Rework debugging steps into function')">Rework debugging steps into function</button>
 			<div class='tooltip'>
 				<div class='history-header'>Rework debugging steps into function</div>
 				<pre class='code'><span style='background-color:yellow'>def make_mosaic_avg(target_photo, photos_dir="Photos/", basewidth=50):</span>
@@ -2070,7 +2070,7 @@ nearest_neighbors_tree = KDTree(all_avg_pixels)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing running code with different parameters for image similarity threshold and number of neighbors retreived')">Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</div>
 				<pre class='code'>def make_mosaic_avg(target_photo, photos_dir="Photos/", basewidth=50):
@@ -2083,7 +2083,7 @@ nearest_neighbors_tree = KDTree(all_avg_pixels)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>def make_mosaic_avg(target_photo, photos_dir="Photos/", basewidth=50, pixelWidth=50):</span>
@@ -2126,7 +2126,7 @@ nearest_neighbors_tree = KDTree(all_avg_pixels)
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Read in an example image using Python')">Read in an example image using Python
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Switch to PIL (Python Image Library) and read in an image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Switch to PIL (Python Image Library) and read in an image')">Switch to PIL (Python Image Library) and read in an image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Switch to PIL (Python Image Library) and read in an image</div>
 				<pre class='code'><span style='background-color:yellow'>img = Image.open(target_photo)</span>
@@ -2137,7 +2137,7 @@ nearest_neighbors_tree = KDTree(all_avg_pixels)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Calculate average pixel of image')">Calculate average pixel of image
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Resize image to 1X1 pixel to see "average" pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Resize image to 1X1 pixel to see \'average\' pixel')">Resize image to 1X1 pixel to see "average" pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Resize image to 1X1 pixel to see "average" pixel</div>
 				<pre class='code'>img = Image.open(target_photo)
@@ -2149,7 +2149,7 @@ image_matrix = img.load()
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'>img = Image.open(target_photo)
@@ -2161,7 +2161,7 @@ image_matrix = img.load()
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'>img = Image.open(target_photo)
@@ -2173,7 +2173,7 @@ image_matrix = img.load()
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Make sure that duplicate or similar-looking photos aren\'t adjacent in mosaic')">Make sure that duplicate or similar-looking photos aren't adjacent in mosaic
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar')">Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
 			<div class='tooltip'>
 				<div class='history-header'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</div>
 				<pre class='code'>img = Image.open(target_photo)
@@ -2185,7 +2185,7 @@ width, height = img.size
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add function for compare_image_distance()</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add function for compare_image_distance()')">Add function for compare_image_distance()</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add function for compare_image_distance()</div>
 				<pre class='code'>img = Image.open(target_photo)
@@ -2197,7 +2197,7 @@ filename_matrix = []
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images')">Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</div>
 				<pre class='code'>img = Image.open(target_photo)
@@ -2212,7 +2212,7 @@ filename_matrix = []
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Runtime improvements')">Runtime improvements
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Rework debugging steps into function</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Rework debugging steps into function')">Rework debugging steps into function</button>
 			<div class='tooltip'>
 				<div class='history-header'>Rework debugging steps into function</div>
 				<pre class='code'>img = Image.open(target_photo)
@@ -2227,7 +2227,7 @@ filename_matrix = []
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#load and prep image</span>
@@ -2271,7 +2271,7 @@ min_array_distance_between_similar_photos = 5
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Calculate average pixel of image')">Calculate average pixel of image
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Resize image to 1X1 pixel to see "average" pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Resize image to 1X1 pixel to see \'average\' pixel')">Resize image to 1X1 pixel to see "average" pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Resize image to 1X1 pixel to see "average" pixel</div>
 				<pre class='code'><span style='background-color:yellow'>for y in range(height):</span>
@@ -2283,7 +2283,7 @@ min_array_distance_between_similar_photos = 5
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'>#      for y in range(height):</span>
@@ -2295,7 +2295,7 @@ min_array_distance_between_similar_photos = 5
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('For each pixel of target_photo, find photo with closest average pixel')">For each pixel of target_photo, find photo with closest average pixel
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through target_photo\'s pixels and find the avg_pixel closest, then map back to the filename')">Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through target_photo's pixels and find the avg_pixel closest, then map back to the filename</div>
 				<pre class='code'>#      for y in range(height):
@@ -2309,7 +2309,7 @@ min_array_distance_between_similar_photos = 5
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Improve time it takes to loop through all images and find closest photo')">Improve time it takes to loop through all images and find closest photo
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add functions to concat images horizontally and vertically</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add functions to concat images horizontally and vertically')">Add functions to concat images horizontally and vertically</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add functions to concat images horizontally and vertically</div>
 				<pre class='code'><span style='background-color:yellow'>for y in range(height):</span>
@@ -2323,7 +2323,7 @@ min_array_distance_between_similar_photos = 5
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Clean up code by putting it into functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Clean up code by putting it into functions')">Clean up code by putting it into functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Clean up code by putting it into functions</div>
 				<pre class='code'>for y in range(height):
@@ -2337,7 +2337,7 @@ pixel = image_matrix[x,y]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Make sure that duplicate or similar-looking photos aren\'t adjacent in mosaic')">Make sure that duplicate or similar-looking photos aren't adjacent in mosaic
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar')">Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
 			<div class='tooltip'>
 				<div class='history-header'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</div>
 				<pre class='code'>for y in range(height):
@@ -2353,7 +2353,7 @@ neighbor_pixel = all_avg_pixels[pixel_index]
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Reworking this logic to stop looping through the closest file candidates once a valid image has been found</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Reworking this logic to stop looping through the closest file candidates once a valid image has been found')">Reworking this logic to stop looping through the closest file candidates once a valid image has been found</button>
 			<div class='tooltip'>
 				<div class='history-header'>Reworking this logic to stop looping through the closest file candidates once a valid image has been found</div>
 				<pre class='code'>for y in range(height):
@@ -2371,7 +2371,7 @@ neighbor_image = file_image_map[neighbor_file]
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images')">Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</div>
 				<pre class='code'>for y in range(height):
@@ -2392,7 +2392,7 @@ neighbor_image = file_image_map[neighbor_file]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing running code with different parameters for image similarity threshold and number of neighbors retreived')">Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</div>
 				<pre class='code'>for y in range(height):
@@ -2412,7 +2412,7 @@ neighbor_image = file_image_map[neighbor_file]
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#loop through each pixel of the target image</span>
@@ -2480,7 +2480,7 @@ neighbor_distance_index = file_index_map[neighbor_file]
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Build mosaic by appending images for each pixel to a running image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Build mosaic by appending images for each pixel to a running image')">Build mosaic by appending images for each pixel to a running image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Build mosaic by appending images for each pixel to a running image</div>
 				<pre class='code'><span style='background-color:yellow'>if x == 0:</span>
@@ -2490,7 +2490,7 @@ neighbor_distance_index = file_index_map[neighbor_file]
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Make sure that duplicate or similar-looking photos aren\'t adjacent in mosaic')">Make sure that duplicate or similar-looking photos aren't adjacent in mosaic
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar')">Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
 			<div class='tooltip'>
 				<div class='history-header'>Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</div>
 				<pre class='code'><span style='background-color:yellow'>window_x_min = max(0, x-min_array_distance_between_similar_photos)</span>
@@ -2504,7 +2504,7 @@ if x == 0:
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Reworking this logic to stop looping through the closest file candidates once a valid image has been found</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Reworking this logic to stop looping through the closest file candidates once a valid image has been found')">Reworking this logic to stop looping through the closest file candidates once a valid image has been found</button>
 			<div class='tooltip'>
 				<div class='history-header'>Reworking this logic to stop looping through the closest file candidates once a valid image has been found</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2526,7 +2526,7 @@ if x == 0:
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add function for compare_image_distance()</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add function for compare_image_distance()')">Add function for compare_image_distance()</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add function for compare_image_distance()</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2554,7 +2554,7 @@ if x == 0:
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images')">Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2585,7 +2585,7 @@ filename_matrix[y].append(filename_toAdd)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Runtime improvements')">Runtime improvements
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Vectorize: one images to many images similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Vectorize: one images to many images similarity comparison')">Vectorize: one images to many images similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Vectorize: one images to many images similarity comparison</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2615,7 +2615,7 @@ filename_matrix[y].append(filename_toAdd)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Rework debugging steps into function</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Rework debugging steps into function')">Rework debugging steps into function</button>
 			<div class='tooltip'>
 				<div class='history-header'>Rework debugging steps into function</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2647,7 +2647,7 @@ filename_matrix[y].append(filename_toAdd)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing running code with different parameters for image similarity threshold and number of neighbors retreived')">Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2679,7 +2679,7 @@ filename_matrix[y].append(filename_toAdd)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2716,7 +2716,7 @@ filename_matrix[y].append(filename_toAdd)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'>window_x_min = max(0, x-min_array_distance_between_similar_photos)
@@ -2773,7 +2773,7 @@ filename_matrix[y].append(filename_toAdd)
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Build mosaic by appending images for each pixel to a running image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Build mosaic by appending images for each pixel to a running image')">Build mosaic by appending images for each pixel to a running image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Build mosaic by appending images for each pixel to a running image</div>
 				<pre class='code'><span style='background-color:yellow'>if y == 0:</span>
@@ -2785,7 +2785,7 @@ filename_matrix[y].append(filename_toAdd)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load Two images for similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load Two images for similarity comparison')">Load Two images for similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load Two images for similarity comparison</div>
 				<pre class='code'>if y == 0:
@@ -2798,7 +2798,7 @@ column_image = get_concat_v(column_image, row_image)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>#append row of images to an image of all previous columns</span>
@@ -2827,7 +2827,7 @@ printer_pixels = printer_dpi * printer_inches
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Read in an example image using Python')">Read in an example image using Python
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Switch to PIL (Python Image Library) and read in an image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Switch to PIL (Python Image Library) and read in an image')">Switch to PIL (Python Image Library) and read in an image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Switch to PIL (Python Image Library) and read in an image</div>
 				<pre class='code'><span style='background-color:yellow'>basewidth = 50</span>
@@ -2839,7 +2839,7 @@ printer_pixels = printer_dpi * printer_inches
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'><span style='background-color:yellow'>basewidth = 60</span>
@@ -2865,7 +2865,7 @@ print(pixelWidth)
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Calculate average pixel of image')">Calculate average pixel of image
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Resize image to 1X1 pixel to see "average" pixel</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Resize image to 1X1 pixel to see \'average\' pixel')">Resize image to 1X1 pixel to see "average" pixel</button>
 			<div class='tooltip'>
 				<div class='history-header'>Resize image to 1X1 pixel to see "average" pixel</div>
 				<pre class='code'><span style='background-color:yellow'>print(pixel)</span>
@@ -2873,7 +2873,7 @@ print(pixelWidth)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Calculate Average Pixel with Numpy average to compare runtime</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Calculate Average Pixel with Numpy average to compare runtime')">Calculate Average Pixel with Numpy average to compare runtime</button>
 			<div class='tooltip'>
 				<div class='history-header'>Calculate Average Pixel with Numpy average to compare runtime</div>
 				<pre class='code'><span style='background-color:yellow'>#print(pixel)</span>
@@ -2885,7 +2885,7 @@ print(pixelWidth)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans to cluster pixels in an image into groups of colors')">Use Kmeans to cluster pixels in an image into groups of colors
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Print out pixel values for an image to investigate how to cluster the data using Kmeans</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Print out pixel values for an image to investigate how to cluster the data using Kmeans')">Print out pixel values for an image to investigate how to cluster the data using Kmeans</button>
 			<div class='tooltip'>
 				<div class='history-header'>Print out pixel values for an image to investigate how to cluster the data using Kmeans</div>
 				<pre class='code'><span style='background-color:yellow'>print(pixels)</span>
@@ -2893,7 +2893,7 @@ print(pixelWidth)
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each')">Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</div>
 				<pre class='code'><span style='background-color:yellow'>print(pixels.shape)</span>
@@ -2905,7 +2905,7 @@ print(pixelWidth)
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'><span style='background-color:yellow'>pixels_per_row = basewidth</span>
@@ -2929,7 +2929,7 @@ photos_dir = "Photos/"
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Get AVG pixel for each JPG file in folder')">Get AVG pixel for each JPG file in folder
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Loop through photos in directory, calculate average pixel of each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Loop through photos in directory, calculate average pixel of each')">Loop through photos in directory, calculate average pixel of each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Loop through photos in directory, calculate average pixel of each</div>
 				<pre class='code'><span style='background-color:yellow'>photos_dir = "Photos/"</span>
@@ -2939,7 +2939,7 @@ photos_dir = "Photos/"
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Use Kmeans to cluster pixels in an image into groups of colors')">Use Kmeans to cluster pixels in an image into groups of colors
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each')">Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
 			<div class='tooltip'>
 				<div class='history-header'>Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</div>
 				<pre class='code'><span style='background-color:yellow'>target_photo = "angie_flower.jpeg"</span>
@@ -2950,7 +2950,7 @@ photos_dir = "Photos/"
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing running code with different parameters for image similarity threshold and number of neighbors retreived')">Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</div>
 				<pre class='code'><span style='background-color:yellow'>target_photo = "angie_me.jpeg"</span>
@@ -2959,7 +2959,7 @@ photos_dir = "Photos/"
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>target_photo = "angie_flower.jpeg"</span>
@@ -2982,7 +2982,7 @@ for width in [25, 50, 100, 4800]:
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'><span style='background-color:yellow'>for width in [25, 50, 100, 4800]:</span>
@@ -3006,7 +3006,7 @@ for width in [25, 50, 100, 4800]:
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load Two images for similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load Two images for similarity comparison')">Load Two images for similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load Two images for similarity comparison</div>
 				<pre class='code'><span style='background-color:yellow'>img = Image.open("target_angie.jpg")</span>
@@ -3014,7 +3014,7 @@ for width in [25, 50, 100, 4800]:
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Calculate Mean Squared Error (MSE) between images to measure similarity</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Calculate Mean Squared Error (MSE) between images to measure similarity')">Calculate Mean Squared Error (MSE) between images to measure similarity</button>
 			<div class='tooltip'>
 				<div class='history-header'>Calculate Mean Squared Error (MSE) between images to measure similarity</div>
 				<pre class='code'><span style='background-color:yellow'>img = Image.open("angie_bed1.jpg")</span>
@@ -3024,7 +3024,7 @@ for width in [25, 50, 100, 4800]:
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>img.draft("RGB",(width,height))</span>
@@ -3033,7 +3033,7 @@ for width in [25, 50, 100, 4800]:
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'><span style='background-color:yellow'>img = Image.open("angie_bed1.jpg")</span>
@@ -3059,7 +3059,7 @@ img.draft("RGB",(width,height))
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Calculate Mean Squared Error (MSE) between images to measure similarity</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Calculate Mean Squared Error (MSE) between images to measure similarity')">Calculate Mean Squared Error (MSE) between images to measure similarity</button>
 			<div class='tooltip'>
 				<div class='history-header'>Calculate Mean Squared Error (MSE) between images to measure similarity</div>
 				<pre class='code'><span style='background-color:yellow'>img2 = Image.open("angie_bed2.jpg")</span>
@@ -3069,7 +3069,7 @@ img.draft("RGB",(width,height))
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Runtime improvements')">Runtime improvements
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Rework debugging steps into function</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Rework debugging steps into function')">Rework debugging steps into function</button>
 			<div class='tooltip'>
 				<div class='history-header'>Rework debugging steps into function</div>
 				<pre class='code'><span style='background-color:yellow'>img3 = Image.open("angie_bed2.jpg")</span>
@@ -3079,7 +3079,7 @@ img.draft("RGB",(width,height))
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'><span style='background-color:yellow'>img2 = Image.open("angie_bed2.jpg")</span>
@@ -3105,7 +3105,7 @@ img.save("mosaic_huge.jpg")
 <div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Generating the first version of the mosaic and organize code')">Generating the first version of the mosaic and organize code
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Build mosaic by appending images for each pixel to a running image</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Build mosaic by appending images for each pixel to a running image')">Build mosaic by appending images for each pixel to a running image</button>
 			<div class='tooltip'>
 				<div class='history-header'>Build mosaic by appending images for each pixel to a running image</div>
 				<pre class='code'><span style='background-color:yellow'>column_image.save("mosaic.jpg")</span>
@@ -3115,7 +3115,7 @@ img.save("mosaic_huge.jpg")
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Detect if two images are duplicates or near-identical')">Detect if two images are duplicates or near-identical
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Load Two images for similarity comparison</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Load Two images for similarity comparison')">Load Two images for similarity comparison</button>
 			<div class='tooltip'>
 				<div class='history-header'>Load Two images for similarity comparison</div>
 				<pre class='code'><span style='background-color:yellow'>#mosaic_image.save("mosaic.jpg")</span>
@@ -3125,7 +3125,7 @@ img.save("mosaic_huge.jpg")
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Make sure that duplicate or similar-looking photos aren\'t adjacent in mosaic')">Make sure that duplicate or similar-looking photos aren't adjacent in mosaic
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Record which files have been added to mosaic in a matrix</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Record which files have been added to mosaic in a matrix')">Record which files have been added to mosaic in a matrix</button>
 			<div class='tooltip'>
 				<div class='history-header'>Record which files have been added to mosaic in a matrix</div>
 				<pre class='code'><span style='background-color:yellow'>img = make_mosaic_avg(target_photo, photos_dir)</span>
@@ -3136,7 +3136,7 @@ img.save("mosaic_huge.jpg")
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Runtime improvements')">Runtime improvements
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Debugging vectorization syntax in numpy</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Debugging vectorization syntax in numpy')">Debugging vectorization syntax in numpy</button>
 			<div class='tooltip'>
 				<div class='history-header'>Debugging vectorization syntax in numpy</div>
 				<pre class='code'><span style='background-color:yellow'># img = make_mosaic_avg(target_photo, photos_dir)</span>
@@ -3145,7 +3145,7 @@ img.save("mosaic_huge.jpg")
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Rework debugging steps into function</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Rework debugging steps into function')">Rework debugging steps into function</button>
 			<div class='tooltip'>
 				<div class='history-header'>Rework debugging steps into function</div>
 				<pre class='code'><span style='background-color:yellow'># img = make_mosaic_avg(target_photo, photos_dir, basewidth=50)</span>
@@ -3156,7 +3156,7 @@ img.save("mosaic_huge.jpg")
 </div><div class='files-container'>main.py </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Testing and Cleaning Code -- final touches')">Testing and Cleaning Code -- final touches
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Testing running code with different parameters for image similarity threshold and number of neighbors retreived')">Testing running code with different parameters for image similarity threshold and number of neighbors retreived</button>
 			<div class='tooltip'>
 				<div class='history-header'>Testing running code with different parameters for image similarity threshold and number of neighbors retreived</div>
 				<pre class='code'><span style='background-color:yellow'>img = make_mosaic_avg(target_photo, photos_dir, basewidth=60)</span>
@@ -3165,7 +3165,7 @@ img.save("mosaic_huge.jpg")
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Add comments to functions</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Add comments to functions')">Add comments to functions</button>
 			<div class='tooltip'>
 				<div class='history-header'>Add comments to functions</div>
 				<pre class='code'><span style='background-color:yellow'>img = make_mosaic_avg(target_photo, photos_dir, basewidth=60, pixelWidth=200)</span>
@@ -3174,7 +3174,7 @@ img.save("mosaic_huge.jpg")
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Test how resizing photos impacts calculated MSE averages</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'Test how resizing photos impacts calculated MSE averages')">Test how resizing photos impacts calculated MSE averages</button>
 			<div class='tooltip'>
 				<div class='history-header'>Test how resizing photos impacts calculated MSE averages</div>
 				<pre class='code'><span style='background-color:yellow'>img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</span>

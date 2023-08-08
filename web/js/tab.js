@@ -40,7 +40,7 @@ function openCodeFile(url, regionID) {
   var contentContainer = $("#contentContainer");
   loadContent(url, contentContainer, scrollToRegion, regionID); 
 
-  logUserAction("history", "jump to code " + url + " " + regionID);
+  logUserAction("history", "jump to code: " + url + " " + regionID);
 }
 
 function openSubgoal(subgoalText) {
@@ -51,6 +51,8 @@ function openSubgoal(subgoalText) {
 
   subgoalID = subgoal.attr("id");
   scrollToSubgoal(subgoalID);
+
+  logUserAction("code", "open subgoal: " + subgoalText);
 }
 
 function scrollToElement(element) {
@@ -139,6 +141,8 @@ function hoverEnterSubgoal(subgoal) {
   subgoalElements.each( function() {
     $(this).addClass("highlight");
   })
+
+  logUserAction("code", "hover subgoal: " + goalText);
 
 }
 

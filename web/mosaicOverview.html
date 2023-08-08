@@ -90,10 +90,10 @@
         coll[i].addEventListener("click", function() {
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
-            logUserAction("history", "click close " + this.textContent);
+            logUserAction("history", "click close: " + this.textContent);
             openChange(content, false);
           } else {
-            logUserAction("history", "click open " + this.textContent);
+            logUserAction("history", "click open: " + this.textContent);
             openChange(content, true);
             // look for searches
             highlightCode(content);
@@ -111,6 +111,7 @@
     histElems.on("click", (event) => {
         openTab("history");
         openChangeWithTitle(event.target.textContent, true); 
+
       });
 
   }
@@ -144,6 +145,12 @@
     var button =  $("button.collapsible:contains('" + title + "')");
     var content = button.next();
     openChange($(content), open); 
+
+    if (open) {
+      logUserAction("code", "open activity: " + title);
+    } else {
+      logUserAction("code", "close activity: " + title);
+    }
   }
 
 

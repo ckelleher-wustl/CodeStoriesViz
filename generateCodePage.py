@@ -29,7 +29,7 @@ def generatePage():
         fileRoot = filename.split('.')[0]
         data_url = prefix + fileRoot + ".html"
 
-        html += "\t\t<li class='tab-item' code='" + codeMap[filename] + "'><a href='#' data-url='" + data_url + "'>" + filename + "</a></li>\n"
+        html += "\t\t<li class='tab-item' code='" + codeMap[filename] + "'><a href='#' data-url='" + data_url + "' onclick='logUserAction(\"history\", \"open final code:" + data_url + "\")'>" + filename + "</a></li>\n"
 
     html += "\t</ul>\n"
     html += "\t<input type='text' id='codeSearchTerms'></input>\n"

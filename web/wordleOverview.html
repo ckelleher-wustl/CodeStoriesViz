@@ -91,10 +91,10 @@
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
             openChange(content, false);
-            logUserAction("history", "click close " + this.textContent)
+            logUserAction("history", "click close: " + this.textContent)
           } else {
             openChange(content, true);
-            logUserAction("history", "click open " + this.textContent)
+            logUserAction("history", "click open: " + this.textContent)
             // look for searches
             highlightCode(content);
           }
@@ -143,7 +143,13 @@
     var history = $(".history");
     var button =  $("button.collapsible:contains('" + title + "')");
     var content = button.next();
-    openChange($(content), open); 
+    openChange($(content), open);
+    
+    if (open) {
+      logUserAction("code", "open activity: " + title);
+    } else {
+      logUserAction("code", "close activity: " + title);
+    }
   }
 
 

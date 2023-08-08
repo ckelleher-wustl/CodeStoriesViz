@@ -43,6 +43,12 @@ function searchFinalCode() {
     })
 
     highlightFinalCode(); 
+
+    if (searchTerm) {
+        logUserAction("code", "search final code: " + searchTerm);
+    } else {
+        logUserAction("code", "clear final code search");
+    }
 }
 
 function highlightFinalCode() {
@@ -129,12 +135,15 @@ function searchChangedCode() {
 
         scrollToElement($(firstResult).prev());
 
+        logUserAction("history", "search code: " + searchTerm);
 
     } else {
         var codeContent = $('.content');
         codeContent.each( function() {
             highlightChange(this, false);
         });
+
+        logUserAction("history", "clear code search")
     }
 
 }

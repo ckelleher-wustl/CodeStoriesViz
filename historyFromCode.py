@@ -43,6 +43,7 @@ def separate_lines(filename):
 filename = "main.py"
 filepath = 'web/storystudy/mosaicCode/' + filename
 groups = separate_lines(filepath)
+prefix = "code_Mosaic_"
 
 
 historyFromCode = historyQuery.HistoryFromCode()
@@ -136,7 +137,7 @@ for group in groups:
             html += file + " " 
         html += "</div>\n"
         # subgoal-group open 
-        html += "\t<div class='subgoal-group' onmouseover=\"hoverEnterSubgoal(this)\" onmouseout=\"hoverLeaveSubgoal(this)\"  onclick=\"openSubgoal('" + subgoal + "')\">" + subgoal + "\n"
+        html += "\t<div class='subgoal-group' onmouseover=\"hoverEnterSubgoal(this)\" onmouseout=\"hoverLeaveSubgoal(this)\"  onclick=\"openSubgoal('" + subgoal.replace('"', "'").replace("'", "\\'") + "')\">" + subgoal + "\n"
 
         activityList = subGoalDict[subgoal]
         for activity in activityList:
@@ -147,7 +148,7 @@ for group in groups:
 
                 # tooltip-container open
                 html += "\t\t<div class='tooltip-container'>\n"
-                html += "\t\t\t<button type='button' class='history active tooltip-trigger'>" + activity + "</button>\n"
+                html += "\t\t\t<button type='button' class='history active tooltip-trigger' onmouseover=\"logUserAction('code', 'hover activity: " + activity.replace('"', "'").replace("'", "\\'") + "')\">" + activity + "</button>\n"
 
                 periodLines = historyFromCode.getSharedLines(group, activity)
                 periodString = ""
@@ -209,7 +210,7 @@ with open('web/data/storyStudy/' + filename + '.csv', 'w+', encoding='UTF8', new
         
 f.close()
 
-text_file = open("web/code_Wordle_" + filename + ".html", "w")
+text_file = open("web/" + prefix + filename + ".html", "w")
 n = text_file.write(html)
 text_file.close()
 
