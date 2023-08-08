@@ -76,6 +76,7 @@
         var lineID = regions[regionID];
         lineID = lineID.replaceAll("<", "&lt").replaceAll(">", "&gt");
         // console.log(regionID + " " + lineID);
+        file = file.split(".")[0]
         html += "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
       }
       return html;

@@ -237,6 +237,7 @@ for clusterIdx in clusterDF.index:
                 regionID = row['regionID']
                 # print(f"Line ID: {lineID}, Region ID: {regionID}")
                 file = clusterDF['fileName'][clusterIdx].split(".")[0]
+                # print(f"file is {regionPrefix}{file}.html")
                 html +=  "<li class='jumpToCode' onclick=\"openCodeFile('" + regionPrefix + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
             html += "</ul>\n"
             
