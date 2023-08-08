@@ -1,3 +1,5 @@
+
+
 function searchCode() {
 
     var searchTerm = $('#searchTerms').val();
@@ -30,19 +32,29 @@ function searchFinalCode() {
     var searchTerm = $('#codeSearchTerms').val();
     console.log("searching final code for " + searchTerm);
 
+    var fileCount = 0;
     $('.tab-item').each( function() {
         var filename = this.textContent;
         var code = this.getAttribute("code");
 
         if ((searchTerm) && code.includes(searchTerm)) {
-            console.log(searchTerm + "found in " + filename + ": " + code.substring(0, 15));
+            // console.log(searchTerm + "found in " + filename + ": " + code.substring(0, 15));
             $(this).addClass("highlight");
+            fileCount += 1;
         } else {
             $(this).removeClass("highlight");
         }
     })
 
-    highlightFinalCode(); 
+    if (fileCount > 0) {
+        highlightFinalCode(); 
+    } else {
+        Swal.fire(
+            'Hmm.',
+            'We couldn\'t find ' + searchTerm + ' in the code.',
+            'question'
+        );
+     }
 
     if (searchTerm) {
         logUserAction("code", "search final code: " + searchTerm);
@@ -129,11 +141,19 @@ function searchChangedCode() {
                 highlightChange($(this).next(), true);
                 if(!firstResult) {
                     firstResult = this;
-                }
+                } 
             }
         })
 
-        scrollToElement($(firstResult).prev());
+        if (firstResult){
+            scrollToElement($(firstResult).prev());
+        } else {
+            Swal.fire(
+                'Hmm.',
+                'We couldn\'t find ' + searchTerm + ' in the code.',
+                'question'
+            );
+        }
 
         logUserAction("history", "search code: " + searchTerm);
 
