@@ -5,7 +5,6 @@ function searchCode() {
     var searchTerm = $('#searchTerms').val();
     var codeContent = $('.content');
 
-
     if (searchTerm) {
 
         codeContent.each( function() {

@@ -67,8 +67,8 @@ class HistoryFromCode:
 
         if (parentLine not in seedLineDict.keys()):
             print(f"Key not found: {parentLine}")
-            for key in seedLineDict.keys():
-                print(f"\t{key}: {seedLineDict[key]}")
+            # for key in seedLineDict.keys():
+            #     print(f"\t{key}: {seedLineDict[key]}")
 
     
 
@@ -183,11 +183,13 @@ class HistoryFromCode:
         codeLinesForPeriod = []
         for origLine in origLines:
             lineHistoryIdx = self.versionIndexHistory[origLine][period]
-            # print(f"getting {origLine} version {period} index {lineHistoryIdx} adding {lineHistoryIdx >= 0}")
+
+            # if lineHistoryIdx >= 0: 
+            #     if ("import" in origLine) :
+            #         print(f"getting {origLine} version {period} index {lineHistoryIdx} ")
+
             if lineHistoryIdx >= 0:
                 line = self.lineHistoryDict[origLine][lineHistoryIdx]
-            # else:
-            #     line = "- " + origLine
                 codeLinesForPeriod.append(line)
 
         return codeLinesForPeriod
@@ -280,8 +282,8 @@ class HistoryFromCode:
                 origLine = self.getOrigLine(line, self.seedLineDict)
                 if origLine == "NOT FOUND":
                     matches = self.getClosestMatches(line, self.seedLineDict)
-                    if (len(matches) > 0):
-                        print(f"closestMatch {line} -> {matches[0]} ")
+                    # if (len(matches) > 0):
+                        # print(f"closestMatch {line} -> {matches[0]} ")
                         # seedLineDict[candidateLine] = matches[0]
                 else:    
                     origLines.append(self.getOrigLine(line, self.seedLineDict))
@@ -340,9 +342,6 @@ class HistoryFromCode:
         for line in selectedLines:
             cleanedLines.append(line.strip())
 
-        # figure out what time period the title correlates to (this should get the later timestamp)
-        # periodIdx = self.clusterSummaryToPeriod[activityTitle]
-
         idx = 0
         periodForActivity = -1
         # timeForActivity = -1
@@ -362,7 +361,17 @@ class HistoryFromCode:
         # print(f"shared orig lines {origLines}")
         periodLines = self.getCodeLinesForPeriod(origLines, periodForActivity)
 
-        return periodLines
+        # print(f"PERIOD Lines: {periodLines}" )
+
+        # experimental here
+        sharedLines = []
+        for line in periodLines:
+            if (line in cleanedLines):
+                sharedLines.append(line)
+        
+
+        # return periodLines
+        return sharedLines
         # print(self.clusterTimeToSummaryDict)
 
     def getFileNamesForSubGoal(self, subgoal):

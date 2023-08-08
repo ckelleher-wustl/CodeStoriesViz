@@ -65,7 +65,7 @@ def buildLineRegionHistory():
         writer.writerow(header)
 
         for group in groups:
-            print(f"{group}")
+            # print(f"{group}")
             idLine = ""
             for groupLine in group:
                 groupLine = groupLine.strip()
@@ -82,7 +82,7 @@ def buildLineRegionHistory():
                 lineVersions = historyFromCode.lineHistoryDict[origLine]
                 for vsn in lineVersions:
                     if (len(vsn) > 8):
-                        print(f"\t{vsn}: {idLine} {'region' + str(regionIdx)}")
+                        # print(f"\t{vsn}: {idLine} {'region' + str(regionIdx)}")
                         data = [vsn, idLine, 'region' + str(regionIdx)]
                         # print(f"\t{data}")
                         writer.writerow(data)
@@ -150,7 +150,13 @@ for group in groups:
                 html += "\t\t<div class='tooltip-container'>\n"
                 html += "\t\t\t<button type='button' class='history active tooltip-trigger' onmouseover=\"logUserAction('code', 'hover activity: " + activity.replace('"', "'").replace("'", "\\'") + "')\">" + activity + "</button>\n"
 
+
+                # print(f"\nFinal Lines {group}")
+                
+
                 periodLines = historyFromCode.getSharedLines(group, activity)
+                # print("End")
+
                 periodString = ""
                 for line in periodLines:
 
@@ -158,13 +164,15 @@ for group in groups:
                         # if this is an html file, then format the code so it will render as code and not get interpreted.
                         if (filename.endswith(".html")):
                             line = line.replace("<", "&lt").replace(">", "&gt")
-                        periodString += line + "\n"
+                        periodString += "<span style='background-color:white'>" + line + "</span>\n"
 
                     else: # if it's different than last activity, then highlight
                         # if this is an html file, then format the code so it will render as code and not get interpreted.
+
                         if (filename.endswith(".html")):
                             line = line.replace("<", "&lt").replace(">", "&gt")
                         periodString += "<span style='background-color:yellow'>" + line + "</span>\n"
+                        prevLines.append(line)
 
                 # tooltip open
                 html += "\t\t\t<div class='tooltip'>\n"
@@ -175,8 +183,8 @@ for group in groups:
                 # tooltip-container close
                 html += "\t\t</div>\n" # end tooltip-container div
 
-                # save these lines for next time
-                prevLines = periodLines
+                # # save these lines for next time
+                # prevLines = periodLines
         
         # subgoal-group close
         html += "</div>" 
@@ -203,7 +211,7 @@ with open('web/data/storyStudy/' + filename + '.csv', 'w+', encoding='UTF8', new
         
         for activity in groupActivities[groupId]:
             data = [activity, lineID, regionID]
-            print(f"\t{data}")
+            # print(f"\t{data}")
             writer.writerow(data)
 
         regionIdx += 1
