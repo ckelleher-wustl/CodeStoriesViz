@@ -66,6 +66,24 @@
         // loadContent(url, $(this), setCodeFile, null)
         loadContent(url, $(this), null, null);
       });
+
+      console.log("binding enter key");
+      $('#searchTerms').bind("enterKey", searchChangedCode);
+
+      $('#searchTerms').keyup(function(e){
+        if ( ($('#searchTerms').is(":visible")) && (e.keyCode == 13) ) {
+            $(this).trigger("enterKey");
+        }
+      });
+
+      // $('#codeSearchTerms').bind("enterKey", searchFinalCode);
+
+      // $('#codeSearchTerms').keyup(function(e){
+      //   console.log("codeSearchTerms key up");
+      //   if ( ($('#codeSearchTerms').is(":visible")) && (e.keyCode == 13) ) {
+      //       $(this).trigger("enterKey");
+      //   }
+      // });
     });
 
 

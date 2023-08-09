@@ -6,10 +6,22 @@
 <button type='button' class='collapsible'>main.py: import scipy and pandas</button>
 <div class='content' --start-code='' --end-code='import scipy
 import pandas' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 </ul>
+</div><button type='button' class='collapsible'>main.py: attempt to read image using imageio</button>
+<div class='content' --start-code='import scipy
+import pandas' --end-code='# import imageio.v3 as iio
+
+# target_photo = "target_photo.jpg"
+# photo = iio.imread(target_photo)
+# print(photo.shape)
+from PIL import Image' --filename='main.py'>
 <p> code content will go here</p>
+See related sections in code:<ul>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
+</ul>
 </div><button type='button' class='collapsible'>search: imageio ndimage;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=imageio+python&rlz=1C5CHFA_enUS863US865&oq=imageio+py&aqs=chrome.0.0i20i263i512j69i57j0i20i263i512j0i512l7.3097j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open search: https://www.google.com/search?q=imageio+python&rlz=1C5CHFA_enUS863US865&oq=imageio+py&aqs=chrome.0.0i20i263i512j69i57j0i20i263i512j0i512l7.3097j0j7&sourceid=chrome&ie=UTF-8")'>imageio python</a></span></div><hr>
@@ -52,16 +64,15 @@ print(img.shape)
 
 
 #img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region1')">def get_avg_pixel(img):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region9')">def scale_image_to_basewidth(img, basewidth=50):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region25')">    #get list of all centroids</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region26')">    img = scale_image_to_basewidth(img, basewidth=50)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region36')">basewidth = 60</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">basewidth = 60</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>search: husky clip art;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=dog+clip+art&rlz=1C5CHFA_enUS863US865&sxsrf=AJOqlzW89e1J4Qr0B_Aazp8ehihlHUq-2Q:1676494977573&source=lnms&tbm=isch&sa=X&ved=2ahUKEwifh-y8tpj9AhXBkokEHS1iB9cQ_AUoAXoECAEQAw&biw=1680&bih=914&dpr=1' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open search: https://www.google.com/search?q=dog+clip+art&rlz=1C5CHFA_enUS863US865&sxsrf=AJOqlzW89e1J4Qr0B_Aazp8ehihlHUq-2Q:1676494977573&source=lnms&tbm=isch&sa=X&ved=2ahUKEwifh-y8tpj9AhXBkokEHS1iB9cQ_AUoAXoECAEQAw&biw=1680&bih=914&dpr=1")'>dog clip art</a></span></div><hr>
@@ -83,7 +94,7 @@ See related sections in code:<ul>
 </div>
 
 </div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal7">
+	<fieldset class="goal" style="width: 100%;" id="subgoal8">
 		<legend>Sub-goal</legend>
 		<div>Calculate average pixel of image</div>
 	</fieldset>
@@ -166,15 +177,15 @@ for x in range(width):
 
 
 img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region1')">def get_avg_pixel(img):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region26')">    img = scale_image_to_basewidth(img, basewidth=50)</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region27')">    #loop through each pixel of the target image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Calculate Average Pixel with Numpy average to compare runtime</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -234,11 +245,11 @@ print(np.mean(arr, axis=1))
 
 
 img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Calculate Average Pixel with Numpy average to compare runtime</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -304,15 +315,15 @@ print(np.mean(arr, axis=0))
 
 
 img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
 </ul>
-<p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal14">
+	<fieldset class="goal" style="width: 100%;" id="subgoal15">
 		<legend>Sub-goal</legend>
-		<div>Get AVG pixel for each JPG file in folder</div>
+		<div>Get average pixel for each JPG file in folder</div>
 	</fieldset>
 <button type='button' class='collapsible'>main.py: Loop through photos in directory, calculate average pixel of each</button>
 <div class='content' --start-code='# import imageio.v3 as iio
@@ -395,6 +406,7 @@ basewidth = 50
 #          pixel = image_matrix[x,y]
 
 # img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region1')">def get_avg_pixel(img):</li>
@@ -403,12 +415,11 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region9')">def scale_image_to_basewidth(img, basewidth=50):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region26')">    img = scale_image_to_basewidth(img, basewidth=50)</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region27')">    #loop through each pixel of the target image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">target_photo = angie_flower.jpeg</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region36')">target_photo = angie_flower.jpeg</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Dump pre-calculated average pixels to disk to test usage speed</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -504,10 +515,10 @@ basewidth = 50
 #          pixel = image_matrix[x,y]
 
 # img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region2')">def get_file_avgPixelMap(file_image_map):</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Map average pixel values back to their respective filenames</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -619,12 +630,12 @@ basewidth = 50
 #          pixel = image_matrix[x,y]
 
 # img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region7')">def get_pixel_files_map(pixel_map):</li>
 </ul>
-<p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal19">
+	<fieldset class="goal" style="width: 100%;" id="subgoal20">
 		<legend>Sub-goal</legend>
 		<div>For each pixel of target_photo, find photo with closest average pixel</div>
 	</fieldset>
@@ -791,6 +802,7 @@ width, height = img.size
 
 img.save("recolored_image.jpg")
 #img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region1')">def get_avg_pixel(img):</li>
@@ -800,12 +812,11 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region26')">    img = scale_image_to_basewidth(img, basewidth=50)</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region27')">    #loop through each pixel of the target image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region28')">            #generate subset of kmeans_dataframe that includes only the top-10 nearest neighbors</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
 </ul>
-<p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal24">
+	<fieldset class="goal" style="width: 100%;" id="subgoal25">
 		<legend>Sub-goal</legend>
 		<div>Improve time it takes to loop through all images and find closest photo</div>
 	</fieldset>
@@ -1006,14 +1017,14 @@ for y in range(height):
 
 img.save("recolored_image.jpg")
 #img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region5')">def get_concat_h(im1, im2):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region6')">def get_concat_v(im1, im2):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region27')">    #loop through each pixel of the target image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region28')">            #generate subset of kmeans_dataframe that includes only the top-10 nearest neighbors</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Create mapping from filename to image object so images aren't read in more than once</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -1216,13 +1227,13 @@ for y in range(height):
 
 img.save("recolored_image.jpg")
 #img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region3')">def get_file_image_map(photos_dir, width=50):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region4')">            file_image_map[filename] = img</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region24')">    #get dictionary mapping each filename to its respective image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region29')">            # pick a random image of the top 10 centroid matches</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Saving and loading filename to image map to disk to improve runtime</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -1443,9 +1454,9 @@ for y in range(height):
 
 img.save("recolored_image.jpg")
 #img.save("resized_image.jpg")' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>revisit: Python PIL | Image.draft() method - GeeksforGeeks;'</button>
 <div class='content'>
 	<div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/mosaic/screencapture-n70_2023-02-15-17_19_16-need-manual.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='https://www.geeksforgeeks.org/python-pil-image-draft-method/' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open revisit: https://www.geeksforgeeks.org/python-pil-image-draft-method/")'>Python PIL | Image.draft() method - GeeksforGeeks</a></td></tr></tbody></table></div>
@@ -1455,7 +1466,7 @@ See related sections in code:<ul>
 </div>
 
 </div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal31">
+	<fieldset class="goal" style="width: 100%;" id="subgoal32">
 		<legend>Sub-goal</legend>
 		<div>Generating the first version of the mosaic and organize code</div>
 	</fieldset>
@@ -1700,13 +1711,12 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region30')">            #add new image object running row image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">        #append row of images to an image of all previous columns</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Clean up code by putting it into functions</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -1963,6 +1973,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region3')">def get_file_image_map(photos_dir, width=50):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region7')">def get_pixel_files_map(pixel_map):</li>
@@ -1972,10 +1983,9 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region26')">    img = scale_image_to_basewidth(img, basewidth=50)</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region28')">            #generate subset of kmeans_dataframe that includes only the top-10 nearest neighbors</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region36')">basewidth = 60</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">basewidth = 60</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Functionalize get_file_avgPixelMap() to make code neater</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -2238,6 +2248,7 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region2')">def get_file_avgPixelMap(file_image_map):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region11')">    Parameters:</li>
@@ -2245,9 +2256,8 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region27')">    #loop through each pixel of the target image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
 </ul>
-<p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal36">
+	<fieldset class="goal" style="width: 100%;" id="subgoal37">
 		<legend>Sub-goal</legend>
 		<div>Now that something is working, investigate other ways of compiling mosaic to compare</div>
 	</fieldset>
@@ -2524,11 +2534,11 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region27')">    #loop through each pixel of the target image</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>search: python find dominant color in image;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=color+wheel+jpg&rlz=1C5CHFA_enUS863US865&sxsrf=AJOqlzXQu_fpTAkmqbBy3kVS2tJdbTBc7A:1676570731091&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj8-PfW0Jr9AhVZkYkEHSkcBlgQ_AUoAXoECAEQAw&biw=1680&bih=914&dpr=1' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open search: https://www.google.com/search?q=color+wheel+jpg&rlz=1C5CHFA_enUS863US865&sxsrf=AJOqlzXQu_fpTAkmqbBy3kVS2tJdbTBc7A:1676570731091&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj8-PfW0Jr9AhVZkYkEHSkcBlgQ_AUoAXoECAEQAw&biw=1680&bih=914&dpr=1")'>color wheel jpg</a></span></div><hr>
@@ -2546,7 +2556,7 @@ See related sections in code:<ul>
 </div>
 
 </div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal40">
+	<fieldset class="goal" style="width: 100%;" id="subgoal41">
 		<legend>Sub-goal</legend>
 		<div>Use Kmeans to cluster pixels in an image into groups of colors</div>
 	</fieldset>
@@ -2853,12 +2863,12 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region12')">        pixels = np.array(img.getdata())</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Cluster pixels of a given image, and print out centroid colors, and what percent of image falls into each</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -3167,14 +3177,14 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region12')">        pixels = np.array(img.getdata())</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region13')">        predictions = kmeans.predict(pixels)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">target_photo = angie_flower.jpeg</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region36')">target_photo = angie_flower.jpeg</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>search: python kmeans most dominant color;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=Segmentation+fault%3A+11&rlz=1C5CHFA_enUS863US865&oq=Segmentation+fault%3A+11&aqs=chrome..69i57.557j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open search: https://www.google.com/search?q=Segmentation+fault%3A+11&rlz=1C5CHFA_enUS863US865&oq=Segmentation+fault%3A+11&aqs=chrome..69i57.557j0j7&sourceid=chrome&ie=UTF-8")'>Segmentation fault: 11</a></span></div><hr>
@@ -3244,7 +3254,7 @@ See related sections in code:<ul>
 </div>
 
 </div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal50">
+	<fieldset class="goal" style="width: 100%;" id="subgoal51">
 		<legend>Sub-goal</legend>
 		<div>Find the percent of an image's pixels that falls into a given cluster</div>
 	</fieldset>
@@ -3612,13 +3622,13 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region11')">    Parameters:</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region13')">        predictions = kmeans.predict(pixels)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>search: pandas column of tuples becomes string;'</button>
 <div class='content'>
 	<div class='sideBySideImage'> <table><tbody><tr><td><img src='/images/mosaic/screencapture-n146_2023-02-16-15_25_51-need-manual.png' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open revisit: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html")'>sklearn.cluster.KMeans — scikit-learn 1.2.1 documentation</a></td></tr></tbody></table></div>
@@ -3974,14 +3984,14 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region10')">def get_kmeans_dataframe_all_photos(file_image_map):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region13')">        predictions = kmeans.predict(pixels)</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region24')">    #get dictionary mapping each filename to its respective image</li>
 </ul>
-<p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal58">
+	<fieldset class="goal" style="width: 100%;" id="subgoal59">
 		<legend>Sub-goal</legend>
 		<div>Use Kmeans clusters for each image to determine which images have clusters similar to a given pixel</div>
 	</fieldset>
@@ -4363,12 +4373,12 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region24')">    #get dictionary mapping each filename to its respective image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region25')">    #get list of all centroids</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region28')">            #generate subset of kmeans_dataframe that includes only the top-10 nearest neighbors</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Handle parsing what's loaded from CSV from string format to tuple</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -4788,13 +4798,13 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region14')">def string_to_tuple(s):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region24')">    #get dictionary mapping each filename to its respective image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region25')">    #get list of all centroids</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region28')">            #generate subset of kmeans_dataframe that includes only the top-10 nearest neighbors</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Find the 10 images with a cluster centroid closest to a target_pixel, and then choose the one that has the largest amount in that cluster</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -5226,13 +5236,13 @@ closest_img_resized.save("closest_img_draft.jpg")
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region28')">            #generate subset of kmeans_dataframe that includes only the top-10 nearest neighbors</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region29')">            # pick a random image of the top 10 centroid matches</li>
 </ul>
-<p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal63">
+	<fieldset class="goal" style="width: 100%;" id="subgoal64">
 		<legend>Sub-goal</legend>
 		<div>Detect if two images are duplicates or near-identical</div>
 	</fieldset>
@@ -5673,16 +5683,16 @@ image_matrix2 = img2.load()
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region21')">def make_mosaic_kmeans(target_photo, photos_dir=Photos/, first_run = False):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region29')">            # pick a random image of the top 10 centroid matches</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region30')">            #add new image object running row image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">        #append row of images to an image of all previous columns</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">    img = Image.open(angie_bed1.jpg)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">    img = Image.open(angie_bed1.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>search: python jpg similarity;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=python+image+similarity&rlz=1C5CHFA_enUS863US865&oq=python+image+simila&aqs=chrome.0.0i512j69i57j0i512l4j0i22i30i625l4.3911j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open search: https://www.google.com/search?q=python+image+similarity&rlz=1C5CHFA_enUS863US865&oq=python+image+simila&aqs=chrome.0.0i512j69i57j0i512l4j0i22i30i625l4.3911j0j7&sourceid=chrome&ie=UTF-8")'>python image similarity</a></span></div><hr>
@@ -6182,12 +6192,12 @@ print(mse)
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region15')">def compare_image_distance(img1, img2):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">    img = Image.open(angie_bed1.jpg)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region41')">    img2 = Image.open(angie_bed2.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">    img = Image.open(angie_bed1.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region39')">    img2 = Image.open(angie_bed2.jpg)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Check if MSE is under a threshold to detect near-identical photos, print out histogram of all MSEs</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -6670,10 +6680,10 @@ plt.show()
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
-See related sections in code:<ul>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region41')">    img2 = Image.open(angie_bed2.jpg)</li>
-</ul>
 <p> code content will go here</p>
+See related sections in code:<ul>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region39')">    img2 = Image.open(angie_bed2.jpg)</li>
+</ul>
 </div><button type='button' class='collapsible'>main.py: Load in test photo to see how well it works</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -7175,11 +7185,11 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 </ul>
-<p> code content will go here</p>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal71">
+	<fieldset class="goal" style="width: 100%;" id="subgoal72">
 		<legend>Sub-goal</legend>
 		<div>Make sure that duplicate or similar-looking photos aren't adjacent in mosaic</div>
 	</fieldset>
@@ -7697,10 +7707,10 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
-See related sections in code:<ul>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
-</ul>
 <p> code content will go here</p>
+See related sections in code:<ul>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+</ul>
 </div><button type='button' class='collapsible'>main.py: Before adding an image to the mosaic, looping through nearby appended files to check if they are too similar</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -8237,13 +8247,13 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region30')">            #add new image object running row image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Reworking this logic to stop looping through the closest file candidates once a valid image has been found</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -8808,11 +8818,11 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
-See related sections in code:<ul>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
-</ul>
 <p> code content will go here</p>
+See related sections in code:<ul>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+</ul>
 </div><button type='button' class='collapsible'>main.py: Add function for compare_image_distance()</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -9405,12 +9415,12 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region15')">def compare_image_distance(img1, img2):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Test sliding window sizes, and how for larger sliding window sizes, we need to bring in more candidate images</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -10022,14 +10032,14 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
-See related sections in code:<ul>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
-</ul>
 <p> code content will go here</p>
+See related sections in code:<ul>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+</ul>
 </div></div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal78">
+	<fieldset class="goal" style="width: 100%;" id="subgoal79">
 		<legend>Sub-goal</legend>
 		<div>Runtime improvements</div>
 	</fieldset>
@@ -10660,12 +10670,12 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region16')">def compare_image_to_images_distances(neighbor_image, window_imgs):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region17')">        neighbor_image: PIL Image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Debugging vectorization syntax in numpy</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -11319,10 +11329,10 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
-See related sections in code:<ul>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
-</ul>
 <p> code content will go here</p>
+See related sections in code:<ul>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+</ul>
 </div><button type='button' class='collapsible'>main.py: Rework debugging steps into function</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -12008,15 +12018,14 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region17')">        neighbor_image: PIL Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region41')">    img2 = Image.open(angie_bed2.jpg)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region39')">    img2 = Image.open(angie_bed2.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>search: numpy matrix operations;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=python+subtract+arrays+of+vectors&rlz=1C5CHFA_enUS863US865&oq=python+subtract+arrays+of+vectors&aqs=chrome..69i57j33i160j33i299j33i22i29i30l3.21615j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open search: https://www.google.com/search?q=python+subtract+arrays+of+vectors&rlz=1C5CHFA_enUS863US865&oq=python+subtract+arrays+of+vectors&aqs=chrome..69i57j33i160j33i299j33i22i29i30l3.21615j0j7&sourceid=chrome&ie=UTF-8")'>python subtract arrays of vectors</a></span></div><hr>
@@ -12043,7 +12052,7 @@ See related sections in code:<ul>
 </div>
 
 </div><div style="margin-top: 15px; border-top: 1px;" ></div>
-	<fieldset class="goal" style="width: 100%;" id="subgoal84">
+	<fieldset class="goal" style="width: 100%;" id="subgoal85">
 		<legend>Sub-goal</legend>
 		<div>Testing and Cleaning Code -- final touches</div>
 	</fieldset>
@@ -12749,16 +12758,16 @@ for file in file_image_map.keys():
 
 # fun idea, a huge recursive photomosaic
 # idea: photo cant border itself--force the next neighbor to step up' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region18')">def get_all_image_comparisons_matrix(file_image_map):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region20')">    file_index_map = {}</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">target_photo = angie_flower.jpeg</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region36')">target_photo = angie_flower.jpeg</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Add comments to functions</button>
 <div class='content' --start-code='# import imageio.v3 as iio
 
@@ -13448,6 +13457,7 @@ photos_dir = "Photos/"
 img = make_mosaic_avg(target_photo, photos_dir, basewidth=60, pixelWidth=200)
 img.save("mosaic.jpg")
 ' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region0')">from PIL import Image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region1')">def get_avg_pixel(img):</li>
@@ -13476,16 +13486,13 @@ See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region29')">            # pick a random image of the top 10 centroid matches</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region30')">            #add new image object running row image</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region31')">def make_mosaic_avg(target_photo, photos_dir=Photos/, basewidth=50, pixelWidth=50):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    #load and prep image</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">    for y in range(height):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">        #append row of images to an image of all previous columns</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">target_photo = angie_flower.jpeg</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">    img = Image.open(angie_bed1.jpg)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region41')">    img2 = Image.open(angie_bed2.jpg)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region32')">    for y in range(height):</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region36')">target_photo = angie_flower.jpeg</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">    img = Image.open(angie_bed1.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region39')">    img2 = Image.open(angie_bed2.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>main.py: Test how resizing photos impacts calculated MSE averages</button>
 <div class='content' --start-code='from PIL import Image
 import numpy as np
@@ -14302,19 +14309,19 @@ exit()
 img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)
 img.save("mosaic_huge.jpg")
 ' --filename='main.py'>
+<p> code content will go here</p>
 See related sections in code:<ul>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region1')">def get_avg_pixel(img):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region3')">def get_file_image_map(photos_dir, width=50):</li>
 <li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region9')">def scale_image_to_basewidth(img, basewidth=50):</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region36')">basewidth = 60</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">pixels_per_row = basewidth</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region39')">for width in [25, 50, 100, 4800]:</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">    img = Image.open(angie_bed1.jpg)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region41')">    img2 = Image.open(angie_bed2.jpg)</li>
-<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region42')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region33')">                    window_x_min = max(0, x-min_array_distance_between_similar_photos)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region34')">basewidth = 60</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region35')">pixels_per_row = basewidth</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region37')">for width in [25, 50, 100, 4800]:</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region38')">    img = Image.open(angie_bed1.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region39')">    img2 = Image.open(angie_bed2.jpg)</li>
+<li class='jumpToCode' onclick="openCodeFile('code_Mosaic_main.html', 'region40')">img = make_mosaic_avg(target_photo, photos_dir, basewidth=basewidth, pixelWidth=pixelWidth)</li>
 </ul>
-<p> code content will go here</p>
 </div><button type='button' class='collapsible'>search: what does dpi mean printer;'</button>
 <div class='content'>
 <div class='title'><span><a href='https://www.google.com/search?q=2400x1200+dpi&rlz=1C5CHFA_enUS863US865&oq=2400x1200+dpi&aqs=chrome..69i57j0i10i512j0i10i22i30j0i15i22i30j0i22i30i625j0i390l4.6072j0j7&sourceid=chrome&ie=UTF-8' target='_blank' rel='noreferrer noopener' onclick='logUserAction("history", "open search: https://www.google.com/search?q=2400x1200+dpi&rlz=1C5CHFA_enUS863US865&oq=2400x1200+dpi&aqs=chrome..69i57j0i10i512j0i10i22i30j0i15i22i30j0i22i30i625j0i390l4.6072j0j7&sourceid=chrome&ie=UTF-8")'>2400x1200 dpi</a></span></div><hr>

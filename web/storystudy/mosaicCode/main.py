@@ -303,7 +303,6 @@ def make_mosaic_avg(target_photo, photos_dir="Photos/", basewidth=50, pixelWidth
     file_index_map, all_distances_matrix = get_all_image_comparisons_matrix(file_image_map)
     #initialize datatype for quick lookup of similar pixels
     nearest_neighbors_tree = KDTree(all_avg_pixels)
-
     #load and prep image
     img = Image.open(target_photo)
     img = scale_image_to_basewidth(img, basewidth=basewidth)
@@ -364,7 +363,6 @@ def make_mosaic_avg(target_photo, photos_dir="Photos/", basewidth=50, pixelWidth
                 row_image = get_concat_h(row_image, image_toAdd) 
             #add filename of appended image to filename_matrix
             filename_matrix[y].append(filename_toAdd)
-        
         #append row of images to an image of all previous columns
         if y == 0:
             column_image = row_image

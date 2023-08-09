@@ -32,6 +32,16 @@ function openTab(tabName) {
           loadContent(url, contentContainer, highlightFinalCode, null);
       }
     });
+
+    // bind the enter key for code search terms
+    $('#codeSearchTerms').bind("enterKey", searchFinalCode);
+
+    $('#codeSearchTerms').keyup(function(e){
+      console.log("codeSearchTerms key up");
+      if ( ($('#codeSearchTerms').is(":visible")) && (e.keyCode == 13) ) {
+          $(this).trigger("enterKey");
+      }
+    });
   }
 }
 

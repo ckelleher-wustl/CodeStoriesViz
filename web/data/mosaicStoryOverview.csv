@@ -1,6 +1,7 @@
 goalType,clusterType,startTime,endTime,fileName,summary
 goal_start,goal_start,0,0,None,Read in an example image using Python
 parent',code',0,8,main.py,import scipy and pandas
+parent',code',8,13017,main.py,attempt to read image using imageio
 parent',search',12421,12848,none,search: imageio ndimage;'
 parent',code',13017,14044,main.py,Switch to PIL (Python Image Library) and read in an image
 parent',search',13463,13470,none,search: husky clip art;'
@@ -13,7 +14,7 @@ parent',code',14044,14359,main.py,"Resize image to 1X1 pixel to see ""average"" 
 parent',code',14359,14575,main.py,Calculate Average Pixel with Numpy average to compare runtime
 parent',code',14575,14750,main.py,Calculate Average Pixel with Numpy average to compare runtime
 goal_end,goal_end,0,0,None,Calculate average pixel of image end
-goal_start,goal_start,0,0,None,Get AVG pixel for each JPG file in folder
+goal_start,goal_start,0,0,None,Get average pixel for each JPG file in folder
 parent',code',15719,16085,main.py,"Loop through photos in directory, calculate average pixel of each"
 parent',code',16085,16885,main.py,Dump pre-calculated average pixels to disk to test usage speed
 parent',code',16885,17369,main.py,Map average pixel values back to their respective filenames

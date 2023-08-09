@@ -223,6 +223,8 @@ for clusterIdx in clusterDF.index:
         # activityTarget = "Change background color of game board to match Wordle"
         # results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
 
+        html += "<p> code content will go here</p>\n"
+
         if (includeRegionLinks):
             print(f"adding region links {includeRegionLinks}")
             results = getRegionsForActivities(clusterDF['fileName'][clusterIdx] + ".csv", clusterDF['summary'][clusterIdx])
@@ -240,10 +242,8 @@ for clusterIdx in clusterDF.index:
                 # print(f"file is {regionPrefix}{file}.html")
                 html +=  "<li class='jumpToCode' onclick=\"openCodeFile('" + regionPrefix + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
             html += "</ul>\n"
-            
 
-
-        html += "<p> code content will go here</p>\n"
+        # html += "<p> code content will go here</p>\n"
         html += "</div>" # this is the end of the nested div.
     
     

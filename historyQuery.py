@@ -258,6 +258,9 @@ class HistoryFromCode:
 
         # build an array of the code
         self.codeStates = []
+
+        print(entriesByFilename.keys())
+
         for entry in entriesByFilename[fName]:
             entryTime = entry['time']
             if entryTime in clusterTimes:
