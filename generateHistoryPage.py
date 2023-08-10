@@ -3,9 +3,14 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-projectName = "mosaic"
+# projectName = "mosaic"
+# imageDir = "/images/" + projectName + "/"
+# regionPrefix = "code_Mosaic_"
+
+projectName = "wordle"
 imageDir = "/images/" + projectName + "/"
-regionPrefix = "code_Mosaic_"
+regionPrefix = "code_Wordle_"
+
 
 def get_search_overview_html(responseEntries):
 # <div class="content">
@@ -160,8 +165,8 @@ def get_code_entries(startTime, endTime):
 activityData = {}
 # lineRegionMap = {}
 def loadActivityDataFrames():
-    # filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
-    filenames = ['main.py.csv']
+    filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
+    # filenames = ['main.py.csv']
 
     for file in filenames:
         print(file)
@@ -185,7 +190,7 @@ def getRegionsForActivities(filename, activity):
 
 # import the search and code clusters
 
-clusterDF = pd.read_csv('web/data/mosaicStoryOverview.csv')
+clusterDF = pd.read_csv('web/data/wordleStoryOverview.csv')
 clusterDF.set_axis(['goalType','clusterType','startTime','endTime','fileName','summary'], axis=1, inplace=True)
 print(clusterDF)
 html = ""
@@ -229,7 +234,9 @@ for clusterIdx in clusterDF.index:
             print(f"adding region links {includeRegionLinks}")
             results = getRegionsForActivities(clusterDF['fileName'][clusterIdx] + ".csv", clusterDF['summary'][clusterIdx])
 
-            html+= "See related sections in code:"
+            # print(f"results {results}")
+
+            html+= "See related sections in final code:"
             html += "<ul>\n"
             for index, row in results.iterrows():
                 lineID = row['lineID']
@@ -237,9 +244,9 @@ for clusterIdx in clusterDF.index:
                 if (clusterDF['fileName'][clusterIdx].endswith("html")):
                     lineID = lineID.replace("<", "&lt").replace(">", "&gt")
                 regionID = row['regionID']
-                # print(f"Line ID: {lineID}, Region ID: {regionID}")
+                print(f"Line ID: {lineID}, Region ID: {regionID}")
                 file = clusterDF['fileName'][clusterIdx].split(".")[0]
-                # print(f"file is {regionPrefix}{file}.html")
+                print(f"file is {regionPrefix}{file}.html")
                 html +=  "<li class='jumpToCode' onclick=\"openCodeFile('" + regionPrefix + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
             html += "</ul>\n"
 
@@ -278,7 +285,7 @@ for clusterIdx in clusterDF.index:
 
 # print(f"HTML:\n{len(html)}")
 
-text_file = open("web/clusters_MosaicNew.html", "w")
+text_file = open("web/clusters_WordleNew.html", "w")
 n = text_file.write(html)
 text_file.close()
 

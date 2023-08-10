@@ -21,9 +21,10 @@ function readCSVAsObject(csvFile) {
     });
   }
 
+// ok so this really needs to change b/c it means that only one 
 function loadCodeRegionMaps() {
     // var mapFilenames = ['script.jsLineMap.csv', 'animations.scssLineMap.csv', 'index.htmlLineMap.csv', 'guess.scssLineMap.csv', 'notes.mdLineMap.csv', 'boilerplate.scssLineMap.csv']
-    var mapFilenames = ['main.pyLineMap.csv']
+    // // var mapFilenames = ['main.pyLineMap.csv']
     var path = 'data/storyStudy/' 
 
     for (idx in mapFilenames) {

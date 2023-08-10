@@ -56,6 +56,8 @@
 
 
   <script>
+
+    var mapFilenames = ['script.jsLineMap.csv', 'animations.scssLineMap.csv', 'index.htmlLineMap.csv', 'guess.scssLineMap.csv', 'notes.mdLineMap.csv', 'boilerplate.scssLineMap.csv']
     
     // this loads the history and code views
     $(document).ready(function(){
@@ -71,11 +73,12 @@
 
     function generateRegionLinks(file, regions) {
 
+      console.log("generating region links..." + file + " " + JSON.stringify(regions))
       var html = "";
       for (var regionID in regions) {
         var lineID = regions[regionID];
         lineID = lineID.replaceAll("<", "&lt").replaceAll(">", "&gt");
-        // console.log(regionID + " " + lineID);
+        console.log(regionID + " " + lineID);
         file = file.split(".")[0]
         html += "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
       }
@@ -197,6 +200,8 @@
           var regionInfo = getRegionForLine( fileName, additions[line] );
           if (regionInfo) {
             regions[regionInfo["regionID"]] = regionInfo["lineID"];
+          } else {
+            console.log("regionInfo not found for " + fileName);
           }
         }
 

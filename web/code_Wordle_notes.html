@@ -7,12 +7,12 @@
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Plan our wordle UI and interaction requirements')">Plan our wordle UI and interaction requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Updating requirements</div>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
 				<pre class='code'><span style='background-color:yellow'># Functional Requirements</span>
 <span style='background-color:yellow'>## Gameplay</span>
 <span style='background-color:yellow'>6 tries to guess a 5-letter word</span>
@@ -33,12 +33,12 @@ x Set solution to that word
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md animations.scss script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
+<div class='files-container'>notes.md script.js guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Update notes</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Update planning document')">Update planning document</button>
 			<div class='tooltip'>
-				<div class='history-header'>Update notes</div>
+				<div class='history-header'>Update planning document</div>
 				<pre class='code'><span style='background-color:yellow'>### Pick a solution word</span>
 <span style='background-color:yellow'>x Store solution words in array</span>
 <span style='background-color:yellow'>x When game is loaded, choose random item from array</span>
@@ -65,18 +65,19 @@ x Don't run update functions if "letters" length = 4;
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
+<div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Update planning document</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Updating requirements')">Updating requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Update planning document</div>
+				<div class='history-header'>Updating requirements</div>
 				<pre class='code'><span style='background-color:yellow'>### Making a guess</span>
 <span style='background-color:yellow'>Detect keypresses</span>
 <span style='background-color:yellow'>x if keypress is a letter</span>
 <span style='background-color:yellow'>x update "letters" attribute</span>
 <span style='background-color:yellow'>x update tile markup based on "letters" value</span>
 <span style='background-color:yellow'>x if keypress is backspace</span>
+<span style='background-color:yellow'>x delete last letter in "letters"</span>
 <span style='background-color:yellow'>x update tile markup based on "letters"</span>
 <span style='background-color:yellow'>x Don't run update functions if "letters" length = 4;</span>
 </pre>
@@ -97,39 +98,36 @@ x update the state/color of the letter
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
+</div><div class='files-container'>notes.md script.js </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Updating requirements')">Updating requirements</button>
 			<div class='tooltip'>
 				<div class='history-header'>Updating requirements</div>
-				<pre class='code'><span style='background-color:yellow'>Enter will submit guess</span>
+				<pre class='code'><span style='background-color:yellow'>### Submit guess</span>
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>notes.md script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Update planning document</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Update planning document')">Update planning document</button>
 			<div class='tooltip'>
 				<div class='history-header'>Update planning document</div>
-				<pre class='code'><span style='background-color:yellow'>### Submit guess</span>
-<span style='background-color:yellow'>Pressing Enter will submit guess</span>
-<span style='background-color:yellow'>- compare each letter with the corresponding letter in solution word</span>
-<span style='background-color:yellow'>- update the state/color of the letter</span>
+				<pre class='code'><span style='background-color:white'>### Submit guess</span>
 </pre>
 </div>
 		</div>
 </div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Update notes</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Update notes')">Update notes</button>
 			<div class='tooltip'>
 				<div class='history-header'>Update notes</div>
-				<pre class='code'>### Submit guess
+				<pre class='code'><span style='background-color:white'>### Submit guess</span>
 <span style='background-color:yellow'>x Pressing Enter will submit guess</span>
-- compare each letter with the corresponding letter in solution word
-- update the state/color of the letter
 </pre>
 </div>
 		</div>
@@ -148,12 +146,12 @@ Guess colors (data-state):
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Plan our wordle UI and interaction requirements')">Plan our wordle UI and interaction requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Updating requirements</div>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
 				<pre class='code'><span style='background-color:yellow'>Guess colors (data-state):</span>
 <span style='background-color:yellow'>- yellow: "present," letter in word, but in wrong position</span>
 <span style='background-color:yellow'>- green: "correct," letter in word and in right position</span>
@@ -172,23 +170,23 @@ Guesses are saved in Local Storage
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Plan our wordle UI and interaction requirements')">Plan our wordle UI and interaction requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Updating requirements</div>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
 				<pre class='code'><span style='background-color:yellow'>Hard Mode: present or correct letters must be used in subsequent guesses</span>
 </pre>
 </div>
 		</div>
-</div><div class='files-container'>notes.md script.js guess.scss </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Change color of tile based on whether it is correct or present in solution word')">Change color of tile based on whether it is correct or present in solution word
+</div><div class='files-container'>notes.md script.js </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Update planning document</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Updating requirements')">Updating requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Update planning document</div>
-				<pre class='code'>Hard Mode: present or correct letters must be used in subsequent guesses
+				<div class='history-header'>Updating requirements</div>
+				<pre class='code'><span style='background-color:white'>Hard Mode: present or correct letters must be used in subsequent guesses</span>
 <span style='background-color:yellow'>Guesses are saved in Local Storage</span>
 </pre>
 </div>
@@ -206,12 +204,12 @@ Virtual keyboard
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Plan our wordle UI and interaction requirements')">Plan our wordle UI and interaction requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Updating requirements</div>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
 				<pre class='code'><span style='background-color:yellow'>## Design</span>
 <span style='background-color:yellow'>Tiles 5x6</span>
 <span style='background-color:yellow'>Virtual keyboard</span>
@@ -233,12 +231,12 @@ When typing a letter:
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Plan our wordle UI and interaction requirements')">Plan our wordle UI and interaction requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Updating requirements</div>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
 				<pre class='code'><span style='background-color:yellow'>## Interactions</span>
 <span style='background-color:yellow'>When typing a letter:</span>
 <span style='background-color:yellow'>- border of the tile changes to light gray</span>
@@ -261,12 +259,12 @@ When submitting guess:
 		</pre>
 	</div>
 	<div class='rightContainer'>
-<div class='files-container'>notes.md script.js </div>
-	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Select a Wordle answer at random from a list of potential words.')">Select a Wordle answer at random from a list of potential words.
+<div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
+	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Updating requirements</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Plan our wordle UI and interaction requirements')">Plan our wordle UI and interaction requirements</button>
 			<div class='tooltip'>
-				<div class='history-header'>Updating requirements</div>
+				<div class='history-header'>Plan our wordle UI and interaction requirements</div>
 				<pre class='code'><span style='background-color:yellow'>When submitting guess:</span>
 <span style='background-color:yellow'>- Tiles will flip up and background color will change based on guess</span>
 </pre>
@@ -275,11 +273,11 @@ When submitting guess:
 </div><div class='files-container'>notes.md animations.scss script.js guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Animate the tile flipping over.')">Animate the tile flipping over.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Update notes</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Update notes')">Update notes</button>
 			<div class='tooltip'>
 				<div class='history-header'>Update notes</div>
-				<pre class='code'>When submitting guess:
-- Tiles will flip up and background color will change based on guess
+				<pre class='code'><span style='background-color:white'>When submitting guess:</span>
+<span style='background-color:white'>- Tiles will flip up and background color will change based on guess</span>
 <span style='background-color:yellow'>- Slight delay between each tile flipping</span>
 <span style='background-color:yellow'>- Background color changes when tile is flat, i.e. can't see it</span>
 </pre>

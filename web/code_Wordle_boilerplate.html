@@ -8,9 +8,9 @@
 <div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Set the width for the tiles</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Style the game tiles with appropriate padding, alignment, and automatic upper casing.')">Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
 			<div class='tooltip'>
-				<div class='history-header'>Set the width for the tiles</div>
+				<div class='history-header'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</div>
 				<pre class='code'><span style='background-color:yellow'>@use '../util' as *;</span>
 </pre>
 </div>
@@ -33,9 +33,9 @@ html {
 <div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Change background color of game board to match Wordle')">Change background color of game board to match Wordle</button>
 			<div class='tooltip'>
-				<div class='history-header'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</div>
+				<div class='history-header'>Change background color of game board to match Wordle</div>
 				<pre class='code'><span style='background-color:yellow'>font-size: 100%;</span>
 <span style='background-color:yellow'>font-family: var(--font-body);</span>
 <span style='background-color:yellow'>box-sizing: border-box;</span>
@@ -60,9 +60,9 @@ html {
 <div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Change background color of game board to match Wordle')">Change background color of game board to match Wordle</button>
 			<div class='tooltip'>
-				<div class='history-header'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</div>
+				<div class='history-header'>Change background color of game board to match Wordle</div>
 				<pre class='code'><span style='background-color:yellow'>*::before,</span>
 <span style='background-color:yellow'>*::after {</span>
 <span style='background-color:yellow'>box-sizing: inherit;</span>
@@ -82,36 +82,52 @@ body {
   background-color: hsl(240, 3%, 7%);
   color: hsl(0, 0%, 100%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   text-transform: uppercase;
   font-weight: 600;
-}		</pre>
+		</pre>
 	</div>
 	<div class='rightContainer'>
 <div class='files-container'>notes.md fonts.scss boilerplate.scss guess.scss </div>
 	<div class='subgoal-group' onmouseover="hoverEnterSubgoal(this)" onmouseout="hoverLeaveSubgoal(this)"  onclick="openSubgoal('Set up user interface components for the Wordle game board.')">Set up user interface components for the Wordle game board.
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Change background color of game board to match Wordle')">Change background color of game board to match Wordle</button>
 			<div class='tooltip'>
-				<div class='history-header'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</div>
+				<div class='history-header'>Change background color of game board to match Wordle</div>
 				<pre class='code'><span style='background-color:yellow'>margin: 0;</span>
 <span style='background-color:yellow'>background-color: hsl(240, 3%, 7%);</span>
-<span style='background-color:yellow'>color: hsl(0, 0%, 108%);</span>
 </pre>
 </div>
 		</div>
 		<div class='tooltip-container'>
-			<button type='button' class='history active tooltip-trigger'>Set the width for the tiles</button>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Style the game tiles with appropriate padding, alignment, and automatic upper casing.')">Style the game tiles with appropriate padding, alignment, and automatic upper casing.</button>
 			<div class='tooltip'>
-				<div class='history-header'>Set the width for the tiles</div>
-				<pre class='code'>margin: 0;
-<span style='background-color:yellow'>padding: 1rem 2rem;</span>
-background-color: hsl(240, 3%, 7%);
+				<div class='history-header'>Style the game tiles with appropriate padding, alignment, and automatic upper casing.</div>
+				<pre class='code'><span style='background-color:white'>margin: 0;</span>
+<span style='background-color:white'>background-color: hsl(240, 3%, 7%);</span>
 <span style='background-color:yellow'>color: hsl(0, 0%, 100%);</span>
 <span style='background-color:yellow'>display: flex;</span>
-<span style='background-color:yellow'>justify-content: center;</span>
+<span style='background-color:yellow'>flex-direction: column;</span>
+<span style='background-color:yellow'>align-items: center;</span>
 <span style='background-color:yellow'>text-transform: uppercase;</span>
 <span style='background-color:yellow'>font-weight: 600;</span>
+</pre>
+</div>
+		</div>
+		<div class='tooltip-container'>
+			<button type='button' class='history active tooltip-trigger' onmouseover="logUserAction('code', 'hover activity: Set the width for the tiles')">Set the width for the tiles</button>
+			<div class='tooltip'>
+				<div class='history-header'>Set the width for the tiles</div>
+				<pre class='code'><span style='background-color:white'>margin: 0;</span>
+<span style='background-color:yellow'>padding: 1rem 2rem;</span>
+<span style='background-color:white'>background-color: hsl(240, 3%, 7%);</span>
+<span style='background-color:white'>color: hsl(0, 0%, 100%);</span>
+<span style='background-color:white'>display: flex;</span>
+<span style='background-color:white'>flex-direction: column;</span>
+<span style='background-color:white'>align-items: center;</span>
+<span style='background-color:white'>text-transform: uppercase;</span>
+<span style='background-color:white'>font-weight: 600;</span>
 </pre>
 </div>
 		</div>

@@ -1,10 +1,10 @@
-# codeFiles = ["script.js", "animations.scss", "index.html", "guess.scss", "boilerplate.scss", "notes.md"]
-# pathToCode = "web/storystudy/wordleCode/"
-# prefix = "code_Wordle_"
+codeFiles = ["script.js", "animations.scss", "index.html", "guess.scss", "boilerplate.scss", "notes.md"]
+pathToCode = "web/storystudy/wordleCode/"
+prefix = "code_Wordle_"
 
-codeFiles = ["main.py"]
-pathToCode = "web/storystudy/mosaicCode/"
-prefix = "code_Mosaic_"
+# codeFiles = ["main.py"]
+# pathToCode = "web/storystudy/mosaicCode/"
+# prefix = "code_Mosaic_"
 
 codeMap = {}
 
@@ -46,6 +46,6 @@ def generatePage():
 loadCode()
 html = generatePage()
 
-text_file = open("web/mosaicCode.html", "w")
+text_file = open("web/wordleCode.html", "w")
 n = text_file.write(html)
 text_file.close()
