@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Story Test</title>
+  <link rel="stylesheet" href="story_style.css" />
+</head>
+<body>
+
+<p>
+
+<div class="storyTitle">The Tale of a Mosaic: An Odyssey Through Pixels and Time Complexity</div>
+</p>
+
+<div class="phase">
+    <p class="phaseTitle">
+           Phase 1: Decoding The Blueprint 
+    </p>
+    <p>
+        Peter, the original developer, had a dream: to make a photo mosaic. The first goal was to read in an example image. He started by <span class="clickable", action_id="2">importing scipy and pandas</span>. First, he attempted to use <span class="clickable", action_id="3">imageio to read in an image</span>, but after several trials, something wasn't clicking. The image was all wrong. Frustrated, he turned to the mighty Google Oracle: <span class="clickable", action_id="4">'imageio ndimage,'</span> he searched. No luck.
+        Realization dawned. <span class="clickable", action_id="5">"Time to switch to PIL,"</span> he mumbled, as he initiated another set of searches for example images, this time choosing a <span class="clickable", action_id="6">Husky</span> and a <span class="clickable", action_id="7">house</span>.
+    </p>
+</div>
+
+
+<div class="phase">
+    <p class="phaseTitle">Phase 2: Crafting the Pixels</p>
+    <p>
+
+Now that he had the image, the next mission was to <span class="clickable", action_id="8">calculate its average pixel color</span>. The search was on again: <span class="clickable", action_id="9">how to iterate over pixels in a PIL image</span>, and <span class="clickable", action_id="2">what's the fastest way to calculate the average color</span>. He tried multiple approaches before realizing that <span class="clickable", action_id="11">resizing the image to a 1x1 pixel</span> would essentially give him the average color. To be sure, he calculated the same average pixel <span class="clickable", action_id="12">with Numpy’s average function</span> and compared the runtimes. Satisfied, he decided to <span class="clickable", action_id="13">read all JPG files in a directory</span> and <span class="clickable", action_id="2">calculate their average pixels</span>. Before moving on, he <span class="clickable", action_id="15">dumped this precious data onto the disk for quicker access later</span>.
+    </p>
+</div>
+
+<div class="phase">
+    <p class="phaseTitle">
+        Phase 3: Mapping the Universe
+    </p>
+    <p>    
+With average pixels in hand, Peter wanted to <span class="clickable", action_id="16">map these average pixels back to their respective filenames</span>.
+He needed to <span class="clickable", action_id="17">find the image that had the closest average pixel to each pixel in the target photo</span>. 
+He learned about <span class="clickable", action_id="18">vector similarity</span> and <span class="clickable", action_id="19">KD-trees</span> and implemented them to find the closest matches, thereby 
+<span class="clickable", action_id="20">building a map from average pixels to filenames</span>.
+
+    </p>
+</div>
+
+<div class="phase">
+    <p class="phaseTitle">Phase 4: The Time Dilemma</p>
+    <p>
+        
+Time was the enemy now. It was taking <span class="clickable", action_id="21">too long to loop through each image</span> to find the closest photo. 
+Research led him to the <span class="clickable", action_id="22">PIL draft function</span>, which he experimented with. 
+To speed up the process, he also began <span class="clickable", action_id="23">storing image objects</span>, so they weren't read more than once. 
+This, too, <span class="clickable", action_id="24">he dumped to disk</span>.
+
+    </p>
+</div>
+
+<div class="phase">
+    <p class="phaseTitle">
+       Phase 5: Assembling the Mosaic 
+    </p>
+    <p>
+        
+Finally, the time had come to <span class="clickable", action_id="25">generate the first version of the mosaic</span>.
+ Peter divided his massive code into <span class="clickable", action_id="26">neat functions</span>, even functionalizing his <span class="clickable", action_id="27">file-average-pixel map</span>. 
+ With a working model, he got curious. What if he tried other ways of compiling the mosaic? 
+He experimented by <span class="clickable", action_id="28">pulling random pictures from the top-10 matches instead of just the closest one</span>.
+
+    </p>
+</div>
+
+<div class="phase">
+    <p class="phaseTitle">
+        Phase 6: The Color Science
+    </p>
+    <p>
+        
+To refine the image selection, Peter <span class="clickable", action_id="29">delved into k-means clustering</span>. 
+He wanted to <span class="clickable", action_id="30">cluster pixels in images</span> into <span class="clickable", action_id="31">groups of colors</span>. 
+Armed with <span class="clickable", action_id="32">pandas, he built dataframes</span> that included <span class="clickable", action_id="33">all pixel colors and their respective clusters for each image</span>.
+
+    </p>
+</div>
+
+<div class="phase">
+    <p class="phaseTitle">
+        Phase 7: The Fine Tuning
+    </p>
+    <p>
+        
+Now <span class="clickable", action_id="34">he used these clusters to determine which images should be used for each pixel in the target photo</span>. 
+He introduced a system to ensure that <span class="clickable", action_id="35">duplicate or visually similar photos</span> were <span class="clickable", action_id="36">not adjacent in the mosaic</span>. 
+This led to the creation of a <span class="clickable", action_id="37">matrix to record which files had been added to the mosaic</span>, and also some <span class="clickable", action_id="38">nifty functions to compare image distances</span>.
+
+    </p>
+</div>
+
+<div class="phase">
+    <p class="phaseTitle">Phase 8: Optimize, Optimize, Optimize!</p>
+    <p>
+        
+Peter wasn't done. He <span class="clickable", action_id="39">vectorized the similarity comparison</span> to make it faster. 
+He <span class="clickable", action_id="40">debugged</span>, reworked, and <span class="clickable", action_id="41">refined</span>.
+
+    </p>
+</div>
+
+<div class="phase">
+    <p class="phaseTitle">
+        Phase 9: The Final Touch
+    </p>
+    <p>
+        
+Testing ensued, <span class="clickable", action_id="42">parameters</span> were adjusted, <span class="clickable", action_id="43">comments</span> were added, and he even <span class="clickable", action_id="44">investigated how resizing impacted the Mean Squared Error averages</span>. Finally, Peter stepped back and looked at his creation. It was done.
+
+And so, after numerous searches, tests, and revisions, Peter's photo mosaic software was born. It was a journey of trial, error, and above all, an unyielding curiosity to craft something beautiful out of the minutiae.
+
+    </p>
+</div>
+
+
+  <script src="story_script.js"></script>
+</body>
+</html>
