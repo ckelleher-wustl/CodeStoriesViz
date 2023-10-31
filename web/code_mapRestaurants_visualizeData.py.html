@@ -1,0 +1,143 @@
+<div class='horizContainer'>
+	<div class='leftContainer' id='region0' line='import pandas as pd'>
+		<pre class='code'>
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region1' line='df = pd.read_csv(/Users/joeyallen/Documents/CodeBase3/Project3/all_cafes.csv)'>
+		<pre class='code'>
+df = pd.read_csv("/Users/joeyallen/Documents/CodeBase3/Project3/all_cafes.csv")
+df.drop_duplicates(inplace=True)
+# rating_dfs = []
+# for rating in df['rating'].unique():
+#     rating_df = df[df['rating']==rating]
+#     rating_df = rating_df[rating_df['user_ratings_total'] > rating_df['user_ratings_total'].quantile(0.9)]
+#     rating_dfs.append(rating_df)
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region2' line='# df = pd.concat(rating_dfs)'>
+		<pre class='code'>
+# df = pd.concat(rating_dfs)
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region3' line='#detect outliers:'>
+		<pre class='code'>
+#detect outliers:
+# df['count_zscore'] = (df['user_ratings_total'] - df['user_ratings_total'].mean()) / df['user_ratings_total'].std()
+# df['rating_zscore'] = (df['rating'] - df['rating'].mean()) / df['rating'].std()
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region4' line='# #df = df[(df.count_zscore > 3) & (df.rating_zscore > 3)]'>
+		<pre class='code'>
+# #df = df[(df.count_zscore > 3) & (df.rating_zscore > 3)]
+# print(df.rating_zscore, df.count_zscore)
+#exit()
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region5' line='min_rating = 4.5'>
+		<pre class='code'>
+min_rating = 4.5
+min_reviews = 80
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region6' line='df = df[(df.user_ratings_total >= min_reviews) & (df.rating >= min_rating)]'>
+		<pre class='code'>
+df = df[(df.user_ratings_total >= min_reviews) & (df.rating >= min_rating)]
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region7' line='df[rating] = df[rating]+np.random.random(df.shape[0])/100'>
+		<pre class='code'>
+df['rating'] = df['rating']+np.random.random(df.shape[0])/100
+# df['user_ratings_total'] = np.log(df['user_ratings_total'])
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region8' line='# df.plot.scatter(x=user_ratings_total,y=rating)'>
+		<pre class='code'>
+# df.plot.scatter(x="user_ratings_total",y="rating")
+plt.figure(figsize=(10, 6))
+plt.scatter(df['user_ratings_total'], df['rating'], color='blue', alpha=0.6)
+plt.yscale('linear')
+plt.xscale('log')
+plt.xlabel('User Ratings Total (log-scale)')
+plt.ylabel('Rating')
+plt.title('Scatter Plot of Rating vs. User Ratings Total')
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region9' line='# Annotating the names'>
+		<pre class='code'>
+# Annotating the names
+for i, row in df.iterrows():
+    plt.annotate(row['name'], (row['user_ratings_total'], row['rating']), fontsize=8, rotation=40)
+		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+
+<div class='horizContainer'>
+	<div class='leftContainer' id='region10' line='plt.show('>
+		<pre class='code'>
+plt.show()		</pre>
+	</div>
+	<div class='rightContainer'>
+	</div>
+</div>
+
+

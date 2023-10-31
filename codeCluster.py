@@ -38,19 +38,20 @@ class CodeEntries:
         
         self.code_entries = response.json()
 
-
         self.splitByFilename()
         self.get_match_affinity()
 
 
 
     def splitByFilename(self):
+        print("splitByFilename...")
         for codeEvent in self.code_entries:
             filename = codeEvent["notes"]
             filename = filename[6:]
             if (";" in filename):
                 filename = filename[0:filename.index(';')]
 
+            print(f"found filename {codeEvent['notes']}")
             if (filename not in self.entriesByFilename):
                 self.entriesByFilename[filename] = [codeEvent]
             else:
@@ -176,8 +177,9 @@ class CodeEntries:
 
         # echo decision making info
         if (debug):
+            print(currFilename)
             if (pastFilename == currFilename):
-                print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: partialMatches={partialMatches} perfectMatches={len(perfectMatches)} newLines={len(newLines)} currLineLength={len(currentLines)} pastLineLength={len(pastLines)}")
+                print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']} ({currFilename}): partialMatches={partialMatches} perfectMatches={len(perfectMatches)} newLines={len(newLines)} currLineLength={len(currentLines)} pastLineLength={len(pastLines)}")
             else:
                 print(f"\tDEBUG {pastEvt['time']}-{currEvt['time']}: Filename mismatch {pastFilename} != {currFilename}")
 
@@ -215,6 +217,14 @@ class CodeEntries:
             if not self.inCluster:
                 self.inCluster = True
                 self.clusterStartTime = pastEvt['time']
+
+        # # lines have been edited and added/deleted
+        # elif partialMatches > 0 and ( len(currentLines) != len(pastLines) ):
+        #     if (debug):
+        #             print("\t>=1 line edited, lines added/deleted; start new cluster")
+        #     if not self.inCluster:
+        #         self.inCluster = True
+        #         self.clusterStartTime = pastEvt['time']
 
         # at least one line has been added or deleted, but fewer than 4 new lines.
         elif ( (len(perfectMatches) > 0) and ( len(currentLines) != len(pastLines) ) and (len(currentLines)- len(pastLines) <= MAX_NEW_LINES) and (len(newLines) <= MAX_NEW_LINES) ):

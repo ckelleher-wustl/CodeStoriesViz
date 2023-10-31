@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/collapsible.css">
+<link rel="stylesheet" href="css/accordion.css">
+<link rel="stylesheet" href="css/diff.css">
+</head>
+<body>
+  <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="node_modules/diff/dist/diff.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="node_modules/diff2html/bundles/css/diff2html.min.css"/>
+  <script src="node_modules/diff2html/bundles/js/diff2html.min.js"></script>
+  <script src="//unpkg.com/string-similarity/umd/string-similarity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- <script type = "module" src="/public/javascripts/diff_from_full.js"></script>   -->
+
+  <div class="sticky-div">
+    <button onclick="showView('history')">History</button>
+    <button onclick="showView('code')">Code</button>
+  </div>
+
+  <div class="sticky2-div">
+      <input type="text" id="searchTerms"></input>
+      <button onclick="searchChangedCode()">Search</button>
+      <button onclick="closeAll()">Close All</button>
+  </div>
+
+  <div id="history" class="tab">
+    <div class="history-spacer"></div>
+    <div class="tabContent" id="historyTab" include-html="clusters_MapRestaurantsNew.html"></div>
+
+    <button type="button" class="collapsible">THE END</button>
+    <div class="content">
+      <p>This is the end of the recorded code history.</p>
+    </div>
+  </div>
+
+  <div id="code" class="tab">
+    <div class="code-spacer"></div>
+    <div class="tabContent"  id="codeTab" include-html="mapRestaurantsCode.html"></div>
+    <!-- Add content for the code tab here -->
+  </div>
+
+  <script type="text/javascript" src="js/youtube.js"></script>
+  <script type="text/javascript" src="js/accordion.js"></script>
+  <script type="text/javascript" src="js/includehtml.js"></script>
+  <script type="text/javascript" src="js/tab.js"></script>
+  <script type="text/javascript" src="js/code_region_map.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript" src="js/logging.js"></script>
+
+
+  <script>
+
+    var mapFilenames = ['script.jsLineMap.csv', 'animations.scssLineMap.csv', 'index.htmlLineMap.csv', 'guess.scssLineMap.csv', 'notes.mdLineMap.csv', 'boilerplate.scssLineMap.csv']
+    
+    // this loads the history and code views
+    $(document).ready(function(){
+      var htmlToLoad = $(".tabContent")
+      console.log(htmlToLoad)
+      htmlToLoad.each(function( index ) {
+        var url =  $( this ).attr("include-html") ;
+        // loadContent(url, $(this), setCodeFile, null)
+        loadContent(url, $(this), null, null);
+      });
+    });
+
+
+    function generateRegionLinks(file, regions) {
+
+      console.log("generating region links..." + file + " " + JSON.stringify(regions))
+      var html = "";
+      for (var regionID in regions) {
+        var lineID = regions[regionID];
+        lineID = lineID.replaceAll("<", "&lt").replaceAll(">", "&gt");
+        console.log(regionID + " " + lineID);
+        file = file.split(".")[0]
+        html += "<li class='jumpToCode' onclick=\"openCodeFile('code_Wordle_" + file + ".html', '" + regionID + "')\">" + lineID + "</li>\n"
+      }
+      return html;
+    }
+
+    function initCollapsibles() {
+
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      // add the event listeners for the collapsibles.
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            openChange(content, false);
+            logUserAction("history", "click close: " + this.textContent)
+          } else {
+            openChange(content, true);
+            logUserAction("history", "click open: " + this.textContent)
+            // look for searches
+            highlightCode(content);
+          }
+        });
+      }
+    }
+
+
+  function initHistory() {
+    var histElems = $(".history");
+    var i;
+
+    // console.log("adding listener to " + histElems[i]);
+    histElems.on("click", (event) => {
+        openTab("history");
+        openChangeWithTitle(event.target.textContent, true); 
+      });
+
+  }
+
+  function highlightChange(content, open) {
+    if (!(content  instanceof jQuery)) {
+      content = $(content);
+    }
+
+    var button = content.prev();
+    
+    if (open) {
+      button.addClass("result");
+    } else {
+      button.removeClass("result");
+    }
+  }
+
+  function closeAll() {
+    var codeContent = $('.content');
+
+    codeContent.each( function () {
+      openChange(this, false);
+    });
+
+    logUserAction("history", "close all activities")
+  }
+
+  function openChangeWithTitle(title, open) {
+    var history = $(".history");
+    var button =  $("button.collapsible:contains('" + title + "')");
+    var content = button.next();
+    openChange($(content), open);
+    
+    if (open) {
+      logUserAction("code", "open activity: " + title);
+    } else {
+      logUserAction("code", "close activity: " + title);
+    }
+  }
+
+
+  function openChange(content, open) {
+
+
+    if (!(content  instanceof jQuery)) {
+      content = $(content);
+    }
+
+    if (!open) {
+      content.attr("style", "display:none");
+    } else  {
+      content.attr("style", "display:block");
+
+      // if this is a code content panel, we need to update the display
+      if (content.attr("--filename")) {
+
+        var startCode = content.attr("--start-code");
+        var endCode = content.attr("--end-code");
+        var fileName = content.attr("--filename");
+
+        var diff = Diff.createTwoFilesPatch("begin", "end", startCode, endCode,fileName,fileName,{context:10, ignoreWhitespace:true});
+
+
+        var additions = [];
+        diff.split("\n").forEach(part => {
+          if (part.startsWith("+") && !(part.startsWith("+++")) && (part.length > 8) ) {
+            additions.push(part.substring(1).trim());
+          }
+        })
+
+        var diffHtml = Diff2Html.html(diff, {
+            drawFileList: false,
+            //matching: 'words',
+            outputFormat: 'side-by-side',
+        });
+        $(content).find('p:first').html(diffHtml);
+
+        regions={};
+
+        for (var line in additions) {
+          var regionInfo = getRegionForLine( fileName, additions[line] );
+          if (regionInfo) {
+            regions[regionInfo["regionID"]] = regionInfo["lineID"];
+          } else {
+            console.log("regionInfo not found for " + fileName);
+          }
+        }
+
+        var listHtml = generateRegionLinks(fileName, regions);
+
+        $(content).find("ul").html(listHtml);
+      }
+ 
+    }
+  }
+
+  </script>
+</body>
+</html>

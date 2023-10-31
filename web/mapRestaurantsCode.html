@@ -1,0 +1,567 @@
+<div class='sticky2-div'>
+	<ul id='linkList' class='tab-list'>
+		<li class='tab-item' code='print("starting script")
+import requests
+import time
+import math
+import pandas as pd
+
+print("imports done")
+
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LATITUDE = 38.634098
+LONGITUDE = -90.254306
+
+LATITUDE, LONGITUDE = 38.672451, -90.263111
+
+LOCATION = str(LATITUDE)+", "+str(LONGITUDE)  # Saint Louis, MO coordinates
+RADIUS = 20000  # 15 km, adjust as needed
+
+def meters_to_latitude(m):
+    return m/111000.0
+
+def meters_to_longitude(m, lat):
+    return m/ abs(111000*math.cos(math.radians(lat)))
+
+GRID_DIM = 7
+
+subCircleRadius = RADIUS*1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
+
+#subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
+
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+
+mid_grid = GRID_DIM//2+1
+startLatitude = LATITUDE - meters_to_latitude(subCircleCentroidOffset*mid_grid) #offset it halfway to the left
+startLongitude = LONGITUDE - meters_to_longitude(subCircleCentroidOffset*mid_grid, startLatitude) #offset halfway up
+#print(startLatitude, startLongitude)
+#print("{lat: "+str(startLatitude)+", lng:"+str(-90.34743652887738)+"}")
+print("centroids")
+# print("[")
+
+locations = []
+for rowNum in range(GRID_DIM):
+    for colNum in range(GRID_DIM):
+        currLatitude = startLatitude + meters_to_latitude(subCircleCentroidOffset*colNum)
+        currLongitude = startLongitude + meters_to_longitude(subCircleCentroidOffset*rowNum, currLatitude)
+        if colNum % 2 == 0:
+            currLongitude = currLongitude + meters_to_longitude(subCircleCentroidOffset/2, currLatitude)
+        # print("{lat: "+str(currLatitude)+", lng:"+str(currLongitude)+"},")
+        locations.append(str(currLatitude)+", "+str(currLongitude))
+print("]")
+
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "cafe",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+
+print("begining...")
+loc_count = 0
+for location in locations:
+    print("location:",loc_count)
+    loc_count += 1
+    while True:
+        restaurants, next_token = get_restaurants(location, API_KEY, subCircleRadius, next_token)
+        print("\t",len(restaurants))
+        all_restaurants.extend(restaurants)
+        if not next_token:
+            break
+
+df = pd.DataFrame(all_restaurants)
+df.to_csv("all_cafes.csv",index=False)'><a href='#' data-url='code_mapRestaurants_example.html' onclick='logUserAction("history", "open final code:code_mapRestaurants_example.html")'>example.py</a></li>
+		<li class='tab-item' code='import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+df = pd.read_csv("/Users/joeyallen/Documents/CodeBase3/Project3/all_cafes.csv")
+df.drop_duplicates(inplace=True)
+# rating_dfs = []
+# for rating in df["rating"].unique():
+#     rating_df = df[df["rating"]==rating]
+#     rating_df = rating_df[rating_df["user_ratings_total"] > rating_df["user_ratings_total"].quantile(0.9)]
+#     rating_dfs.append(rating_df)
+
+# df = pd.concat(rating_dfs)
+
+#detect outliers:
+# df["count_zscore"] = (df["user_ratings_total"] - df["user_ratings_total"].mean()) / df["user_ratings_total"].std()
+# df["rating_zscore"] = (df["rating"] - df["rating"].mean()) / df["rating"].std()
+
+# #df = df[(df.count_zscore > 3) & (df.rating_zscore > 3)]
+# print(df.rating_zscore, df.count_zscore)
+#exit()
+
+
+min_rating = 4.5
+min_reviews = 80
+
+df = df[(df.user_ratings_total >= min_reviews) & (df.rating >= min_rating)]
+
+df["rating"] = df["rating"]+np.random.random(df.shape[0])/100
+# df["user_ratings_total"] = np.log(df["user_ratings_total"])
+
+# df.plot.scatter(x="user_ratings_total",y="rating")
+plt.figure(figsize=(10, 6))
+plt.scatter(df["user_ratings_total"], df["rating"], color="blue", alpha=0.6)
+plt.yscale("linear")
+plt.xscale("log")
+plt.xlabel("User Ratings Total (log-scale)")
+plt.ylabel("Rating")
+plt.title("Scatter Plot of Rating vs. User Ratings Total")
+
+# Annotating the names
+for i, row in df.iterrows():
+    plt.annotate(row["name"], (row["user_ratings_total"], row["rating"]), fontsize=8, rotation=40)
+
+plt.show()'><a href='#' data-url='code_mapRestaurants_visualizeData.html' onclick='logUserAction("history", "open final code:code_mapRestaurants_visualizeData.html")'>visualizeData.py</a></li>
+		<li class='tab-item' code='
+my_api_key = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip() # this is pseudo-private I guess?
+
+import googlemaps
+from datetime import datetime
+
+gmaps = googlemaps.Client(key=my_api_key)
+
+# Geocoding an address
+geocode_result = gmaps.geocode("1600 Amphitheatre Parkway, Mountain View, CA")
+
+# Look up an address with reverse geocoding
+reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
+
+# Request directions via public transit
+now = datetime.now()
+directions_result = gmaps.directions("Sydney Town Hall",
+                                     "Parramatta, NSW",
+                                     mode="transit",
+                                     departure_time=now)
+
+# Validate an address with address validation
+addressvalidation_result =  gmaps.addressvalidation(["1600 Amphitheatre Pk"], 
+                                                    regionCode="US",
+                                                    locality="Mountain View", 
+                                                    enableUspsCass=True)
+print(addressvalidation_result)'><a href='#' data-url='code_mapRestaurants_main.html' onclick='logUserAction("history", "open final code:code_mapRestaurants_main.html")'>main.py</a></li>
+		<li class='tab-item' code='import uuid
+
+from types import GeneratorType
+
+import responses
+
+import googlemaps
+from __init__ import TestCase
+
+
+class PlacesTest(TestCase):
+    def setUp(self):
+        self.key = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip() # this is pseudo-private I guess?
+        self.client = googlemaps.Client(self.key)
+        self.location = (-33.86746, 151.207090)
+        self.type = "liquor_store"
+        self.language = "en-AU"
+        self.region = "AU"
+        self.radius = 100
+
+    @responses.activate
+    def test_places_find(self):
+        url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
+        responses.add(
+            responses.GET,
+            url,
+            body="{"status": "OK", "candidates": []}",
+            status=200,
+            content_type="application/json",
+        )
+
+        self.client.find_place(
+            "restaurant",
+            "textquery",
+            fields=["business_status", "geometry/location", "place_id"],
+            location_bias="point:90,90",
+            language=self.language,
+        )
+
+        self.assertEqual(1, len(responses.calls))
+        self.assertURLEqual(
+            "%s?language=en-AU&inputtype=textquery&"
+            "locationbias=point:90,90&input=restaurant"
+            "&fields=business_status,geometry/location,place_id&key=%s"
+            % (url, self.key),
+            responses.calls[0].request.url,
+        )
+
+        with self.assertRaises(ValueError):
+            self.client.find_place("restaurant", "invalid")
+        with self.assertRaises(ValueError):
+            self.client.find_place(
+                "restaurant", "textquery", fields=["geometry", "invalid"]
+            )
+        with self.assertRaises(ValueError):
+            self.client.find_place("restaurant", "textquery", location_bias="invalid")
+
+    @responses.activate
+    def test_places_text_search(self):
+        url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+        responses.add(
+            responses.GET,
+            url,
+            body="{"status": "OK", "results": [], "html_attributions": []}",
+            status=200,
+            content_type="application/json",
+        )
+
+        self.client.places(
+            "restaurant",
+            location=self.location,
+            radius=self.radius,
+            region=self.region,
+            language=self.language,
+            min_price=1,
+            max_price=4,
+            open_now=True,
+            type=self.type,
+        )
+
+        self.assertEqual(1, len(responses.calls))
+        self.assertURLEqual(
+            "%s?language=en-AU&location=-33.86746%%2C151.20709&"
+            "maxprice=4&minprice=1&opennow=true&query=restaurant&"
+            "radius=100&region=AU&type=liquor_store&key=%s" % (url, self.key),
+            responses.calls[0].request.url,
+        )
+
+    @responses.activate
+    def test_places_nearby_search(self):
+        url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+        responses.add(
+            responses.GET,
+            url,
+            body="{"status": "OK", "results": [], "html_attributions": []}",
+            status=200,
+            content_type="application/json",
+        )
+
+        self.client.places_nearby(
+            location=self.location,
+            keyword="foo",
+            language=self.language,
+            min_price=1,
+            max_price=4,
+            name="bar",
+            open_now=True,
+            rank_by="distance",
+            type=self.type,
+        )
+
+        self.assertEqual(1, len(responses.calls))
+        self.assertURLEqual(
+            "%s?keyword=foo&language=en-AU&location=-33.86746%%2C151.20709&"
+            "maxprice=4&minprice=1&name=bar&opennow=true&rankby=distance&"
+            "type=liquor_store&key=%s" % (url, self.key),
+            responses.calls[0].request.url,
+        )
+
+        with self.assertRaises(ValueError):
+            self.client.places_nearby(radius=self.radius)
+        with self.assertRaises(ValueError):
+            self.client.places_nearby(self.location, rank_by="distance")
+
+        with self.assertRaises(ValueError):
+            self.client.places_nearby(
+                location=self.location,
+                rank_by="distance",
+                keyword="foo",
+                radius=self.radius,
+            )
+
+    @responses.activate
+    def test_place_detail(self):
+        url = "https://maps.googleapis.com/maps/api/place/details/json"
+        responses.add(
+            responses.GET,
+            url,
+            body="{"status": "OK", "result": {}, "html_attributions": []}",
+            status=200,
+            content_type="application/json",
+        )
+
+        self.client.place(
+            "ChIJN1t_tDeuEmsRUsoyG83frY4",
+            fields=["business_status", "geometry/location",
+                    "place_id", "reviews"],
+            language=self.language,
+            reviews_no_translations=True,
+            reviews_sort="newest",
+        )
+
+        self.assertEqual(1, len(responses.calls))
+        self.assertURLEqual(
+            "%s?language=en-AU&placeid=ChIJN1t_tDeuEmsRUsoyG83frY4"
+            "&reviews_no_translations=true&reviews_sort=newest"
+            "&key=%s&fields=business_status,geometry/location,place_id,reviews"
+            % (url, self.key),
+            responses.calls[0].request.url,
+        )
+
+        with self.assertRaises(ValueError):
+            self.client.place(
+                "ChIJN1t_tDeuEmsRUsoyG83frY4", fields=["geometry", "invalid"]
+            )
+
+    @responses.activate
+    def test_photo(self):
+        url = "https://maps.googleapis.com/maps/api/place/photo"
+        responses.add(responses.GET, url, status=200)
+
+        ref = "CnRvAAAAwMpdHeWlXl-lH0vp7lez4znKPIWSWvgvZFISdKx45AwJVP1Qp37YOrH7sqHMJ8C-vBDC546decipPHchJhHZL94RcTUfPa1jWzo-rSHaTlbNtjh-N68RkcToUCuY9v2HNpo5mziqkir37WU8FJEqVBIQ4k938TI3e7bf8xq-uwDZcxoUbO_ZJzPxremiQurAYzCTwRhE_V0"
+        response = self.client.places_photo(ref, max_width=100)
+
+        self.assertTrue(isinstance(response, GeneratorType))
+        self.assertEqual(1, len(responses.calls))
+        self.assertURLEqual(
+            "%s?maxwidth=100&photoreference=%s&key=%s" % (url, ref, self.key),
+            responses.calls[0].request.url,
+        )
+
+    @responses.activate
+    def test_autocomplete(self):
+        url = "https://maps.googleapis.com/maps/api/place/autocomplete/json"
+        responses.add(
+            responses.GET,
+            url,
+            body="{"status": "OK", "predictions": []}",
+            status=200,
+            content_type="application/json",
+        )
+
+        session_token = uuid.uuid4().hex
+
+        self.client.places_autocomplete(
+            "Google",
+            session_token=session_token,
+            offset=3,
+            origin=self.location,
+            location=self.location,
+            radius=self.radius,
+            language=self.language,
+            types="geocode",
+            components={"country": "au"},
+            strict_bounds=True,
+        )
+
+        self.assertEqual(1, len(responses.calls))
+        self.assertURLEqual(
+            "%s?components=country%%3Aau&input=Google&language=en-AU&"
+            "origin=-33.86746%%2C151.20709&"
+            "location=-33.86746%%2C151.20709&offset=3&radius=100&"
+            "strictbounds=true&types=geocode&key=%s&sessiontoken=%s"
+            % (url, self.key, session_token),
+            responses.calls[0].request.url,
+        )
+
+    @responses.activate
+    def test_autocomplete_query(self):
+        url = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json"
+        responses.add(
+            responses.GET,
+            url,
+            body="{"status": "OK", "predictions": []}",
+            status=200,
+            content_type="application/json",
+        )
+
+        self.client.places_autocomplete_query("pizza near New York")
+
+        self.assertEqual(1, len(responses.calls))
+        self.assertURLEqual(
+            "%s?input=pizza+near+New+York&key=%s" % (url, self.key),
+            responses.calls[0].request.url,
+        )'><a href='#' data-url='code_mapRestaurants_places_test.html' onclick='logUserAction("history", "open final code:code_mapRestaurants_places_test.html")'>places_test.py</a></li>
+		<li class='tab-item' code='thought process: I know I want to create some kind of app that searches Google reviews, and portrays outliers in terms of reviews and rating. I think my initial goal is to be able to create a scatter plot of all restaurants that meet a certain criteria (ie location, rating, review count), and see what the distribution looks like before creating a heuristic to identify "good" restaurants
+
+an additional requirement is that I don"t want to share my google maps client key on this code history once I create one, since that is a privacy concern, so I will load that from a file outside of this project
+
+First issue I resolved: google only lets you get 20 results at a time, and three pages of this for a total of 60. However, I had to figure out to add a time delay between pages because otherwise the next_token wouldnt be valid
+
+next issue: find a way to get more than 60 results for an area of interest.
+This may include breaking the area into smaller groups and merging them.
+
+I"m going to start with a simple solution of dividing the large radius into smaller radiuses. "Divide and conquer"
+
+Update, I am going to just use my API key for development, and then change it after this project.
+
+goal: get rid of overlapping data points'><a href='#' data-url='code_mapRestaurants_notes.html' onclick='logUserAction("history", "open final code:code_mapRestaurants_notes.html")'>notes.md</a></li>
+		<li class='tab-item' code='<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle on Map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
+</head>
+<body>
+    <!-- Create a div element to hold the map -->
+    <div id="map" style="width: 100%; height: 500px;"></div>
+
+    <script>
+        // This function will initialize the map and draw the circle
+        function initMap() {
+            var center = {lat: 38.634098, lng: -90.254306};
+
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: center
+            });
+
+            // var circle = new google.maps.Circle({
+            //     strokeColor: "#FF0000",
+            //     strokeOpacity: 0.8,
+            //     strokeWeight: 2,
+            //     fillColor: "#FF0000",
+            //     fillOpacity: 0.35,
+            //     map: map,
+            //     center: center,
+            //     radius: 10000
+            // });
+            return map;
+        }
+
+        function addCircle2(map, center) {
+            
+            var circle = new google.maps.Circle({
+                strokeColor: "#0000FF",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#0000FF",
+                fillOpacity: 0.35,
+                map: map,
+                center: center,
+                radius: 10000*1.1/5
+            });
+        }
+
+        // Call the function to initialize the map and draw the circle
+        map = initMap();
+        var center = {lat: 38.56127533197131, lng:-90.34743652887738};
+
+        var centers = [
+{lat: 38.54635114194166, lng:-90.40418857233361},
+{lat: 38.577876106456245, lng:-90.42434251123841},
+{lat: 38.60940107097083, lng:-90.40417087413553},
+{lat: 38.640926035485414, lng:-90.42434251123841},
+{lat: 38.672451, lng:-90.40415312035707},
+{lat: 38.70397596451458, lng:-90.42434251123841},
+{lat: 38.735500929029165, lng:-90.40413531080827},
+{lat: 38.54635114194166, lng:-90.36388069452401},
+{lat: 38.577876106456245, lng:-90.38401694910216},
+{lat: 38.60940107097083, lng:-90.36382759992979},
+{lat: 38.640926035485414, lng:-90.383981497173},
+{lat: 38.672451, lng:-90.3637743385944},
+{lat: 38.70397596451458, lng:-90.38394593389333},
+{lat: 38.735500929029165, lng:-90.363720909948},
+{lat: 38.54635114194166, lng:-90.3235728167144},
+{lat: 38.577876106456245, lng:-90.34369138696593},
+{lat: 38.60940107097083, lng:-90.32348432572404},
+{lat: 38.640926035485414, lng:-90.34362048310759},
+{lat: 38.672451, lng:-90.32339555683171},
+{lat: 38.70397596451458, lng:-90.34354935654827},
+{lat: 38.735500929029165, lng:-90.32330650908773},
+{lat: 38.54635114194166, lng:-90.28326493890481},
+{lat: 38.577876106456245, lng:-90.30336582482968},
+{lat: 38.60940107097083, lng:-90.2831410515183},
+{lat: 38.640926035485414, lng:-90.30325946904217},
+{lat: 38.672451, lng:-90.28301677506904},
+{lat: 38.70397596451458, lng:-90.30315277920319},
+{lat: 38.735500929029165, lng:-90.28289210822746},
+{lat: 38.54635114194166, lng:-90.2429570610952},
+{lat: 38.577876106456245, lng:-90.26304026269345},
+{lat: 38.60940107097083, lng:-90.24279777731256},
+{lat: 38.640926035485414, lng:-90.26289845497676},
+{lat: 38.672451, lng:-90.24263799330637},
+{lat: 38.70397596451458, lng:-90.26275620185812},
+{lat: 38.735500929029165, lng:-90.24247770736719},
+{lat: 38.54635114194166, lng:-90.2026491832856},
+{lat: 38.577876106456245, lng:-90.2227147005572},
+{lat: 38.60940107097083, lng:-90.20245450310682},
+{lat: 38.640926035485414, lng:-90.22253744091134},
+{lat: 38.672451, lng:-90.2022592115437},
+{lat: 38.70397596451458, lng:-90.22235962451305},
+{lat: 38.735500929029165, lng:-90.20206330650691},
+{lat: 38.54635114194166, lng:-90.16234130547599},
+{lat: 38.577876106456245, lng:-90.18238913842096},
+{lat: 38.60940107097083, lng:-90.16211122890107},
+{lat: 38.640926035485414, lng:-90.18217642684593},
+{lat: 38.672451, lng:-90.16188042978102},
+{lat: 38.70397596451458, lng:-90.18196304716798},
+{lat: 38.735500929029165, lng:-90.16164890564664},
+]
+// {lat: 38.56134808188942, lng:-90.30990859796832},
+// {lat: 38.59564272217393, lng:-90.32705591811057},
+// {lat: 38.62993736245843, lng:-90.30990859796832},
+// {lat: 38.664232002742935, lng:-90.32705591811057},
+// {lat: 38.698526643027435, lng:-90.30990859796832},
+// {lat: 38.56134808188942, lng:-90.27561395768382},
+// {lat: 38.59564272217393, lng:-90.29276127782607},
+// {lat: 38.62993736245843, lng:-90.27561395768382},
+// {lat: 38.664232002742935, lng:-90.29276127782607},
+// {lat: 38.698526643027435, lng:-90.27561395768382},
+// {lat: 38.56134808188942, lng:-90.2413193173993},
+// {lat: 38.59564272217393, lng:-90.25846663754156},
+// {lat: 38.62993736245843, lng:-90.2413193173993},
+// {lat: 38.664232002742935, lng:-90.25846663754156},
+// {lat: 38.698526643027435, lng:-90.2413193173993},
+// {lat: 38.56134808188942, lng:-90.2070246771148},
+// {lat: 38.59564272217393, lng:-90.22417199725706},
+// {lat: 38.62993736245843, lng:-90.2070246771148},
+// {lat: 38.664232002742935, lng:-90.22417199725706},
+// {lat: 38.698526643027435, lng:-90.2070246771148},
+// {lat: 38.56134808188942, lng:-90.1727300368303},
+// {lat: 38.59564272217393, lng:-90.18987735697256},
+// {lat: 38.62993736245843, lng:-90.1727300368303},
+// {lat: 38.664232002742935, lng:-90.18987735697256},
+// {lat: 38.698526643027435, lng:-90.1727300368303},
+//]
+
+
+        for (let i = 0; i < centers.length; i++){
+            center = centers[i]
+            addCircle2(map, center);
+        }
+
+        
+    </script>
+</body>
+</html>'><a href='#' data-url='code_mapRestaurants_testCircles.html' onclick='logUserAction("history", "open final code:code_mapRestaurants_testCircles.html")'>testCircles.html</a></li>
+	</ul>
+	<input type='text' id='codeSearchTerms'></input>
+	<button onclick='searchFinalCode()'>Search</button>
+</div><div id='contentContainer'>
+	<!-- Content will be dynamically loaded here -->
+</div>

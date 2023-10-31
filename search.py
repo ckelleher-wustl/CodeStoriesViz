@@ -4,6 +4,9 @@ import nltk
 from nltk import PorterStemmer
 from nltk.corpus import stopwords
 
+
+projectName = "mapRestaurants"
+
 nltk.download('stopwords')
 ps = PorterStemmer()
 
@@ -230,8 +233,8 @@ def getClusters(df):
 
 
 # read in the search events data
-df = pd.read_csv('web/data/codeHistoryStudy/user5_searchEvts.csv')
-# df = pd.read_csv('web/data/searchEvts_gitMosaic.csv')
+# df = pd.read_csv('web/data/codeHistoryStudy/user5_searchEvts.csv')
+df = pd.read_csv('web/data/searchEvts_' + projectName + '.csv')
 
 # split the type: pagedesc into separate columns
 split = df['filename'].str.split(":", 1, expand=True)
@@ -319,17 +322,24 @@ for cluster in allClusters:
 
     prevCluster = cluster
 
-print("\n\nseed,startTime,endTime")
-for clusterGroup in clusterGroups:
-    if len(clusterGroup) > 0:
-        startTime = clusterGroup[0]['begin']
-        endTime = clusterGroup[len(clusterGroup)-1]['end']
-        print(f"'{clusterGroup[0]['seed']}',{startTime},{endTime}")
+
+
+with open('web/data/searchClusters_' + projectName +  '.csv', 'w') as f:
+
+    print("\n\nseed,startTime,endTime")
+    f.write("seed,startTime,endTime\n")
+    for clusterGroup in clusterGroups:
+        if len(clusterGroup) > 0:
+            startTime = clusterGroup[0]['begin']
+            endTime = clusterGroup[len(clusterGroup)-1]['end']
+            print(f"'{clusterGroup[0]['seed']}',{startTime},{endTime}")
+            f.write("'" + clusterGroup[0]['seed'] + "'," + str(startTime)+ "," + str(endTime) + "\n")
+
 
 
 
 # df = pd.read_csv('web/data/searchEvts.csv')
-df.to_csv('web/data/baseClusters.csv')  
+# df.to_csv('web/data/searchEvts_mapRestaurants.csv')  
 
 
 # print("\n\nseed,startTime,endTime")

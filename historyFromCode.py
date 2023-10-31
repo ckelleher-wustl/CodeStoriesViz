@@ -45,14 +45,19 @@ def separate_lines(filename):
 # groups = separate_lines(filepath)
 # prefix = "code_Mosaic_"
 
-filename = "notes.md"
-filepath = 'web/storystudy/wordleCode/' + filename
+# filename = "notes.md"
+# filepath = 'web/storystudy/wordleCode/' + filename
+# groups = separate_lines(filepath)
+# prefix = "code_Wordle_"
+
+filename = "visualizeData.py"
+filepath = 'web/storystudy/mapRestaurants/' + filename
 groups = separate_lines(filepath)
-prefix = "code_Wordle_"
+prefix = "code_mapRestaurants_"
 
 
 historyFromCode = historyQuery.HistoryFromCode()
-historyFromCode.initializeHistory('web/data/wordleStoryOverview.csv',filename)
+historyFromCode.initializeHistory('web/data/mapRestaurantsStoryOverview.csv',filename)
 # historyFromCode.initializeHistory('web/data/mosaicStoryOverview.csv',filename)
 
 html = ""
@@ -100,6 +105,7 @@ def buildLineRegionHistory():
 regionIdx = 0
 for group in groups:
 
+    print(f"Group: {group}")
     activities = historyFromCode.getActivitiesForCode(group)
     subGoalDict = historyFromCode.getSubgoalActivityGroups(activities)
 

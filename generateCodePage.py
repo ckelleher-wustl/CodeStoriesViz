@@ -1,6 +1,6 @@
-codeFiles = ["script.js", "animations.scss", "index.html", "guess.scss", "boilerplate.scss", "notes.md"]
-pathToCode = "web/storystudy/wordleCode/"
-prefix = "code_Wordle_"
+codeFiles = ["example.py", "visualizeData.py","main.py", "places_test.py", "notes.md", "testCircles.html"]
+pathToCode = "web/storystudy/mapRestaurants/"
+prefix = "code_mapRestaurants_"
 
 # codeFiles = ["main.py"]
 # pathToCode = "web/storystudy/mosaicCode/"
@@ -46,6 +46,6 @@ def generatePage():
 loadCode()
 html = generatePage()
 
-text_file = open("web/wordleCode.html", "w")
+text_file = open("web/mapRestaurantsCode.html", "w")
 n = text_file.write(html)
 text_file.close()

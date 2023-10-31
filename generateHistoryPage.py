@@ -7,9 +7,13 @@ import difflib
 # imageDir = "/images/" + projectName + "/"
 # regionPrefix = "code_Mosaic_"
 
-projectName = "wordle"
+# projectName = "wordle"
+# imageDir = "/images/" + projectName + "/"
+# regionPrefix = "code_Wordle_"
+
+projectName = "mapRestaurants"
 imageDir = "/images/" + projectName + "/"
-regionPrefix = "code_Wordle_"
+regionPrefix = "code_mapRestaurants_"
 
 
 def get_search_overview_html(responseEntries):
@@ -39,7 +43,7 @@ def get_search_overview_html(responseEntries):
             searchString = notes[start: end]
             if (firstSearch == false):
                 html += "</div>\n"
-            html += "<div class='title'><span><a href='" + url + "' target='_blank' rel='noreferrer noopener' onclick='logUserAction(\"history\", \"open search: " + url + "\")'>" + searchString + "</a></span></div><hr>\n"
+            html += "<div class='title'><span><a href='" + str(url) + "' target='_blank' rel='noreferrer noopener' onclick='logUserAction(\"history\", \"open search: " + str(url) + "\")'>" + searchString + "</a></span></div><hr>\n"
             html += "<div class='webImageLongRow'>\n"
 
             firstSearch = false
@@ -55,9 +59,9 @@ def get_search_overview_html(responseEntries):
 
             # print(f"visit/revisit info {responseEntries[i]}['notes']")
             if (responseEntries[i]['notes'].startswith('revisit:')):
-                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='" + url + "' target='_blank' rel='noreferrer noopener' onclick='logUserAction(\"history\", \"open revisit: " + url + "\")'>" + pageName + "</a></td></tr></tbody></table></div>\n"
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='" + str(url) + "' target='_blank' rel='noreferrer noopener' onclick='logUserAction(\"history\", \"open revisit: " + str(url) + "\")'>" + pageName + "</a></td></tr></tbody></table></div>\n"
             else: 
-                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td><a href='" + url + "' target='_blank' rel='noreferrer noopener' onclick='logUserAction(\"history\", \"open visit: " + url + "\")'>" + pageName + "</a></td></tr></tbody></table></div>\n"
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td><a href='" + str(url) + "' target='_blank' rel='noreferrer noopener' onclick='logUserAction(\"history\", \"open visit: " + str(url) + "\")'>" + pageName + "</a></td></tr></tbody></table></div>\n"
 
     html += "</div>\n" # close open webImageLongRow
 
@@ -165,8 +169,9 @@ def get_code_entries(startTime, endTime):
 activityData = {}
 # lineRegionMap = {}
 def loadActivityDataFrames():
-    filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
+    # filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
     # filenames = ['main.py.csv']
+    filenames = ['example.py.csv', 'visualizeData.py.csv', 'main.py.csv', 'notes.md.csv']
 
     for file in filenames:
         print(file)
@@ -190,7 +195,8 @@ def getRegionsForActivities(filename, activity):
 
 # import the search and code clusters
 
-clusterDF = pd.read_csv('web/data/wordleStoryOverview.csv')
+print(f"opening web/data/{projectName}StoryOverview.csv")
+clusterDF = pd.read_csv('web/data/' + projectName + 'StoryOverview.csv')
 clusterDF.set_axis(['goalType','clusterType','startTime','endTime','fileName','summary'], axis=1, inplace=True)
 print(clusterDF)
 html = ""
@@ -285,7 +291,7 @@ for clusterIdx in clusterDF.index:
 
 # print(f"HTML:\n{len(html)}")
 
-text_file = open("web/clusters_WordleNew.html", "w")
+text_file = open("web/clusters_MapRestaurantsNew.html", "w")
 n = text_file.write(html)
 text_file.close()
 

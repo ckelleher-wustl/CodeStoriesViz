@@ -3,7 +3,7 @@ import requests
 from sqlalchemy import false, true
 import difflib
 
-projectName = "user5"
+projectName = "mapRestaurants"
 imageDir = "/images/" + projectName + "/"
 
 def get_search_overview_html(responseEntries):
@@ -33,7 +33,7 @@ def get_search_overview_html(responseEntries):
             searchString = notes[start: end]
             if (firstSearch == false):
                 html += "</div>\n"
-            html += "<div class='title'><span><a href='" + url + "' target='_blank' rel='noreferrer noopener'>" + searchString + "</a></span></div><hr>\n"
+            html += "<div class='title'><span><a href='" + str(url) + "' target='_blank' rel='noreferrer noopener'>" + searchString + "</a></span></div><hr>\n"
             html += "<div class='webImageLongRow'>\n"
 
             firstSearch = false
@@ -47,11 +47,11 @@ def get_search_overview_html(responseEntries):
                 end = len(notes)
             pageName = notes[start: end]
 
-            # print(f"visit/revisit info {responseEntries[i]}['notes']")
+            # print(f"visit/revisit info {responseEntries[i]} {imageDir} {responseEntries[i]['img_file']} {url} {pageName}")
             if (responseEntries[i]['notes'].startswith('revisit:')):
-                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='" + url + "' target='_blank' rel='noreferrer noopener'>" + pageName + "</a></td></tr></tbody></table></div>\n"
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td bgColor='lightblue'> <a href='" + str(url) + "' target='_blank' rel='noreferrer noopener'>" + str(pageName) + "</a></td></tr></tbody></table></div>\n"
             else: 
-                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td><a href='" + url + "' target='_blank' rel='noreferrer noopener'>" + pageName + "</a></td></tr></tbody></table></div>\n"
+                html += "\t<div class='sideBySideImage'> <table><tbody><tr><td><img src='" + imageDir + responseEntries[i]["img_file"] + "' width='180' height='112'> </td></tr><tr><td><a href='" + str(url) + "' target='_blank' rel='noreferrer noopener'>" + str(pageName) + "</a></td></tr></tbody></table></div>\n"
 
     html += "</div>\n" # close open webImageLongRow
     
@@ -158,12 +158,12 @@ def get_code_entries(startTime, endTime):
 
 # import the search and code clusters
 
-searchDF = pd.read_csv('web/data/searchClusters_gitMosaic.csv')
+searchDF = pd.read_csv('web/data/searchClusters_mapRestaurants.csv')
 searchDF.set_axis(['seed', 'startTime', 'endTime'], axis=1, inplace=True)
 print(searchDF)
 
 
-codeDF = pd.read_csv('web/data/codeCluster_gitMosaic.csv')
+codeDF = pd.read_csv('web/data/codeCluster_mapRestaurants.csv')
 codeDF.set_axis(['startTime', 'endTime', 'type', 'filename'], axis=1, inplace=True)
 print(codeDF)
 
@@ -174,6 +174,9 @@ clusterCnt = 1
 html = ""
 
 # TODO: something in here seems to be hitting an infinite loop - figure out where.
+
+print("\nCOPY THIS PART:\n\n")
+print("goalType, clusterType, startTime, endTime, fileName, summary")
 
 # organize these into parent/child clusters
 while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
@@ -307,6 +310,8 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
 
 
 # print(f"out of while loop")
+
+
 if (searchIdx < len(searchDF)):
     for i in range (searchIdx, len(searchDF)):
         startTime = searchDF.iloc[searchIdx]['startTime']
@@ -324,6 +329,11 @@ else:
 
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")
         clusterCnt += 1
+
+with open('web/clusters_' + projectName +  '.html', 'w') as f:
+    f.write(html)
+    f.close()
+
 
 # print(f"HTML: \n{html}")
 

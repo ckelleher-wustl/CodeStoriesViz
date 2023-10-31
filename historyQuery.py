@@ -83,8 +83,10 @@ class HistoryFromCode:
 
     # iterate through code lines to create the seedLineDict and the lineHistoryDict
     def processLines(self):
+        print(f"codeStates length {len(self.codeStates)}")
         for codeState in self.codeStates:
             # print("\n\n")
+            # print(f"codestate {codeState}")
             # break up a codeString into candidate lines
             rawLines = codeState['code'].splitlines()
             lines =[]
@@ -92,6 +94,8 @@ class HistoryFromCode:
                 #  strip whitespace
                 rawline = rawline.replace('“','"').replace('”','"')
                 lines.append(rawline.strip())
+
+            print(f"lines is {lines}")
 
             for candidateLine in lines:
                 
@@ -106,12 +110,15 @@ class HistoryFromCode:
                         self.lineHistoryDict[baseCodeLine].append(candidateLine)
 
                     else:
-                        # print(f"no match found {candidateLine} ")
+                        print(f"no match found {candidateLine} ")
                         # add entry to all known lines and mark as a starting point
                         self.seedLineDict[candidateLine] = "base"
 
-                        # add entry to line history with a list containing itselt; descendents should be appended.
+                        # add entry to line history with a list containing itself; descendents should be appended.
                         self.lineHistoryDict[candidateLine] = [candidateLine]
+
+            # print(f"seedLineDict {seedLineDict}")
+            # print(f"lineHistoryDict {lineHistoryDict}")
 
 
     def createLineHistory(self):
@@ -235,7 +242,8 @@ class HistoryFromCode:
 
                 self.clusterSummaryToSubgoalDict[summary] = subGoal
 
-                if ('code' in clusterType) and (fileName not in self.subGoalToFileNamesDict[subGoal]):
+                # print ('subgoal is ' + subGoal)
+                if (len(fileName) > 0) and ('code' in clusterType) and (fileName not in self.subGoalToFileNamesDict[subGoal]):
                     self.subGoalToFileNamesDict[subGoal].append(fileName)
 
             elif (goalType == "goal_start"):
