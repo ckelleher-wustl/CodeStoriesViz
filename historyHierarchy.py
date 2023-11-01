@@ -132,12 +132,13 @@ def get_code_summary(responseEntries):
 
 
 code_url = 'http://localhost:3000/intervalCode'
-def get_code_entries(startTime, endTime):
+def get_code_entries(startTime, endTime, fileName):
         
         # This is the only data required by the api 
         data = {
         'begin': startTime,
         'end': endTime,
+        'fileName' : fileName
         # 'file_extension': '.py',
         }
         # Making the get request
@@ -213,10 +214,11 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
                 
                 startTime = codeDF.iloc[codeIdx]['startTime']
                 endTime = codeDF.iloc[codeIdx]['endTime']
+                fileName = codeDF.iloc[codeIdx]['filename']
                 
                 # print(f"adding code sub-cluster {startTime} - {endTime}")
                 
-                [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
+                [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime, fileName)
 
                 startingCode = startingCode.replace('\'', '"')
                 endingCode = endingCode.replace('\'', '"')
@@ -246,11 +248,12 @@ while ((searchIdx < len(searchDF)) and (codeIdx < len(codeDF))):
     else:
         startTime = codeDF.iloc[codeIdx]['startTime']
         endTime = codeDF.iloc[codeIdx]['endTime']
+        fileName = codeDF.iloc[codeIdx]['filename']
 
         # print(f"starting code cluster {startTime} - {endTime}")
 
         # print("requesting code entries...")
-        [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
+        [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime, fileName)
         # print("...got code entries")
 
         startingCode = startingCode.replace('\'', '"')
@@ -324,7 +327,8 @@ else:
     for i in range (codeIdx, len(codeDF)):
         startTime = codeDF.iloc[codeIdx]['startTime']
         endTime = codeDF.iloc[codeIdx]['endTime']
-        codeSummary = get_code_entries(startTime, endTime)
+        fileName = codeDF.iloc[codeIdx]['filename']
+        codeSummary = get_code_entries(startTime, endTime, fileName)
 
 
         print(f"'parent','code',{codeDF.iloc[codeIdx]['startTime']},{codeDF.iloc[codeIdx]['endTime']},{codeSummary}")

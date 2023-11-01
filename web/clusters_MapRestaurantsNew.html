@@ -572,17 +572,55 @@ while tokenCount < 50:
         break
 
 for restaurant in all_restaurants:
-    print(restaurant)' --end-code='thought process: I know I want to create some kind of app that searches Google reviews, and portrays outliers in terms of reviews and rating. I think my initial goal is to be able to create a scatter plot of all restaurants that meet a certain criteria (ie location, rating, review count), and see what the distribution looks like before creating a heuristic to identify "good" restaurants
+    print(restaurant)' --end-code='import requests
+import time
 
-an additional requirement is that I don"t want to share my google maps client key on this code history once I create one, since that is a privacy concern, so I will load that from a file outside of this project
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LOCATION = "38.6270,-90.1994"  # Saint Louis, MO coordinates
+RADIUS = 5000  # 5 km, adjust as needed
 
-First issue I resolved: google only lets you get 20 results at a time, and three pages of this for a total of 60. However, I had to figure out to add a time delay between pages because otherwise the next_token wouldnt be valid
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
 
-next issue: find a way to get more than 60 results for an area of interest.
-This may include breaking the area into smaller groups and merging them.
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
 
-I"m going to start with a simple solution of dividing the large radius into smaller radiuses. "Divide and conquer"
-' --filename='example.py'>
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+tokenCount = 0
+while tokenCount < 50:
+    tokenCount += 1
+    restaurants, next_token = get_restaurants(LOCATION, API_KEY, RADIUS, next_token)
+    print(len(restaurants))
+    all_restaurants.extend(restaurants)
+    if not next_token:
+        break
+
+for restaurant in all_restaurants:
+    print(restaurant)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>
@@ -705,43 +743,77 @@ while tokenCount < 50:
         break
 
 for restaurant in all_restaurants:
-    print(restaurant)' --end-code='<!DOCTYPE html>
-<html>
-<head>
-    <title>Circle on Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
-</head>
-<body>
-    <!-- Create a div element to hold the map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
+    print(restaurant)' --end-code='import requests
+import time
+import math
 
-    <script>
-        // This function will initialize the map and draw the circle
-        function initMap() {
-            var center = {lat: 38.634098, lng: -90.254306};
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LOCATION = "38.634098, -90.254306"  # Saint Louis, MO coordinates
+RADIUS = 10000  # 10 km, adjust as needed
 
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: center
-            });
+def meters_to_latitude(m):
+    return 1/111111
 
-            var circle = new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000
-            });
-        }
+def meters_to_longitude(m, lat):
+    return 1/111111*math.cos(lat)
 
-        // Call the function to initialize the map and draw the circle
-        initMap();
-    </script>
-</body>
-</html>' --filename='example.py'>
+GRID_DIM = 5
+
+subCircleRadius = RADIUS*1.1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
+
+subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
+
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+print(subCircleRadius, subCircleDistance, subCircleCentroidOffset)
+exit()
+
+
+
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+tokenCount = 0
+while tokenCount < 50:
+    tokenCount += 1
+    restaurants, next_token = get_restaurants(LOCATION, API_KEY, RADIUS, next_token)
+    print(len(restaurants))
+    all_restaurants.extend(restaurants)
+    if not next_token:
+        break
+
+for restaurant in all_restaurants:
+    print(restaurant)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>
@@ -860,60 +932,84 @@ while tokenCount < 50:
         break
 
 for restaurant in all_restaurants:
-    print(restaurant)' --end-code='<!DOCTYPE html>
-<html>
-<head>
-    <title>Circle on Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
-</head>
-<body>
-    <!-- Create a div element to hold the map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
+    print(restaurant)' --end-code='import requests
+import time
+import math
 
-    <script>
-        // This function will initialize the map and draw the circle
-        function initMap() {
-            var center = {lat: 38.634098, lng: -90.254306};
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LATITUDE = 38.634098
+LONGITUDE = -90.254306
+LOCATION = str(LATITUDE)+", "+str(LONGITUDE)  # Saint Louis, MO coordinates
+RADIUS = 10000  # 10 km, adjust as needed
 
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: center
-            });
+def meters_to_latitude(m):
+    return 1/111000.0
 
-            var circle = new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000
-            });
-            return map;
-        }
+def meters_to_longitude(m, lat):
+    return 1/ abs(111000*math.cos(math.radians(lat)))
 
-        function addCircle2(map) {
-            var center = {lat: 38.744088999991, lng:-90.25431134453659};
-            
-            var circle = new google.maps.Circle({
-                strokeColor: "#FFFF00",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000*1.1/5
-            });
-        }
+GRID_DIM = 5
 
-        // Call the function to initialize the map and draw the circle
-        map = initMap();
-        addCircle2(map);
-    </script>
-</body>
-</html>' --filename='example.py'>
+subCircleRadius = RADIUS*1.1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
+
+subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
+
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+print(subCircleRadius, subCircleDistance, subCircleCentroidOffset)
+
+mid_grid = GRID_DIM/2
+startLatitude = LATITUDE - meters_to_latitude(subCircleCentroidOffset*mid_grid) #offset it halfway to the left
+startLongitude = LONGITUDE - meters_to_longitude(subCircleCentroidOffset*mid_grid, startLatitude) #offset halfway up
+print(startLatitude, startLongitude)
+exit()
+
+
+
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+tokenCount = 0
+while tokenCount < 50:
+    tokenCount += 1
+    restaurants, next_token = get_restaurants(LOCATION, API_KEY, RADIUS, next_token)
+    print(len(restaurants))
+    all_restaurants.extend(restaurants)
+    if not next_token:
+        break
+
+for restaurant in all_restaurants:
+    print(restaurant)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>
@@ -1003,93 +1099,92 @@ while tokenCount < 50:
         break
 
 for restaurant in all_restaurants:
-    print(restaurant)' --end-code='<!DOCTYPE html>
-<html>
-<head>
-    <title>Circle on Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
-</head>
-<body>
-    <!-- Create a div element to hold the map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
+    print(restaurant)' --end-code='import requests
+import time
+import math
 
-    <script>
-        // This function will initialize the map and draw the circle
-        function initMap() {
-            var center = {lat: 38.634098, lng: -90.254306};
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LATITUDE = 38.634098
+LONGITUDE = -90.254306
+LOCATION = str(LATITUDE)+", "+str(LONGITUDE)  # Saint Louis, MO coordinates
+RADIUS = 10000  # 10 km, adjust as needed
 
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: center
-            });
+def meters_to_latitude(m):
+    return m/111000.0
 
-            var circle = new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000
-            });
-            return map;
-        }
+def meters_to_longitude(m, lat):
+    return m/ abs(111000*math.cos(math.radians(lat)))
 
-        function addCircle2(map, center) {
-            
-            var circle = new google.maps.Circle({
-                strokeColor: "#FFFF00",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FFFF00",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000*1.1/5
-            });
-        }
+GRID_DIM = 5
 
-        // Call the function to initialize the map and draw the circle
-        map = initMap();
-        var center = {lat: 38.56127533197131, lng:-90.34743652887738};
+subCircleRadius = RADIUS*1.1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
 
-        var centers = [
-            {lat: 38.56127533197131, lng:-90.34743652887738},
-            {lat: 38.537001109295076, lng:-90.34743652887738},
-            {lat: 38.51272688661885, lng:-90.34743652887738},
-            {lat: 38.48845266394262, lng:-90.34743652887738},
-            {lat: 38.46417844126639, lng:-90.34743652887738},
-            {lat: 38.56127533197131, lng:-90.37848003850317},
-            {lat: 38.537001109295076, lng:-90.37846956022841},
-            {lat: 38.51272688661885, lng:-90.37845909459126},
-            {lat: 38.48845266394262, lng:-90.37844864157519},
-            {lat: 38.46417844126639, lng:-90.37843820116369},
-            {lat: 38.56127533197131, lng:-90.40952354812897},
-            {lat: 38.537001109295076, lng:-90.40950259157945},
-            {lat: 38.51272688661885, lng:-90.40948166030516},
-            {lat: 38.48845266394262, lng:-90.40946075427301},
-            {lat: 38.46417844126639, lng:-90.40943987345001},
-            {lat: 38.56127533197131, lng:-90.44056705775476},
-            {lat: 38.537001109295076, lng:-90.44053562293048},
-            {lat: 38.51272688661885, lng:-90.44050422601904},
-            {lat: 38.48845266394262, lng:-90.44047286697082},
-            {lat: 38.46417844126639, lng:-90.44044154573632},
-            {lat: 38.56127533197131, lng:-90.47161056738055},
-            {lat: 38.537001109295076, lng:-90.47156865428151},
-            {lat: 38.51272688661885, lng:-90.47152679173293},
-            {lat: 38.48845266394262, lng:-90.47148497966865},
-            {lat: 38.46417844126639, lng:-90.47144321802264}
-        ]
-        for (let i = 0; i < centers.length; i++){
-            center = centers[i]
-            addCircle2(map, center);
-        }
+subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
 
-        
-    </script>
-</body>
-</html>' --filename='example.py'>
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+print(subCircleRadius, subCircleDistance, subCircleCentroidOffset)
+
+mid_grid = GRID_DIM//2+1
+startLatitude = LATITUDE - meters_to_latitude(subCircleCentroidOffset*mid_grid) #offset it halfway to the left
+startLongitude = LONGITUDE - meters_to_longitude(subCircleCentroidOffset*mid_grid, startLatitude) #offset halfway up
+print(startLatitude, startLongitude)
+#print("{lat: "+str(startLatitude)+", lng:"+str(-90.34743652887738)+"}")
+print("centroids")
+for rowNum in range(GRID_DIM):
+    for colNum in range(GRID_DIM):
+        currLatitude = startLatitude + meters_to_latitude(subCircleCentroidOffset*colNum)
+        currLongitude = startLongitude + meters_to_longitude(subCircleCentroidOffset*rowNum, currLatitude)
+        print("{lat: "+str(currLatitude)+", lng:"+str(currLongitude)+"}")
+
+exit()
+
+
+
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+tokenCount = 0
+while tokenCount < 50:
+    tokenCount += 1
+    restaurants, next_token = get_restaurants(LOCATION, API_KEY, RADIUS, next_token)
+    print(len(restaurants))
+    all_restaurants.extend(restaurants)
+    if not next_token:
+        break
+
+for restaurant in all_restaurants:
+    print(restaurant)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>
@@ -1181,95 +1276,96 @@ while tokenCount < 50:
         break
 
 for restaurant in all_restaurants:
-    print(restaurant)' --end-code='<!DOCTYPE html>
-<html>
-<head>
-    <title>Circle on Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
-</head>
-<body>
-    <!-- Create a div element to hold the map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
+    print(restaurant)' --end-code='import requests
+import time
+import math
 
-    <script>
-        // This function will initialize the map and draw the circle
-        function initMap() {
-            var center = {lat: 38.634098, lng: -90.254306};
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LATITUDE = 38.634098
+LONGITUDE = -90.254306
+LOCATION = str(LATITUDE)+", "+str(LONGITUDE)  # Saint Louis, MO coordinates
+RADIUS = 10000  # 10 km, adjust as needed
 
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: center
-            });
+def meters_to_latitude(m):
+    return m/111000.0
 
-            var circle = new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000
-            });
-            return map;
-        }
+def meters_to_longitude(m, lat):
+    return m/ abs(111000*math.cos(math.radians(lat)))
 
-        function addCircle2(map, center) {
-            
-            var circle = new google.maps.Circle({
-                strokeColor: "#FFFF00",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FFFF00",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000*1.1/5
-            });
-        }
+GRID_DIM = 5
 
-        // Call the function to initialize the map and draw the circle
-        map = initMap();
-        var center = {lat: 38.56127533197131, lng:-90.34743652887738};
+subCircleRadius = RADIUS*1.1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
 
-        var centers = [
-            {lat: 38.56127533197131, lng:-90.34743652887738},
-            {lat: 38.58554955464754, lng:-90.34743652887738},
-            {lat: 38.60982377732377, lng:-90.34743652887738},
-            {lat: 38.634098, lng:-90.34743652887738},
-            {lat: 38.65837222267623, lng:-90.34743652887738},
-            {lat: 38.56127533197131, lng:-90.31639301925159},
-            {lat: 38.58554955464754, lng:-90.31638252832265},
-            {lat: 38.60982377732377, lng:-90.31637202472292},
-            {lat: 38.634098, lng:-90.31636150843579},
-            {lat: 38.65837222267623, lng:-90.31635097944456},
-            {lat: 38.56127533197131, lng:-90.28534950962579},
-            {lat: 38.58554955464754, lng:-90.28532852776792},
-            {lat: 38.60982377732377, lng:-90.28530752056847},
-            {lat: 38.634098, lng:-90.28528648799418},
-            {lat: 38.65837222267623, lng:-90.28526543001175},
-            {lat: 38.56127533197131, lng:-90.254306},
-            {lat: 38.58554955464754, lng:-90.25427452721318},
-            {lat: 38.60982377732377, lng:-90.25424301641401},
-            {lat: 38.634098, lng:-90.2542114675526},
-            {lat: 38.65837222267623, lng:-90.25417988057892},
-            {lat: 38.56127533197131, lng:-90.22326249037421},
-            {lat: 38.58554955464754, lng:-90.22322052665844},
-            {lat: 38.60982377732377, lng:-90.22317851225955},
-            {lat: 38.634098, lng:-90.22313644711099},
-            {lat: 38.65837222267623, lng:-90.2230943311461},
-        ]
+subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
+
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+print(subCircleRadius, subCircleDistance, subCircleCentroidOffset)
+
+mid_grid = GRID_DIM//2+1
+startLatitude = LATITUDE - meters_to_latitude(subCircleCentroidOffset*mid_grid) #offset it halfway to the left
+startLongitude = LONGITUDE - meters_to_longitude(subCircleCentroidOffset*mid_grid, startLatitude) #offset halfway up
+print(startLatitude, startLongitude)
+#print("{lat: "+str(startLatitude)+", lng:"+str(-90.34743652887738)+"}")
+print("centroids")
+print("[")
+for rowNum in range(GRID_DIM):
+    for colNum in range(GRID_DIM):
+        currLatitude = startLatitude + meters_to_latitude(subCircleCentroidOffset*colNum)
+        currLongitude = startLongitude + meters_to_longitude(subCircleCentroidOffset*rowNum, currLatitude)
+        if colNum % 2 == 0:
+            currLongitude = currLongitude + meters_to_longitude(subCircleRadius)
+        print("{lat: "+str(currLatitude)+", lng:"+str(currLongitude)+"},")
+print("]")
+
+exit()
 
 
-        for (let i = 0; i < centers.length; i++){
-            center = centers[i]
-            addCircle2(map, center);
-        }
 
-        
-    </script>
-</body>
-</html>' --filename='example.py'>
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+tokenCount = 0
+while tokenCount < 50:
+    tokenCount += 1
+    restaurants, next_token = get_restaurants(LOCATION, API_KEY, RADIUS, next_token)
+    print(len(restaurants))
+    all_restaurants.extend(restaurants)
+    if not next_token:
+        break
+
+for restaurant in all_restaurants:
+    print(restaurant)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>
@@ -1382,95 +1478,96 @@ while tokenCount < 50:
         break
 
 for restaurant in all_restaurants:
-    print(restaurant)' --end-code='<!DOCTYPE html>
-<html>
-<head>
-    <title>Circle on Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
-</head>
-<body>
-    <!-- Create a div element to hold the map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
+    print(restaurant)' --end-code='import requests
+import time
+import math
 
-    <script>
-        // This function will initialize the map and draw the circle
-        function initMap() {
-            var center = {lat: 38.634098, lng: -90.254306};
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LATITUDE = 38.634098
+LONGITUDE = -90.254306
+LOCATION = str(LATITUDE)+", "+str(LONGITUDE)  # Saint Louis, MO coordinates
+RADIUS = 10000  # 10 km, adjust as needed
 
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: center
-            });
+def meters_to_latitude(m):
+    return m/111000.0
 
-            var circle = new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000
-            });
-            return map;
-        }
+def meters_to_longitude(m, lat):
+    return m/ abs(111000*math.cos(math.radians(lat)))
 
-        function addCircle2(map, center) {
-            
-            var circle = new google.maps.Circle({
-                strokeColor: "#FFFF00",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FFFF00",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000*1.1/5
-            });
-        }
+GRID_DIM = 5
 
-        // Call the function to initialize the map and draw the circle
-        map = initMap();
-        var center = {lat: 38.56127533197131, lng:-90.34743652887738};
+subCircleRadius = RADIUS*1.1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
 
-        var centers = [
-{lat: 38.56127533197131, lng:-90.32208960940793},
-{lat: 38.58554955464754, lng:-90.34743652887738},
-{lat: 38.60982377732377, lng:-90.32207246744706},
-{lat: 38.634098, lng:-90.34743652887738},
-{lat: 38.65837222267623, lng:-90.32205528404923},
-{lat: 38.56127533197131, lng:-90.29104609978214},
-{lat: 38.58554955464754, lng:-90.31638252832265},
-{lat: 38.60982377732377, lng:-90.2910079632926},
-{lat: 38.634098, lng:-90.31636150843579},
-{lat: 38.65837222267623, lng:-90.29096973461641},
-{lat: 38.56127533197131, lng:-90.26000259015633},
-{lat: 38.58554955464754, lng:-90.28532852776792},
-{lat: 38.60982377732377, lng:-90.25994345913814},
-{lat: 38.634098, lng:-90.28528648799418},
-{lat: 38.65837222267623, lng:-90.2598841851836},
-{lat: 38.56127533197131, lng:-90.22895908053054},
-{lat: 38.58554955464754, lng:-90.25427452721318},
-{lat: 38.60982377732377, lng:-90.22887895498368},
-{lat: 38.634098, lng:-90.2542114675526},
-{lat: 38.65837222267623, lng:-90.22879863575076},
-{lat: 38.56127533197131, lng:-90.19791557090475},
-{lat: 38.58554955464754, lng:-90.22322052665844},
-{lat: 38.60982377732377, lng:-90.19781445082923},
-{lat: 38.634098, lng:-90.22313644711099},
-{lat: 38.65837222267623, lng:-90.19771308631795},
-]
+subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+#subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
+
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+print(subCircleRadius, subCircleDistance, subCircleCentroidOffset)
+
+mid_grid = GRID_DIM//2+1
+startLatitude = LATITUDE - meters_to_latitude(subCircleCentroidOffset*mid_grid) #offset it halfway to the left
+startLongitude = LONGITUDE - meters_to_longitude(subCircleCentroidOffset*mid_grid, startLatitude) #offset halfway up
+print(startLatitude, startLongitude)
+#print("{lat: "+str(startLatitude)+", lng:"+str(-90.34743652887738)+"}")
+print("centroids")
+print("[")
+for rowNum in range(GRID_DIM):
+    for colNum in range(GRID_DIM):
+        currLatitude = startLatitude + meters_to_latitude(subCircleCentroidOffset*colNum)
+        currLongitude = startLongitude + meters_to_longitude(subCircleCentroidOffset*rowNum, currLatitude)
+        if colNum % 2 == 0:
+            currLongitude = currLongitude + meters_to_longitude(subCircleRadius, currLatitude)
+        print("{lat: "+str(currLatitude)+", lng:"+str(currLongitude)+"},")
+print("]")
+
+exit()
 
 
-        for (let i = 0; i < centers.length; i++){
-            center = centers[i]
-            addCircle2(map, center);
-        }
 
-        
-    </script>
-</body>
-</html>' --filename='example.py'>
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+tokenCount = 0
+while tokenCount < 50:
+    tokenCount += 1
+    restaurants, next_token = get_restaurants(LOCATION, API_KEY, RADIUS, next_token)
+    print(len(restaurants))
+    all_restaurants.extend(restaurants)
+    if not next_token:
+        break
+
+for restaurant in all_restaurants:
+    print(restaurant)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>
@@ -2078,196 +2175,99 @@ for location in locations:
             break
 
 df = pd.DataFrame(all_restaurants)
-# df.to_csv("all_restaurants.csv",index=False)' --end-code='<!DOCTYPE html>
-<html>
-<head>
-    <title>Circle on Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
-</head>
-<body>
-    <!-- Create a div element to hold the map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
-
-    <script>
-        // This function will initialize the map and draw the circle
-        function initMap() {
-            var center = {lat: 38.634098, lng: -90.254306};
-
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: center
-            });
-
-            var circle = new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000
-            });
-            return map;
-        }
-
-        function addCircle2(map, center) {
-            
-            var circle = new google.maps.Circle({
-                strokeColor: "#FFFF00",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FFFF00",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000*1.1/5
-            });
-        }
-
-        // Call the function to initialize the map and draw the circle
-        map = initMap();
-        var center = {lat: 38.56127533197131, lng:-90.34743652887738};
-
-        var centers = [
-{lat: 38.56134808188942, lng:-90.31848225803945},
-{lat: 38.57849540203167, lng:-90.32705591811057},
-{lat: 38.59564272217393, lng:-90.31848225803945},
-{lat: 38.61279004231618, lng:-90.32705591811057},
-{lat: 38.62993736245843, lng:-90.31848225803945},
-{lat: 38.64708468260068, lng:-90.32705591811057},
-{lat: 38.664232002742935, lng:-90.31848225803945},
-{lat: 38.681379322885185, lng:-90.32705591811057},
-{lat: 38.698526643027435, lng:-90.31848225803945},
-{lat: 38.715673963169685, lng:-90.32705591811057},
-{lat: 38.56134808188942, lng:-90.3013349378972},
-{lat: 38.57849540203167, lng:-90.30990859796832},
-{lat: 38.59564272217393, lng:-90.3013349378972},
-{lat: 38.61279004231618, lng:-90.30990859796832},
-{lat: 38.62993736245843, lng:-90.3013349378972},
-{lat: 38.64708468260068, lng:-90.30990859796832},
-{lat: 38.664232002742935, lng:-90.3013349378972},
-{lat: 38.681379322885185, lng:-90.30990859796832},
-{lat: 38.698526643027435, lng:-90.3013349378972},
-{lat: 38.715673963169685, lng:-90.30990859796832},
-{lat: 38.56134808188942, lng:-90.28418761775495},
-{lat: 38.57849540203167, lng:-90.29276127782607},
-{lat: 38.59564272217393, lng:-90.28418761775495},
-{lat: 38.61279004231618, lng:-90.29276127782607},
-{lat: 38.62993736245843, lng:-90.28418761775495},
-{lat: 38.64708468260068, lng:-90.29276127782607},
-{lat: 38.664232002742935, lng:-90.28418761775495},
-{lat: 38.681379322885185, lng:-90.29276127782607},
-{lat: 38.698526643027435, lng:-90.28418761775495},
-{lat: 38.715673963169685, lng:-90.29276127782607},
-{lat: 38.56134808188942, lng:-90.2670402976127},
-{lat: 38.57849540203167, lng:-90.27561395768382},
-{lat: 38.59564272217393, lng:-90.2670402976127},
-{lat: 38.61279004231618, lng:-90.27561395768382},
-{lat: 38.62993736245843, lng:-90.2670402976127},
-{lat: 38.64708468260068, lng:-90.27561395768382},
-{lat: 38.664232002742935, lng:-90.2670402976127},
-{lat: 38.681379322885185, lng:-90.27561395768382},
-{lat: 38.698526643027435, lng:-90.2670402976127},
-{lat: 38.715673963169685, lng:-90.27561395768382},
-{lat: 38.56134808188942, lng:-90.24989297747044},
-{lat: 38.57849540203167, lng:-90.25846663754156},
-{lat: 38.59564272217393, lng:-90.24989297747044},
-{lat: 38.61279004231618, lng:-90.25846663754156},
-{lat: 38.62993736245843, lng:-90.24989297747044},
-{lat: 38.64708468260068, lng:-90.25846663754156},
-{lat: 38.664232002742935, lng:-90.24989297747044},
-{lat: 38.681379322885185, lng:-90.25846663754156},
-{lat: 38.698526643027435, lng:-90.24989297747044},
-{lat: 38.715673963169685, lng:-90.25846663754156},
-{lat: 38.56134808188942, lng:-90.2327456573282},
-{lat: 38.57849540203167, lng:-90.24131931739932},
-{lat: 38.59564272217393, lng:-90.2327456573282},
-{lat: 38.61279004231618, lng:-90.24131931739932},
-{lat: 38.62993736245843, lng:-90.2327456573282},
-{lat: 38.64708468260068, lng:-90.24131931739932},
-{lat: 38.664232002742935, lng:-90.2327456573282},
-{lat: 38.681379322885185, lng:-90.24131931739932},
-{lat: 38.698526643027435, lng:-90.2327456573282},
-{lat: 38.715673963169685, lng:-90.24131931739932},
-{lat: 38.56134808188942, lng:-90.21559833718594},
-{lat: 38.57849540203167, lng:-90.22417199725706},
-{lat: 38.59564272217393, lng:-90.21559833718594},
-{lat: 38.61279004231618, lng:-90.22417199725706},
-{lat: 38.62993736245843, lng:-90.21559833718594},
-{lat: 38.64708468260068, lng:-90.22417199725706},
-{lat: 38.664232002742935, lng:-90.21559833718594},
-{lat: 38.681379322885185, lng:-90.22417199725706},
-{lat: 38.698526643027435, lng:-90.21559833718594},
-{lat: 38.715673963169685, lng:-90.22417199725706},
-{lat: 38.56134808188942, lng:-90.1984510170437},
-{lat: 38.57849540203167, lng:-90.20702467711482},
-{lat: 38.59564272217393, lng:-90.1984510170437},
-{lat: 38.61279004231618, lng:-90.20702467711482},
-{lat: 38.62993736245843, lng:-90.1984510170437},
-{lat: 38.64708468260068, lng:-90.20702467711482},
-{lat: 38.664232002742935, lng:-90.1984510170437},
-{lat: 38.681379322885185, lng:-90.20702467711482},
-{lat: 38.698526643027435, lng:-90.1984510170437},
-{lat: 38.715673963169685, lng:-90.20702467711482},
-{lat: 38.56134808188942, lng:-90.18130369690144},
-{lat: 38.57849540203167, lng:-90.18987735697256},
-{lat: 38.59564272217393, lng:-90.18130369690144},
-{lat: 38.61279004231618, lng:-90.18987735697256},
-{lat: 38.62993736245843, lng:-90.18130369690144},
-{lat: 38.64708468260068, lng:-90.18987735697256},
-{lat: 38.664232002742935, lng:-90.18130369690144},
-{lat: 38.681379322885185, lng:-90.18987735697256},
-{lat: 38.698526643027435, lng:-90.18130369690144},
-{lat: 38.715673963169685, lng:-90.18987735697256},
-{lat: 38.56134808188942, lng:-90.16415637675918},
-{lat: 38.57849540203167, lng:-90.1727300368303},
-{lat: 38.59564272217393, lng:-90.16415637675918},
-{lat: 38.61279004231618, lng:-90.1727300368303},
-{lat: 38.62993736245843, lng:-90.16415637675918},
-{lat: 38.64708468260068, lng:-90.1727300368303},
-{lat: 38.664232002742935, lng:-90.16415637675918},
-{lat: 38.681379322885185, lng:-90.1727300368303},
-{lat: 38.698526643027435, lng:-90.16415637675918},
-{lat: 38.715673963169685, lng:-90.1727300368303},
-]
-// {lat: 38.56134808188942, lng:-90.30990859796832},
-// {lat: 38.59564272217393, lng:-90.32705591811057},
-// {lat: 38.62993736245843, lng:-90.30990859796832},
-// {lat: 38.664232002742935, lng:-90.32705591811057},
-// {lat: 38.698526643027435, lng:-90.30990859796832},
-// {lat: 38.56134808188942, lng:-90.27561395768382},
-// {lat: 38.59564272217393, lng:-90.29276127782607},
-// {lat: 38.62993736245843, lng:-90.27561395768382},
-// {lat: 38.664232002742935, lng:-90.29276127782607},
-// {lat: 38.698526643027435, lng:-90.27561395768382},
-// {lat: 38.56134808188942, lng:-90.2413193173993},
-// {lat: 38.59564272217393, lng:-90.25846663754156},
-// {lat: 38.62993736245843, lng:-90.2413193173993},
-// {lat: 38.664232002742935, lng:-90.25846663754156},
-// {lat: 38.698526643027435, lng:-90.2413193173993},
-// {lat: 38.56134808188942, lng:-90.2070246771148},
-// {lat: 38.59564272217393, lng:-90.22417199725706},
-// {lat: 38.62993736245843, lng:-90.2070246771148},
-// {lat: 38.664232002742935, lng:-90.22417199725706},
-// {lat: 38.698526643027435, lng:-90.2070246771148},
-// {lat: 38.56134808188942, lng:-90.1727300368303},
-// {lat: 38.59564272217393, lng:-90.18987735697256},
-// {lat: 38.62993736245843, lng:-90.1727300368303},
-// {lat: 38.664232002742935, lng:-90.18987735697256},
-// {lat: 38.698526643027435, lng:-90.1727300368303},
-//]
+# df.to_csv("all_restaurants.csv",index=False)' --end-code='import requests
+import time
+import math
+import pandas as pd
 
 
-        for (let i = 0; i < centers.length; i++){
-            center = centers[i]
-            addCircle2(map, center);
-        }
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LATITUDE = 38.634098
+LONGITUDE = -90.254306
+LOCATION = str(LATITUDE)+", "+str(LONGITUDE)  # Saint Louis, MO coordinates
+RADIUS = 15000  # 10 km, adjust as needed
 
-        
-    </script>
-</body>
-</html>' --filename='example.py'>
+def meters_to_latitude(m):
+    return m/111111.0
+
+def meters_to_longitude(m, lat):
+    return m/ 111111.0#abs(111111*math.cos(math.radians(lat)))
+
+GRID_DIM = 7
+
+subCircleRadius = RADIUS*1.1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
+
+#subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
+
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+print(subCircleRadius, subCircleDistance, subCircleCentroidOffset)
+
+mid_grid = GRID_DIM//2+1
+startLatitude = LATITUDE - meters_to_latitude(subCircleCentroidOffset*mid_grid) #offset it halfway to the left
+startLongitude = LONGITUDE - meters_to_longitude(subCircleCentroidOffset*mid_grid, startLatitude) #offset halfway up
+#print(startLatitude, startLongitude)
+#print("{lat: "+str(startLatitude)+", lng:"+str(-90.34743652887738)+"}")
+print("centroids")
+print("[")
+
+locations = []
+for rowNum in range(GRID_DIM):
+    for colNum in range(GRID_DIM):
+        currLatitude = startLatitude + meters_to_latitude(subCircleDistance*colNum)
+        currLongitude = startLongitude + meters_to_longitude(subCircleDistance*rowNum, currLatitude)
+        if colNum % 2 == 0:
+            currLongitude = currLongitude + meters_to_longitude(subCircleDistance/2, currLatitude)
+        print("{lat: "+str(currLatitude)+", lng:"+str(currLongitude)+"},")
+        locations.append(str(currLatitude)+", "+str(currLongitude))
+print("]")
+
+exit()
+
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+
+for location in locations:
+    while True:
+        restaurants, next_token = get_restaurants(location, API_KEY, subCircleRadius, next_token)
+        print(len(restaurants))
+        all_restaurants.extend(restaurants)
+        if not next_token:
+            break
+
+df = pd.DataFrame(all_restaurants)
+# df.to_csv("all_restaurants.csv",index=False)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>
@@ -2375,145 +2375,101 @@ for location in locations:
             break
 
 df = pd.DataFrame(all_restaurants)
-df.to_csv("all_restaurants_2.csv",index=False)' --end-code='<!DOCTYPE html>
-<html>
-<head>
-    <title>Circle on Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpxzO5M0k8RN9oY9vk0dlj5430TExIfg"></script>
-</head>
-<body>
-    <!-- Create a div element to hold the map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
-
-    <script>
-        // This function will initialize the map and draw the circle
-        function initMap() {
-            var center = {lat: 38.634098, lng: -90.254306};
-
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: center
-            });
-
-            var circle = new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000
-            });
-            return map;
-        }
-
-        function addCircle2(map, center) {
-            
-            var circle = new google.maps.Circle({
-                strokeColor: "#FFFF00",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FFFF00",
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: 10000*1.1/5
-            });
-        }
-
-        // Call the function to initialize the map and draw the circle
-        map = initMap();
-        var center = {lat: 38.56127533197131, lng:-90.34743652887738};
-
-        var centers = [
-{lat: 38.52926414194166, lng:-90.44045406476405},
-{lat: 38.56078910645624, lng:-90.46060321687321},
-{lat: 38.59231407097083, lng:-90.4404363815961},
-{lat: 38.62383903548541, lng:-90.46060321687321},
-{lat: 38.655364, lng:-90.44041864289906},
-{lat: 38.68688896451458, lng:-90.46060321687321},
-{lat: 38.71841392902916, lng:-90.44040084848325},
-{lat: 38.52926414194166, lng:-90.40015576054576},
-{lat: 38.56078910645624, lng:-90.42028724334558},
-{lat: 38.59231407097083, lng:-90.40010271104188},
-{lat: 38.62383903548541, lng:-90.42025182152788},
-{lat: 38.655364, lng:-90.40004949495076},
-{lat: 38.68688896451458, lng:-90.42021628846258},
-{lat: 38.71841392902916, lng:-90.39999611170333},
-{lat: 38.52926414194166, lng:-90.35985745632745},
-{lat: 38.56078910645624, lng:-90.37997126981797},
-{lat: 38.59231407097083, lng:-90.35976904048766},
-{lat: 38.62383903548541, lng:-90.37990042618256},
-{lat: 38.655364, lng:-90.35968034700245},
-{lat: 38.68688896451458, lng:-90.37982936005194},
-{lat: 38.71841392902916, lng:-90.35959137492343},
-{lat: 38.52926414194166, lng:-90.31955915210915},
-{lat: 38.56078910645624, lng:-90.33965529629035},
-{lat: 38.59231407097083, lng:-90.31943536993346},
-{lat: 38.62383903548541, lng:-90.33954903083725},
-{lat: 38.655364, lng:-90.31931119905416},
-{lat: 38.68688896451458, lng:-90.33944243164132},
-{lat: 38.71841392902916, lng:-90.3191866381435},
-{lat: 38.52926414194166, lng:-90.27926084789084},
-{lat: 38.56078910645624, lng:-90.29933932276272},
-{lat: 38.59231407097083, lng:-90.27910169937924},
-{lat: 38.62383903548541, lng:-90.29919763549192},
-{lat: 38.655364, lng:-90.27894205110586},
-{lat: 38.68688896451458, lng:-90.29905550323069},
-{lat: 38.71841392902916, lng:-90.2787819013636},
-{lat: 38.52926414194166, lng:-90.23896254367254},
-{lat: 38.56078910645624, lng:-90.2590233492351},
-{lat: 38.59231407097083, lng:-90.23876802882502},
-{lat: 38.62383903548541, lng:-90.2588462401466},
-{lat: 38.655364, lng:-90.23857290315756},
-{lat: 38.68688896451458, lng:-90.25866857482005},
-{lat: 38.71841392902916, lng:-90.23837716458368},
-{lat: 38.52926414194166, lng:-90.19866423945423},
-{lat: 38.56078910645624, lng:-90.21870737570748},
-{lat: 38.59231407097083, lng:-90.1984343582708},
-{lat: 38.62383903548541, lng:-90.21849484480127},
-{lat: 38.655364, lng:-90.19820375520925},
-{lat: 38.68688896451458, lng:-90.21828164640942},
-{lat: 38.71841392902916, lng:-90.19797242780378},
-]
-// {lat: 38.56134808188942, lng:-90.30990859796832},
-// {lat: 38.59564272217393, lng:-90.32705591811057},
-// {lat: 38.62993736245843, lng:-90.30990859796832},
-// {lat: 38.664232002742935, lng:-90.32705591811057},
-// {lat: 38.698526643027435, lng:-90.30990859796832},
-// {lat: 38.56134808188942, lng:-90.27561395768382},
-// {lat: 38.59564272217393, lng:-90.29276127782607},
-// {lat: 38.62993736245843, lng:-90.27561395768382},
-// {lat: 38.664232002742935, lng:-90.29276127782607},
-// {lat: 38.698526643027435, lng:-90.27561395768382},
-// {lat: 38.56134808188942, lng:-90.2413193173993},
-// {lat: 38.59564272217393, lng:-90.25846663754156},
-// {lat: 38.62993736245843, lng:-90.2413193173993},
-// {lat: 38.664232002742935, lng:-90.25846663754156},
-// {lat: 38.698526643027435, lng:-90.2413193173993},
-// {lat: 38.56134808188942, lng:-90.2070246771148},
-// {lat: 38.59564272217393, lng:-90.22417199725706},
-// {lat: 38.62993736245843, lng:-90.2070246771148},
-// {lat: 38.664232002742935, lng:-90.22417199725706},
-// {lat: 38.698526643027435, lng:-90.2070246771148},
-// {lat: 38.56134808188942, lng:-90.1727300368303},
-// {lat: 38.59564272217393, lng:-90.18987735697256},
-// {lat: 38.62993736245843, lng:-90.1727300368303},
-// {lat: 38.664232002742935, lng:-90.18987735697256},
-// {lat: 38.698526643027435, lng:-90.1727300368303},
-//]
+df.to_csv("all_restaurants_2.csv",index=False)' --end-code='import requests
+import time
+import math
+import pandas as pd
 
 
-        for (let i = 0; i < centers.length; i++){
-            center = centers[i]
-            addCircle2(map, center);
-        }
+API_KEY = open("/Users/joeyallen/Documents/API_KEYS/PythonGoogleMaps.txt").read().strip()
+PLACES_ENDPOINT = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+LATITUDE = 38.634098
+LONGITUDE = -90.254306
 
-        
-    </script>
-</body>
-</html>' --filename='example.py'>
+LATITUDE, LONGITUDE = 38.672451, -90.263111
+
+LOCATION = str(LATITUDE)+", "+str(LONGITUDE)  # Saint Louis, MO coordinates
+RADIUS = 20000  # 15 km, adjust as needed
+
+def meters_to_latitude(m):
+    return m/111000.0
+
+def meters_to_longitude(m, lat):
+    return m/ abs(111000*math.cos(math.radians(lat)))
+
+GRID_DIM = 7
+
+subCircleRadius = RADIUS*1/GRID_DIM #increasing by 1.1 just for a bigger range, to be all inclusive. experimentals
+
+#subCircleDistance = subCircleRadius *((3+2*math.sqrt(3))/3) #this is assuming chatGPT is right
+subCircleDistance = subCircleRadius * math.sqrt(3) # hand calculation, this looks better
+
+subCircleCentroidOffset = math.sqrt(subCircleDistance**2 / 2)
+
+print(subCircleRadius, subCircleDistance, subCircleCentroidOffset)
+
+mid_grid = GRID_DIM//2+1
+startLatitude = LATITUDE - meters_to_latitude(subCircleCentroidOffset*mid_grid) #offset it halfway to the left
+startLongitude = LONGITUDE - meters_to_longitude(subCircleCentroidOffset*mid_grid, startLatitude) #offset halfway up
+#print(startLatitude, startLongitude)
+#print("{lat: "+str(startLatitude)+", lng:"+str(-90.34743652887738)+"}")
+print("centroids")
+print("[")
+
+locations = []
+for rowNum in range(GRID_DIM):
+    for colNum in range(GRID_DIM):
+        currLatitude = startLatitude + meters_to_latitude(subCircleCentroidOffset*colNum)
+        currLongitude = startLongitude + meters_to_longitude(subCircleCentroidOffset*rowNum, currLatitude)
+        if colNum % 2 == 0:
+            currLongitude = currLongitude + meters_to_longitude(subCircleCentroidOffset/2, currLatitude)
+        print("{lat: "+str(currLatitude)+", lng:"+str(currLongitude)+"},")
+        locations.append(str(currLatitude)+", "+str(currLongitude))
+print("]")
+
+exit()
+
+def get_restaurants(location, api_key, radius=50000, next_page_token=None):
+    time.sleep(2)
+    restaurants = []
+    params = {
+        "location": location,
+        "radius": radius,
+        "type": "restaurant",
+        "key": api_key
+    }
+    if next_page_token:
+        params["pagetoken"] = next_page_token
+
+    response = requests.get(PLACES_ENDPOINT, params=params).json()
+    
+    if "results" in response:
+        for place in response["results"]:
+            name = place.get("name")
+            rating = place.get("rating")
+            user_ratings_total = place.get("user_ratings_total")
+            restaurants.append({
+                "name": name,
+                "rating": rating,
+                "user_ratings_total": user_ratings_total
+            })
+
+    return restaurants, response.get("next_page_token")
+
+
+all_restaurants = []
+next_token = None
+
+for location in locations:
+    while True:
+        restaurants, next_token = get_restaurants(location, API_KEY, subCircleRadius, next_token)
+        print(len(restaurants))
+        all_restaurants.extend(restaurants)
+        if not next_token:
+            break
+
+df = pd.DataFrame(all_restaurants)
+df.to_csv("all_restaurants_2.csv",index=False)' --filename='example.py'>
 <p> code content will go here</p>
 See related sections in final code:<ul>
 </ul>

@@ -143,12 +143,13 @@ def get_code_summary(responseEntries):
 
 
 code_url = 'http://localhost:3000/intervalCode'
-def get_code_entries(startTime, endTime):
+def get_code_entries(startTime, endTime, fileName):
         
         # This is the only data required by the api 
         data = {
         'begin': startTime,
         'end': endTime,
+        'filename' : fileName,
         # 'file_extension': '.py',
         }
         # Making the get request
@@ -212,8 +213,9 @@ for clusterIdx in clusterDF.index:
         # print(f"\twrite code cluster {clusterDF.iloc[clusterIdx]['startTime']} - {clusterDF.iloc[clusterIdx]['endTime']}" )
 
         startTime = clusterDF.iloc[clusterIdx]['startTime']
-        endTime = clusterDF.iloc[clusterIdx]['endTime']        
-        [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime)
+        endTime = clusterDF.iloc[clusterIdx]['endTime'] 
+        fileName = clusterDF.iloc[clusterIdx]['fileName']       
+        [codeSummary, startingCode, endingCode] = get_code_entries(startTime, endTime, fileName)
 
         # get the initial version of things to show up in some reasonable way.
         if (int(startTime) == 0):
