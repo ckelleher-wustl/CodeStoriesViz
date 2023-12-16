@@ -7,13 +7,13 @@ import difflib
 # imageDir = "/images/" + projectName + "/"
 # regionPrefix = "code_Mosaic_"
 
-# projectName = "wordle"
-# imageDir = "/images/" + projectName + "/"
-# regionPrefix = "code_Wordle_"
-
-projectName = "mapRestaurants"
+projectName = "wordle"
 imageDir = "/images/" + projectName + "/"
-regionPrefix = "code_mapRestaurants_"
+regionPrefix = "code_Wordle_"
+
+# projectName = "mapRestaurants"
+# imageDir = "/images/" + projectName + "/"
+# regionPrefix = "code_mapRestaurants_"
 
 
 def get_search_overview_html(responseEntries):
@@ -170,9 +170,9 @@ def get_code_entries(startTime, endTime, fileName):
 activityData = {}
 # lineRegionMap = {}
 def loadActivityDataFrames():
-    # filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
+    filenames = ['script.js.csv', 'animations.scss.csv', 'index.html.csv', 'guess.scss.csv', 'notes.md.csv', 'boilerplate.scss.csv', 'fonts.scss.csv']
     # filenames = ['main.py.csv']
-    filenames = ['example.py.csv', 'visualizeData.py.csv', 'main.py.csv', 'notes.md.csv']
+    # filenames = ['example.py.csv', 'visualizeData.py.csv', 'main.py.csv', 'notes.md.csv']
 
     for file in filenames:
         print(file)
@@ -201,6 +201,13 @@ clusterDF = pd.read_csv('web/data/' + projectName + 'StoryOverview.csv')
 clusterDF.set_axis(['goalType','clusterType','startTime','endTime','fileName','summary'], axis=1, inplace=True)
 print(clusterDF)
 html = ""
+json= ""
+
+# start json file
+json += '{\n'
+json += '\t"type": "goal",\n'
+json += '\t"title": "create a map of restaurants",\n'
+json += '\t"subgoals": [\n'
 
 # when setting up the initial file, it's helpful to turn this off.
 includeRegionLinks = True
@@ -224,6 +231,7 @@ for clusterIdx in clusterDF.index:
         startingCode = startingCode.replace('\'', '"')
         endingCode = endingCode.replace('\'', '"')
 
+    # output HTML for goal
         html += "<button type='button' class='collapsible'>" + clusterDF['fileName'][clusterIdx] + ": " + clusterDF['summary'][clusterIdx] + "</button>\n"
         html += "<div class='content' --start-code='" + startingCode + "' --end-code='" + endingCode + "' --filename='" + clusterDF['fileName'][clusterIdx] + "'>\n"
 
@@ -237,6 +245,8 @@ for clusterIdx in clusterDF.index:
         # results = getRegionsForActivities("boilerplate.scss.csv", activityTarget)
 
         html += "<p> code content will go here</p>\n"
+
+        # output json for code activities
 
         if (includeRegionLinks):
             print(f"adding region links {includeRegionLinks}")
@@ -270,6 +280,8 @@ for clusterIdx in clusterDF.index:
         html += "<button type='button' class='collapsible'>" +  clusterDF['summary'][clusterIdx] + "</button>\n"
         html += newHtml + "\n"
 
+         # output json for search activities
+
 
     # extend this to handle goal starts and goal ends.
     elif "goal_start" in clusterDF['clusterType'][clusterIdx]:
@@ -280,6 +292,14 @@ for clusterIdx in clusterDF.index:
         html += '\t\t<div>' + sectionTitle + '</div>\n'
         html += '\t</fieldset>\n'
 
+        # output json for subgoal start
+        json += '\t\t{\n'
+        json += '\t\t\t"type": "subgoal",\n'
+        json += '\t\t\t"id": "' + str(clusterIdx) + '",\n' # todo: I suspect clusterIdx is wrong and we need to be counting goals.
+        json += '\t\t\t"title": "' + clusterDF['summary'][clusterIdx] + '"\n'
+        json += '\t\t\t"actions": [ \n'
+        
+
     # this is an example of what I need this to output
     # <div style="margin-top: 15px; border-top: 1px;" ></div>
     #     <fieldset class="goal" style="width: 100%;">
@@ -288,14 +308,28 @@ for clusterIdx in clusterDF.index:
     #     </fieldset>
 
     elif "goal_end" in clusterDF['clusterType'][clusterIdx]:
-         html += "</div>" # this closes the section opened by a goal start
+        html += "</div>" # this closes the section opened by a goal start
 
+        # output json for subgoal end
+        # todo: add handling to detect the last one and not add the comma.
+        json += '\t\t\t] \n' # closing the actions list
+        json += '\t\t},\n'
+
+
+# end json file
+json += '\t]\n'
+json += '}\n'
 
 # print(f"HTML:\n{len(html)}")
 
-text_file = open("web/clusters_MapRestaurantsNew.html", "w")
+text_file = open("web/clusters_Wordle.html", "w")
 n = text_file.write(html)
 text_file.close()
+
+
+json_file = open("web/clusters_Wordle.json", "w")
+n = json_file.write(json)
+json_file.close()
 
 
 # HERE

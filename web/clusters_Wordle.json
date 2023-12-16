@@ -1,0 +1,51 @@
+{
+	"type": "goal",
+	"title": "create a map of restaurants",
+	"subgoals": [
+		{
+			"type": "subgoal",
+			"id": "0",
+			"title": "Set up user interface components for the Wordle game board."
+		},
+		{
+			"type": "subgoal",
+			"id": "9",
+			"title": "Adding an initial key listener to detect letters the user enters."
+		},
+		{
+			"type": "subgoal",
+			"id": "15",
+			"title": "Use regular expressions to determine whether a pressed key is a letter and, if so, save it."
+		},
+		{
+			"type": "subgoal",
+			"id": "20",
+			"title": "Show the appropriate entered letters on the Wordle game board."
+		},
+		{
+			"type": "subgoal",
+			"id": "31",
+			"title": "Select a Wordle answer at random from a list of potential words."
+		},
+		{
+			"type": "subgoal",
+			"id": "37",
+			"title": "Change color of tile based on whether it is correct or present in solution word"
+		},
+		{
+			"type": "subgoal",
+			"id": "47",
+			"title": "Animate the tile flipping over."
+		},
+		{
+			"type": "subgoal",
+			"id": "60",
+			"title": "Clean up"
+		},
+		{
+			"type": "subgoal",
+			"id": "66",
+			"title": "Add a win condition"
+		},
+	]
+}

@@ -1,0 +1,82 @@
+{
+	"type": "goal",
+	"title": "create a map of restaurants",
+	"subgoals": [
+		{
+			"type": "subgoal",
+			"title": "- while tokenCount  10:'"
+		},
+		{
+			"type": "subgoal",
+			"title": "+     return response'"
+		},
+		{
+			"type": "subgoal",
+			"title": "+ import time'"
+		},
+		{
+			"type": "subgoal",
+			"title": "-     time.sleep(1)'"
+		},
+		{
+			"type": "subgoal",
+			"title": "+ thought process: I know'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- import requests'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- import requests'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- import requests'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- import requests'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- import requests'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- print(startLatitude"
+		},
+		{
+			"type": "subgoal",
+			"title": "+ import numpy as np"
+		},
+		{
+			"type": "subgoal",
+			"title": "+ import mplcursors'"
+		},
+		{
+			"type": "subgoal",
+			"title": "+ min_rating = 4.6'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- min_rating = 4.6'"
+		},
+		{
+			"type": "subgoal",
+			"title": "+ rating_dfs = []'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- import requests'"
+		},
+		{
+			"type": "subgoal",
+			"title": "- import requests'"
+		},
+		{
+			"type": "subgoal",
+			"title": "some relevant change"
+		},
+	]
+}
